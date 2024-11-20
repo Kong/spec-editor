@@ -1,0 +1,10 @@
+{
+  "recommendations": [
+    "Vue.volar",
+    "dbaeumer.vscode-eslint",
+    "stylelint.vscode-stylelint",
+    "yzhang.markdown-all-in-one",
+    "mrmlnc.vscode-scss",
+    "vunguyentuan.vscode-css-variables"
+  ]
+}
