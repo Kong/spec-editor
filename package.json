@@ -30,7 +30,6 @@
     "@kong/design-tokens": "^1.17.2",
     "@kong/eslint-config-kong-ui": "1.1.2",
     "@stylistic/stylelint-plugin": "^3.1.1",
-    "@tsconfig/node22": "^22.0.0",
     "@types/node": "^22.9.0",
     "@types/splitpanes": "^2.2.6",
     "@vitejs/plugin-vue": "^5.1.4",
@@ -65,7 +64,7 @@
     "preview": "vite preview",
     "stylelint": "stylelint --allow-empty-input './src/**/*.{css,scss,vue}'",
     "stylelint:fix": "stylelint --allow-empty-input './src/**/*.{css,scss,sass,vue}' --fix",
-    "typecheck": "vue-tsc --build --force"
+    "typecheck": "vue-tsc -p './tsconfig.json' --noEmit"
   },
   "type": "module",
   "version": "0.0.0",
