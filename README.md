@@ -21,7 +21,7 @@ pnpm dev
 ### Type-Check
 
 ```sh
-pnpm type-check
+pnpm typecheck
 ```
 
 ### Lint and fix

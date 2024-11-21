@@ -56,7 +56,7 @@
   "name": "@kong/spec-editor",
   "private": true,
   "scripts": {
-    "build": "run-p type-check \"build-only {@}\" --",
+    "build": "run-p typecheck \"build-only {@}\" --",
     "build-only": "vite build",
     "commit": "cz",
     "dev": "vite",
@@ -65,7 +65,7 @@
     "preview": "vite preview",
     "stylelint": "stylelint --allow-empty-input './src/**/*.{css,scss,vue}'",
     "stylelint:fix": "stylelint --allow-empty-input './src/**/*.{css,scss,sass,vue}' --fix",
-    "type-check": "vue-tsc --build --force"
+    "typecheck": "vue-tsc --build --force"
   },
   "type": "module",
   "version": "0.0.0",
