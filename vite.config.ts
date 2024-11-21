@@ -9,7 +9,7 @@ const externalDependencies: string[] = ['shiki/onig.wasm']
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/spec-editor',
+  base: '/',
   plugins: [
     vue(),
     vueDevTools(),
