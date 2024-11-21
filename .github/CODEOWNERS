@@ -1,0 +1,18 @@
+# These owners will be the default owners for everything in
+# the repo. They will be requested for review whenever someone
+# opens a PR, unless a later match takes precedence.
+* @ValeryG @vaibhavrajsingh2001
+
+# Workflows & CI
+/.github/ @adamdehaven @jillztom @ValeryG @vaibhavrajsingh2001
+/lefthook.yaml @adamdehaven @jillztom @ValeryG @vaibhavrajsingh2001
+
+# Main library code
+/src/ @Kong/team-core-ui
+
+# ================================================
+# Renovate Bot approvals
+# Allow Kongponents BOT to approve dependency updates
+# These rules MUST remain at the bottom as the last entry
+package.json @kongponents-bot @Kong/team-core-ui @ValeryG @vaibhavrajsingh2001
+pnpm-lock.yaml @kongponents-bot @Kong/team-core-ui @ValeryG @vaibhavrajsingh2001
