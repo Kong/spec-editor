@@ -3,30 +3,50 @@
     ref="dropzone"
     class="spec-renderer-playground"
   >
-    <header>
-      <h1>Kong Spec Editor</h1>
-      <button
-        class="upload-spec-file"
-        type="button"
-        @click="dropzoneClick()"
+    <header class="editor-header">
+      <div class="header-title">
+        <KongIcon
+          decorative
+          :size="KUI_ICON_SIZE_60"
+        />
+        <h1>Kong Spec Editor</h1>
+      </div>
+      <div class="header-actions">
+        <button
+          class="upload-spec-file"
+          type="button"
+          @click="dropzoneClick()"
+        >
+          Upload or drop spec file
+        </button>
+        <input
+          ref="fileInput"
+          accept=".json, .yaml, .yml"
+          style="position: absolute; visibility: hidden;"
+          type="file"
+          @change="fileUploaded"
+        >
+        <SettingsModal
+          v-model:allow-content-scrolling="allowContentScrolling"
+          v-model:allow-custom-server-url="allowCustomServerUrl"
+          v-model:hide-deprecated="hideDeprecated"
+          v-model:hide-schemas="hideSchemas"
+          v-model:hide-try-it="hideTryIt"
+          v-model:markdown-styles="markdownStyles"
+        />
+      </div>
+
+      <a
+        href="https://github.com/Kong/spec-renderer"
+        rel="noopener noreferrer"
+        target="_blank"
+        title="Kong Spec Renderer repository"
       >
-        Upload or drop spec file
-      </button>
-      <input
-        ref="fileInput"
-        accept=".json, .yaml, .yml"
-        style="position: absolute; visibility: hidden;"
-        type="file"
-        @change="fileUploaded"
-      >
-      <SettingsModal
-        v-model:allow-content-scrolling="allowContentScrolling"
-        v-model:allow-custom-server-url="allowCustomServerUrl"
-        v-model:hide-deprecated="hideDeprecated"
-        v-model:hide-schemas="hideSchemas"
-        v-model:hide-try-it="hideTryIt"
-        v-model:markdown-styles="markdownStyles"
-      />
+        <GithubIcon
+          decorative
+          :size="KUI_ICON_SIZE_60"
+        />
+      </a>
     </header>
     <splitpanes class="spec-container default-theme">
       <pane
@@ -66,6 +86,8 @@ import 'splitpanes/dist/splitpanes.css'
 import { ref, shallowRef, useTemplateRef } from 'vue'
 import { refDebounced, useDropZone } from '@vueuse/core'
 import { SpecRenderer } from '@kong/spec-renderer-dev'
+import { KongIcon, GithubIcon } from '@kong/icons'
+import { KUI_ICON_SIZE_60 } from '@kong/design-tokens'
 import type { VueMonacoEditorEmitsOptions } from '@guolao/vue-monaco-editor'
 import { Editor } from '@guolao/vue-monaco-editor'
 import { Splitpanes, Pane } from 'splitpanes'
@@ -159,49 +181,63 @@ const { isOverDropZone } = useDropZone(dropZoneRef, {
     margin: 0;
   }
 
-  header {
+  .editor-header {
     align-items: center;
     background-color: $kui-color-background-neutral;
     color: $kui-color-text-inverse;
     display: flex;
-    gap: $kui-space-100;
     height: $header-height;
+    justify-content: space-between;
     padding: $kui-space-20 $kui-space-40;
 
-    h1 {
-      font-size: $kui-font-size-80;
-      line-height: $kui-line-height-60;
+
+    .header-title {
+      align-items: center;
+      display: inline-flex;
+      gap: $kui-space-30;
+
+      h1 {
+        font-size: $kui-font-size-80;
+        line-height: $kui-line-height-60;
+      }
     }
 
-    .language-selector {
-      :deep(.trigger-button) {
+    .header-actions {
+      align-items: center;
+      display: inline-flex;
+      gap: $kui-space-40;
+
+      .language-selector {
+        :deep(.trigger-button) {
+          border: $kui-border-width-10 solid $kui-color-border;
+          color: $kui-color-text-inverse;
+          font-family: $kui-font-family-code;
+          font-size: $kui-font-size-20;
+          line-height: $kui-line-height-20;
+          padding: $kui-space-20 $kui-space-30;
+        }
+      }
+
+      .upload-spec-file {
+        @include default-button-reset;
+        background-color: $kui-color-background-transparent;
         border: $kui-border-width-10 solid $kui-color-border;
+        border-radius: $kui-border-radius-20;
         color: $kui-color-text-inverse;
-        font-family: $kui-font-family-code;
-        font-size: $kui-font-size-20;
-        line-height: $kui-line-height-20;
-        padding: $kui-space-20 $kui-space-30;
+        cursor: pointer;
+        font-size: $kui-font-size-30;
+        padding: $kui-space-20 $kui-space-40;
+        transition: background-color 0.2s ease-in-out,
+          color 0.2s ease-in-out,
+          border-color 0.2s ease-in-out;
+
+        &:hover:not(:disabled):not(:focus):not(:active) {
+          background-color: $kui-color-background-primary-weakest;
+          color: $kui-color-text-primary-stronger;
+        }
       }
     }
 
-    .upload-spec-file {
-      @include default-button-reset;
-      background-color: $kui-color-background-transparent;
-      border: $kui-border-width-10 solid $kui-color-border;
-      border-radius: $kui-border-radius-20;
-      color: $kui-color-text-inverse;
-      cursor: pointer;
-      font-size: $kui-font-size-30;
-      padding: $kui-space-20 $kui-space-40;
-      transition: background-color 0.2s ease-in-out,
-        color 0.2s ease-in-out,
-        border-color 0.2s ease-in-out;
-
-      &:hover:not(:disabled):not(:focus):not(:active) {
-        background-color: $kui-color-background-primary-weakest;
-        color: $kui-color-text-primary-stronger;
-      }
-    }
   }
 
   .spec-container.default-theme {
