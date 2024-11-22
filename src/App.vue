@@ -37,6 +37,7 @@
       </div>
 
       <a
+        class="github-link"
         href="https://github.com/Kong/spec-renderer"
         rel="noopener noreferrer"
         target="_blank"
@@ -185,9 +186,9 @@ const { isOverDropZone } = useDropZone(dropZoneRef, {
     align-items: center;
     background-color: $kui-color-background-neutral;
     color: $kui-color-text-inverse;
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     height: $header-height;
-    justify-content: space-between;
     padding: $kui-space-20 $kui-space-40;
 
 
@@ -206,6 +207,7 @@ const { isOverDropZone } = useDropZone(dropZoneRef, {
       align-items: center;
       display: inline-flex;
       gap: $kui-space-40;
+      justify-self: center;
 
       .language-selector {
         :deep(.trigger-button) {
@@ -238,6 +240,9 @@ const { isOverDropZone } = useDropZone(dropZoneRef, {
       }
     }
 
+    .github-link {
+      justify-self: end;
+    }
   }
 
   .spec-container.default-theme {
