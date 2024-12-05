@@ -1,4 +1,11 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 
-createApp(App).mount('#app')
+import Kongponents from '@kong/kongponents'
+import '@kong/kongponents/dist/style.css'
+
+const app = createApp(App)
+
+app.use(Kongponents)
+
+app.mount('#app')

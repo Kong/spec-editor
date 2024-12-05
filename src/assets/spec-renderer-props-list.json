@@ -1,0 +1,38 @@
+[
+  {
+    "id": "hide-schemas",
+    "label": "Hide schemas",
+    "description": "Show/hide Schema Models",
+    "defaultValue": false
+  },
+  {
+    "id": "hide-deprecated",
+    "label": "Hide deprecated",
+    "description": "Show/hide deprecated endpoints and models",
+    "defaultValue": false
+  },
+  {
+    "id": "hide-try-it",
+    "label": "Hide TryIt",
+    "description": "Show/hide Try It section",
+    "defaultValue": false
+  },
+  {
+    "id": "allow-content-scrolling",
+    "label": "Allow Content Scrolling",
+    "description": "Allow content scrolling mode instead of individual page view",
+    "defaultValue": true
+  },
+  {
+    "id": "allow-custom-server-url",
+    "label": "Allow custom server url",
+    "description": "Allow user to add custom server url",
+    "defaultValue": true
+  },
+  {
+    "id": "markdown-styles",
+    "label": "Default markdown styling",
+    "description": "Use default markdown styling",
+    "defaultValue": true
+  }
+]
