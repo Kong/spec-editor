@@ -18,7 +18,7 @@
           ref="modalContent"
           class="modal-content"
         >
-          <slot />
+          <slot :toggle-modal="toggleModal" />
         </div>
       </div>
     </Teleport>
@@ -27,7 +27,7 @@
 
 <script setup lang="ts">
 import { ref, useTemplateRef } from 'vue'
-import { onClickOutside } from '@vueuse/core'
+import { onClickOutside, onKeyStroke } from '@vueuse/core'
 
 const isOpen = ref(false)
 
@@ -38,6 +38,14 @@ const toggleModal = () => {
 }
 
 onClickOutside(modalContainer, toggleModal)
+
+onKeyStroke('Escape', (e) => {
+  if (isOpen.value) {
+    e.preventDefault()
+    isOpen.value = false
+  }
+})
+
 </script>
 
 <style lang="scss" scoped>

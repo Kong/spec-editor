@@ -5,11 +5,11 @@
   >
     <header class="editor-header">
       <div class="header-title">
-        <KongIcon
+        <KongGradientIcon
           decorative
-          :size="KUI_ICON_SIZE_60"
+          :size="KUI_ICON_SIZE_50"
         />
-        <h1>Kong Spec Editor</h1>
+        <h1>Kong</h1>
       </div>
       <div class="header-actions">
         <button
@@ -26,28 +26,20 @@
           type="file"
           @change="fileUploaded"
         >
-        <SettingsModal
-          v-model:allow-content-scrolling="allowContentScrolling"
-          v-model:allow-custom-server-url="allowCustomServerUrl"
-          v-model:hide-deprecated="hideDeprecated"
-          v-model:hide-schemas="hideSchemas"
-          v-model:hide-try-it="hideTryIt"
-          v-model:markdown-styles="markdownStyles"
-        />
+        <SettingsModal @update-settings="updateSettings" />
+        <a
+          class="github-link"
+          href="https://github.com/Kong/spec-renderer"
+          rel="noopener noreferrer"
+          target="_blank"
+          title="Kong Spec Renderer repository"
+        >
+          <img
+            alt="GitHub logo"
+            src="/github-logo.svg"
+          >
+        </a>
       </div>
-
-      <a
-        class="github-link"
-        href="https://github.com/Kong/spec-renderer"
-        rel="noopener noreferrer"
-        target="_blank"
-        title="Kong Spec Renderer repository"
-      >
-        <GithubIcon
-          decorative
-          :size="KUI_ICON_SIZE_60"
-        />
-      </a>
     </header>
     <splitpanes class="spec-container default-theme">
       <pane
@@ -64,16 +56,11 @@
       </pane>
       <pane class="spec-renderer-pane">
         <SpecRenderer
-          :allow-content-scrolling="allowContentScrolling"
-          :allow-custom-server-url="allowCustomServerUrl"
           class="spec-renderer"
           :control-address-bar="true"
           document-scrolling-container=".spec-renderer-pane"
-          :hide-deprecated="hideDeprecated"
-          :hide-schemas="hideSchemas"
-          :hide-try-it="hideTryIt"
-          :markdown-styles="markdownStyles"
           :spec="specText"
+          v-bind="specSettings"
         />
       </pane>
     </splitpanes>
@@ -87,8 +74,8 @@ import 'splitpanes/dist/splitpanes.css'
 import { ref, shallowRef, useTemplateRef } from 'vue'
 import { refDebounced, useDropZone } from '@vueuse/core'
 import { SpecRenderer } from '@kong/spec-renderer-dev'
-import { KongIcon, GithubIcon } from '@kong/icons'
-import { KUI_ICON_SIZE_60 } from '@kong/design-tokens'
+import { KongGradientIcon } from '@kong/icons'
+import { KUI_ICON_SIZE_50 } from '@kong/design-tokens'
 import type { VueMonacoEditorEmitsOptions } from '@guolao/vue-monaco-editor'
 import { Editor } from '@guolao/vue-monaco-editor'
 import { Splitpanes, Pane } from 'splitpanes'
@@ -112,12 +99,7 @@ const editor = shallowRef()
 const dropZoneRef = useTemplateRef('dropzone')
 const fileInputRef = useTemplateRef('fileInput')
 
-const hideSchemas = ref<boolean>(false)
-const hideDeprecated = ref<boolean>(false)
-const hideTryIt = ref<boolean>(false)
-const allowContentScrolling = ref<boolean>(true)
-const markdownStyles = ref<boolean>(true)
-const allowCustomServerUrl = ref<boolean>(true)
+const specSettings = ref<Record<string, boolean>>({})
 
 const updateLanguage = () => {
   if (code.value.length < 1) return
@@ -170,6 +152,10 @@ const { isOverDropZone } = useDropZone(dropZoneRef, {
   // whether to prevent default behavior for unhandled events
   preventDefaultForUnhandled: false,
 })
+
+const updateSettings = (settings: Record<string, boolean>) => {
+  specSettings.value = settings
+}
 </script>
 
 <style lang="scss" scoped>
@@ -184,12 +170,12 @@ const { isOverDropZone } = useDropZone(dropZoneRef, {
 
   .editor-header {
     align-items: center;
-    background-color: $kui-color-background-neutral;
+    background-color: $kui-color-background-inverse;
     color: $kui-color-text-inverse;
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    display: flex;
     height: $header-height;
-    padding: $kui-space-20 $kui-space-40;
+    justify-content: space-between;
+    padding: $kui-space-20 $kui-space-60;
 
 
     .header-title {
@@ -198,8 +184,8 @@ const { isOverDropZone } = useDropZone(dropZoneRef, {
       gap: $kui-space-30;
 
       h1 {
-        font-size: $kui-font-size-80;
-        line-height: $kui-line-height-60;
+        font-size: $kui-font-size-50;
+        line-height: $kui-line-height-50;
       }
     }
 
@@ -207,7 +193,6 @@ const { isOverDropZone } = useDropZone(dropZoneRef, {
       align-items: center;
       display: inline-flex;
       gap: $kui-space-40;
-      justify-self: center;
 
       .language-selector {
         :deep(.trigger-button) {
@@ -241,7 +226,11 @@ const { isOverDropZone } = useDropZone(dropZoneRef, {
     }
 
     .github-link {
-      justify-self: end;
+      img {
+        height: $kui-icon-size-40;
+        vertical-align: bottom;
+        width: $kui-icon-size-40;
+      }
     }
   }
 
@@ -253,21 +242,6 @@ const { isOverDropZone } = useDropZone(dropZoneRef, {
       background-color: $kui-color-background-transparent;
       overflow: auto;
     }
-
-    .splitpanes__splitter {background-color: #ccc;position: relative;}
-    .splitpanes__splitter:before {
-      background-color: rgba(255, 0, 0, 0.3);
-      content: '';
-      left: 0;
-      opacity: 0;
-      position: absolute;
-      top: 0;
-      transition: opacity 0.4s;
-      z-index: 1;
-    }
-    .splitpanes__splitter:hover:before {opacity: 1;}
-    .splitpanes--vertical > .splitpanes__splitter:before {height: 100%;left: -30px;right: -30px;}
-    .splitpanes--horizontal > .splitpanes__splitter:before {bottom: -30px;top: -30px;width: 100%;}
   }
 }
 </style>

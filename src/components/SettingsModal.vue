@@ -7,142 +7,171 @@
       >
         <CogIcon
           decorative
-          :size="KUI_ICON_SIZE_30"
+          :size="KUI_ICON_SIZE_40"
         />
-        Settings
       </button>
     </template>
 
-    <div class="renderer-settings-modal-container">
-      <h2>Settings</h2>
-      <p>
-        You can toggle each of the settings below to see how it affects the rendered spec.
-      </p>
-      <div>
-        <ToggleSwitch
-          id="hide-schemas"
-          v-model="hideSchemas"
-          label="Hide schemas"
-        />
+    <template #default="{ toggleModal }">
+      <div class="renderer-settings-modal-container">
+        <div class="settings-modal-header">
+          <h2>Settings</h2>
 
-        <ToggleSwitch
-          id="hide-deprecated"
-          v-model="hideDeprecated"
-          label="Hide deprecated"
-        />
-
-        <ToggleSwitch
-          id="hide-tryit"
-          v-model="hideTryIt"
-          label="Hide TryIt"
-        />
-
-        <ToggleSwitch
-          id="allow-content-scrolling"
-          v-model="allowContentScrolling"
-          label="Allow Content Scrolling"
-        />
-
-        <ToggleSwitch
-          id="allow-custom-server-url"
-          v-model="allowCustomServerUrl"
-          label="Allow custom server url"
-        />
-
-        <ToggleSwitch
-          id="default-md-styling"
-          v-model="markdownStyles"
-          label="Default markdown styling"
-        />
+          <button
+            class="close-modal-button"
+            @click="toggleModal()"
+          >
+            <CloseIcon
+              decorative
+              :size="KUI_ICON_SIZE_40"
+            />
+          </button>
+        </div>
+        <div class="settings-modal-content">
+          <p>Enable/disable visualisation settings to test your specification</p>
+          <div class="settings-modal-toggle-list">
+            <KCard
+              v-for="setting in specRendererSettingList"
+              :key="setting.id"
+              class="settings-modal-card"
+            >
+              <template #title>
+                <h3>{{ setting.label }}</h3>
+                <p>{{ setting.description }}</p>
+              </template>
+              <template #actions>
+                <KInputSwitch
+                  :id="setting.id"
+                  v-model="settingsState[setting.id]"
+                />
+              </template>
+            </KCard>
+          </div>
+        </div>
       </div>
-    </div>
+    </template>
   </BaseModal>
 </template>
 
 <script setup lang="ts">
-import { CogIcon } from '@kong/icons'
-import { KUI_ICON_SIZE_30 } from '@kong/design-tokens'
+import { ref, watch } from 'vue'
+import { CogIcon, CloseIcon } from '@kong/icons'
+import { KCard, KInputSwitch } from '@kong/kongponents'
+import { KUI_ICON_SIZE_40 } from '@kong/design-tokens'
 import BaseModal from './common/BaseModal.vue'
-import ToggleSwitch from './common/ToggleSwitch.vue'
+import specRendererSettingList from '../assets/spec-renderer-props-list.json'
 
-const hideSchemas = defineModel('hideSchemas', {
-  type: Boolean,
-  required: true,
+const settingsState = ref({
+  ...(specRendererSettingList.reduce((acc: Record<string, boolean>, curr) => {
+    acc[curr.id] = curr.defaultValue
+    return acc
+  }, {})),
 })
 
-const hideDeprecated = defineModel('hideDeprecated', {
-  type: Boolean,
-  required: true,
-})
+const emits = defineEmits<{
+  (e: 'updateSettings', value: Record<string, boolean>): void,
+}>()
 
-const hideTryIt = defineModel('hideTryIt', {
-  type: Boolean,
-  required: true,
-})
-
-const allowContentScrolling = defineModel('allowContentScrolling', {
-  type: Boolean,
-  required: true,
-})
-
-const markdownStyles = defineModel('markdownStyles', {
-  type: Boolean,
-  required: true,
-})
-
-const allowCustomServerUrl = defineModel('allowCustomServerUrl', {
-  type: Boolean,
-  required: true,
-})
+watch(settingsState, (value) => {
+  emits('updateSettings', value)
+}, { immediate: true })
 </script>
 
 <style lang="scss" scoped>
 .renderer-settings-modal {
   button.settings-trigger-button {
     @include default-button-reset;
-    align-items: center;
-    background-color: $kui-color-background-transparent;
-    border: $kui-border-width-10 solid $kui-color-border;
-    border-radius: $kui-border-radius-20;
     color: $kui-color-text-inverse;
     cursor: pointer;
-    display: inline-flex;
-    font-size: $kui-font-size-30;
-    gap: $kui-space-20;
     padding: $kui-space-20 $kui-space-40;
-    transition: background-color 0.2s ease-in-out,
+    transition: color 0.2s ease-in-out,
       color 0.2s ease-in-out,
       border-color 0.2s ease-in-out;
 
     &:hover:not(:disabled):not(:focus):not(:active) {
-      background-color: $kui-color-background-primary-weakest;
-      color: $kui-color-text-primary-stronger;
+      color: $kui-color-text-primary-weak;
     }
   }
 }
 .renderer-settings-modal-container {
   background-color: $kui-color-background;
-  padding: $kui-space-80;
-  width: 400px;
+  border: $kui-border-width-10 solid $kui-color-border;
+  border-radius: $kui-border-radius-40;
+  color: $kui-color-text;
+  width: 640px;
 
-  > h2 {
-    margin: $kui-space-0;
-    margin-bottom: $kui-space-40;
+  * {
+    box-sizing: border-box;
+    margin: 0;
   }
 
-  > p {
-    margin: $kui-space-0;
-    margin-bottom: $kui-space-80;
+  .settings-modal-header {
+    align-items: center;
+    border-bottom: $kui-border-width-10 solid $kui-color-border;
+    display: flex;
+    justify-content: space-between;
+    padding: $kui-space-70 $kui-space-80;
+
+    h2 {
+      font-size: $kui-font-size-60;
+      font-weight: $kui-font-weight-bold;
+      line-height: $kui-line-height-50;
+    }
+
+    .close-modal-button {
+      @include default-button-reset;
+      border-radius: $kui-border-radius-20;
+      color: $kui-color-text-neutral;
+      cursor: pointer;
+      padding: $kui-space-20 $kui-space-40;
+      transition: color 0.2s ease-in-out,
+        color 0.2s ease-in-out,
+        border-color 0.2s ease-in-out;
+
+      &:hover:not(:disabled):not(:focus):not(:active) {
+        background-color: $kui-color-background-neutral-weakest;
+        color: $kui-color-text-neutral-stronger;
+      }
+    }
   }
 
-  > div {
+  .settings-modal-content {
+    background-color: $kui-color-background-neutral-weakest;
+    padding: $kui-space-80;
+
+    > p {
+      font-size: $kui-font-size-30;
+      font-weight: $kui-font-weight-regular;
+      line-height: $kui-line-height-30;
+      margin-bottom: $kui-space-70;
+    }
+  }
+
+  .settings-modal-toggle-list {
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
-    gap: $kui-space-30;
-    label {
-      margin-left: $kui-space-20;
+    gap: $kui-space-40;
+
+    .settings-modal-card {
+      :deep(.card-header) {
+        align-items: center
+      }
+      .card-title {
+        h3 {
+          font-size: $kui-font-size-30;
+          font-weight: $kui-font-weight-semibold;
+          line-height: $kui-line-height-30;
+        }
+        p {
+          color: $kui-color-text-neutral;
+          font-size: $kui-font-size-30;
+          font-weight: $kui-font-weight-regular;
+          line-height: $kui-line-height-30;
+          margin-top:$kui-space-20;
+        }
+      }
     }
+
   }
 }
 </style>
