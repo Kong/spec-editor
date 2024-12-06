@@ -18,8 +18,8 @@ importers:
         specifier: ^9.14.19
         version: 9.14.19(axios@1.7.9)(vue-router@4.5.0(vue@3.5.13(typescript@5.6.3)))(vue@3.5.13(typescript@5.6.3))
       '@kong/spec-renderer-dev':
-        specifier: ^1.82.2
-        version: 1.82.2(vue@3.5.13(typescript@5.6.3))
+        specifier: 1.82.3-pr.437.1c27f1e.0
+        version: 1.82.3-pr.437.1c27f1e.0(vue@3.5.13(typescript@5.6.3))
       '@vueuse/core':
         specifier: ^11.2.0
         version: 11.2.0(vue@3.5.13(typescript@5.6.3))
@@ -684,8 +684,8 @@ packages:
       vue: '>= 3.3.4 < 4'
       vue-router: ^4.4.5
 
-  '@kong/spec-renderer-dev@1.82.2':
-    resolution: {integrity: sha512-PwwyXJ78uWxestHoFoKLJLZKP5vLV6lDV3fmXyhYbeFwWiELyeQS+PSJGrL4fCT7guDavBHcoQ0bejEmJrcaxw==}
+  '@kong/spec-renderer-dev@1.82.3-pr.437.1c27f1e.0':
+    resolution: {integrity: sha512-s5c0FQqhywPtdETgzlU8aUgZN76H40Pf+o5rqxBc2K6n29RjEFyg5AVocJcEhA7RKqFl29G6DmDvTZ0VaH6m8g==}
     engines: {node: '>=18.17.0'}
     peerDependencies:
       vue: '>= 3.3.13 < 4'
@@ -4681,7 +4681,7 @@ snapshots:
     transitivePeerDependencies:
       - '@vue/composition-api'
 
-  '@kong/spec-renderer-dev@1.82.2(vue@3.5.13(typescript@5.6.3))':
+  '@kong/spec-renderer-dev@1.82.3-pr.437.1c27f1e.0(vue@3.5.13(typescript@5.6.3))':
     dependencies:
       '@apidevtools/json-schema-ref-parser': 11.7.2
       '@asyncapi/openapi-schema-parser': 3.0.24
@@ -4970,7 +4970,7 @@ snapshots:
 
   '@stoplight/json-ref-readers@1.2.2':
     dependencies:
-      node-fetch: 2.6.7
+      node-fetch: 2.7.0
       tslib: 1.14.1
     transitivePeerDependencies:
       - encoding
@@ -5095,7 +5095,7 @@ snapshots:
       '@stoplight/types': 13.20.0
       abort-controller: 3.0.0
       lodash: 4.17.21
-      node-fetch: 2.6.7
+      node-fetch: 2.7.0
       tslib: 2.8.1
     transitivePeerDependencies:
       - encoding
@@ -5112,7 +5112,7 @@ snapshots:
 
   '@stoplight/types@14.1.0':
     dependencies:
-      '@types/json-schema': 7.0.11
+      '@types/json-schema': 7.0.15
       utility-types: 3.11.0
 
   '@stoplight/types@14.1.1':
@@ -7137,7 +7137,7 @@ snapshots:
 
   mkdirp@0.5.6:
     dependencies:
-      minimist: 1.2.6
+      minimist: 1.2.8
 
   monaco-editor@0.52.0: {}
 
