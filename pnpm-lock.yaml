@@ -18,7 +18,7 @@ importers:
         specifier: ^9.14.24
         version: 9.14.24(axios@1.7.9)(vue-router@4.5.0(vue@3.5.13(typescript@5.6.3)))(vue@3.5.13(typescript@5.6.3))
       '@kong/spec-renderer-dev':
-        specifier: ^1.82.6
+        specifier: ^1.83.1
         version: 1.83.1(vue@3.5.13(typescript@5.6.3))
       '@vueuse/core':
         specifier: ^11.2.0
@@ -565,7 +565,6 @@ packages:
 
   '@evilmartians/lefthook@1.8.4':
     resolution: {integrity: sha512-n5aODynRZKSYmDajD8UCd5yy5ste2lJUTSGmv+D+4OP0UUWZqF4qJ/r7+2Ifo6K6WdsknVhVsPsEl4LugTbrug==}
-    cpu: [x64, arm64, ia32]
     os: [darwin, linux, win32]
     hasBin: true
 
