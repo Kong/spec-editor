@@ -18,8 +18,8 @@ importers:
         specifier: ^9.14.19
         version: 9.14.19(axios@1.7.9)(vue-router@4.5.0(vue@3.5.13(typescript@5.6.3)))(vue@3.5.13(typescript@5.6.3))
       '@kong/spec-renderer-dev':
-        specifier: 1.83.1
-        version: 1.83.1(vue@3.5.13(typescript@5.6.3))
+        specifier: 1.83.3-pr.454.626c432.0
+        version: 1.83.3-pr.454.626c432.0(vue@3.5.13(typescript@5.6.3))
       '@vueuse/core':
         specifier: ^11.2.0
         version: 11.2.0(vue@3.5.13(typescript@5.6.3))
@@ -124,8 +124,8 @@ packages:
   '@antfu/utils@0.7.10':
     resolution: {integrity: sha512-+562v9k4aI80m1+VuMHehNJWLOFjBnXn3tdOitzD0il5b7smkSBal4+a3oKiQTbrwMmN/TBUMDvbdoWDehgOww==}
 
-  '@apidevtools/json-schema-ref-parser@11.7.2':
-    resolution: {integrity: sha512-4gY54eEGEstClvEkGnwVkTkrx0sqwemEFG5OSRRn3tD91XH0+Q8XIkYIfo7IwEWPpJZwILb9GUXeShtplRc/eA==}
+  '@apidevtools/json-schema-ref-parser@11.7.3':
+    resolution: {integrity: sha512-WApSdLdXEBb/1FUPca2lteASewEfpjEYJ8oXZP+0gExK5qSfsEKBKcA+WjY6Q4wvXwyv0+W6Kvc372pSceib9w==}
     engines: {node: '>= 16'}
 
   '@apidevtools/swagger-methods@3.0.2':
@@ -695,8 +695,8 @@ packages:
       vue: '>= 3.3.4 < 4'
       vue-router: ^4.4.5
 
-  '@kong/spec-renderer-dev@1.83.1':
-    resolution: {integrity: sha512-teZH+51wijbxtYLRsB6CMvT5C0cnYzKmK9ivLjHLcgnjfxE4IteJxEZa0FFJDfrJU3MqkKrlTmstSpBIBH1/3g==}
+  '@kong/spec-renderer-dev@1.83.3-pr.454.626c432.0':
+    resolution: {integrity: sha512-8KBdpbo9XMhBwC2fwPx+NMKRi3re4Q8mrqb5wBp5GHXyetwFo+213FXjnmolIv0pUbZ4IKNhmv/aF5Zg9VfaKw==}
     engines: {node: '>=18.17.0'}
     peerDependencies:
       vue: '>= 3.3.13 < 4'
@@ -4068,7 +4068,7 @@ snapshots:
 
   '@antfu/utils@0.7.10': {}
 
-  '@apidevtools/json-schema-ref-parser@11.7.2':
+  '@apidevtools/json-schema-ref-parser@11.7.3':
     dependencies:
       '@jsdevtools/ono': 7.1.3
       '@types/json-schema': 7.0.15
@@ -4698,9 +4698,9 @@ snapshots:
     transitivePeerDependencies:
       - '@vue/composition-api'
 
-  '@kong/spec-renderer-dev@1.83.1(vue@3.5.13(typescript@5.6.3))':
+  '@kong/spec-renderer-dev@1.83.3-pr.454.626c432.0(vue@3.5.13(typescript@5.6.3))':
     dependencies:
-      '@apidevtools/json-schema-ref-parser': 11.7.2
+      '@apidevtools/json-schema-ref-parser': 11.7.3
       '@asyncapi/openapi-schema-parser': 3.0.24
       '@asyncapi/parser': 3.4.0
       '@floating-ui/vue': 1.1.5(vue@3.5.13(typescript@5.6.3))
