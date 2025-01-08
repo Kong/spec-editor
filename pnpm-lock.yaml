@@ -12,14 +12,14 @@ importers:
         specifier: ^1.5.4
         version: 1.5.4(monaco-editor@0.52.0)(vue@3.5.13(typescript@5.6.3))
       '@kong/icons':
-        specifier: ^1.20.0
-        version: 1.20.0(vue@3.5.13(typescript@5.6.3))
+        specifier: ^1.20.1
+        version: 1.20.1(vue@3.5.13(typescript@5.6.3))
       '@kong/kongponents':
-        specifier: ^9.14.19
-        version: 9.14.19(axios@1.7.9)(vue-router@4.5.0(vue@3.5.13(typescript@5.6.3)))(vue@3.5.13(typescript@5.6.3))
+        specifier: ^9.14.30
+        version: 9.15.0(axios@1.7.9)(vue-router@4.5.0(vue@3.5.13(typescript@5.6.3)))(vue@3.5.13(typescript@5.6.3))
       '@kong/spec-renderer-dev':
-        specifier: ^1.82.2
-        version: 1.82.2(vue@3.5.13(typescript@5.6.3))
+        specifier: ^1.82.6
+        version: 1.85.5(vue@3.5.13(typescript@5.6.3))
       '@vueuse/core':
         specifier: ^11.2.0
         version: 11.2.0(vue@3.5.13(typescript@5.6.3))
@@ -124,8 +124,8 @@ packages:
   '@antfu/utils@0.7.10':
     resolution: {integrity: sha512-+562v9k4aI80m1+VuMHehNJWLOFjBnXn3tdOitzD0il5b7smkSBal4+a3oKiQTbrwMmN/TBUMDvbdoWDehgOww==}
 
-  '@apidevtools/json-schema-ref-parser@11.7.2':
-    resolution: {integrity: sha512-4gY54eEGEstClvEkGnwVkTkrx0sqwemEFG5OSRRn3tD91XH0+Q8XIkYIfo7IwEWPpJZwILb9GUXeShtplRc/eA==}
+  '@apidevtools/json-schema-ref-parser@11.7.3':
+    resolution: {integrity: sha512-WApSdLdXEBb/1FUPca2lteASewEfpjEYJ8oXZP+0gExK5qSfsEKBKcA+WjY6Q4wvXwyv0+W6Kvc372pSceib9w==}
     engines: {node: '>= 16'}
 
   '@apidevtools/swagger-methods@3.0.2':
@@ -679,22 +679,22 @@ packages:
     peerDependencies:
       eslint: '>= 9.15.0'
 
-  '@kong/icons@1.20.0':
-    resolution: {integrity: sha512-prFxS9qavUMFADgsVBQN4IWvj6/8YKA/xgudMGKWz1yighoilsihjU5tm1nP/rzXHVm0VUaZlkp8XpMCW0LnsQ==}
-    engines: {node: '>=18.17.0', pnpm: '>=9.12.3'}
+  '@kong/icons@1.20.1':
+    resolution: {integrity: sha512-mcOsnEReXwMwRIWrMHxJECjMCY1I2URF+8jf/7svDHQvGjg2KHH3wq84k+vpUPVAePUUXsZJsBOGIqM4avRtKQ==}
+    engines: {node: '>=18.17.0', pnpm: '>=9.14.2'}
     peerDependencies:
       vue: '>= 3.3.4 < 4'
 
-  '@kong/kongponents@9.14.19':
-    resolution: {integrity: sha512-A0gIIdGbzXf3wdbmbaNnBFuJa7PUW/6uE6CqlpPojIPe3tYFsknFlrVHmLrFShirBSh48Yk6F1A4yrcmdRSnQg==}
+  '@kong/kongponents@9.15.0':
+    resolution: {integrity: sha512-OuHvg5tfIkZuyqanyrIDb8yG26Trokj96uDVo9ncqzeRC2hFDL3P2lLz8b7/Kv6gSd1XGgW1J0BS4PptZ63p5A==}
     engines: {node: '>=v16.20.2 || >=18.12.1 || >=20.14.0'}
     peerDependencies:
       axios: ^1.7.7
-      vue: '>= 3.3.4 < 4'
+      vue: '>= 3.5.0 < 4'
       vue-router: ^4.4.5
 
-  '@kong/spec-renderer-dev@1.82.2':
-    resolution: {integrity: sha512-PwwyXJ78uWxestHoFoKLJLZKP5vLV6lDV3fmXyhYbeFwWiELyeQS+PSJGrL4fCT7guDavBHcoQ0bejEmJrcaxw==}
+  '@kong/spec-renderer-dev@1.85.5':
+    resolution: {integrity: sha512-+K1oUKZsJs95ywOTu028Ulp54UrY1a7TxV8GF1VcH2ulxowYB57z0+F7YQFTNNGvofNUCEondjN8lXvuDWbtHA==}
     engines: {node: '>=18.17.0'}
     peerDependencies:
       vue: '>= 3.3.13 < 4'
@@ -932,12 +932,12 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@scalar/openapi-parser@0.8.10':
-    resolution: {integrity: sha512-wAHrxB6SMKqlyOfj2Bq5rPl9s25+0LXD3UsFvx3v35bQSoIS13h0akVgpph5sbwRvufgQoE4IDWYuFTXH393Bg==}
+  '@scalar/openapi-parser@0.10.2':
+    resolution: {integrity: sha512-MfNOPz0AdyBQZe96jZc/qddSuhgoM2czb/3xjRz0L+SIHQS8V4EUv51f/Fg/AqSqspbTjTOSCWQgpkcVaGRKjw==}
     engines: {node: '>=18'}
 
-  '@seriousme/openapi-schema-validator@2.2.5':
-    resolution: {integrity: sha512-WQJjr03X6PLw8TOC4vTHqPl9ihtpY17jaVBJ6Yt/lHrGabUYP+BTq4yM9AbfDLP5C7v6+sfF2OJsET/W7QvKQw==}
+  '@seriousme/openapi-schema-validator@2.3.0':
+    resolution: {integrity: sha512-qn8tZzfb1nCIxxfLQfjvIYumuz6YoHJMoWFtCR3dey1lKkY/1obv3NvfAy1WRSztXAQqa/vZUDOXJ1M5LHfMvg==}
     hasBin: true
 
   '@shikijs/core@1.23.1':
@@ -2968,8 +2968,8 @@ packages:
   oas-linter@3.2.2:
     resolution: {integrity: sha512-KEGjPDVoU5K6swgo9hJVA/qYGlwfbFx+Kg2QB/kd7rzV5N8N5Mg6PlsoCMohVnQmo+pzJap/F610qTodKzecGQ==}
 
-  oas-normalize@11.1.3:
-    resolution: {integrity: sha512-m8ZpweCvWx5HzK8MW3IpUuMO6Xi4UrjGUpb+GDfZVIVfnFhhNoTvohtNHebqx3l4BOXRLx8DuDLCbRjIcKSoQQ==}
+  oas-normalize@11.1.4:
+    resolution: {integrity: sha512-K533PwDAvm3KtugGu4H/GtHrIrEbFRoLkT8fLY6PU+m80JxzhbVKG8eUJUHwr3NesTt8VSA6O2r6eBcdqkRe2A==}
     engines: {node: '>=18'}
 
   oas-resolver@2.5.6:
@@ -3443,9 +3443,6 @@ packages:
     resolution: {integrity: sha512-EVJbDaEs4Rr3F0glJzFSOvtg2/oy2V/YrGFPqPY24UqcLDWcI9ZY5sN+qyO3c/QCZwzgfirvhXvINiJCE/OLcA==}
     engines: {node: '>=14.0.0'}
     hasBin: true
-
-  scule@1.3.0:
-    resolution: {integrity: sha512-6FtHJEvt+pVMIB9IBY+IcCJ6Z5f1iQnytgyfKMhDKgmzYG+TeH/wx1y3l27rshSbLiSanrR9ffZDrEsmjlQF2g==}
 
   semver@6.3.1:
     resolution: {integrity: sha512-BR7VvDCVHO+q2xBEWskxS6DJE1qRnb7DxzUrogb71CWoSficBxYsiAGd+Kl0mmq/MprG9yArRkyrQxTO6XjMzA==}
@@ -3929,11 +3926,6 @@ packages:
   vscode-uri@3.0.8:
     resolution: {integrity: sha512-AyFQ0EVmsOZOlAnxoFOGOq1SQDWAB7C6aqMGS23svWAllfOaxbuFvcT8D1i8z3Gyn8fraVeZNNmN6e9bxxXkKw==}
 
-  vue-bind-once@0.2.1:
-    resolution: {integrity: sha512-17toDsxK7hc8folglp6TYtybi/Q0FVJal6plFeMeofWd2nOl4axHg9ckR/5ORNCj+GyjMAWh/OD10MvT6AXbHA==}
-    peerDependencies:
-      vue: ^3
-
   vue-demi@0.14.10:
     resolution: {integrity: sha512-nMZBOwuzabUO0nLgIcc6rycZEebF6eeUfaiQx9+WSk8e29IbLvPU9feI6tqW4kTo3hvoYAJkMh8n8D0fuISphg==}
     engines: {node: '>=12'}
@@ -4086,7 +4078,7 @@ snapshots:
 
   '@antfu/utils@0.7.10': {}
 
-  '@apidevtools/json-schema-ref-parser@11.7.2':
+  '@apidevtools/json-schema-ref-parser@11.7.3':
     dependencies:
       '@jsdevtools/ono': 7.1.3
       '@types/json-schema': 7.0.15
@@ -4704,14 +4696,14 @@ snapshots:
       - supports-color
       - typescript
 
-  '@kong/icons@1.20.0(vue@3.5.13(typescript@5.6.3))':
+  '@kong/icons@1.20.1(vue@3.5.13(typescript@5.6.3))':
     dependencies:
       vue: 3.5.13(typescript@5.6.3)
 
-  '@kong/kongponents@9.14.19(axios@1.7.9)(vue-router@4.5.0(vue@3.5.13(typescript@5.6.3)))(vue@3.5.13(typescript@5.6.3))':
+  '@kong/kongponents@9.15.0(axios@1.7.9)(vue-router@4.5.0(vue@3.5.13(typescript@5.6.3)))(vue@3.5.13(typescript@5.6.3))':
     dependencies:
       '@floating-ui/vue': 1.1.5(vue@3.5.13(typescript@5.6.3))
-      '@kong/icons': 1.20.0(vue@3.5.13(typescript@5.6.3))
+      '@kong/icons': 1.20.1(vue@3.5.13(typescript@5.6.3))
       '@popperjs/core': 2.11.8
       axios: 1.7.9
       date-fns: 2.30.0
@@ -4723,21 +4715,20 @@ snapshots:
       swrv: 1.0.4(vue@3.5.13(typescript@5.6.3))
       v-calendar: 3.1.2(@popperjs/core@2.11.8)(vue@3.5.13(typescript@5.6.3))
       vue: 3.5.13(typescript@5.6.3)
-      vue-bind-once: 0.2.1(vue@3.5.13(typescript@5.6.3))
       vue-draggable-next: 2.2.1(sortablejs@1.15.6)(vue@3.5.13(typescript@5.6.3))
       vue-router: 4.5.0(vue@3.5.13(typescript@5.6.3))
     transitivePeerDependencies:
       - '@vue/composition-api'
 
-  '@kong/spec-renderer-dev@1.82.2(vue@3.5.13(typescript@5.6.3))':
+  '@kong/spec-renderer-dev@1.85.5(vue@3.5.13(typescript@5.6.3))':
     dependencies:
-      '@apidevtools/json-schema-ref-parser': 11.7.2
+      '@apidevtools/json-schema-ref-parser': 11.7.3
       '@asyncapi/openapi-schema-parser': 3.0.24
       '@asyncapi/parser': 3.4.0
       '@floating-ui/vue': 1.1.5(vue@3.5.13(typescript@5.6.3))
-      '@kong/icons': 1.20.0(vue@3.5.13(typescript@5.6.3))
-      '@scalar/openapi-parser': 0.8.10
-      '@seriousme/openapi-schema-validator': 2.2.5
+      '@kong/icons': 1.20.1(vue@3.5.13(typescript@5.6.3))
+      '@scalar/openapi-parser': 0.10.2
+      '@seriousme/openapi-schema-validator': 2.3.0
       '@stoplight/http-spec': 7.1.0
       '@stoplight/json': 3.21.7
       '@stoplight/types': 14.1.1
@@ -4749,7 +4740,7 @@ snapshots:
       json-schema: 0.4.0
       lodash-es: 4.17.21
       markdown-it: 14.1.0
-      oas-normalize: 11.1.3
+      oas-normalize: 11.1.4
       openapi3-ts: 4.4.0
       sanitize-html: 2.13.1
       shiki: 1.23.1
@@ -4949,7 +4940,7 @@ snapshots:
   '@rollup/rollup-win32-x64-msvc@4.27.3':
     optional: true
 
-  '@scalar/openapi-parser@0.8.10':
+  '@scalar/openapi-parser@0.10.2':
     dependencies:
       ajv: 8.17.1
       ajv-draft-04: 1.0.0(ajv@8.17.1)
@@ -4958,7 +4949,7 @@ snapshots:
       leven: 4.0.0
       yaml: 2.6.1
 
-  '@seriousme/openapi-schema-validator@2.2.5':
+  '@seriousme/openapi-schema-validator@2.3.0':
     dependencies:
       ajv: 8.17.1
       ajv-draft-04: 1.0.0(ajv@8.17.1)
@@ -5018,7 +5009,7 @@ snapshots:
 
   '@stoplight/json-ref-readers@1.2.2':
     dependencies:
-      node-fetch: 2.6.7
+      node-fetch: 2.7.0
       tslib: 1.14.1
     transitivePeerDependencies:
       - encoding
@@ -5143,7 +5134,7 @@ snapshots:
       '@stoplight/types': 13.20.0
       abort-controller: 3.0.0
       lodash: 4.17.21
-      node-fetch: 2.6.7
+      node-fetch: 2.7.0
       tslib: 2.8.1
     transitivePeerDependencies:
       - encoding
@@ -7283,7 +7274,7 @@ snapshots:
       should: 13.2.3
       yaml: 1.10.2
 
-  oas-normalize@11.1.3:
+  oas-normalize@11.1.4:
     dependencies:
       '@readme/openapi-parser': 2.6.0(openapi-types@12.1.3)
       '@readme/postman-to-openapi': 4.1.0
@@ -7746,8 +7737,6 @@ snapshots:
       source-map-js: 1.2.1
     optionalDependencies:
       '@parcel/watcher': 2.5.0
-
-  scule@1.3.0: {}
 
   semver@6.3.1: {}
 
@@ -8310,11 +8299,6 @@ snapshots:
       sass-embedded: 1.81.0
 
   vscode-uri@3.0.8: {}
-
-  vue-bind-once@0.2.1(vue@3.5.13(typescript@5.6.3)):
-    dependencies:
-      scule: 1.3.0
-      vue: 3.5.13(typescript@5.6.3)
 
   vue-demi@0.14.10(vue@3.5.13(typescript@5.6.3)):
     dependencies:
