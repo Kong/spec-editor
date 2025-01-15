@@ -15,11 +15,11 @@ importers:
         specifier: ^1.20.1
         version: 1.20.1(vue@3.5.13(typescript@5.7.2))
       '@kong/kongponents':
-        specifier: ^9.16.1
-        version: 9.16.1(axios@1.7.9)(vue-router@4.5.0(vue@3.5.13(typescript@5.7.2)))(vue@3.5.13(typescript@5.7.2))
+        specifier: ^9.16.2
+        version: 9.16.3(axios@1.7.9)(vue-router@4.5.0(vue@3.5.13(typescript@5.7.2)))(vue@3.5.13(typescript@5.7.2))
       '@kong/spec-renderer-dev':
-        specifier: ^1.82.6
-        version: 1.85.5(vue@3.5.13(typescript@5.7.2))
+        specifier: ^1.85.6
+        version: 1.85.6(vue@3.5.13(typescript@5.7.2))
       '@vueuse/core':
         specifier: ^12.2.0
         version: 12.3.0(typescript@5.7.2)
@@ -700,16 +700,16 @@ packages:
     peerDependencies:
       vue: '>= 3.3.4 < 4'
 
-  '@kong/kongponents@9.16.1':
-    resolution: {integrity: sha512-e6cEhjLnabggkWY2XggkPrq0G8hW43Lt4Ed5nbtEyLuFPjg5jS6EKrCRPXnent3SZqgFkvdSkoeq9mYyW8LOlA==}
+  '@kong/kongponents@9.16.3':
+    resolution: {integrity: sha512-dCFL7w8lhQlM9C7DFFZ4QdEzV783StW79HJ3WZ7bBJtCPzZR+wCvDbCRop1MwrpYZ8SrSos7z5dkr0DigcF8VA==}
     engines: {node: '>=v16.20.2 || >=18.12.1 || >=20.14.0'}
     peerDependencies:
       axios: ^1.7.7
       vue: '>= 3.5.0 < 4'
       vue-router: ^4.4.5
 
-  '@kong/spec-renderer-dev@1.85.5':
-    resolution: {integrity: sha512-+K1oUKZsJs95ywOTu028Ulp54UrY1a7TxV8GF1VcH2ulxowYB57z0+F7YQFTNNGvofNUCEondjN8lXvuDWbtHA==}
+  '@kong/spec-renderer-dev@1.85.6':
+    resolution: {integrity: sha512-67t3Ka9PjX1ZDj12PdDvg6ydvg84GQ69CdO8/iKC+MChcvcH6CxOQnBUy30vkMnPbBR++FMV0dxmHIqAkJyCiA==}
     engines: {node: '>=18.17.0'}
     peerDependencies:
       vue: '>= 3.3.13 < 4'
@@ -4709,7 +4709,7 @@ snapshots:
     dependencies:
       vue: 3.5.13(typescript@5.7.2)
 
-  '@kong/kongponents@9.16.1(axios@1.7.9)(vue-router@4.5.0(vue@3.5.13(typescript@5.7.2)))(vue@3.5.13(typescript@5.7.2))':
+  '@kong/kongponents@9.16.3(axios@1.7.9)(vue-router@4.5.0(vue@3.5.13(typescript@5.7.2)))(vue@3.5.13(typescript@5.7.2))':
     dependencies:
       '@floating-ui/vue': 1.1.5(vue@3.5.13(typescript@5.7.2))
       '@kong/icons': 1.20.1(vue@3.5.13(typescript@5.7.2))
@@ -4729,7 +4729,7 @@ snapshots:
     transitivePeerDependencies:
       - '@vue/composition-api'
 
-  '@kong/spec-renderer-dev@1.85.5(vue@3.5.13(typescript@5.7.2))':
+  '@kong/spec-renderer-dev@1.85.6(vue@3.5.13(typescript@5.7.2))':
     dependencies:
       '@apidevtools/json-schema-ref-parser': 11.7.3
       '@asyncapi/openapi-schema-parser': 3.0.24
