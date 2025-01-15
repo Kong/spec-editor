@@ -21,7 +21,7 @@ importers:
         specifier: ^1.82.6
         version: 1.85.5(vue@3.5.13(typescript@5.7.2))
       '@vueuse/core':
-        specifier: ^12.2.0
+        specifier: ^12.3.0
         version: 12.3.0(typescript@5.7.2)
       splitpanes:
         specifier: ^3.1.5
@@ -52,7 +52,7 @@ importers:
         specifier: ^3.1.1
         version: 3.1.1(stylelint@16.12.0(typescript@5.7.2))
       '@types/node':
-        specifier: ^22.10.2
+        specifier: ^22.10.5
         version: 22.10.5
       '@types/splitpanes':
         specifier: ^2.2.6
@@ -106,7 +106,7 @@ importers:
         specifier: ~5.7.2
         version: 5.7.2
       vite:
-        specifier: ^6.0.6
+        specifier: ^6.0.7
         version: 6.0.7(@types/node@22.10.5)(jiti@2.4.2)(sass-embedded@1.83.1)(sass@1.83.1)(yaml@2.6.1)
       vite-plugin-vue-devtools:
         specifier: ^7.6.8
