@@ -12,14 +12,14 @@ importers:
         specifier: ^1.5.4
         version: 1.5.4(monaco-editor@0.52.0)(vue@3.5.13(typescript@5.7.3))
       '@kong/icons':
-        specifier: ^1.20.2
-        version: 1.20.2(vue@3.5.13(typescript@5.7.3))
+        specifier: ^1.20.4
+        version: 1.20.4(vue@3.5.13(typescript@5.7.3))
       '@kong/kongponents':
-        specifier: ^9.18.4
-        version: 9.18.4(axios@1.7.9)(vue-router@4.5.0(vue@3.5.13(typescript@5.7.3)))(vue@3.5.13(typescript@5.7.3))
+        specifier: ^9.18.5
+        version: 9.18.5(axios@1.7.9)(vue-router@4.5.0(vue@3.5.13(typescript@5.7.3)))(vue@3.5.13(typescript@5.7.3))
       '@kong/spec-renderer-dev':
-        specifier: ^1.85.19
-        version: 1.86.0(typescript@5.7.3)(vue@3.5.13(typescript@5.7.3))
+        specifier: ^1.86.2
+        version: 1.86.2(typescript@5.7.3)(vue@3.5.13(typescript@5.7.3))
       '@vueuse/core':
         specifier: ^12.5.0
         version: 12.5.0(typescript@5.7.3)
@@ -687,22 +687,22 @@ packages:
     peerDependencies:
       eslint: '>= 9.17.0'
 
-  '@kong/icons@1.20.2':
-    resolution: {integrity: sha512-IqlpnJSdubqa1IWAdATZCMc3ZnMJTw0gNltGClz//PX15q3zHleUBJJ1DtVLsN5ihKm8hI2bDB2UEsraf9NoAg==}
+  '@kong/icons@1.20.4':
+    resolution: {integrity: sha512-HeC+gSuh7zHaeYISVlmZ4O1zVijYxWGp0Pvz4itXPNichhUEploXRX85fxUETrw1oAzvZIHJjAaU7Oa2GN3idQ==}
     engines: {node: '>=18.17.0', pnpm: '>=9.14.4'}
     peerDependencies:
       vue: '>= 3.3.4 < 4'
 
-  '@kong/kongponents@9.18.4':
-    resolution: {integrity: sha512-7DrhLpvSd1W2UMZcGTQ32kGhKH2NSYurBLa+XO/BCrVrSVE3excLrGUS7YVhrlR7U9JgUmprB/abYl7qxpoDlQ==}
+  '@kong/kongponents@9.18.5':
+    resolution: {integrity: sha512-SNoaBeSXqgWlUa5dPMwshKtaRAuYtvcwUwkVgmeadUEHs8QHSeqmbqmzwtsONpGUchwsCtxr43XjEtH1tjfaFg==}
     engines: {node: '>=v16.20.2 || >=18.12.1 || >=20.14.0'}
     peerDependencies:
       axios: ^1.7.9
       vue: '>= 3.5.0 < 4'
       vue-router: ^4.4.5
 
-  '@kong/spec-renderer-dev@1.86.0':
-    resolution: {integrity: sha512-HX1ww7wpBddpP8Iv+4AtBHQNUss4D3LYvKWyx+WQHzXssvVJUepwUZPhvuAK0ynA/JR+FnY6q+iKxBSSTH7fvA==}
+  '@kong/spec-renderer-dev@1.86.2':
+    resolution: {integrity: sha512-TON/CWbp/SFh3KGwS73yBVi6Tx7h2ZzaYGlCE7aoLX67lfcGQ0f5RRu4VjY0+XB8b0kbhb3oT54Mrxcwc9BS/w==}
     engines: {node: '>=18.17.0'}
     peerDependencies:
       vue: '>= 3.3.13 < 4'
@@ -4588,14 +4588,14 @@ snapshots:
       - supports-color
       - typescript
 
-  '@kong/icons@1.20.2(vue@3.5.13(typescript@5.7.3))':
+  '@kong/icons@1.20.4(vue@3.5.13(typescript@5.7.3))':
     dependencies:
       vue: 3.5.13(typescript@5.7.3)
 
-  '@kong/kongponents@9.18.4(axios@1.7.9)(vue-router@4.5.0(vue@3.5.13(typescript@5.7.3)))(vue@3.5.13(typescript@5.7.3))':
+  '@kong/kongponents@9.18.5(axios@1.7.9)(vue-router@4.5.0(vue@3.5.13(typescript@5.7.3)))(vue@3.5.13(typescript@5.7.3))':
     dependencies:
       '@floating-ui/vue': 1.1.6(vue@3.5.13(typescript@5.7.3))
-      '@kong/icons': 1.20.2(vue@3.5.13(typescript@5.7.3))
+      '@kong/icons': 1.20.4(vue@3.5.13(typescript@5.7.3))
       '@popperjs/core': 2.11.8
       axios: 1.7.9
       date-fns: 2.30.0
@@ -4618,13 +4618,13 @@ snapshots:
       - solid-js
       - svelte
 
-  '@kong/spec-renderer-dev@1.86.0(typescript@5.7.3)(vue@3.5.13(typescript@5.7.3))':
+  '@kong/spec-renderer-dev@1.86.2(typescript@5.7.3)(vue@3.5.13(typescript@5.7.3))':
     dependencies:
       '@apidevtools/json-schema-ref-parser': 11.7.3
       '@asyncapi/openapi-schema-parser': 3.0.24
       '@asyncapi/parser': 3.4.0
       '@floating-ui/vue': 1.1.6(vue@3.5.13(typescript@5.7.3))
-      '@kong/icons': 1.20.2(vue@3.5.13(typescript@5.7.3))
+      '@kong/icons': 1.20.4(vue@3.5.13(typescript@5.7.3))
       '@scalar/openapi-parser': 0.10.4
       '@seriousme/openapi-schema-validator': 2.3.0
       '@stoplight/http-spec': 7.1.0
@@ -7368,7 +7368,7 @@ snapshots:
       htmlparser2: 8.0.2
       is-plain-object: 5.0.0
       parse-srcset: 1.0.2
-      postcss: 8.4.49
+      postcss: 8.5.1
 
   sass-embedded-android-arm64@1.83.4:
     optional: true
