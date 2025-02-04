@@ -18,7 +18,7 @@
     "@kong/icons": "^1.20.2",
     "@kong/kongponents": "^9.18.4",
     "@kong/spec-renderer-dev": "^1.85.19",
-    "@vueuse/core": "^12.4.0",
+    "@vueuse/core": "^12.5.0",
     "splitpanes": "^3.1.8",
     "vue": "^3.5.13"
   },
@@ -27,11 +27,11 @@
     "@commitlint/cli": "^19.6.1",
     "@commitlint/config-conventional": "^19.6.0",
     "@digitalroute/cz-conventional-changelog-for-jira": "^8.0.1",
-    "@evilmartians/lefthook": "^1.10.5",
+    "@evilmartians/lefthook": "^1.10.10",
     "@kong/design-tokens": "^1.17.2",
     "@kong/eslint-config-kong-ui": "1.2.4",
     "@stylistic/stylelint-plugin": "^3.1.1",
-    "@types/node": "^22.10.7",
+    "@types/node": "^22.10.8",
     "@types/splitpanes": "^2.2.6",
     "@vitejs/plugin-vue": "^5.2.1",
     "@vue/eslint-config-typescript": "^14.3.0",
@@ -49,7 +49,7 @@
     "stylelint-config-recommended-vue": "^1.5.0",
     "stylelint-order": "^6.0.4",
     "typescript": "~5.7.3",
-    "vite": "^6.0.7",
+    "vite": "^6.0.11",
     "vite-plugin-vue-devtools": "^7.7.0",
     "vue-tsc": "^2.2.0"
   },
@@ -70,7 +70,7 @@
   "type": "module",
   "version": "0.0.0",
   "volta": {
-    "node": "22.13.0",
+    "node": "22.13.1",
     "pnpm": "9.15.4"
   }
 }
