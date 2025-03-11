@@ -18,8 +18,8 @@ importers:
         specifier: ^9.21.2
         version: 9.21.2(axios@1.7.9)(vue-router@4.5.0(vue@3.5.13(typescript@5.7.3)))(vue@3.5.13(typescript@5.7.3))
       '@kong/spec-renderer':
-        specifier: 1.87.14-pr.539.c9ead29.0
-        version: 1.87.14-pr.539.c9ead29.0(typescript@5.7.3)(vue@3.5.13(typescript@5.7.3))
+        specifier: ^1.88.0
+        version: 1.88.0(typescript@5.7.3)(vue@3.5.13(typescript@5.7.3))
       '@vueuse/core':
         specifier: ^12.5.0
         version: 12.5.0(typescript@5.7.3)
@@ -706,8 +706,8 @@ packages:
       vue: '>= 3.5.0 < 4'
       vue-router: ^4.4.5
 
-  '@kong/spec-renderer@1.87.14-pr.539.c9ead29.0':
-    resolution: {integrity: sha512-RyP5b6iOP/f1HZ0TEpL0pqckGo/P9nbJhxupXL2u6M85fWkzKv80JMQneXpUsiK02n9+SnY7grUtcygL9XgExw==}
+  '@kong/spec-renderer@1.88.0':
+    resolution: {integrity: sha512-VxEEQoZm5cgMrJlWB85Cp9AuNZzJ+SprAgpbC95s98Ks7sclWMxpF278wuMroxQoycNvkubHjZg2F4gZRYDIpQ==}
     engines: {node: '>=18.17.0'}
     peerDependencies:
       vue: '>= 3.3.13 < 4'
@@ -4613,7 +4613,7 @@ snapshots:
       - solid-js
       - svelte
 
-  '@kong/spec-renderer@1.87.14-pr.539.c9ead29.0(typescript@5.7.3)(vue@3.5.13(typescript@5.7.3))':
+  '@kong/spec-renderer@1.88.0(typescript@5.7.3)(vue@3.5.13(typescript@5.7.3))':
     dependencies:
       '@apidevtools/json-schema-ref-parser': 11.7.3
       '@asyncapi/openapi-schema-parser': 3.0.24
