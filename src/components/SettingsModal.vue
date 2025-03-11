@@ -69,7 +69,7 @@ const settingsState = ref({
 })
 
 const emits = defineEmits<{
-  (e: 'updateSettings', value: Record<string, boolean>): void,
+  (e: 'updateSettings', value: Record<string, boolean>): void
 }>()
 
 watch(settingsState, (value) => {

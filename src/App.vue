@@ -69,11 +69,11 @@
 </template>
 
 <script setup lang="ts">
-import '@kong/spec-renderer-dev/dist/style.css'
+import '@kong/spec-renderer/dist/style.css'
 import 'splitpanes/dist/splitpanes.css'
 import { ref, shallowRef, useTemplateRef } from 'vue'
 import { refDebounced, useDropZone } from '@vueuse/core'
-import { SpecRenderer } from '@kong/spec-renderer-dev'
+import { SpecRenderer } from '@kong/spec-renderer'
 import { KongGradientIcon } from '@kong/icons'
 import { KUI_ICON_SIZE_50 } from '@kong/design-tokens'
 import type { VueMonacoEditorEmitsOptions } from '@guolao/vue-monaco-editor'
@@ -235,7 +235,7 @@ const updateSettings = (settings: Record<string, boolean>) => {
   }
 
   .spec-container.default-theme {
-    height: calc(100dvh - $header-height);
+    height: calc(100dvh - #{$header-height});
     width: 100dvw;
 
     .splitpanes__pane {
