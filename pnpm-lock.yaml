@@ -46,8 +46,8 @@ importers:
         specifier: ^1.17.3
         version: 1.17.3
       '@kong/eslint-config-kong-ui':
-        specifier: 1.2.5
-        version: 1.2.5(eslint@9.19.0(jiti@2.4.2))(typescript@5.7.3)
+        specifier: 1.2.6
+        version: 1.2.6(eslint@9.19.0(jiti@2.4.2))(typescript@5.7.3)
       '@stylistic/stylelint-plugin':
         specifier: ^3.1.1
         version: 3.1.1(stylelint@16.14.1(typescript@5.7.3))
@@ -585,6 +585,7 @@ packages:
 
   '@evilmartians/lefthook@1.10.10':
     resolution: {integrity: sha512-MRIA0zJzUBbmcbecI7QjI08li4ffpmZ6DeVydEiZSg0vSx5mElEMEjDEjkI60eSV0XOm7LRbQKz2rfW6NqH8Cw==}
+    cpu: [x64, arm64, ia32]
     os: [darwin, linux, win32]
     hasBin: true
 
@@ -680,8 +681,8 @@ packages:
     resolution: {integrity: sha512-se5r7q4Oam6mTQNRAIpZIuY4MGzIBRutGMVmjBe26UpXuQb/KwzkTZjhwDbBmavfKgU+HXHJka51cuH9D67oFw==}
     engines: {node: '>=20.18.2', pnpm: '>=9.15.2'}
 
-  '@kong/eslint-config-kong-ui@1.2.5':
-    resolution: {integrity: sha512-zEoaOhEC/2wpjoZW3USwXisKGyFGecMOsqscTLA+NcnIimDQA178YN9sRYs1XN0Kp2MTdkoOxoDoR+Jb6m4qmw==}
+  '@kong/eslint-config-kong-ui@1.2.6':
+    resolution: {integrity: sha512-4B9kpwWEqsZiYlR4l3n7FkncMSXdDGFxtAZNLSBsAqszcSvE48Ydsos+1F9OLDlDc1M255pWy3WLi53xwze+kg==}
     engines: {node: '>=18.0.0 || >=20.13.1'}
     peerDependencies:
       eslint: '>= 9.18.0'
@@ -4558,7 +4559,7 @@ snapshots:
 
   '@kong/design-tokens@1.17.3': {}
 
-  '@kong/eslint-config-kong-ui@1.2.5(eslint@9.19.0(jiti@2.4.2))(typescript@5.7.3)':
+  '@kong/eslint-config-kong-ui@1.2.6(eslint@9.19.0(jiti@2.4.2))(typescript@5.7.3)':
     dependencies:
       '@eslint/compat': 1.2.4(eslint@9.19.0(jiti@2.4.2))
       '@eslint/eslintrc': 3.2.0
