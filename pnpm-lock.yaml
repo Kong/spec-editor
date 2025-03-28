@@ -12,11 +12,11 @@ importers:
         specifier: ^1.5.4
         version: 1.5.4(monaco-editor@0.52.0)(vue@3.5.13(typescript@5.7.3))
       '@kong/icons':
-        specifier: ^1.21.1
-        version: 1.21.1(vue@3.5.13(typescript@5.7.3))
+        specifier: ^1.21.2
+        version: 1.21.2(vue@3.5.13(typescript@5.7.3))
       '@kong/kongponents':
-        specifier: ^9.21.2
-        version: 9.21.2(axios@1.7.9)(vue-router@4.5.0(vue@3.5.13(typescript@5.7.3)))(vue@3.5.13(typescript@5.7.3))
+        specifier: ^9.21.6
+        version: 9.25.1(axios@1.7.9)(vue-router@4.5.0(vue@3.5.13(typescript@5.7.3)))(vue@3.5.13(typescript@5.7.3))
       '@kong/spec-renderer':
         specifier: ^1.88.0
         version: 1.88.0(typescript@5.7.3)(vue@3.5.13(typescript@5.7.3))
@@ -43,8 +43,8 @@ importers:
         specifier: ^1.10.10
         version: 1.10.10
       '@kong/design-tokens':
-        specifier: ^1.17.3
-        version: 1.17.3
+        specifier: ^1.17.4
+        version: 1.17.4
       '@kong/eslint-config-kong-ui':
         specifier: 1.2.5
         version: 1.2.5(eslint@9.19.0(jiti@2.4.2))(typescript@5.7.3)
@@ -585,6 +585,7 @@ packages:
 
   '@evilmartians/lefthook@1.10.10':
     resolution: {integrity: sha512-MRIA0zJzUBbmcbecI7QjI08li4ffpmZ6DeVydEiZSg0vSx5mElEMEjDEjkI60eSV0XOm7LRbQKz2rfW6NqH8Cw==}
+    cpu: [x64, arm64, ia32]
     os: [darwin, linux, win32]
     hasBin: true
 
@@ -676,9 +677,9 @@ packages:
   '@keyv/serialize@1.0.2':
     resolution: {integrity: sha512-+E/LyaAeuABniD/RvUezWVXKpeuvwLEA9//nE9952zBaOdBd2mQ3pPoM8cUe2X6IcMByfuSLzmYqnYshG60+HQ==}
 
-  '@kong/design-tokens@1.17.3':
-    resolution: {integrity: sha512-se5r7q4Oam6mTQNRAIpZIuY4MGzIBRutGMVmjBe26UpXuQb/KwzkTZjhwDbBmavfKgU+HXHJka51cuH9D67oFw==}
-    engines: {node: '>=20.18.2', pnpm: '>=9.15.2'}
+  '@kong/design-tokens@1.17.4':
+    resolution: {integrity: sha512-3BrKJvwlQ27jrVQIE+cJ9baTVz6cvxO5f7vw0UWOiXz/E23z5ZOGDpUMiyK7q3Jks9t3x8OsMx3BKPRu87TPnw==}
+    engines: {node: '>=20.18.3', pnpm: '>=9.14.4 || >=10.1.0'}
 
   '@kong/eslint-config-kong-ui@1.2.5':
     resolution: {integrity: sha512-zEoaOhEC/2wpjoZW3USwXisKGyFGecMOsqscTLA+NcnIimDQA178YN9sRYs1XN0Kp2MTdkoOxoDoR+Jb6m4qmw==}
@@ -686,20 +687,20 @@ packages:
     peerDependencies:
       eslint: '>= 9.18.0'
 
-  '@kong/icons@1.21.1':
-    resolution: {integrity: sha512-WS0/ibjEQTDbZ+IBJzQOuqAMKPUsybvEgRXE7wrVU2Jss1oE1iiyZ6ZbpmqKZoKpsQIpZWQqxcoBprnH3ZY13w==}
-    engines: {node: '>=18.17.0', pnpm: '>=9.14.4'}
-    peerDependencies:
-      vue: '>= 3.3.4 < 4'
-
   '@kong/icons@1.21.2':
     resolution: {integrity: sha512-gTqtvJ/G4KoR0WGctb7CChJTAOmDAwG2nG8Oz66Yyu6/GYlR25PDwVDanWcWmpbOl0zvjrIgEPunndYNK/QIeQ==}
     engines: {node: '>=18.17.0', pnpm: '>=9.14.4 || >=10.1.0'}
     peerDependencies:
       vue: '>= 3.3.4 < 4'
 
-  '@kong/kongponents@9.21.2':
-    resolution: {integrity: sha512-6ZcgldZgLWoDXDtJnt1c3nyw1IJmFDjZs5Y/sgin/MVkjUU/E2sv1bZEciaNUMXqQuZ7XVawJHZAnz1J05ahhA==}
+  '@kong/icons@1.22.1':
+    resolution: {integrity: sha512-dMFV5enSSy1UwHmwzn5qQ0dn3aDbtiQzFKMQZTQToxPZyvNRRc/MANZLtxj8P+qxaB0T8hjz2L3k5pEvUivoRQ==}
+    engines: {node: '>=18.17.0', pnpm: '>=9.14.4 || >=10.1.0'}
+    peerDependencies:
+      vue: '>= 3.3.4 < 4'
+
+  '@kong/kongponents@9.25.1':
+    resolution: {integrity: sha512-fTV/k3K42Wxzkw2nokmPEBBWSCZTinzK/Z+V9vEgoxHNSi7XUnujxiW+HT5yrTIWnHTeq4CCTwaPs8sTVmjiQw==}
     engines: {node: '>=v16.20.2 || >=18.12.1 || >=20.14.0'}
     peerDependencies:
       axios: ^1.7.9
@@ -3706,8 +3707,8 @@ packages:
   vfile@6.0.3:
     resolution: {integrity: sha512-KzIbH/9tXat2u30jf+smMwFCsno4wHVdNmzFyL+T/L3UGqqk6JKfVqOFOZEpZSHADH1k40ab6NUIXZq422ov3Q==}
 
-  virtua@0.39.3:
-    resolution: {integrity: sha512-Ep3aiJXSGPm1UUniThr5mGDfG0upAleP7pqQs5mvvCgM1wPhII1ZKa7eNCWAJRLkC+InpXKokKozyaaj/aMYOQ==}
+  virtua@0.40.3:
+    resolution: {integrity: sha512-rfl6VohBFoT0U64fVdOGag2p0D+YZbki7HQ5bjFZObStWBaWjjataIHFDjl4KuSr3yHBMgGd/+Va7W4Z2Y0LRg==}
     peerDependencies:
       react: '>=16.14.0'
       react-dom: '>=16.14.0'
@@ -4556,7 +4557,7 @@ snapshots:
     dependencies:
       buffer: 6.0.3
 
-  '@kong/design-tokens@1.17.3': {}
+  '@kong/design-tokens@1.17.4': {}
 
   '@kong/eslint-config-kong-ui@1.2.5(eslint@9.19.0(jiti@2.4.2))(typescript@5.7.3)':
     dependencies:
@@ -4579,18 +4580,18 @@ snapshots:
       - supports-color
       - typescript
 
-  '@kong/icons@1.21.1(vue@3.5.13(typescript@5.7.3))':
-    dependencies:
-      vue: 3.5.13(typescript@5.7.3)
-
   '@kong/icons@1.21.2(vue@3.5.13(typescript@5.7.3))':
     dependencies:
       vue: 3.5.13(typescript@5.7.3)
 
-  '@kong/kongponents@9.21.2(axios@1.7.9)(vue-router@4.5.0(vue@3.5.13(typescript@5.7.3)))(vue@3.5.13(typescript@5.7.3))':
+  '@kong/icons@1.22.1(vue@3.5.13(typescript@5.7.3))':
+    dependencies:
+      vue: 3.5.13(typescript@5.7.3)
+
+  '@kong/kongponents@9.25.1(axios@1.7.9)(vue-router@4.5.0(vue@3.5.13(typescript@5.7.3)))(vue@3.5.13(typescript@5.7.3))':
     dependencies:
       '@floating-ui/vue': 1.1.6(vue@3.5.13(typescript@5.7.3))
-      '@kong/icons': 1.21.1(vue@3.5.13(typescript@5.7.3))
+      '@kong/icons': 1.22.1(vue@3.5.13(typescript@5.7.3))
       '@popperjs/core': 2.11.8
       axios: 1.7.9
       date-fns: 2.30.0
@@ -4602,7 +4603,7 @@ snapshots:
       sortablejs: 1.15.6
       swrv: 1.1.0(vue@3.5.13(typescript@5.7.3))
       v-calendar: 3.1.2(@popperjs/core@2.11.8)(vue@3.5.13(typescript@5.7.3))
-      virtua: 0.39.3(vue@3.5.13(typescript@5.7.3))
+      virtua: 0.40.3(vue@3.5.13(typescript@5.7.3))
       vue: 3.5.13(typescript@5.7.3)
       vue-draggable-next: 2.2.1(sortablejs@1.15.6)(vue@3.5.13(typescript@5.7.3))
       vue-router: 4.5.0(vue@3.5.13(typescript@5.7.3))
@@ -7892,7 +7893,7 @@ snapshots:
       '@types/unist': 3.0.3
       vfile-message: 4.0.2
 
-  virtua@0.39.3(vue@3.5.13(typescript@5.7.3)):
+  virtua@0.40.3(vue@3.5.13(typescript@5.7.3)):
     optionalDependencies:
       vue: 3.5.13(typescript@5.7.3)
 
