@@ -14,7 +14,7 @@
     }
   },
   "dependencies": {
-    "@guolao/vue-monaco-editor": "^1.5.4",
+    "@guolao/vue-monaco-editor": "^1.5.5",
     "@kong/icons": "^1.21.2",
     "@kong/kongponents": "^9.21.6",
     "@kong/spec-renderer": "^1.88.0",
@@ -27,13 +27,13 @@
     "@commitlint/cli": "^19.6.1",
     "@commitlint/config-conventional": "^19.6.0",
     "@digitalroute/cz-conventional-changelog-for-jira": "^8.0.1",
-    "@evilmartians/lefthook": "^1.10.10",
+    "@evilmartians/lefthook": "^1.10.11",
     "@kong/design-tokens": "^1.17.4",
     "@kong/eslint-config-kong-ui": "1.2.5",
-    "@stylistic/stylelint-plugin": "^3.1.1",
-    "@types/node": "^22.13.0",
+    "@stylistic/stylelint-plugin": "^3.1.2",
+    "@types/node": "^22.13.10",
     "@types/splitpanes": "^2.2.6",
-    "@vitejs/plugin-vue": "^5.2.1",
+    "@vitejs/plugin-vue": "^5.2.3",
     "@vue/eslint-config-typescript": "^14.3.0",
     "@vue/tsconfig": "^0.7.0",
     "commitizen": "^4.3.1",
@@ -50,8 +50,8 @@
     "stylelint-order": "^6.0.4",
     "typescript": "~5.7.3",
     "vite": "^6.0.11",
-    "vite-plugin-vue-devtools": "^7.7.1",
-    "vue-tsc": "^2.2.0"
+    "vite-plugin-vue-devtools": "^7.7.2",
+    "vue-tsc": "^2.2.8"
   },
   "name": "@kong/spec-editor",
   "private": true,
