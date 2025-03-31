@@ -18,14 +18,14 @@
     "@kong/icons": "^1.21.2",
     "@kong/kongponents": "^9.21.6",
     "@kong/spec-renderer": "^1.88.0",
-    "@vueuse/core": "^12.5.0",
-    "splitpanes": "^3.1.8",
+    "@vueuse/core": "^12.8.2",
+    "splitpanes": "^3.2.0",
     "vue": "^3.5.13"
   },
   "description": "Live editor for Kong's open-source spec renderer",
   "devDependencies": {
-    "@commitlint/cli": "^19.6.1",
-    "@commitlint/config-conventional": "^19.6.0",
+    "@commitlint/cli": "^19.8.0",
+    "@commitlint/config-conventional": "^19.8.0",
     "@digitalroute/cz-conventional-changelog-for-jira": "^8.0.1",
     "@evilmartians/lefthook": "^1.10.11",
     "@kong/design-tokens": "^1.17.4",
@@ -41,15 +41,15 @@
     "eslint": "^9.19.0",
     "eslint-plugin-vue": "^9.32.0",
     "npm-run-all2": "^7.0.2",
-    "sass": "^1.83.4",
-    "sass-embedded": "^1.83.4",
-    "stylelint": "^16.14.1",
+    "sass": "^1.86.0",
+    "sass-embedded": "^1.86.0",
+    "stylelint": "^16.16.0",
     "stylelint-config-html": "^1.1.0",
     "stylelint-config-recommended-scss": "^14.1.0",
     "stylelint-config-recommended-vue": "^1.6.0",
     "stylelint-order": "^6.0.4",
-    "typescript": "~5.7.3",
-    "vite": "^6.0.11",
+    "typescript": "~5.8.2",
+    "vite": "^6.2.2",
     "vite-plugin-vue-devtools": "^7.7.2",
     "vue-tsc": "^2.2.8"
   },
@@ -70,7 +70,7 @@
   "type": "module",
   "version": "0.0.0",
   "volta": {
-    "node": "22.13.1",
-    "pnpm": "10.1.0"
+    "node": "22.14.0",
+    "pnpm": "10.6.4"
   }
 }
