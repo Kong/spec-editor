@@ -18,8 +18,8 @@ importers:
         specifier: ^9.21.6
         version: 9.25.1(axios@1.7.9)(vue-router@4.5.0(vue@3.5.13(typescript@5.8.2)))(vue@3.5.13(typescript@5.8.2))
       '@kong/spec-renderer':
-        specifier: ^1.91.4
-        version: 1.91.4(typescript@5.8.2)(vue@3.5.13(typescript@5.8.2))
+        specifier: ^1.91.6
+        version: 1.93.0(vue@3.5.13(typescript@5.8.2))
       '@vueuse/core':
         specifier: ^12.8.2
         version: 12.8.2(typescript@5.8.2)
@@ -721,8 +721,8 @@ packages:
       vue: '>= 3.5.0 < 4'
       vue-router: ^4.4.5
 
-  '@kong/spec-renderer@1.91.4':
-    resolution: {integrity: sha512-b/gKtAUt50co1xjmvlI9/W77dUK9dHVCBLEc6H4jnAPds7lpclx5eN/8fIkUYC33sOZC0p3wk8hcBoX/xXWlDw==}
+  '@kong/spec-renderer@1.93.0':
+    resolution: {integrity: sha512-xgdLLnB69Bclc3sPnlKcCCLkQMMji7fKz/VomMPZhi9MtcAH3q5cb9Io89ISuNkfzipf6lwukcShhKliG+bwjw==}
     engines: {node: '>=18.17.0'}
     peerDependencies:
       vue: '>= 3.3.13 < 4'
@@ -1283,11 +1283,24 @@ packages:
   '@vueuse/core@12.8.2':
     resolution: {integrity: sha512-HbvCmZdzAu3VGi/pWYm5Ut+Kd9mn1ZHnn4L5G8kOQTPs/IwIAmJoBrmYk2ckLArgMXZj0AW3n5CAejLUO+PhdQ==}
 
+  '@vueuse/core@13.1.0':
+    resolution: {integrity: sha512-PAauvdRXZvTWXtGLg8cPUFjiZEddTqmogdwYpnn60t08AA5a8Q4hZokBnpTOnVNqySlFlTcRYIC8OqreV4hv3Q==}
+    peerDependencies:
+      vue: ^3.5.0
+
   '@vueuse/metadata@12.8.2':
     resolution: {integrity: sha512-rAyLGEuoBJ/Il5AmFHiziCPdQzRt88VxR+Y/A/QhJ1EWtWqPBBAxTAFaSkviwEuOEZNtW8pvkPgoCZQ+HxqW1A==}
 
+  '@vueuse/metadata@13.1.0':
+    resolution: {integrity: sha512-+TDd7/a78jale5YbHX9KHW3cEDav1lz1JptwDvep2zSG8XjCsVE+9mHIzjTOaPbHUAk5XiE4jXLz51/tS+aKQw==}
+
   '@vueuse/shared@12.8.2':
     resolution: {integrity: sha512-dznP38YzxZoNloI0qpEfpkms8knDtaoQ6Y/sfS0L7Yki4zh40LFHEhur0odJC6xTHG5dxWVPiUWBXn+wCG2s5w==}
+
+  '@vueuse/shared@13.1.0':
+    resolution: {integrity: sha512-IVS/qRRjhPTZ6C2/AM3jieqXACGwFZwWTdw5sNTSKk2m/ZpkuuN+ri+WCVUP8TqaKwJYt/KuMwmXspMAw8E6ew==}
+    peerDependencies:
+      vue: ^3.5.0
 
   JSONStream@1.3.5:
     resolution: {integrity: sha512-E+iruNOY8VV9s4JEbe1aNEm6MiszPRr/UfcHMz0TQh1BXSxHK+ASV1R6W4HpjBhSeS+54PIsAMCBmwD06LLsqQ==}
@@ -4689,7 +4702,7 @@ snapshots:
       - solid-js
       - svelte
 
-  '@kong/spec-renderer@1.91.4(typescript@5.8.2)(vue@3.5.13(typescript@5.8.2))':
+  '@kong/spec-renderer@1.93.0(vue@3.5.13(typescript@5.8.2))':
     dependencies:
       '@apidevtools/json-schema-ref-parser': 11.9.3
       '@asyncapi/openapi-schema-parser': 3.0.24
@@ -4701,7 +4714,7 @@ snapshots:
       '@stoplight/json': 3.21.7
       '@stoplight/types': 14.1.1
       '@stoplight/yaml': 4.3.0
-      '@vueuse/core': 12.8.2(typescript@5.8.2)
+      '@vueuse/core': 13.1.0(vue@3.5.13(typescript@5.8.2))
       allof-merge: 0.6.6
       flatted: 3.3.3
       httpsnippet: 3.0.9
@@ -4713,7 +4726,6 @@ snapshots:
     transitivePeerDependencies:
       - '@vue/composition-api'
       - encoding
-      - typescript
 
   '@monaco-editor/loader@1.5.0':
     dependencies:
@@ -5428,13 +5440,26 @@ snapshots:
     transitivePeerDependencies:
       - typescript
 
+  '@vueuse/core@13.1.0(vue@3.5.13(typescript@5.8.2))':
+    dependencies:
+      '@types/web-bluetooth': 0.0.21
+      '@vueuse/metadata': 13.1.0
+      '@vueuse/shared': 13.1.0(vue@3.5.13(typescript@5.8.2))
+      vue: 3.5.13(typescript@5.8.2)
+
   '@vueuse/metadata@12.8.2': {}
+
+  '@vueuse/metadata@13.1.0': {}
 
   '@vueuse/shared@12.8.2(typescript@5.8.2)':
     dependencies:
       vue: 3.5.13(typescript@5.8.2)
     transitivePeerDependencies:
       - typescript
+
+  '@vueuse/shared@13.1.0(vue@3.5.13(typescript@5.8.2))':
+    dependencies:
+      vue: 3.5.13(typescript@5.8.2)
 
   JSONStream@1.3.5:
     dependencies:
