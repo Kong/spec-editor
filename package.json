@@ -27,11 +27,11 @@
     "@commitlint/cli": "^19.8.0",
     "@commitlint/config-conventional": "^19.8.0",
     "@digitalroute/cz-conventional-changelog-for-jira": "^8.0.1",
-    "@evilmartians/lefthook": "^1.10.11",
+    "@evilmartians/lefthook": "^1.11.6",
     "@kong/design-tokens": "^1.17.4",
     "@kong/eslint-config-kong-ui": "1.2.6",
     "@stylistic/stylelint-plugin": "^3.1.2",
-    "@types/node": "^22.13.10",
+    "@types/node": "^22.13.17",
     "@types/splitpanes": "^2.2.6",
     "@vitejs/plugin-vue": "^5.2.3",
     "@vue/eslint-config-typescript": "^14.5.0",
@@ -41,15 +41,15 @@
     "eslint": "^9.22.0",
     "eslint-plugin-vue": "^10.0.0",
     "npm-run-all2": "^7.0.2",
-    "sass": "^1.86.0",
-    "sass-embedded": "^1.86.0",
-    "stylelint": "^16.16.0",
+    "sass": "^1.86.3",
+    "sass-embedded": "^1.86.3",
+    "stylelint": "^16.17.0",
     "stylelint-config-html": "^1.1.0",
     "stylelint-config-recommended-scss": "^14.1.0",
     "stylelint-config-recommended-vue": "^1.6.0",
     "stylelint-order": "^6.0.4",
-    "typescript": "~5.8.2",
-    "vite": "^6.2.2",
+    "typescript": "~5.8.3",
+    "vite": "^6.2.5",
     "vite-plugin-vue-devtools": "^7.7.2",
     "vue-tsc": "^2.2.8"
   },
@@ -71,6 +71,6 @@
   "version": "0.0.0",
   "volta": {
     "node": "22.14.0",
-    "pnpm": "10.6.4"
+    "pnpm": "10.6.5"
   }
 }
