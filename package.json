@@ -16,7 +16,7 @@
   "dependencies": {
     "@guolao/vue-monaco-editor": "^1.5.5",
     "@kong/icons": "^1.23.1",
-    "@kong/kongponents": "^9.28.5",
+    "@kong/kongponents": "^9.28.6",
     "@kong/spec-renderer": "^1.92.2",
     "@vueuse/core": "^13.0.0",
     "splitpanes": "^4.0.3",
