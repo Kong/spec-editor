@@ -21,7 +21,7 @@ importers:
         specifier: ^1.94.4
         version: 1.94.6(vue@3.5.13(typescript@5.8.3))
       '@vueuse/core':
-        specifier: ^13.0.0
+        specifier: ^13.1.0
         version: 13.1.0(vue@3.5.13(typescript@5.8.3))
       splitpanes:
         specifier: ^4.0.3
@@ -40,8 +40,8 @@ importers:
         specifier: ^8.0.1
         version: 8.0.1(@types/node@22.14.1)(typescript@5.8.3)
       '@evilmartians/lefthook':
-        specifier: ^1.11.6
-        version: 1.11.6
+        specifier: ^1.11.9
+        version: 1.11.11
       '@kong/design-tokens':
         specifier: ^1.17.4
         version: 1.17.4
@@ -52,7 +52,7 @@ importers:
         specifier: ^3.1.2
         version: 3.1.2(stylelint@16.19.0(typescript@5.8.3))
       '@types/node':
-        specifier: ^22.13.17
+        specifier: ^22.14.1
         version: 22.14.1
       '@types/splitpanes':
         specifier: ^2.2.6
@@ -106,7 +106,7 @@ importers:
         specifier: ~5.8.3
         version: 5.8.3
       vite:
-        specifier: ^6.2.5
+        specifier: ^6.2.6
         version: 6.3.1(@types/node@22.14.1)(jiti@2.4.2)(sass-embedded@1.86.3)(sass@1.86.3)(yaml@2.6.1)
       vite-plugin-vue-devtools:
         specifier: ^7.7.2
@@ -613,8 +613,8 @@ packages:
     resolution: {integrity: sha512-ZAoA40rNMPwSm+AeHpCq8STiNAwzWLJuP8Xv4CHIc9wv/PSuExjMrmjfYNj682vW0OOiZ1HKxzvjQr9XZIisQA==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@evilmartians/lefthook@1.11.6':
-    resolution: {integrity: sha512-8KwNp1gkVeNuORjYT990AomxV9QTTangWvPcuNWz7okpdC9LdBw79We/218pLqddpUXmg/XCFOysc4vE6O+2fg==}
+  '@evilmartians/lefthook@1.11.11':
+    resolution: {integrity: sha512-3XRY+3WWUQKEtRBUlaVFIGPD8lLOcJ/6zy6quCM9prH61ueKh4YxyPV2+Dy3sCogSlk2vGmmJUmmtJTJlpKuJw==}
     cpu: [x64, arm64, ia32]
     os: [darwin, linux, win32]
     hasBin: true
@@ -4580,7 +4580,7 @@ snapshots:
       '@eslint/core': 0.13.0
       levn: 0.4.1
 
-  '@evilmartians/lefthook@1.11.6': {}
+  '@evilmartians/lefthook@1.11.11': {}
 
   '@faker-js/faker@5.5.3': {}
 
