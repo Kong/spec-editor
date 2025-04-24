@@ -15,7 +15,7 @@ importers:
         specifier: ^1.25.1
         version: 1.25.1(vue@3.5.13(typescript@5.8.3))
       '@kong/kongponents':
-        specifier: ^9.28.6
+        specifier: ^9.29.4
         version: 9.29.4(axios@1.7.9)(vue-router@4.5.0(vue@3.5.13(typescript@5.8.3)))(vue@3.5.13(typescript@5.8.3))
       '@kong/spec-renderer':
         specifier: ^1.94.4
