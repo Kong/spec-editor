@@ -15,7 +15,7 @@
     <template #default="{ toggleModal }">
       <div class="renderer-settings-modal-container">
         <div class="settings-modal-header">
-          <h2>Settings</h2>
+          <h2>API documentation options</h2>
 
           <button
             class="close-modal-button"
@@ -28,7 +28,7 @@
           </button>
         </div>
         <div class="settings-modal-content">
-          <p>Enable/disable visualisation settings to test your specification</p>
+          <p>Configure options for how your API spec appears in the renderer.</p>
           <div class="settings-modal-toggle-list">
             <KCard
               v-for="setting in specRendererSettingList"
