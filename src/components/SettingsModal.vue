@@ -81,6 +81,7 @@ const { options } = useApiDocOptions()
     }
   }
 }
+
 .renderer-settings-modal-container {
   background-color: $kui-color-background;
   border: $kui-border-width-10 solid $kui-color-border;
@@ -144,18 +145,20 @@ const { options } = useApiDocOptions()
       :deep(.card-header) {
         align-items: center
       }
+
       .card-title {
         h3 {
           font-size: $kui-font-size-30;
           font-weight: $kui-font-weight-semibold;
           line-height: $kui-line-height-30;
         }
+
         p {
           color: $kui-color-text-neutral;
           font-size: $kui-font-size-30;
           font-weight: $kui-font-weight-regular;
           line-height: $kui-line-height-30;
-          margin-top:$kui-space-20;
+          margin-top: $kui-space-20;
         }
       }
     }
