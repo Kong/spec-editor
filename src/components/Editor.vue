@@ -31,7 +31,7 @@ const defaultEditorOptions: Monaco.editor.IStandaloneEditorConstructionOptions =
   minimap: { enabled: false },
   formatOnType: true,
   formatOnPaste: true,
-  wordWrap: 'on',
+  wordWrap: 'bounded',
   tabSize: 2,
   insertSpaces: true,
   autoClosingBrackets: 'always',
@@ -42,6 +42,19 @@ const defaultEditorOptions: Monaco.editor.IStandaloneEditorConstructionOptions =
   fixedOverflowWidgets: true,
   lineNumbers: 'on',
   renderWhitespace: 'boundary',
+  glyphMargin: false,
+  suggest: {
+    showWords: false, // Prevent showing word suggestions that exist in the document
+  },
+  scrollBeyondLastLine: false,
+  roundedSelection: false,
+  colorDecorators: true,
+  folding: true, // Enable code folding for MDC block components
+  detectIndentation: false, // Important as to not override tabSize
+  trimAutoWhitespace: true,
+  find: {
+    addExtraSpaceOnTop: false, // we need this set to false to get the correct absolute position, otherwise when the search box opens the content shifts
+  },
 }
 
 
