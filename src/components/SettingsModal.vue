@@ -31,8 +31,8 @@
           <p>Configure options for how your API spec appears in the renderer.</p>
           <div class="settings-modal-toggle-list">
             <KCard
-              v-for="setting in specRendererSettingList"
-              :key="setting.id"
+              v-for="setting in API_DOC_OPTIONS"
+              :key="setting.prop"
               class="settings-modal-card"
             >
               <template #title>
@@ -41,8 +41,8 @@
               </template>
               <template #actions>
                 <KInputSwitch
-                  :id="setting.id"
-                  v-model="settingsState[setting.id]"
+                  :id="setting.prop"
+                  v-model="options[setting.prop]"
                 />
               </template>
             </KCard>
@@ -54,27 +54,14 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch } from 'vue'
 import { CogIcon, CloseIcon } from '@kong/icons'
 import { KCard, KInputSwitch } from '@kong/kongponents'
 import { KUI_ICON_SIZE_40 } from '@kong/design-tokens'
 import BaseModal from './common/BaseModal.vue'
-import specRendererSettingList from '../assets/spec-renderer-props-list.json'
+import { API_DOC_OPTIONS } from '@/constants'
+import useApiDocOptions from '@/composables/useApiDocOptions'
 
-const settingsState = ref({
-  ...(specRendererSettingList.reduce((acc: Record<string, boolean>, curr) => {
-    acc[curr.id] = curr.defaultValue
-    return acc
-  }, {})),
-})
-
-const emits = defineEmits<{
-  (e: 'updateSettings', value: Record<string, boolean>): void
-}>()
-
-watch(settingsState, (value) => {
-  emits('updateSettings', value)
-}, { immediate: true })
+const { options } = useApiDocOptions()
 </script>
 
 <style lang="scss" scoped>
