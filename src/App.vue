@@ -26,7 +26,7 @@
           type="file"
           @change="fileUploaded"
         >
-        <SettingsModal @update-settings="updateSettings" />
+        <SettingsModal />
         <a
           class="github-link"
           href="https://github.com/Kong/spec-renderer"
@@ -60,7 +60,7 @@
           :control-address-bar="true"
           document-scrolling-container=".spec-renderer-pane"
           :spec="specText"
-          v-bind="specSettings"
+          v-bind="options"
         />
       </pane>
     </splitpanes>
@@ -82,6 +82,7 @@ import { Splitpanes, Pane } from 'splitpanes'
 import DropzoneModal from './components/DropzoneModal.vue'
 import SettingsModal from './components/SettingsModal.vue'
 import sampleSpec from './assets/sample-spec.json'
+import useApiDocOptions from '@/composables/useApiDocOptions'
 
 const MONACO_EDITOR_OPTIONS = {
   theme: 'vs-dark',
@@ -99,7 +100,7 @@ const editor = shallowRef()
 const dropZoneRef = useTemplateRef('dropzone')
 const fileInputRef = useTemplateRef('fileInput')
 
-const specSettings = ref<Record<string, boolean>>({})
+const { options } = useApiDocOptions()
 
 const updateLanguage = () => {
   if (code.value.length < 1) return
@@ -152,10 +153,6 @@ const { isOverDropZone } = useDropZone(dropZoneRef, {
   // whether to prevent default behavior for unhandled events
   preventDefaultForUnhandled: false,
 })
-
-const updateSettings = (settings: Record<string, boolean>) => {
-  specSettings.value = settings
-}
 </script>
 
 <style lang="scss" scoped>
