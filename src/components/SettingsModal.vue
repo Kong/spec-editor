@@ -42,7 +42,8 @@
               <template #actions>
                 <KInputSwitch
                   :id="setting.prop"
-                  v-model="options[setting.prop]"
+                  :model-value="setting.inverted ? !options[setting.prop] : options[setting.prop]"
+                  @update:model-value="options[setting.prop] = setting.inverted ? !$event : $event"
                 />
               </template>
             </KCard>

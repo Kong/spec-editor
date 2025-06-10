@@ -24,12 +24,14 @@ export const API_DOC_OPTIONS: ApiDocOption[] = [
     label: 'Show try it',
     description: 'Enable in-browser testing for your APIs. All linked gateways must have the CORS plugin configured. Read documentation',
     defaultValue: true,
+    inverted: true,
   },
   {
     prop: 'hide-schemas',
     label: 'Show schemas',
     description: 'Control whether schemas are visible in your API specs. When enabled, schemas appear in the side navigation below the endpoints.',
     defaultValue: true,
+    inverted: true,
   },
   {
     prop: 'hide-deprecated',

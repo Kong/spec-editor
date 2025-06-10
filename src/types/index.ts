@@ -19,4 +19,9 @@ export interface ApiDocOption {
    * This is used to initialize the options object in useApiDocOptions.
    */
   defaultValue: boolean
+  /**
+   * Optional. If true, the option is inverted (e.g., "hide" instead of "show").
+   * This is useful for options that control visibility or enable/disable behavior.
+   */
+  inverted?: boolean
 }
