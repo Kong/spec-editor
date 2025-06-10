@@ -1,27 +1,48 @@
 <template>
-  <div ref="dropzone" class="spec-renderer-playground">
+  <div
+    ref="dropzone"
+    class="spec-renderer-playground"
+  >
     <header class="editor-header">
       <div class="header-title">
-        <KongGradientIcon decorative :size="KUI_ICON_SIZE_50" />
+        <KongGradientIcon
+          decorative
+          :size="KUI_ICON_SIZE_50"
+        />
         <h1>Kong</h1>
         <p>
           API documentation demo
         </p>
       </div>
       <div class="header-actions">
-        <button appearance="tertiary" class="create-developer-portal" data-testid="create-developer-portal">
+        <button
+          appearance="tertiary"
+          class="create-developer-portal"
+          data-testid="create-developer-portal"
+        >
           Create developer portal
         </button>
         <!-- <SettingsModal /> -->
         <KTooltip text="View on GitHub">
-          <KExternalLink class="github-link" hide-icon href="https://github.com/Kong/spec-renderer">
-            <img alt="GitHub logo" src="/github-logo.svg">
+          <KExternalLink
+            class="github-link"
+            hide-icon
+            href="https://github.com/Kong/spec-renderer"
+          >
+            <img
+              alt="GitHub logo"
+              src="/github-logo.svg"
+            >
           </KExternalLink>
         </KTooltip>
       </div>
     </header>
     <Splitpanes class="spec-container default-theme">
-      <Pane class="pane-left" max-size="70" min-size="10">
+      <Pane
+        class="pane-left"
+        max-size="70"
+        min-size="10"
+      >
         <SpecToolbar class="editor-toolbar">
           <template #left>
             <strong>
@@ -29,14 +50,26 @@
             </strong>
           </template>
           <template #right>
-            <KButton appearance="secondary" size="small" @click="dropzoneClick()">
+            <KButton
+              appearance="secondary"
+              size="small"
+              @click="dropzoneClick()"
+            >
               Upload or drop spec file
             </KButton>
-            <input ref="fileInput" accept=".json, .yaml, .yml" style="position: absolute; visibility: hidden;"
-              type="file" @change="fileUploaded">
+            <input
+              ref="fileInput"
+              accept=".json, .yaml, .yml"
+              style="position: absolute; visibility: hidden;"
+              type="file"
+              @change="fileUploaded"
+            >
           </template>
         </SpecToolbar>
-        <SpecEditor :key="fileKey" v-model="code" />
+        <SpecEditor
+          :key="fileKey"
+          v-model="code"
+        />
       </Pane>
       <Pane class="spec-renderer-pane">
         <SpecToolbar>
@@ -49,8 +82,13 @@
             <SettingsModal />
           </template>
         </SpecToolbar>
-        <SpecRenderer class="spec-renderer" :control-address-bar="true"
-          document-scrolling-container=".spec-renderer-pane" :spec="specText" v-bind="options" />
+        <SpecRenderer
+          class="spec-renderer"
+          :control-address-bar="true"
+          document-scrolling-container=".spec-renderer-pane"
+          :spec="specText"
+          v-bind="options"
+        />
       </Pane>
     </Splitpanes>
     <DropzoneModal v-if="isOverDropZone" />
