@@ -8,7 +8,7 @@
 </template>
 
 <script lang="ts" setup>
-import { onBeforeUnmount, ref, watchEffect, nextTick, useTemplateRef } from 'vue'
+import { onBeforeUnmount, ref, watchEffect, useTemplateRef } from 'vue'
 import type * as Monaco from 'monaco-types'
 import { useMonaco } from '@guolao/vue-monaco-editor'
 
@@ -90,6 +90,9 @@ async function setupEditor() {
     monacoRef.value?.editor.setModelLanguage(model, lang.value)
     specYaml.value = value
   }
+
+  // Set the initial language based on the content
+  updateLanguage()
 
   editor.onDidChangeModelContent(updateLanguage)
   editor.onDidPaste(updateLanguage)

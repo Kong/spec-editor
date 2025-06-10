@@ -58,7 +58,7 @@
         max-size="70"
         min-size="10"
       >
-        <Editor v-model="code" />
+        <SpecEditor v-model="code" />
       </Pane>
       <Pane class="spec-renderer-pane">
         <SpecRenderer
@@ -87,7 +87,7 @@ import DropzoneModal from './components/DropzoneModal.vue'
 import SettingsModal from './components/SettingsModal.vue'
 import sampleSpec from './assets/sample-spec.json'
 import useApiDocOptions from '@/composables/useApiDocOptions'
-import Editor from '@/components/Editor.vue'
+import SpecEditor from '@/components/SpecEditor.vue'
 
 const code = ref(JSON.stringify(sampleSpec, null, 2))
 const specText = refDebounced(code, 700)
