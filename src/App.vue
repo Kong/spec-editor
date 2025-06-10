@@ -44,17 +44,21 @@
       >
         <SpecToolbar class="editor-toolbar">
           <template #left>
-            <h4>
+            <h2 class="toolbar-title">
               API specification
-            </h4>
+            </h2>
           </template>
           <template #right>
             <KButton
               appearance="secondary"
+              class="file-input-button"
               size="small"
               @click="dropzoneClick"
             >
-              Upload or drop spec file
+              <UploadIcon decorative />
+              <span>
+                Upload or drop spec file
+              </span>
             </KButton>
             <input
               ref="fileInput"
@@ -73,9 +77,9 @@
       <Pane class="spec-renderer-pane">
         <SpecToolbar>
           <template #left>
-            <h4>
+            <h2 class="toolbar-title">
               API documentation preview
-            </h4>
+            </h2>
           </template>
           <template #right>
             <SettingsModal />
@@ -100,7 +104,7 @@ import 'splitpanes/dist/splitpanes.css'
 import { ref, useTemplateRef } from 'vue'
 import { refDebounced, useDropZone } from '@vueuse/core'
 import { SpecRenderer } from '@kong/spec-renderer'
-import { KongGradientIcon } from '@kong/icons'
+import { KongGradientIcon, UploadIcon } from '@kong/icons'
 import { KUI_ICON_SIZE_50 } from '@kong/design-tokens'
 import { Splitpanes, Pane } from 'splitpanes'
 import DropzoneModal from './components/DropzoneModal.vue'
@@ -264,6 +268,21 @@ const { isOverDropZone } = useDropZone(dropZoneRef, {
     .file-input {
       position: absolute;
       visibility: hidden;
+    }
+  }
+
+  .toolbar-title {
+    font-size: $kui-font-size-30;
+    font-weight: $kui-font-weight-semibold;
+    line-height: $kui-line-height-30;
+  }
+
+  .file-input-button {
+    // hide text in small screens
+    span {
+      @media (max-width: $kui-breakpoint-mobile) {
+        display: none;
+      }
     }
   }
 }
