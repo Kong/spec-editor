@@ -10,9 +10,13 @@
           :size="KUI_ICON_SIZE_50"
         />
         <h1>Kong</h1>
+        <p>
+          API documentation demo
+        </p>
       </div>
       <div class="header-actions">
-        <button
+        <!-- TODO: will remove in the PR for file upload -->
+        <!-- <button
           class="upload-spec-file"
           type="button"
           @click="dropzoneClick()"
@@ -25,24 +29,31 @@
           style="position: absolute; visibility: hidden;"
           type="file"
           @change="fileUploaded"
+        > -->
+        <button
+          appearance="tertiary"
+          class="create-developer-portal"
+          data-testid="create-developer-portal"
         >
-        <SettingsModal />
-        <a
-          class="github-link"
-          href="https://github.com/Kong/spec-renderer"
-          rel="noopener noreferrer"
-          target="_blank"
-          title="Kong Spec Renderer repository"
-        >
-          <img
-            alt="GitHub logo"
-            src="/github-logo.svg"
+          Create developer portal
+        </button>
+        <!-- <SettingsModal /> -->
+        <KTooltip text="View on GitHub">
+          <KExternalLink
+            class="github-link"
+            hide-icon
+            href="https://github.com/Kong/spec-renderer"
           >
-        </a>
+            <img
+              alt="GitHub logo"
+              src="/github-logo.svg"
+            >
+          </KExternalLink>
+        </KTooltip>
       </div>
     </header>
-    <splitpanes class="spec-container default-theme">
-      <pane
+    <Splitpanes class="spec-container default-theme">
+      <Pane
         max-size="70"
         min-size="10"
       >
@@ -53,8 +64,8 @@
           theme="vs-dark"
           @mount="handleMount"
         />
-      </pane>
-      <pane class="spec-renderer-pane">
+      </Pane>
+      <Pane class="spec-renderer-pane">
         <SpecRenderer
           class="spec-renderer"
           :control-address-bar="true"
@@ -62,8 +73,8 @@
           :spec="specText"
           v-bind="options"
         />
-      </pane>
-    </splitpanes>
+      </Pane>
+    </Splitpanes>
     <DropzoneModal v-if="isOverDropZone" />
   </div>
 </template>
@@ -98,7 +109,7 @@ const specText = refDebounced(code, 700)
 const editor = shallowRef()
 
 const dropZoneRef = useTemplateRef('dropzone')
-const fileInputRef = useTemplateRef('fileInput')
+// const fileInputRef = useTemplateRef('fileInput')
 
 const { options } = useApiDocOptions()
 
@@ -120,16 +131,16 @@ const handleMount: VueMonacoEditorEmitsOptions['mount'] = (editorInstance) => {
   editor.value.onDidPaste(updateLanguage)
 }
 
-const dropzoneClick = () => {
-  fileInputRef.value?.click()
-}
+// const dropzoneClick = () => {
+//   fileInputRef.value?.click()
+// }
 
-const fileUploaded = () => {
-  const file = fileInputRef.value?.files?.item(0)
-  if (file) {
-    onDrop([file])
-  }
-}
+// const fileUploaded = () => {
+//   const file = fileInputRef.value?.files?.item(0)
+//   if (file) {
+//     onDrop([file])
+//   }
+// }
 
 function onDrop(files: File[] | null) {
   const file = files?.[0]
@@ -157,7 +168,9 @@ const { isOverDropZone } = useDropZone(dropZoneRef, {
 
 <style lang="scss" scoped>
 .spec-renderer-playground {
+  background: $kui-color-background-inverse;
   font-family: 'Inter', Helvetica, Arial, sans-serif;
+  padding-left: $kui-space-50;
   $header-height: $kui-space-120;
 
   * {
@@ -184,12 +197,18 @@ const { isOverDropZone } = useDropZone(dropZoneRef, {
         font-size: $kui-font-size-50;
         line-height: $kui-line-height-50;
       }
+
+      p {
+        font-size: $kui-font-size-40;
+        font-weight: $kui-font-weight-regular;
+        margin-left: $kui-space-60;
+      }
     }
 
     .header-actions {
       align-items: center;
       display: inline-flex;
-      gap: $kui-space-40;
+      gap: $kui-space-60;
 
       .language-selector {
         :deep(.trigger-button) {
@@ -202,15 +221,16 @@ const { isOverDropZone } = useDropZone(dropZoneRef, {
         }
       }
 
-      .upload-spec-file {
+      .create-developer-portal {
         @include default-button-reset;
         background-color: $kui-color-background-transparent;
-        border: $kui-border-width-10 solid $kui-color-border;
-        border-radius: $kui-border-radius-20;
+        border: $kui-border-width-20 solid $kui-color-border-inverse;
+        border-radius: $kui-border-radius-30;
         color: $kui-color-text-inverse;
         cursor: pointer;
         font-size: $kui-font-size-30;
-        padding: $kui-space-20 $kui-space-40;
+        font-weight: $kui-font-weight-semibold;
+        padding: $kui-space-30 $kui-space-50;
         transition: background-color 0.2s ease-in-out,
           color 0.2s ease-in-out,
           border-color 0.2s ease-in-out;
@@ -239,6 +259,10 @@ const { isOverDropZone } = useDropZone(dropZoneRef, {
       background-color: $kui-color-background-transparent;
       overflow: auto;
     }
+  }
+
+  .spec-renderer-pane {
+    background: $kui-color-background!important;
   }
 }
 </style>
