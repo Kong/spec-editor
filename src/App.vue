@@ -22,7 +22,6 @@
         >
           Create developer portal
         </button>
-        <!-- <SettingsModal /> -->
         <KTooltip text="View on GitHub">
           <KExternalLink
             class="github-link"
@@ -45,22 +44,22 @@
       >
         <SpecToolbar class="editor-toolbar">
           <template #left>
-            <strong>
+            <h4>
               API specification
-            </strong>
+            </h4>
           </template>
           <template #right>
             <KButton
               appearance="secondary"
               size="small"
-              @click="dropzoneClick()"
+              @click="dropzoneClick"
             >
               Upload or drop spec file
             </KButton>
             <input
               ref="fileInput"
               accept=".json, .yaml, .yml"
-              style="position: absolute; visibility: hidden;"
+              class="file-input"
               type="file"
               @change="fileUploaded"
             >
@@ -74,9 +73,9 @@
       <Pane class="spec-renderer-pane">
         <SpecToolbar>
           <template #left>
-            <strong>
+            <h4>
               API documentation preview
-            </strong>
+            </h4>
           </template>
           <template #right>
             <SettingsModal />
@@ -98,7 +97,7 @@
 <script setup lang="ts">
 import '@kong/spec-renderer/dist/style.css'
 import 'splitpanes/dist/splitpanes.css'
-import { ref, shallowRef, useTemplateRef } from 'vue'
+import { ref, useTemplateRef } from 'vue'
 import { refDebounced, useDropZone } from '@vueuse/core'
 import { SpecRenderer } from '@kong/spec-renderer'
 import { KongGradientIcon } from '@kong/icons'
@@ -131,7 +130,7 @@ const fileUploaded = () => {
   }
 }
 
-function onDrop(files: File[] | null) {
+const onDrop = (files: File[] | null) => {
   const file = files?.[0]
 
   if (file) {
@@ -261,6 +260,11 @@ const { isOverDropZone } = useDropZone(dropZoneRef, {
 
   .editor-toolbar {
     border-top-left-radius: $kui-border-radius-50;
+
+    .file-input {
+      position: absolute;
+      visibility: hidden;
+    }
   }
 }
 

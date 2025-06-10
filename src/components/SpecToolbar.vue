@@ -1,5 +1,5 @@
 <template>
-  <header class="studio-modal-toolbar">
+  <header class="spec-toolbar">
     <div
       v-if="!!$slots.left"
       class="left"
@@ -24,7 +24,7 @@
 <style lang="scss" scoped>
 $defaultHeight: 44px;
 
-.studio-modal-toolbar {
+.spec-toolbar {
   align-items: center;
   background: $kui-color-background;
   border-bottom: $kui-border-width-10 solid $kui-color-border;

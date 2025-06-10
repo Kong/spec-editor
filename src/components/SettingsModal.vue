@@ -5,7 +5,7 @@
         appearance="secondary"
         icon
         size="small"
-        @click="toggleModal()"
+        @click="toggleModal"
       >
         <CogIcon
           decorative
@@ -21,7 +21,7 @@
 
           <button
             class="close-modal-button"
-            @click="toggleModal()"
+            @click="toggleModal"
           >
             <CloseIcon
               decorative
