@@ -203,6 +203,12 @@ const { isOverDropZone } = useDropZone(dropZoneRef, {
         font-weight: $kui-font-weight-regular;
         margin-left: $kui-space-60;
       }
+
+      @media (max-width: $kui-breakpoint-mobile) {
+        p {
+          display: none;
+        }
+      }
     }
 
     .header-actions {
@@ -262,7 +268,7 @@ const { isOverDropZone } = useDropZone(dropZoneRef, {
   }
 
   .spec-renderer-pane {
-    background: $kui-color-background!important;
+    background: $kui-color-background !important;
   }
 }
 </style>
