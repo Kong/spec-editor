@@ -54,16 +54,11 @@
     </header>
     <Splitpanes class="spec-container default-theme">
       <Pane
+        class="pane-left"
         max-size="70"
         min-size="10"
       >
-        <Editor
-          v-model:value="code"
-          :language="editorLanguage"
-          :options="MONACO_EDITOR_OPTIONS"
-          theme="vs-dark"
-          @mount="handleMount"
-        />
+        <Editor v-model="code" />
       </Pane>
       <Pane class="spec-renderer-pane">
         <SpecRenderer
@@ -75,7 +70,7 @@
         />
       </Pane>
     </Splitpanes>
-    <DropzoneModal v-if="isOverDropZone" />
+    <!-- <DropzoneModal v-if="isOverDropZone" /> -->
   </div>
 </template>
 
@@ -87,49 +82,20 @@ import { refDebounced, useDropZone } from '@vueuse/core'
 import { SpecRenderer } from '@kong/spec-renderer'
 import { KongGradientIcon } from '@kong/icons'
 import { KUI_ICON_SIZE_50 } from '@kong/design-tokens'
-import type { VueMonacoEditorEmitsOptions } from '@guolao/vue-monaco-editor'
-import { Editor } from '@guolao/vue-monaco-editor'
 import { Splitpanes, Pane } from 'splitpanes'
 import DropzoneModal from './components/DropzoneModal.vue'
 import SettingsModal from './components/SettingsModal.vue'
 import sampleSpec from './assets/sample-spec.json'
 import useApiDocOptions from '@/composables/useApiDocOptions'
+import Editor from '@/components/Editor.vue'
 
-const MONACO_EDITOR_OPTIONS = {
-  theme: 'vs-dark',
-  automaticLayout: true,
-  formatOnType: true,
-  formatOnPaste: true,
-  minimap: { enabled: false },
-}
-
-const editorLanguage = ref('json')
 const code = ref(JSON.stringify(sampleSpec, null, 2))
 const specText = refDebounced(code, 700)
-const editor = shallowRef()
 
 const dropZoneRef = useTemplateRef('dropzone')
 // const fileInputRef = useTemplateRef('fileInput')
 
 const { options } = useApiDocOptions()
-
-const updateLanguage = () => {
-  if (code.value.length < 1) return
-
-  // simplest hack to detect if we have JSON or YAML
-  if (code.value.startsWith('{') || code.value.startsWith('[')) {
-    editorLanguage.value = 'json'
-  } else {
-    editorLanguage.value = 'yaml'
-  }
-}
-
-const handleMount: VueMonacoEditorEmitsOptions['mount'] = (editorInstance) => {
-  editor.value = editorInstance
-
-  // auto-detect language when new code is pasted
-  editor.value.onDidPaste(updateLanguage)
-}
 
 // const dropzoneClick = () => {
 //   fileInputRef.value?.click()
@@ -142,28 +108,28 @@ const handleMount: VueMonacoEditorEmitsOptions['mount'] = (editorInstance) => {
 //   }
 // }
 
-function onDrop(files: File[] | null) {
-  const file = files?.[0]
+// function onDrop(files: File[] | null) {
+//   const file = files?.[0]
 
-  if (file) {
-    const reader = new FileReader()
-    reader.readAsText(file, 'UTF-8')
-    reader.onload = (e) => {
-      if (e.target?.result) {
-        code.value = e.target.result.toString()
-        updateLanguage()
-      }
-    }
-  }
-}
+//   if (file) {
+//     const reader = new FileReader()
+//     reader.readAsText(file, 'UTF-8')
+//     reader.onload = (e) => {
+//       if (e.target?.result) {
+//         code.value = e.target.result.toString()
+//         updateLanguage()
+//       }
+//     }
+//   }
+// }
 
-const { isOverDropZone } = useDropZone(dropZoneRef, {
-  onDrop,
-  dataTypes: ['application/x-yaml', 'application/json'],
-  multiple: false,
-  // whether to prevent default behavior for unhandled events
-  preventDefaultForUnhandled: false,
-})
+// const { isOverDropZone } = useDropZone(dropZoneRef, {
+//   onDrop,
+//   dataTypes: ['application/x-yaml', 'application/json'],
+//   multiple: false,
+//   // whether to prevent default behavior for unhandled events
+//   preventDefaultForUnhandled: false,
+// })
 </script>
 
 <style lang="scss" scoped>
@@ -270,5 +236,13 @@ const { isOverDropZone } = useDropZone(dropZoneRef, {
   .spec-renderer-pane {
     background: $kui-color-background !important;
   }
+
+  .editor-toolbar {
+    border-top-left-radius: $kui-border-radius-50;
+  }
+}
+
+.pane-left {
+  margin-left: 10px;
 }
 </style>
