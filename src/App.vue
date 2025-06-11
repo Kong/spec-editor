@@ -78,7 +78,7 @@
         <SpecToolbar>
           <template #left>
             <h2 class="toolbar-title">
-              Preview
+              Api documentation preview
             </h2>
           </template>
           <template #right>
@@ -162,7 +162,6 @@ const { isOverDropZone } = useDropZone(dropZoneRef, {
 .spec-renderer-playground {
   background: $kui-color-background-inverse;
   font-family: 'Inter', Helvetica, Arial, sans-serif;
-  $header-height: $kui-space-120;
 
   * {
     box-sizing: border-box;
@@ -174,7 +173,7 @@ const { isOverDropZone } = useDropZone(dropZoneRef, {
     background-color: $kui-color-background-inverse;
     color: $kui-color-text-inverse;
     display: flex;
-    height: $header-height;
+    height: $headerHeight;
     justify-content: space-between;
     padding: $kui-space-20 $kui-space-60;
 
@@ -249,7 +248,7 @@ const { isOverDropZone } = useDropZone(dropZoneRef, {
   }
 
   .spec-container.default-theme {
-    height: calc(100dvh - #{$header-height});
+    height: calc(100dvh - #{$headerHeight});
     width: 100dvw;
 
     .splitpanes__pane {
@@ -296,5 +295,9 @@ const { isOverDropZone } = useDropZone(dropZoneRef, {
   border-right: $kui-border-width-10 solid $kui-color-border;
   margin-left: $kui-space-60;
   overflow: hidden !important;
+}
+
+:deep(.spec-renderer-small-screen-header) {
+  top: #{$toolbarHeight}!important;
 }
 </style>

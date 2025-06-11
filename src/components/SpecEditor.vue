@@ -109,7 +109,7 @@ async function setupEditor() {
 
   .editor-container {
     background-color: $kui-color-background;
-    height: 100vh;
+    height: calc(100vh - (#{$toolbarHeight} + #{$headerHeight}));
   }
 }
 </style>

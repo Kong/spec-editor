@@ -22,15 +22,13 @@
 </template>
 
 <style lang="scss" scoped>
-$defaultHeight: 44px;
-
 .spec-toolbar {
   align-items: center;
   background: $kui-color-background;
   border-bottom: $kui-border-width-10 solid $kui-color-border;
   display: flex;
   justify-content: space-between;
-  min-height: $defaultHeight;
+  min-height: $toolbarHeight;
   overflow-x: auto;
   overflow-y: hidden;
   padding-left: $kui-space-40;
@@ -38,9 +36,7 @@ $defaultHeight: 44px;
   position: sticky;
   scrollbar-width: thin;
   top: 0px;
-  // to show over the spec-renderer menu
-  // TODO: find a better way to handle this
-  z-index: 1001;
+  z-index: 9;
 }
 
 .left,

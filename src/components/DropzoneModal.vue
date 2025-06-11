@@ -25,7 +25,7 @@ import { UploadIcon } from '@kong/icons'
   position: fixed;
   right: 0;
   top: 0;
-  z-index: 9999;
+  z-index: 1000;
 }
 
 .modal-container {
