@@ -23,10 +23,7 @@
       title="API specification"
     >
       <template #icon>
-        <CodeblockIcon
-          :color="KUI_COLOR_TEXT_NEUTRAL"
-          decorative
-        />
+        <CodeblockIcon decorative />
       </template>
     </KEmptyState>
   </div>
@@ -38,7 +35,6 @@ import type * as Monaco from 'monaco-types'
 import { useMonaco } from '@guolao/vue-monaco-editor'
 import { KEmptyState } from '@kong/kongponents'
 import { CodeblockIcon, ProgressIcon } from '@kong/icons'
-import { KUI_COLOR_TEXT_NEUTRAL } from '@kong/design-tokens'
 
 // Props
 const content = defineModel<string>({
