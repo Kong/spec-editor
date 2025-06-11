@@ -78,7 +78,7 @@
         <SpecToolbar>
           <template #left>
             <h2 class="toolbar-title">
-              API documentation preview
+              Preview
             </h2>
           </template>
           <template #right>
@@ -275,6 +275,11 @@ const { isOverDropZone } = useDropZone(dropZoneRef, {
     font-size: $kui-font-size-30;
     font-weight: $kui-font-weight-semibold;
     line-height: $kui-line-height-30;
+    // truncate text
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
   }
 
   .file-input-button {
