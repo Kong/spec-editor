@@ -290,5 +290,6 @@ const { isOverDropZone } = useDropZone(dropZoneRef, {
 .pane-left {
   border-right: $kui-border-width-10 solid $kui-color-border;
   margin-left: $kui-space-60;
+  overflow: hidden !important;
 }
 </style>
