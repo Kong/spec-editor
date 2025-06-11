@@ -1,15 +1,17 @@
 <template>
   <BaseModal class="renderer-settings-modal">
     <template #trigger="{ toggleModal }">
-      <button
-        class="settings-trigger-button"
-        @click="toggleModal()"
+      <KButton
+        appearance="secondary"
+        icon
+        size="small"
+        @click="toggleModal"
       >
         <CogIcon
           decorative
           :size="KUI_ICON_SIZE_40"
         />
-      </button>
+      </KButton>
     </template>
 
     <template #default="{ toggleModal }">
@@ -19,7 +21,7 @@
 
           <button
             class="close-modal-button"
-            @click="toggleModal()"
+            @click="toggleModal"
           >
             <CloseIcon
               decorative
@@ -66,22 +68,6 @@ const { options } = useApiDocOptions()
 </script>
 
 <style lang="scss" scoped>
-.renderer-settings-modal {
-  button.settings-trigger-button {
-    @include default-button-reset;
-    color: $kui-color-text-inverse;
-    cursor: pointer;
-    padding: $kui-space-20 $kui-space-40;
-    transition: color 0.2s ease-in-out,
-      color 0.2s ease-in-out,
-      border-color 0.2s ease-in-out;
-
-    &:hover:not(:disabled):not(:focus):not(:active) {
-      color: $kui-color-text-primary-weak;
-    }
-  }
-}
-
 .renderer-settings-modal-container {
   background-color: $kui-color-background;
   border: $kui-border-width-10 solid $kui-color-border;

@@ -15,21 +15,6 @@
         </p>
       </div>
       <div class="header-actions">
-        <!-- TODO: will remove in the PR for file upload -->
-        <!-- <button
-          class="upload-spec-file"
-          type="button"
-          @click="dropzoneClick()"
-        >
-          Upload or drop spec file
-        </button>
-        <input
-          ref="fileInput"
-          accept=".json, .yaml, .yml"
-          style="position: absolute; visibility: hidden;"
-          type="file"
-          @change="fileUploaded"
-        > -->
         <button
           appearance="tertiary"
           class="create-developer-portal"
@@ -37,7 +22,6 @@
         >
           Create developer portal
         </button>
-        <!-- <SettingsModal /> -->
         <KTooltip text="View on GitHub">
           <KExternalLink
             class="github-link"
@@ -58,9 +42,49 @@
         max-size="70"
         min-size="10"
       >
-        <SpecEditor v-model="code" />
+        <SpecToolbar class="editor-toolbar">
+          <template #left>
+            <h2 class="toolbar-title">
+              API specification
+            </h2>
+          </template>
+          <template #right>
+            <KButton
+              appearance="secondary"
+              class="file-input-button"
+              size="small"
+              @click="dropzoneClick"
+            >
+              <UploadIcon decorative />
+              <span>
+                Upload or drop spec file
+              </span>
+            </KButton>
+            <input
+              ref="fileInput"
+              accept=".json, .yaml, .yml"
+              class="file-input"
+              type="file"
+              @change="fileUploaded"
+            >
+          </template>
+        </SpecToolbar>
+        <SpecEditor
+          :key="fileKey"
+          v-model="code"
+        />
       </Pane>
       <Pane class="spec-renderer-pane">
+        <SpecToolbar>
+          <template #left>
+            <h2 class="toolbar-title">
+              Api documentation preview
+            </h2>
+          </template>
+          <template #right>
+            <SettingsModal />
+          </template>
+        </SpecToolbar>
         <SpecRenderer
           class="spec-renderer"
           :control-address-bar="true"
@@ -70,17 +94,17 @@
         />
       </Pane>
     </Splitpanes>
-    <!-- <DropzoneModal v-if="isOverDropZone" /> -->
+    <DropzoneModal v-if="isOverDropZone" />
   </div>
 </template>
 
 <script setup lang="ts">
 import '@kong/spec-renderer/dist/style.css'
 import 'splitpanes/dist/splitpanes.css'
-import { ref, shallowRef, useTemplateRef } from 'vue'
+import { ref, useTemplateRef } from 'vue'
 import { refDebounced, useDropZone } from '@vueuse/core'
 import { SpecRenderer } from '@kong/spec-renderer'
-import { KongGradientIcon } from '@kong/icons'
+import { KongGradientIcon, UploadIcon } from '@kong/icons'
 import { KUI_ICON_SIZE_50 } from '@kong/design-tokens'
 import { Splitpanes, Pane } from 'splitpanes'
 import DropzoneModal from './components/DropzoneModal.vue'
@@ -88,56 +112,56 @@ import SettingsModal from './components/SettingsModal.vue'
 import sampleSpec from './assets/sample-spec.json'
 import useApiDocOptions from '@/composables/useApiDocOptions'
 import SpecEditor from '@/components/SpecEditor.vue'
+import SpecToolbar from '@/components/SpecToolbar.vue'
 
 const code = ref(JSON.stringify(sampleSpec, null, 2))
 const specText = refDebounced(code, 700)
 
 const dropZoneRef = useTemplateRef('dropzone')
-// const fileInputRef = useTemplateRef('fileInput')
+const fileInputRef = useTemplateRef('fileInput')
+const fileKey = ref(0)
 
 const { options } = useApiDocOptions()
 
-// const dropzoneClick = () => {
-//   fileInputRef.value?.click()
-// }
+const dropzoneClick = () => {
+  fileInputRef.value?.click()
+}
 
-// const fileUploaded = () => {
-//   const file = fileInputRef.value?.files?.item(0)
-//   if (file) {
-//     onDrop([file])
-//   }
-// }
+const fileUploaded = () => {
+  const file = fileInputRef.value?.files?.item(0)
+  if (file) {
+    onDrop([file])
+  }
+}
 
-// function onDrop(files: File[] | null) {
-//   const file = files?.[0]
+const onDrop = (files: File[] | null) => {
+  const file = files?.[0]
 
-//   if (file) {
-//     const reader = new FileReader()
-//     reader.readAsText(file, 'UTF-8')
-//     reader.onload = (e) => {
-//       if (e.target?.result) {
-//         code.value = e.target.result.toString()
-//         updateLanguage()
-//       }
-//     }
-//   }
-// }
+  if (file) {
+    const reader = new FileReader()
+    reader.readAsText(file, 'UTF-8')
+    reader.onload = (e) => {
+      if (e.target?.result) {
+        code.value = e.target.result.toString()
+        fileKey.value += 1 // Force re-render of the editor
+      }
+    }
+  }
+}
 
-// const { isOverDropZone } = useDropZone(dropZoneRef, {
-//   onDrop,
-//   dataTypes: ['application/x-yaml', 'application/json'],
-//   multiple: false,
-//   // whether to prevent default behavior for unhandled events
-//   preventDefaultForUnhandled: false,
-// })
+const { isOverDropZone } = useDropZone(dropZoneRef, {
+  onDrop,
+  dataTypes: ['application/x-yaml', 'application/json'],
+  multiple: false,
+  // whether to prevent default behavior for unhandled events
+  preventDefaultForUnhandled: false,
+})
 </script>
 
 <style lang="scss" scoped>
 .spec-renderer-playground {
   background: $kui-color-background-inverse;
   font-family: 'Inter', Helvetica, Arial, sans-serif;
-  padding-left: $kui-space-50;
-  $header-height: $kui-space-120;
 
   * {
     box-sizing: border-box;
@@ -149,7 +173,7 @@ const { options } = useApiDocOptions()
     background-color: $kui-color-background-inverse;
     color: $kui-color-text-inverse;
     display: flex;
-    height: $header-height;
+    height: $headerHeight;
     justify-content: space-between;
     padding: $kui-space-20 $kui-space-60;
 
@@ -224,7 +248,7 @@ const { options } = useApiDocOptions()
   }
 
   .spec-container.default-theme {
-    height: calc(100dvh - #{$header-height});
+    height: calc(100dvh - #{$headerHeight});
     width: 100dvw;
 
     .splitpanes__pane {
@@ -239,10 +263,41 @@ const { options } = useApiDocOptions()
 
   .editor-toolbar {
     border-top-left-radius: $kui-border-radius-50;
+
+    .file-input {
+      position: absolute;
+      visibility: hidden;
+    }
+  }
+
+  .toolbar-title {
+    font-size: $kui-font-size-30;
+    font-weight: $kui-font-weight-semibold;
+    line-height: $kui-line-height-30;
+    // truncate text
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+  }
+
+  .file-input-button {
+    // hide text in small screens
+    span {
+      @media (max-width: $kui-breakpoint-mobile) {
+        display: none;
+      }
+    }
   }
 }
 
 .pane-left {
-  margin-left: 10px;
+  border-right: $kui-border-width-10 solid $kui-color-border;
+  margin-left: $kui-space-60;
+  overflow: hidden !important;
+}
+
+:deep(.spec-renderer-small-screen-header) {
+  top: #{$toolbarHeight}!important;
 }
 </style>
