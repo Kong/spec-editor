@@ -80,7 +80,6 @@
                 <KDropdownItem
                   v-for="item of files"
                   :key="item.label"
-                  :disabled="item.label === currentFile"
                   @click="loadSampleSpec(item.label)"
                 >
                   {{ item.label }}
@@ -104,7 +103,7 @@
           </template>
         </SpecToolbar>
         <SpecEditor
-          :key="currentFile"
+          :key="fileKey"
           v-model="code"
         />
       </Pane>
@@ -186,8 +185,8 @@ const fileInputRef = useTemplateRef('fileInput')
 const code = ref(JSON.stringify(files[0].file, null, 2))
 const specText = refDebounced(code, 700)
 
-// to keep track of the currently loaded file and to re-render
-const currentFile = ref<TFileLabel | number>(files[0].label)
+// to force re-render of the editor when the spec changes
+const fileKey = ref<number>(0)
 // to track if the spec has been cleared
 const isCleared = ref(false)
 
@@ -195,7 +194,7 @@ const { options } = useApiDocOptions()
 const { toaster } = useToaster()
 
 const loadSampleSpec = async (fileLabel: TFileLabel) => {
-  if (!fileLabel || fileLabel === currentFile.value) {
+  if (!fileLabel) {
     return
   }
 
@@ -209,8 +208,7 @@ const loadSampleSpec = async (fileLabel: TFileLabel) => {
       return
     }
     code.value = JSON.stringify(module.file, null, 2)
-    isCleared.value = false
-    currentFile.value = fileLabel
+    resetEditor()
   } catch (error) {
     console.error(`Failed to load file: ${fileLabel}`, error)
   }
@@ -221,7 +219,12 @@ const clearSpec = () => {
 
   isCleared.value = true
   code.value = ''
-  currentFile.value = 0 // reset to a timestamp to force re-render
+  fileKey.value++
+}
+
+const resetEditor = () => {
+  isCleared.value = false
+  fileKey.value++
 }
 
 
@@ -261,8 +264,7 @@ const onDrop = (files: File[] | null) => {
   reader.onload = (e) => {
     if (e.target?.result) {
       code.value = e.target.result.toString()
-      isCleared.value = false
-      currentFile.value = new Date().getTime() // use timestamp to force re-render
+      resetEditor()
     }
   }
 }
