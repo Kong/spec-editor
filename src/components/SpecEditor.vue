@@ -137,7 +137,9 @@ async function setupEditor() {
     height: calc(100vh - (#{$toolbarHeight} + #{$headerHeight}));
   }
 }
+</style>
 
+<style lang="scss">
 .editor-container-state {
   background: transparent;
   left: 50%;
