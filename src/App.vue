@@ -5,11 +5,7 @@
   >
     <header class="editor-header">
       <div class="header-title">
-        <KongGradientIcon
-          decorative
-          :size="KUI_ICON_SIZE_50"
-        />
-        <h1>Kong</h1>
+        <KongLogo class="kong-logo" />
         <p>
           API documentation demo
         </p>
@@ -148,8 +144,8 @@ import 'splitpanes/dist/splitpanes.css'
 import { ref, useTemplateRef } from 'vue'
 import { refDebounced, useDropZone } from '@vueuse/core'
 import { SpecRenderer } from '@kong/spec-renderer'
-import { ChevronDownIcon, KongGradientIcon, UploadIcon, VisibilityIcon } from '@kong/icons'
-import { KUI_COLOR_TEXT_NEUTRAL, KUI_ICON_SIZE_50 } from '@kong/design-tokens'
+import { ChevronDownIcon, UploadIcon, VisibilityIcon } from '@kong/icons'
+import { KUI_COLOR_TEXT_NEUTRAL } from '@kong/design-tokens'
 import { Splitpanes, Pane } from 'splitpanes'
 
 import useApiDocOptions from '@/composables/useApiDocOptions'
@@ -159,6 +155,7 @@ import DropzoneModal from '@/components/DropzoneModal.vue'
 import SettingsModal from '@/components/SettingsModal.vue'
 import SpecEditor from '@/components/SpecEditor.vue'
 import SpecToolbar from '@/components/SpecToolbar.vue'
+import KongLogo from '@/components/KongLogo.vue'
 
 import specPetStore from '@/assets/sample-spec.json'
 import specGithub from '@/assets/specs/github.json'
@@ -447,5 +444,9 @@ const { isOverDropZone } = useDropZone(dropZoneRef, {
     font-size: $kui-font-size-30;
     font-weight: $kui-font-weight-medium;
   }
+}
+
+.kong-logo {
+  margin-left: $kui-space-20;
 }
 </style>
