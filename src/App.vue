@@ -79,8 +79,9 @@
                 </KDropdownItem>
                 <KDropdownItem
                   v-for="item of files"
-                  :key="item.file"
-                  @click="loadSampleSpec(item.file)"
+                  :key="item.label"
+                  :disabled="item.label === currentFile"
+                  @click="loadSampleSpec(item.label)"
                 >
                   {{ item.label }}
                 </KDropdownItem>
@@ -103,7 +104,7 @@
           </template>
         </SpecToolbar>
         <SpecEditor
-          :key="fileKey"
+          :key="currentFile"
           v-model="code"
         />
       </Pane>
@@ -160,39 +161,58 @@ import SettingsModal from '@/components/SettingsModal.vue'
 import SpecEditor from '@/components/SpecEditor.vue'
 import SpecToolbar from '@/components/SpecToolbar.vue'
 
-import sampleSpec from '@/assets/sample-spec.json'
+import specPetStore from '@/assets/sample-spec.json'
+import specGithub from '@/assets/specs/github.json'
+
+type TFileLabel = typeof files[number]['label']
 
 // constants
 const MAX_FILE_SIZE = 8 * 1024 * 1024 // 8MB
 const SUPPORTED_TYPES = ['application/json', 'application/x-yaml', 'text/yaml']
 const files = [
   {
+    label: 'Pet store',
+    file: specPetStore,
+  },
+  {
     label: 'Github',
-    file: 'github.json',
+    file: specGithub,
   },
 ] as const
 
 const dropZoneRef = useTemplateRef('dropzone')
 const fileInputRef = useTemplateRef('fileInput')
 
-const code = ref(JSON.stringify(sampleSpec, null, 2))
+const code = ref(JSON.stringify(files[0].file, null, 2))
 const specText = refDebounced(code, 700)
 
-// to force re-render of the editor when the spec changes
-const fileKey = ref(0)
+// to keep track of the currently loaded file and to re-render
+const currentFile = ref<TFileLabel | number>(files[0].label)
 // to track if the spec has been cleared
 const isCleared = ref(false)
 
 const { options } = useApiDocOptions()
 const { toaster } = useToaster()
 
-const loadSampleSpec = async (file: typeof files[number]['file']) => {
+const loadSampleSpec = async (fileLabel: TFileLabel) => {
+  if (!fileLabel || fileLabel === currentFile.value) {
+    return
+  }
+
   try {
-    const module = await import(`./assets/specs/${file}`)
-    code.value = JSON.stringify(module, null, 2)
-    resetEditor()
+    const module = files.find(item => item.label === fileLabel)
+    if (!module) {
+      toaster.open({
+        appearance: 'danger',
+        message: `File not found: ${fileLabel}`,
+      })
+      return
+    }
+    code.value = JSON.stringify(module.file, null, 2)
+    isCleared.value = false
+    currentFile.value = fileLabel
   } catch (error) {
-    console.error(`Failed to load file: ${file}`, error)
+    console.error(`Failed to load file: ${fileLabel}`, error)
   }
 }
 
@@ -201,12 +221,7 @@ const clearSpec = () => {
 
   isCleared.value = true
   code.value = ''
-  fileKey.value++
-}
-
-const resetEditor = () => {
-  isCleared.value = false
-  fileKey.value++
+  currentFile.value = 0 // reset to a timestamp to force re-render
 }
 
 
@@ -246,7 +261,8 @@ const onDrop = (files: File[] | null) => {
   reader.onload = (e) => {
     if (e.target?.result) {
       code.value = e.target.result.toString()
-      resetEditor()
+      isCleared.value = false
+      currentFile.value = new Date().getTime() // use timestamp to force re-render
     }
   }
 }
@@ -410,9 +426,10 @@ const { isOverDropZone } = useDropZone(dropZoneRef, {
 }
 
 :deep(.k-dropdown-item) {
-  &.disabled {
+  &.disabled.has-divider {
     .dropdown-item-trigger-label {
       color: $kui-color-text-neutral;
+      cursor: auto;
       font-size: $kui-font-size-20;
     }
   }
