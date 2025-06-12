@@ -137,7 +137,10 @@ async function setupEditor() {
     height: calc(100vh - (#{$toolbarHeight} + #{$headerHeight}));
   }
 }
+</style>
 
+<style lang="scss">
+// can't move it to global.scss as the tokens would not be available
 .editor-container-state {
   background: transparent;
   left: 50%;
