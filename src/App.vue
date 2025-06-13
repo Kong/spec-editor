@@ -35,6 +35,7 @@
     </header>
     <Splitpanes class="spec-container default-theme">
       <Pane
+        v-if="showLeftPane"
         class="pane-left"
         max-size="70"
         min-size="10"
@@ -89,6 +90,14 @@
             >
               Clear
             </KButton>
+            <KButton
+              appearance="secondary"
+              icon
+              size="small"
+              @click="toggleLeftPane"
+            >
+              <ChevronDoubleLeftIcon decorative />
+            </KButton>
             <input
               ref="fileInput"
               accept=".json, .yaml, .yml"
@@ -103,9 +112,21 @@
           v-model="code"
         />
       </Pane>
-      <Pane class="spec-renderer-pane">
+      <Pane
+        class="spec-renderer-pane"
+        :class="{ 'collapsed': !showLeftPane }"
+      >
         <SpecToolbar>
           <template #left>
+            <KButton
+              v-if="!showLeftPane"
+              appearance="secondary"
+              icon
+              size="small"
+              @click="toggleLeftPane"
+            >
+              <ChevronDoubleRightIcon decorative />
+            </KButton>
             <h2 class="toolbar-title">
               API documentation preview
             </h2>
@@ -141,10 +162,11 @@
 <script setup lang="ts">
 import '@kong/spec-renderer/dist/style.css'
 import 'splitpanes/dist/splitpanes.css'
+
 import { ref, useTemplateRef } from 'vue'
-import { refDebounced, useDropZone } from '@vueuse/core'
 import { SpecRenderer } from '@kong/spec-renderer'
-import { ChevronDownIcon, UploadIcon, VisibilityIcon } from '@kong/icons'
+import { refDebounced, useDropZone, useLocalStorage } from '@vueuse/core'
+import { ChevronDoubleLeftIcon, ChevronDoubleRightIcon, ChevronDownIcon, UploadIcon, VisibilityIcon } from '@kong/icons'
 import { KUI_COLOR_TEXT_NEUTRAL } from '@kong/design-tokens'
 import { Splitpanes, Pane } from 'splitpanes'
 
@@ -189,6 +211,12 @@ const isCleared = ref(false)
 
 const { options } = useApiDocOptions()
 const { toaster } = useToaster()
+
+const showLeftPane = useLocalStorage('spec-editor-left-pane', true, { listenToStorageChanges: false })
+
+const toggleLeftPane = () => {
+  showLeftPane.value = !showLeftPane.value
+}
 
 const loadSampleSpec = async (fileLabel: TFileLabel) => {
   if (!fileLabel) {
@@ -377,6 +405,11 @@ const { isOverDropZone } = useDropZone(dropZoneRef, {
   .spec-renderer-pane {
     background: $kui-color-background !important;
     position: relative;
+
+    &.collapsed {
+      border-top-left-radius: $kui-border-radius-50;
+      margin-left: $kui-space-60;
+    }
   }
 
   .editor-toolbar {
