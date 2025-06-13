@@ -37,8 +37,8 @@
       <Pane
         v-if="showLeftPane"
         class="pane-left"
-        max-size="70"
-        min-size="10"
+        :max-size="70"
+        :min-size="30"
       >
         <SpecToolbar class="editor-toolbar">
           <template #left>
@@ -90,14 +90,20 @@
             >
               Clear
             </KButton>
-            <KButton
-              appearance="secondary"
-              icon
-              size="small"
-              @click="toggleLeftPane"
+            <KTooltip
+              placement="bottom-end"
+              text="Collapse"
             >
-              <ChevronDoubleLeftIcon decorative />
-            </KButton>
+              <KButton
+                appearance="secondary"
+                aria-label="Collapse"
+                icon
+                size="small"
+                @click="toggleLeftPane"
+              >
+                <ChevronDoubleLeftIcon decorative />
+              </KButton>
+            </KTooltip>
             <input
               ref="fileInput"
               accept=".json, .yaml, .yml"
@@ -118,15 +124,21 @@
       >
         <SpecToolbar>
           <template #left>
-            <KButton
+            <KTooltip
               v-if="!showLeftPane"
-              appearance="secondary"
-              icon
-              size="small"
-              @click="toggleLeftPane"
+              placement="bottom-start"
+              text="Expand"
             >
-              <ChevronDoubleRightIcon decorative />
-            </KButton>
+              <KButton
+                appearance="secondary"
+                aria-label="Expand"
+                icon
+                size="small"
+                @click="toggleLeftPane"
+              >
+                <ChevronDoubleRightIcon decorative />
+              </KButton>
+            </KTooltip>
             <h2 class="toolbar-title">
               API documentation preview
             </h2>
@@ -165,7 +177,7 @@ import 'splitpanes/dist/splitpanes.css'
 
 import { ref, useTemplateRef } from 'vue'
 import { SpecRenderer } from '@kong/spec-renderer'
-import { refDebounced, useDropZone, useLocalStorage } from '@vueuse/core'
+import { refDebounced, useDropZone } from '@vueuse/core'
 import { ChevronDoubleLeftIcon, ChevronDoubleRightIcon, ChevronDownIcon, UploadIcon, VisibilityIcon } from '@kong/icons'
 import { KUI_COLOR_TEXT_NEUTRAL } from '@kong/design-tokens'
 import { Splitpanes, Pane } from 'splitpanes'
@@ -212,7 +224,7 @@ const isCleared = ref(false)
 const { options } = useApiDocOptions()
 const { toaster } = useToaster()
 
-const showLeftPane = useLocalStorage('spec-editor-left-pane', true, { listenToStorageChanges: false })
+const showLeftPane = ref(true)
 
 const toggleLeftPane = () => {
   showLeftPane.value = !showLeftPane.value
@@ -399,6 +411,7 @@ const { isOverDropZone } = useDropZone(dropZoneRef, {
     .splitpanes__pane {
       background-color: $kui-color-background-transparent;
       overflow: auto;
+      transition: none;
     }
   }
 
