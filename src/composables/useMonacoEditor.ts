@@ -1,4 +1,4 @@
-import { watch, computed, ref, reactive, onBeforeUnmount } from 'vue'
+import { watch, computed, ref, reactive, onBeforeUnmount, nextTick, onMounted } from 'vue'
 import type { Ref } from 'vue'
 import { KUI_FONT_FAMILY_CODE, KUI_FONT_SIZE_20, KUI_FONT_WEIGHT_MEDIUM, KUI_LINE_HEIGHT_30 } from '@kong/design-tokens'
 import { onClickOutside } from '@vueuse/core'
@@ -81,10 +81,11 @@ const setupMonaco = async (): Promise<{ monacoInstance: typeof monaco }> => {
         'plaintext',
       ],
     })
-
-    console.log('useMonacoEditor: Shiki highlighter created.')
-    shikiToMonaco(shikiHighlighter, monaco)
   }
+
+  setTimeout(() => {
+    shikiToMonaco(shikiHighlighter, monacoInstance)
+  }, 100)
 
   return { monacoInstance }
 }
@@ -97,19 +98,6 @@ export default function useMonacoEditor(target: Ref, options: UseMonacoEditorOpt
   const cursorPosition = reactive<{ lineNumber: number, column: number }>({ lineNumber: 0, column: 0 })
 
   const hasTextFocus = ref<boolean>(false)
-
-  /** Set the theme (light or dark) of the editor */
-  const setEditorTheme = (theme: 'light' | 'dark' = 'light'): void => {
-    try {
-      if (editor) {
-        _theme.value = theme
-        editor.updateOptions({ theme: SHIKI_THEMES[theme] })
-        localStorage.setItem('spec-editor-theme', theme)
-      }
-    } catch {
-      // no-op
-    }
-  }
 
   /** The current states of editor widgets */
   const editorStates = reactive({
@@ -243,12 +231,6 @@ export default function useMonacoEditor(target: Ref, options: UseMonacoEditorOpt
         monacoInstance.Uri.parse(`file:///root/${Date.now()}.${extension()}`),
       )
 
-      // Set the editor theme
-      const existingEditorTheme = localStorage.getItem('spec-editor-theme')
-      if (existingEditorTheme && ['light', 'dark'].includes(existingEditorTheme)) {
-        _theme.value = existingEditorTheme as 'light' | 'dark'
-      }
-
       // Create Monaco editor
       editor = monacoInstance.editor.create(el, {
         autoClosingQuotes: 'always',
@@ -299,10 +281,6 @@ export default function useMonacoEditor(target: Ref, options: UseMonacoEditorOpt
       })
 
       isSetup.value = true
-
-      monacoInstance.editor.setTheme(
-        editorTheme.value === 'dark' ? SHIKI_THEMES.dark : SHIKI_THEMES.light,
-      )
 
       if (typeof options?.onCreated === 'function') {
         options.onCreated()
@@ -356,7 +334,11 @@ export default function useMonacoEditor(target: Ref, options: UseMonacoEditorOpt
   })
 
   // Init the Monaco editor
-  init()
+  onMounted(async () => {
+    await nextTick()
+    await init()
+    await nextTick()
+  })
 
   onBeforeUnmount(() => {
     editor?.dispose()
@@ -373,7 +355,6 @@ export default function useMonacoEditor(target: Ref, options: UseMonacoEditorOpt
     setReadOnly,
     focus,
     triggerKeyboardCommand,
-    setEditorTheme,
     formatDocument,
     toggleSearchWidget,
   }
