@@ -14,7 +14,6 @@
     }
   },
   "dependencies": {
-    "@guolao/vue-monaco-editor": "^1.5.5",
     "@kong/icons": "^1.25.1",
     "@kong/kongponents": "^9.29.4",
     "@kong/spec-renderer": "^1.94.4",
@@ -30,6 +29,7 @@
     "@evilmartians/lefthook": "^1.11.9",
     "@kong/design-tokens": "^1.17.4",
     "@kong/eslint-config-kong-ui": "1.2.7",
+    "@shikijs/monaco": "^3.6.0",
     "@stylistic/stylelint-plugin": "^3.1.2",
     "@types/node": "^22.14.1",
     "@types/splitpanes": "^2.2.6",
@@ -40,10 +40,11 @@
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^9.24.0",
     "eslint-plugin-vue": "^10.0.0",
-    "monaco-types": "^0.1.0",
+    "monaco-editor": "^0.52.2",
     "npm-run-all2": "^7.0.2",
     "sass": "^1.86.3",
     "sass-embedded": "^1.86.3",
+    "shiki": "^3.6.0",
     "stylelint": "^16.18.0",
     "stylelint-config-html": "^1.1.0",
     "stylelint-config-recommended-scss": "^14.1.0",
