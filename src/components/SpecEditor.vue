@@ -30,101 +30,32 @@
 </template>
 
 <script lang="ts" setup>
-import { onBeforeUnmount, ref, computed, watchEffect, useTemplateRef } from 'vue'
-import type * as Monaco from 'monaco-types'
-import { useMonaco } from '@guolao/vue-monaco-editor'
+import { ref, computed, useTemplateRef } from 'vue'
 import { KEmptyState } from '@kong/kongponents'
 import { CodeblockIcon, ProgressIcon } from '@kong/icons'
+import useMonacoEditor from '@/composables/useMonacoEditor'
 
 // Props
 const content = defineModel<string>({
   required: true,
 })
 
-const { monacoRef, unload, isLoadFailed } = useMonaco()
-
 const containerRef = useTemplateRef('containerRef')
-
-const editorInstance = ref<Monaco.editor.IStandaloneCodeEditor | null>(null)
 
 const lang = ref<'json' | 'yaml'>('json')
 
-const defaultEditorOptions: Monaco.editor.IStandaloneEditorConstructionOptions = {
-  theme: 'vs',
-  automaticLayout: true,
-  minimap: { enabled: false },
-  formatOnType: true,
-  formatOnPaste: true,
-  wordWrap: 'bounded',
-  tabSize: 2,
-  insertSpaces: true,
-  autoClosingBrackets: 'always',
-  autoClosingQuotes: 'always',
-  suggestOnTriggerCharacters: true,
-  quickSuggestions: { other: true, comments: false, strings: true },
-  snippetSuggestions: 'inline',
-  fixedOverflowWidgets: true,
-  lineNumbers: 'on',
-  renderWhitespace: 'boundary',
-  glyphMargin: false,
-  suggest: {
-    showWords: false, // Prevent showing word suggestions that exist in the document
+const isLoading = computed(() => false)
+
+
+const { editor } = useMonacoEditor(containerRef, {
+  language: lang.value,
+  code: content,
+  forceTheme: 'light',
+  readOnly: false,
+  onChanged: (newContent) => {
+    content.value = newContent
   },
-  scrollBeyondLastLine: false,
-  roundedSelection: false,
-  colorDecorators: true,
-  folding: true, // Enable code folding for MDC block components
-  detectIndentation: false, // Important as to not override tabSize
-  trimAutoWhitespace: true,
-  find: {
-    addExtraSpaceOnTop: false, // we need this set to false to get the correct absolute position, otherwise when the search box opens the content shifts
-  },
-}
-
-const isLoading = computed(() => !monacoRef.value || isLoadFailed.value)
-
-// monaco setup
-const stop = watchEffect(async () => {
-  setupEditor()
 })
-
-// clean up on unmount
-onBeforeUnmount(() => {
-  if (!monacoRef.value) {
-    unload()
-  }
-})
-
-async function setupEditor() {
-  if (!monacoRef.value || !containerRef.value) return
-
-  const editor = monacoRef.value.editor.create(containerRef.value, {
-    ...defaultEditorOptions,
-    value: content.value,
-    language: lang.value,
-  })
-
-  const model = editor.getModel()
-  if (!model) return
-
-  editorInstance.value = editor
-
-  const updateLanguage = () => {
-    const value = editor.getValue()
-    lang.value = value.trim().startsWith('{') || value.trim().startsWith('[') ? 'json' : 'yaml'
-    monacoRef.value?.editor.setModelLanguage(model, lang.value)
-    content.value = value
-  }
-
-  // Set the initial language based on the content
-  updateLanguage()
-
-  editor.onDidChangeModelContent(updateLanguage)
-  editor.onDidPaste(updateLanguage)
-
-  // stop the watcher after setup
-  stop()
-}
 </script>
 
 <style lang="scss" scoped>
@@ -135,6 +66,46 @@ async function setupEditor() {
   .editor-container {
     background-color: $kui-color-background;
     height: calc(100vh - (#{$toolbarHeight} + #{$headerHeight}));
+  }
+}
+
+:deep(.monaco-editor) {
+  // Customize monaco editor styles via `--vscode-` variables
+  /* stylelint-disable */
+  --vscode-editorLineNumber-activeForeground: #{$kui-color-text-primary};
+  --vscode-editorLineNumber-foreground: #{$kui-color-text-neutral-weak};
+
+    --vscode-editor-background: #{$kui-color-background};
+    --vscode-editorGutter-background: #{$kui-color-background};
+    --vscode-editorLineNumber-activeForeground: #{$kui-color-text-primary};
+    // Suggestions
+    --vscode-editorSuggestWidget-background: #{$kui-color-background};
+    --vscode-editorSuggestWidget-border: #{$kui-color-border};
+    // Context menu
+    --vscode-menu-background: #{$kui-color-background};
+    --vscode-menu-border: #{$kui-color-border};
+    --vscode-menu-separatorBackground: #{$kui-color-border};
+    // Other
+    --vscode-focusBorder: #{$kui-color-text-neutral};
+    --vscode-input-background: #{$kui-color-background};
+    --vscode-sash-hoverBorder: #{$kui-color-border-primary};
+    /* stylelint-enable */
+
+  // Modify the editor's search box styles
+  .find-widget {
+    background: $kui-color-background;
+    border-bottom: $kui-border-width-10 solid $kui-color-border-neutral-weaker;
+
+    // the pane to resize the search box
+    .monaco-sash {
+      background-color: $kui-color-background-neutral-weaker;
+    }
+
+    // Modify the search input
+    .monaco-inputbox {
+      background-color: $kui-color-background !important;
+      border: $kui-border-width-10 solid $kui-color-border-neutral-weaker !important;
+    }
   }
 }
 </style>
