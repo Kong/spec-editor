@@ -85,7 +85,7 @@ const setupMonaco = async (): Promise<{ monacoInstance: typeof monaco }> => {
 
   setTimeout(() => {
     shikiToMonaco(shikiHighlighter, monacoInstance)
-  }, 100)
+  }, 350)
 
   return { monacoInstance }
 }
