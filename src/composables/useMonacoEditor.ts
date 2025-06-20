@@ -1,4 +1,4 @@
-import { watch, computed, ref, reactive, onBeforeUnmount, nextTick, onMounted } from 'vue'
+import { watch, computed, ref, reactive, onBeforeUnmount, onMounted } from 'vue'
 import type { Ref } from 'vue'
 import { KUI_FONT_FAMILY_CODE, KUI_FONT_SIZE_20, KUI_FONT_WEIGHT_MEDIUM, KUI_LINE_HEIGHT_30 } from '@kong/design-tokens'
 import { onClickOutside } from '@vueuse/core'
@@ -9,8 +9,6 @@ import * as monaco from 'monaco-editor'
 import EditorWorker from 'monaco-editor/esm/vs/editor/editor.worker.js?worker'
 // @ts-ignore - module exists
 import JsonWorker from 'monaco-editor/esm/vs/language/json/json.worker.js?worker'
-// @ts-ignore - module exists
-// import YamlWorker from 'monaco-editor/esm/vs/language/yaml/yaml.worker.js?worker'
 
 // Shiki highlighter
 import { shikiToMonaco } from '@shikijs/monaco'
@@ -181,6 +179,7 @@ export default function useMonacoEditor(target: Ref, options: UseMonacoEditorOpt
         return
       }
 
+      console.log('formatting document...')
       await editor.getAction('editor.action.formatDocument')?.run()
     } catch (error: any) {
       console.error('useMonacoEditor: Failed to format monaco-editor content.', error)
@@ -322,6 +321,10 @@ export default function useMonacoEditor(target: Ref, options: UseMonacoEditorOpt
           hasTextFocus.value = true
         }
       })
+
+      editor?.onDidPaste((): void => {
+        formatDocument()
+      })
     },
     { immediate: true, flush: 'post' },
     )
@@ -335,9 +338,7 @@ export default function useMonacoEditor(target: Ref, options: UseMonacoEditorOpt
 
   // Init the Monaco editor
   onMounted(async () => {
-    await nextTick()
     await init()
-    await nextTick()
   })
 
   onBeforeUnmount(() => {
