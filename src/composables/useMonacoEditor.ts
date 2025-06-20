@@ -179,7 +179,6 @@ export default function useMonacoEditor(target: Ref, options: UseMonacoEditorOpt
         return
       }
 
-      console.log('formatting document...')
       await editor.getAction('editor.action.formatDocument')?.run()
     } catch (error: any) {
       console.error('useMonacoEditor: Failed to format monaco-editor content.', error)
