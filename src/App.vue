@@ -67,20 +67,17 @@
                   />
                   Upload API specification
                 </KDropdownItem>
-                <KDropdownItem
-                  disabled
-                  has-divider
-                  @click="() => {}"
-                >
-                  Sample OpenAPI specifications
-                </KDropdownItem>
-                <KDropdownItem
-                  v-for="item of files"
-                  :key="item.label"
-                  @click="loadSampleSpec(item.label)"
-                >
-                  {{ item.label }}
-                </KDropdownItem>
+                <template v-for="items of files">
+                  <KDropdownItem
+                    v-for="item of items"
+                    :key="item.label"
+                    :disabled="!item.file"
+                    :has-divider="!item.file"
+                    @click="!item.file ? undefined : loadSampleSpec(item.label)"
+                  >
+                    {{ item.label }}
+                  </KDropdownItem>
+                </template>
               </template>
             </KDropdown>
             <KButton
@@ -115,6 +112,7 @@
         </SpecToolbar>
         <SpecEditor
           :key="fileKey"
+          ref="editor"
           v-model="code"
         />
       </Pane>
@@ -175,7 +173,7 @@
 import '@kong/spec-renderer/dist/style.css'
 import 'splitpanes/dist/splitpanes.css'
 
-import { ref, useTemplateRef } from 'vue'
+import { ref, nextTick, useTemplateRef } from 'vue'
 import { SpecRenderer } from '@kong/spec-renderer'
 import { refDebounced, useDropZone } from '@vueuse/core'
 import { ChevronDoubleLeftIcon, ChevronDoubleRightIcon, ChevronDownIcon, UploadIcon, VisibilityIcon } from '@kong/icons'
@@ -191,29 +189,64 @@ import SpecEditor from '@/components/SpecEditor.vue'
 import SpecToolbar from '@/components/SpecToolbar.vue'
 import KongLogo from '@/components/KongLogo.vue'
 
-import specPetStore from '@/assets/sample-spec.json'
+// sample specifications
 import specGithub from '@/assets/specs/github.json'
+import specStripe from '@/assets/specs/stripe.json'
+import specKongAir from '@/assets/specs/kongair.json'
+import specCloudflare from '@/assets/specs/cloudflare.json'
+import specStoplight from '@/assets/specs/stoplight.json'
+import specOpenApiAsync from '@/assets/specs/openapi-async.json'
 
-type TFileLabel = typeof files[number]['label']
+type TFileLabel = typeof files[number][number]['label']
 
 // constants
 const MAX_FILE_SIZE = 8 * 1024 * 1024 // 8MB
 const SUPPORTED_TYPES = ['application/json', 'application/x-yaml', 'text/yaml']
 const files = [
-  {
-    label: 'Pet store',
-    file: specPetStore,
-  },
-  {
-    label: 'Github',
-    file: specGithub,
-  },
+  [
+    {
+      label: 'Sample OpenAPI specifications',
+      file: undefined,
+    },
+    {
+      label: 'Kong Air',
+      file: specKongAir,
+    },
+    {
+      label: 'Cloudflare',
+      file: specCloudflare,
+    },
+    {
+      label: 'Github',
+      file: specGithub,
+    },
+    {
+      label: 'Stripe',
+      file: specStripe,
+    },
+    {
+      label: 'Stoplight',
+      file: specStoplight,
+    },
+  ],
+  [
+    {
+      label: 'Sample Async API specifications',
+      file: undefined,
+    },
+    {
+      label: 'OpenAPI Async',
+      file: specOpenApiAsync,
+    },
+  ],
 ] as const
 
+const editor = useTemplateRef('editor')
 const dropZoneRef = useTemplateRef('dropzone')
 const fileInputRef = useTemplateRef('fileInput')
 
-const code = ref(JSON.stringify(files[0].file, null, 2))
+// select the first file by default
+const code = ref(JSON.stringify(files[0][1].file, null, 2))
 const specText = refDebounced(code, 700)
 
 // to force re-render of the editor when the spec changes
@@ -236,7 +269,7 @@ const loadSampleSpec = async (fileLabel: TFileLabel) => {
   }
 
   try {
-    const module = files.find(item => item.label === fileLabel)
+    const module = files.flat().find(item => item.file && item.label === fileLabel)
     if (!module) {
       toaster.open({
         appearance: 'danger',
@@ -298,10 +331,12 @@ const onDrop = (files: File[] | null) => {
 
   const reader = new FileReader()
   reader.readAsText(file, 'UTF-8')
-  reader.onload = (e) => {
+  reader.onload = async (e) => {
     if (e.target?.result) {
       code.value = e.target.result.toString()
       resetEditor()
+      await nextTick()
+      editor.value?.formatDocument()
     }
   }
 }

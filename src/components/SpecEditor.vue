@@ -30,7 +30,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, computed, useTemplateRef } from 'vue'
+import { ref, computed, useTemplateRef, watch } from 'vue'
 import { KEmptyState } from '@kong/kongponents'
 import { CodeblockIcon, ProgressIcon } from '@kong/icons'
 import useMonacoEditor from '@/composables/useMonacoEditor'
@@ -46,8 +46,15 @@ const lang = ref<'json' | 'yaml'>('json')
 
 const isLoading = computed(() => false)
 
+watch(content, (newContent) => {
+  if (newContent.startsWith('{') || newContent.startsWith('[')) {
+    lang.value = 'json'
+  } else {
+    lang.value = 'yaml'
+  }
+}, { immediate: true })
 
-const { editor } = useMonacoEditor(containerRef, {
+const { formatDocument } = useMonacoEditor(containerRef, {
   language: lang.value,
   code: content,
   forceTheme: 'light',
@@ -55,6 +62,10 @@ const { editor } = useMonacoEditor(containerRef, {
   onChanged: (newContent) => {
     content.value = newContent
   },
+})
+
+defineExpose({
+  formatDocument,
 })
 </script>
 
@@ -75,21 +86,21 @@ const { editor } = useMonacoEditor(containerRef, {
   --vscode-editorLineNumber-activeForeground: #{$kui-color-text-primary};
   --vscode-editorLineNumber-foreground: #{$kui-color-text-neutral-weak};
 
-    --vscode-editor-background: #{$kui-color-background};
-    --vscode-editorGutter-background: #{$kui-color-background};
-    --vscode-editorLineNumber-activeForeground: #{$kui-color-text-primary};
-    // Suggestions
-    --vscode-editorSuggestWidget-background: #{$kui-color-background};
-    --vscode-editorSuggestWidget-border: #{$kui-color-border};
-    // Context menu
-    --vscode-menu-background: #{$kui-color-background};
-    --vscode-menu-border: #{$kui-color-border};
-    --vscode-menu-separatorBackground: #{$kui-color-border};
-    // Other
-    --vscode-focusBorder: #{$kui-color-text-neutral};
-    --vscode-input-background: #{$kui-color-background};
-    --vscode-sash-hoverBorder: #{$kui-color-border-primary};
-    /* stylelint-enable */
+  --vscode-editor-background: #{$kui-color-background};
+  --vscode-editorGutter-background: #{$kui-color-background};
+  --vscode-editorLineNumber-activeForeground: #{$kui-color-text-primary};
+  // Suggestions
+  --vscode-editorSuggestWidget-background: #{$kui-color-background};
+  --vscode-editorSuggestWidget-border: #{$kui-color-border};
+  // Context menu
+  --vscode-menu-background: #{$kui-color-background};
+  --vscode-menu-border: #{$kui-color-border};
+  --vscode-menu-separatorBackground: #{$kui-color-border};
+  // Other
+  --vscode-focusBorder: #{$kui-color-text-neutral};
+  --vscode-input-background: #{$kui-color-background};
+  --vscode-sash-hoverBorder: #{$kui-color-border-primary};
+  /* stylelint-enable */
 
   // Modify the editor's search box styles
   .find-widget {
