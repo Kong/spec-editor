@@ -7,7 +7,7 @@
       <div class="header-title">
         <KongLogo class="kong-logo" />
         <p>
-          API documentation playground
+          API documentation editor
         </p>
       </div>
       <div class="header-actions">
