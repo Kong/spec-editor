@@ -5,65 +5,166 @@
   >
     <header class="editor-header">
       <div class="header-title">
-        <KongGradientIcon
-          decorative
-          :size="KUI_ICON_SIZE_50"
-        />
-        <h1>Kong</h1>
+        <KongLogo class="kong-logo" />
+        <p>
+          API documentation demo
+        </p>
       </div>
       <div class="header-actions">
-        <button
-          class="upload-spec-file"
-          type="button"
-          @click="dropzoneClick()"
+        <KExternalLink
+          class="create-developer-portal"
+          data-testid="create-developer-portal"
+          hide-icon
+          href="https://konghq.com/products/kong-konnect/features/developer-portal"
         >
-          Upload or drop spec file
-        </button>
-        <input
-          ref="fileInput"
-          accept=".json, .yaml, .yml"
-          style="position: absolute; visibility: hidden;"
-          type="file"
-          @change="fileUploaded"
-        >
-        <SettingsModal @update-settings="updateSettings" />
-        <a
-          class="github-link"
-          href="https://github.com/Kong/spec-renderer"
-          rel="noopener noreferrer"
-          target="_blank"
-          title="Kong Spec Renderer repository"
-        >
-          <img
-            alt="GitHub logo"
-            src="/github-logo.svg"
+          Create developer portal
+        </KExternalLink>
+        <KTooltip text="View on GitHub">
+          <KExternalLink
+            class="github-link"
+            hide-icon
+            href="https://github.com/Kong/spec-renderer"
           >
-        </a>
+            <img
+              alt="GitHub logo"
+              src="/github-logo.svg"
+            >
+          </KExternalLink>
+        </KTooltip>
       </div>
     </header>
-    <splitpanes class="spec-container default-theme">
-      <pane
-        max-size="70"
-        min-size="10"
+    <Splitpanes class="spec-container default-theme">
+      <Pane
+        v-if="showLeftPane"
+        class="pane-left"
+        :max-size="70"
+        :min-size="30"
       >
-        <Editor
-          v-model:value="code"
-          :language="editorLanguage"
-          :options="MONACO_EDITOR_OPTIONS"
-          theme="vs-dark"
-          @mount="handleMount"
+        <SpecToolbar class="editor-toolbar">
+          <template #left>
+            <h2 class="toolbar-title">
+              API specification
+            </h2>
+          </template>
+          <template #right>
+            <KDropdown
+              :kpop-attributes="{
+                placement: 'bottom-end',
+              }"
+              width="267px"
+            >
+              <template #default>
+                <KButton appearance="tertiary">
+                  Load an API
+                  <ChevronDownIcon decorative />
+                </KButton>
+              </template>
+              <template #items>
+                <KDropdownItem @click="dropzoneClick">
+                  <UploadIcon
+                    :color="KUI_COLOR_TEXT_NEUTRAL"
+                    decorative
+                  />
+                  Upload API specification
+                </KDropdownItem>
+                <template v-for="items of files">
+                  <KDropdownItem
+                    v-for="item of items"
+                    :key="item.label"
+                    :disabled="!item.file"
+                    :has-divider="!item.file"
+                    @click="!item.file ? undefined : loadSampleSpec(item.label)"
+                  >
+                    {{ item.label }}
+                  </KDropdownItem>
+                </template>
+              </template>
+            </KDropdown>
+            <KButton
+              appearance="tertiary"
+              :disabled="isCleared"
+              @click="clearSpec"
+            >
+              Clear
+            </KButton>
+            <KTooltip
+              placement="bottom-end"
+              text="Collapse"
+            >
+              <KButton
+                appearance="secondary"
+                aria-label="Collapse"
+                icon
+                size="small"
+                @click="toggleLeftPane"
+              >
+                <ChevronDoubleLeftIcon decorative />
+              </KButton>
+            </KTooltip>
+            <input
+              ref="fileInput"
+              accept=".json, .yaml, .yml"
+              class="file-input"
+              type="file"
+              @change="fileUploaded"
+            >
+          </template>
+        </SpecToolbar>
+        <SpecEditor
+          :key="fileKey"
+          ref="editor"
+          v-model="code"
         />
-      </pane>
-      <pane class="spec-renderer-pane">
+      </Pane>
+      <Pane
+        class="spec-renderer-pane"
+        :class="{ 'collapsed': !showLeftPane }"
+      >
+        <SpecToolbar>
+          <template #left>
+            <KTooltip
+              v-if="!showLeftPane"
+              placement="bottom-start"
+              text="Expand"
+            >
+              <KButton
+                appearance="secondary"
+                aria-label="Expand"
+                icon
+                size="small"
+                @click="toggleLeftPane"
+              >
+                <ChevronDoubleRightIcon decorative />
+              </KButton>
+            </KTooltip>
+            <h2 class="toolbar-title">
+              API documentation preview
+            </h2>
+          </template>
+          <template #right>
+            <SettingsModal />
+          </template>
+        </SpecToolbar>
         <SpecRenderer
+          v-show="!isCleared"
           class="spec-renderer"
           :control-address-bar="true"
           document-scrolling-container=".spec-renderer-pane"
           :spec="specText"
-          v-bind="specSettings"
+          v-bind="options"
         />
-      </pane>
-    </splitpanes>
+        <KEmptyState
+          v-show="isCleared"
+          class="editor-container-state"
+          message="	Paste or upload an API specification to generate documentation."
+          title="API documentation"
+        >
+          <template #icon>
+            <VisibilityIcon decorative />
+          </template>
+        </KEmptyState>
+      </Pane>
+    </Splitpanes>
     <DropzoneModal v-if="isOverDropZone" />
   </div>
 </template>
@@ -71,53 +172,131 @@
 <script setup lang="ts">
 import '@kong/spec-renderer/dist/style.css'
 import 'splitpanes/dist/splitpanes.css'
-import { ref, shallowRef, useTemplateRef } from 'vue'
-import { refDebounced, useDropZone } from '@vueuse/core'
+
+import { ref, nextTick, useTemplateRef } from 'vue'
 import { SpecRenderer } from '@kong/spec-renderer'
-import { KongGradientIcon } from '@kong/icons'
-import { KUI_ICON_SIZE_50 } from '@kong/design-tokens'
-import type { VueMonacoEditorEmitsOptions } from '@guolao/vue-monaco-editor'
-import { Editor } from '@guolao/vue-monaco-editor'
+import { refDebounced, useDropZone } from '@vueuse/core'
+import { ChevronDoubleLeftIcon, ChevronDoubleRightIcon, ChevronDownIcon, UploadIcon, VisibilityIcon } from '@kong/icons'
+import { KUI_COLOR_TEXT_NEUTRAL } from '@kong/design-tokens'
 import { Splitpanes, Pane } from 'splitpanes'
-import DropzoneModal from './components/DropzoneModal.vue'
-import SettingsModal from './components/SettingsModal.vue'
-import sampleSpec from './assets/sample-spec.json'
 
-const MONACO_EDITOR_OPTIONS = {
-  theme: 'vs-dark',
-  automaticLayout: true,
-  formatOnType: true,
-  formatOnPaste: true,
-  minimap: { enabled: false },
-}
+import useApiDocOptions from '@/composables/useApiDocOptions'
+import useToaster from '@/composables/useToaster'
 
-const editorLanguage = ref('json')
-const code = ref(JSON.stringify(sampleSpec, null, 2))
-const specText = refDebounced(code, 700)
-const editor = shallowRef()
+import DropzoneModal from '@/components/DropzoneModal.vue'
+import SettingsModal from '@/components/SettingsModal.vue'
+import SpecEditor from '@/components/SpecEditor.vue'
+import SpecToolbar from '@/components/SpecToolbar.vue'
+import KongLogo from '@/components/KongLogo.vue'
 
+// sample specifications
+import specGithub from '@/assets/specs/github.json'
+import specStripe from '@/assets/specs/stripe.json'
+import specKongAir from '@/assets/specs/kongair.json'
+import specCloudflare from '@/assets/specs/cloudflare.json'
+import specStoplight from '@/assets/specs/stoplight.json'
+import specOpenApiAsync from '@/assets/specs/openapi-async.json'
+
+type TFileLabel = typeof files[number][number]['label']
+
+// constants
+const MAX_FILE_SIZE = 8 * 1024 * 1024 // 8MB
+const SUPPORTED_TYPES = ['application/json', 'application/x-yaml', 'text/yaml']
+const files = [
+  [
+    {
+      label: 'Sample OpenAPI specifications',
+      file: undefined,
+    },
+    {
+      label: 'Kong Air',
+      file: specKongAir,
+    },
+    {
+      label: 'Cloudflare',
+      file: specCloudflare,
+    },
+    {
+      label: 'Github',
+      file: specGithub,
+    },
+    {
+      label: 'Stripe',
+      file: specStripe,
+    },
+    {
+      label: 'Stoplight',
+      file: specStoplight,
+    },
+  ],
+  [
+    {
+      label: 'Sample Async API specifications',
+      file: undefined,
+    },
+    {
+      label: 'OpenAPI Async',
+      file: specOpenApiAsync,
+    },
+  ],
+] as const
+
+const editor = useTemplateRef('editor')
 const dropZoneRef = useTemplateRef('dropzone')
 const fileInputRef = useTemplateRef('fileInput')
 
-const specSettings = ref<Record<string, boolean>>({})
+// select the first file by default
+const code = ref(JSON.stringify(files[0][1].file, null, 2))
+const specText = refDebounced(code, 700)
 
-const updateLanguage = () => {
-  if (code.value.length < 1) return
+// to force re-render of the editor when the spec changes
+const fileKey = ref<number>(0)
+// to track if the spec has been cleared
+const isCleared = ref(false)
 
-  // simplest hack to detect if we have JSON or YAML
-  if (code.value.startsWith('{') || code.value.startsWith('[')) {
-    editorLanguage.value = 'json'
-  } else {
-    editorLanguage.value = 'yaml'
+const { options } = useApiDocOptions()
+const { toaster } = useToaster()
+
+const showLeftPane = ref(true)
+
+const toggleLeftPane = () => {
+  showLeftPane.value = !showLeftPane.value
+}
+
+const loadSampleSpec = async (fileLabel: TFileLabel) => {
+  if (!fileLabel) {
+    return
+  }
+
+  try {
+    const module = files.flat().find(item => item.file && item.label === fileLabel)
+    if (!module) {
+      toaster.open({
+        appearance: 'danger',
+        message: `File not found: ${fileLabel}`,
+      })
+      return
+    }
+    code.value = JSON.stringify(module.file, null, 2)
+    resetEditor()
+  } catch (error) {
+    console.error(`Failed to load file: ${fileLabel}`, error)
   }
 }
 
-const handleMount: VueMonacoEditorEmitsOptions['mount'] = (editorInstance) => {
-  editor.value = editorInstance
+const clearSpec = () => {
+  if (isCleared.value && !code.value) return
 
-  // auto-detect language when new code is pasted
-  editor.value.onDidPaste(updateLanguage)
+  isCleared.value = true
+  code.value = ''
+  fileKey.value++
 }
+
+const resetEditor = () => {
+  isCleared.value = false
+  fileKey.value++
+}
+
 
 const dropzoneClick = () => {
   fileInputRef.value?.click()
@@ -130,17 +309,34 @@ const fileUploaded = () => {
   }
 }
 
-function onDrop(files: File[] | null) {
+const onDrop = (files: File[] | null) => {
   const file = files?.[0]
+  if (!file) return
 
-  if (file) {
-    const reader = new FileReader()
-    reader.readAsText(file, 'UTF-8')
-    reader.onload = (e) => {
-      if (e.target?.result) {
-        code.value = e.target.result.toString()
-        updateLanguage()
-      }
+  if (file.size > MAX_FILE_SIZE) {
+    toaster.open({
+      appearance: 'danger',
+      message: 'File is too large. Maximum allowed size is 8MB.',
+    })
+    return
+  }
+
+  if (!SUPPORTED_TYPES.includes(file.type)) {
+    toaster.open({
+      appearance: 'danger',
+      message: 'Unsupported file type. Please upload a YAML or JSON format.',
+    })
+    return
+  }
+
+  const reader = new FileReader()
+  reader.readAsText(file, 'UTF-8')
+  reader.onload = async (e) => {
+    if (e.target?.result) {
+      code.value = e.target.result.toString()
+      resetEditor()
+      await nextTick()
+      editor.value?.formatDocument()
     }
   }
 }
@@ -152,16 +348,12 @@ const { isOverDropZone } = useDropZone(dropZoneRef, {
   // whether to prevent default behavior for unhandled events
   preventDefaultForUnhandled: false,
 })
-
-const updateSettings = (settings: Record<string, boolean>) => {
-  specSettings.value = settings
-}
 </script>
 
 <style lang="scss" scoped>
 .spec-renderer-playground {
+  background: $kui-color-background-inverse;
   font-family: 'Inter', Helvetica, Arial, sans-serif;
-  $header-height: $kui-space-120;
 
   * {
     box-sizing: border-box;
@@ -173,7 +365,7 @@ const updateSettings = (settings: Record<string, boolean>) => {
     background-color: $kui-color-background-inverse;
     color: $kui-color-text-inverse;
     display: flex;
-    height: $header-height;
+    height: $headerHeight;
     justify-content: space-between;
     padding: $kui-space-20 $kui-space-60;
 
@@ -187,12 +379,24 @@ const updateSettings = (settings: Record<string, boolean>) => {
         font-size: $kui-font-size-50;
         line-height: $kui-line-height-50;
       }
+
+      p {
+        font-size: $kui-font-size-40;
+        font-weight: $kui-font-weight-regular;
+        margin-left: $kui-space-60;
+      }
+
+      @media (max-width: $kui-breakpoint-mobile) {
+        p {
+          display: none;
+        }
+      }
     }
 
     .header-actions {
       align-items: center;
       display: inline-flex;
-      gap: $kui-space-40;
+      gap: $kui-space-60;
 
       .language-selector {
         :deep(.trigger-button) {
@@ -205,15 +409,16 @@ const updateSettings = (settings: Record<string, boolean>) => {
         }
       }
 
-      .upload-spec-file {
+      .create-developer-portal {
         @include default-button-reset;
         background-color: $kui-color-background-transparent;
-        border: $kui-border-width-10 solid $kui-color-border;
-        border-radius: $kui-border-radius-20;
+        border: $kui-border-width-20 solid $kui-color-border-inverse;
+        border-radius: $kui-border-radius-30;
         color: $kui-color-text-inverse;
         cursor: pointer;
         font-size: $kui-font-size-30;
-        padding: $kui-space-20 $kui-space-40;
+        font-weight: $kui-font-weight-semibold;
+        padding: $kui-space-30 $kui-space-40;
         transition: background-color 0.2s ease-in-out,
           color 0.2s ease-in-out,
           border-color 0.2s ease-in-out;
@@ -235,13 +440,94 @@ const updateSettings = (settings: Record<string, boolean>) => {
   }
 
   .spec-container.default-theme {
-    height: calc(100dvh - #{$header-height});
+    height: calc(100dvh - #{$headerHeight});
     width: 100dvw;
 
     .splitpanes__pane {
       background-color: $kui-color-background-transparent;
       overflow: auto;
+      transition: none;
     }
   }
+
+  .spec-renderer-pane {
+    background: $kui-color-background !important;
+    position: relative;
+
+    &.collapsed {
+      border-top-left-radius: $kui-border-radius-50;
+      margin-left: $kui-space-60;
+    }
+  }
+
+  .editor-toolbar {
+    border-top-left-radius: $kui-border-radius-50;
+
+    .file-input {
+      position: absolute;
+      visibility: hidden;
+    }
+  }
+
+  .toolbar-title {
+    font-size: $kui-font-size-30;
+    font-weight: $kui-font-weight-semibold;
+    line-height: $kui-line-height-30;
+    // truncate text
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+  }
+
+  .file-input-button {
+
+    // hide text in small screens
+    span {
+      @media (max-width: $kui-breakpoint-mobile) {
+        display: none;
+      }
+    }
+  }
+}
+
+.pane-left {
+  border-right: $kui-border-width-10 solid $kui-color-border;
+  margin-left: $kui-space-60;
+  overflow: hidden !important;
+}
+
+:deep(.spec-renderer-small-screen-header) {
+  top: #{$toolbarHeight} !important;
+}
+
+.editor-container-state {
+  margin-top: $kui-space-50;
+}
+
+:deep(.k-dropdown-item) {
+  &.disabled.has-divider {
+    .dropdown-item-trigger-label {
+      color: $kui-color-text-neutral;
+      cursor: auto;
+      font-size: $kui-font-size-20;
+    }
+  }
+
+  &:not(.disabled) {
+    .dropdown-item-trigger-label {
+      color: $kui-color-text-neutral-stronger;
+    }
+  }
+
+  .dropdown-item-trigger-label {
+    font-family: $kui-font-family-text;
+    font-size: $kui-font-size-30;
+    font-weight: $kui-font-weight-medium;
+  }
+}
+
+.kong-logo {
+  margin-left: $kui-space-20;
 }
 </style>
