@@ -1,5 +1,0 @@
-onlyBuiltDependencies:
-  - '@evilmartians/lefthook'
-  - '@parcel/watcher'
-  - esbuild
-  - vue-demi
