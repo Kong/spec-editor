@@ -174,7 +174,7 @@
 import '@kong/spec-renderer/dist/style.css'
 import 'splitpanes/dist/splitpanes.css'
 
-import { ref, computed, nextTick, useTemplateRef } from 'vue'
+import { ref, computed, watch, nextTick, useTemplateRef } from 'vue'
 import { SpecRenderer } from '@kong/spec-renderer'
 import { refDebounced, useDropZone, useWindowSize } from '@vueuse/core'
 import { ChevronDoubleLeftIcon, ChevronDoubleRightIcon, ChevronDownIcon, UploadIcon, VisibilityIcon } from '@kong/icons'
@@ -262,7 +262,11 @@ const isCleared = ref(false)
 const { options } = useApiDocOptions()
 const { toaster } = useToaster()
 
-const showLeftPane = ref(!isMobile.value)
+const showLeftPane = ref(isMobile.value ? false : true)
+
+watch(isMobile, (newValue) => {
+  showLeftPane.value = !newValue
+})
 
 const toggleLeftPane = () => {
   showLeftPane.value = !showLeftPane.value
