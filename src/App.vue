@@ -37,7 +37,7 @@
       <Pane
         v-if="showLeftPane"
         class="pane-left"
-        :max-size="70"
+        :max-size="isMobile ? 100 : 70"
         :min-size="30"
       >
         <SpecToolbar class="editor-toolbar">
@@ -89,11 +89,11 @@
             </KButton>
             <KTooltip
               placement="bottom-end"
-              text="Collapse"
+              :text="isMobile ? 'Hide editor' : 'Collapse'"
             >
               <KButton
                 appearance="secondary"
-                aria-label="Collapse"
+                :aria-label="isMobile ? 'Hide editor' : 'Collapse'"
                 icon
                 size="small"
                 @click="toggleLeftPane"
@@ -117,6 +117,7 @@
         />
       </Pane>
       <Pane
+        v-if="!isMobile || !showLeftPane"
         class="spec-renderer-pane"
         :class="{ 'collapsed': !showLeftPane }"
       >
@@ -125,11 +126,11 @@
             <KTooltip
               v-if="!showLeftPane"
               placement="bottom-start"
-              text="Expand"
+              :text="isMobile ? 'Show editor' : 'Expand'"
             >
               <KButton
                 appearance="secondary"
-                aria-label="Expand"
+                :aria-label="isMobile ? 'Show editor' : 'Expand'"
                 icon
                 size="small"
                 @click="toggleLeftPane"
@@ -173,9 +174,9 @@
 import '@kong/spec-renderer/dist/style.css'
 import 'splitpanes/dist/splitpanes.css'
 
-import { ref, nextTick, useTemplateRef } from 'vue'
+import { ref, computed, watch, nextTick, useTemplateRef } from 'vue'
 import { SpecRenderer } from '@kong/spec-renderer'
-import { refDebounced, useDropZone } from '@vueuse/core'
+import { refDebounced, useDropZone, useWindowSize } from '@vueuse/core'
 import { ChevronDoubleLeftIcon, ChevronDoubleRightIcon, ChevronDownIcon, UploadIcon, VisibilityIcon } from '@kong/icons'
 import { KUI_COLOR_TEXT_NEUTRAL } from '@kong/design-tokens'
 import { Splitpanes, Pane } from 'splitpanes'
@@ -245,6 +246,10 @@ const editor = useTemplateRef('editor')
 const dropZoneRef = useTemplateRef('dropzone')
 const fileInputRef = useTemplateRef('fileInput')
 
+const { width } = useWindowSize()
+
+const isMobile = computed(() => width.value <= 768)
+
 // select the first file by default
 const code = ref(JSON.stringify(files[0][1].file, null, 2))
 const specText = refDebounced(code, 700)
@@ -257,7 +262,11 @@ const isCleared = ref(false)
 const { options } = useApiDocOptions()
 const { toaster } = useToaster()
 
-const showLeftPane = ref(true)
+const showLeftPane = ref(isMobile.value ? false : true)
+
+watch(isMobile, (newValue) => {
+  showLeftPane.value = !newValue
+})
 
 const toggleLeftPane = () => {
   showLeftPane.value = !showLeftPane.value
@@ -499,6 +508,7 @@ const { isOverDropZone } = useDropZone(dropZoneRef, {
 
 :deep(.spec-renderer-small-screen-header) {
   top: #{$toolbarHeight} !important;
+  z-index: 1 !important;
 }
 
 .editor-container-state {

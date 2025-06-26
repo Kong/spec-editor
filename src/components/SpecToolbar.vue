@@ -32,7 +32,7 @@
   overflow-x: auto;
   overflow-y: hidden;
   padding-left: $kui-space-40;
-  padding-right: $kui-space-40;
+  padding-right: $kui-space-60;
   position: sticky;
   scrollbar-width: thin;
   top: 0px;
