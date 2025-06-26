@@ -3,8 +3,8 @@
     ref="dropzone"
     class="spec-renderer-playground"
   >
-  <header class="editor-header">
-    <div class="header-title">
+    <header class="editor-header">
+      <div class="header-title">
         <KongLogo class="kong-logo" />
         <p>
           API documentation editor
