@@ -13,8 +13,8 @@
 
   <Teleport to="body">
     <KModal
-      action-button-appearance="secondary"
-      action-button-text="Close"
+      action-button-appearance="primary"
+      action-button-text="Apply"
       hide-cancel-button
       max-width="640px"
       title="API documentation options"

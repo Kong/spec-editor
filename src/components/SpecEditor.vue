@@ -34,6 +34,7 @@ import { ref, computed, useTemplateRef, watch } from 'vue'
 import { KEmptyState } from '@kong/kongponents'
 import { CodeblockIcon, ProgressIcon } from '@kong/icons'
 import useMonacoEditor from '@/composables/useMonacoEditor'
+import { isJsonOrYaml } from '@/utils'
 
 // Props
 const content = defineModel<string>({
@@ -47,11 +48,7 @@ const lang = ref<'json' | 'yaml'>('json')
 const isLoading = computed(() => false)
 
 watch(content, (newContent) => {
-  if (newContent.startsWith('{') || newContent.startsWith('[')) {
-    lang.value = 'json'
-  } else {
-    lang.value = 'yaml'
-  }
+  lang.value = isJsonOrYaml(newContent)
 }, { immediate: true })
 
 const { formatDocument } = useMonacoEditor(containerRef, {

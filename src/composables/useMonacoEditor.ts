@@ -1,7 +1,8 @@
 import { watch, computed, ref, reactive, onBeforeUnmount, onMounted } from 'vue'
 import type { Ref } from 'vue'
 import { KUI_FONT_FAMILY_CODE, KUI_FONT_SIZE_20, KUI_FONT_WEIGHT_MEDIUM, KUI_LINE_HEIGHT_30 } from '@kong/design-tokens'
-import { onClickOutside } from '@vueuse/core'
+import { onClickOutside, useDebounceFn } from '@vueuse/core'
+import { isJsonOrYaml } from '@/utils'
 
 // Monaco editor imports
 import * as monaco from 'monaco-editor'
@@ -14,6 +15,9 @@ import JsonWorker from 'monaco-editor/esm/vs/language/json/json.worker.js?worker
 import { shikiToMonaco } from '@shikijs/monaco'
 import { createHighlighter } from 'shiki'
 import type { HighlighterGeneric, BundledLanguage, BundledTheme } from 'shiki'
+
+// Spectral Linter Worker
+import SpectralWorker from '@/workers/spectral.worker?worker'
 
 interface UseMonacoEditorOptions {
   /** Is the Editor readonly. */
@@ -42,6 +46,8 @@ const SHIKI_THEMES: Record<string, BundledTheme> = {
 let monacoInstance: typeof monaco
 // Create a singleton instance of the Shiki highlighter
 let shikiHighlighter: HighlighterGeneric<BundledLanguage, BundledTheme>
+// Create a singleton for the Spectral worker
+let spectralWorker: Worker | null = null
 
 /**
  * Set up the Monaco editor instance singleton.
@@ -284,10 +290,26 @@ export default function useMonacoEditor(target: Ref, options: UseMonacoEditorOpt
         options.onCreated()
       }
 
+      setupSpectralWorker(model)
+
+      const postSpectralLintDebounced = useDebounceFn((value) => {
+        spectralWorker?.postMessage({
+          rawText: value,
+          language: lang,
+        })
+      }, 1000)
+
+      // Initial linting of the document
+      postSpectralLintDebounced(options.code.value)
+
       editor!.onDidChangeModelContent(() => {
+        const value = editor!.getValue()
+
         if (typeof options.onChanged === 'function') {
-          options.onChanged?.(editor!.getValue())
+          options.onChanged?.(value)
         }
+
+        postSpectralLintDebounced(value)
       })
 
       editor!.onDidBlurEditorText(storeCursorPosition)
@@ -322,6 +344,12 @@ export default function useMonacoEditor(target: Ref, options: UseMonacoEditorOpt
       })
 
       editor?.onDidPaste((): void => {
+        const content = editor?.getValue() || ''
+
+        lang = isJsonOrYaml(content)
+
+        monacoInstance.editor.setModelLanguage(model, lang)
+
         formatDocument()
       })
     },
@@ -357,5 +385,14 @@ export default function useMonacoEditor(target: Ref, options: UseMonacoEditorOpt
     triggerKeyboardCommand,
     formatDocument,
     toggleSearchWidget,
+  }
+}
+
+function setupSpectralWorker(model: monaco.editor.ITextModel) {
+  if (!spectralWorker) spectralWorker = new SpectralWorker()
+
+  spectralWorker.onmessage = (event) => {
+    const { markers } = event.data
+    monacoInstance.editor.setModelMarkers(model, 'spectral', markers)
   }
 }
