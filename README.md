@@ -1,4 +1,4 @@
-# Kong Spec Editor
+# API documentation editor - Kong
 
 A playground with live editor for Kong's spec renderer.
 Supports:
