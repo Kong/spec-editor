@@ -299,6 +299,9 @@ export default function useMonacoEditor(target: Ref, options: UseMonacoEditorOpt
         })
       }, 1000)
 
+      // Initial linting of the document
+      postSpectralLintDebounced(options.code.value)
+
       editor!.onDidChangeModelContent(() => {
         const value = editor!.getValue()
 
