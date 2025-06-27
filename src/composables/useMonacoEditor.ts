@@ -2,6 +2,7 @@ import { watch, computed, ref, reactive, onBeforeUnmount, onMounted } from 'vue'
 import type { Ref } from 'vue'
 import { KUI_FONT_FAMILY_CODE, KUI_FONT_SIZE_20, KUI_FONT_WEIGHT_MEDIUM, KUI_LINE_HEIGHT_30 } from '@kong/design-tokens'
 import { onClickOutside, useDebounceFn } from '@vueuse/core'
+import { isJsonOrYaml } from '@/utils'
 
 // Monaco editor imports
 import * as monaco from 'monaco-editor'
@@ -340,6 +341,12 @@ export default function useMonacoEditor(target: Ref, options: UseMonacoEditorOpt
       })
 
       editor?.onDidPaste((): void => {
+        const content = editor?.getValue() || ''
+
+        lang = isJsonOrYaml(content)
+
+        monacoInstance.editor.setModelLanguage(model, lang)
+
         formatDocument()
       })
     },
