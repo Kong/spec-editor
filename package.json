@@ -41,7 +41,7 @@
     "eslint": "^9.24.0",
     "eslint-plugin-vue": "^10.0.0",
     "monaco-editor": "^0.52.2",
-    "npm-run-all2": "^7.0.2",
+    "npm-run-all2": "^8.0.4",
     "sass": "^1.89.2",
     "sass-embedded": "^1.89.2",
     "shiki": "^3.6.0",
