@@ -12,11 +12,11 @@ importers:
         specifier: ^1.31.0
         version: 1.31.0(vue@3.5.17(typescript@5.8.3))
       '@kong/kongponents':
-        specifier: ^9.35.3
-        version: 9.35.4(vue-router@4.5.0(vue@3.5.17(typescript@5.8.3)))(vue@3.5.17(typescript@5.8.3))
+        specifier: ^9.35.5
+        version: 9.35.5(vue-router@4.5.0(vue@3.5.17(typescript@5.8.3)))(vue@3.5.17(typescript@5.8.3))
       '@kong/spec-renderer':
-        specifier: ^1.94.32
-        version: 1.94.32(vue@3.5.17(typescript@5.8.3))
+        specifier: ^1.94.37
+        version: 1.95.1(vue@3.5.17(typescript@5.8.3))
       '@vueuse/core':
         specifier: ^13.4.0
         version: 13.4.0(vue@3.5.17(typescript@5.8.3))
@@ -747,15 +747,15 @@ packages:
     peerDependencies:
       vue: '>= 3.3.4 < 4'
 
-  '@kong/kongponents@9.35.4':
-    resolution: {integrity: sha512-OCaeEiWxYcDkbOCDT9fQaJzd7Pa8t78Odl28BstSxjzhLi9YHjoB6bYx6Vjhqruppqg260EprSWmLEPP00mpBg==}
+  '@kong/kongponents@9.35.5':
+    resolution: {integrity: sha512-nPhjzfUYA7/5NQMM5UqTqAlAm1DsPgHmUS9hUBoH7n+02t00mDqqfVENDZvEyIJA8zRWEbLc4zT9AEfa/6VR1Q==}
     engines: {node: '>=v16.20.2 || >=18.12.1 || >=20.14.0 || >=22.14.0', pnpm: '>=9.11.0 || >=10.10.0'}
     peerDependencies:
       vue: '>= 3.5.0 < 4'
       vue-router: ^4.4.5
 
-  '@kong/spec-renderer@1.94.32':
-    resolution: {integrity: sha512-v70mkZKO1tducAUF46+fEkD5Rr5yn5yX/NMuoVcE5DyG5oZ/KLi3C1/2LoUErVdVI66tbMckUMLXc6ShhVfIuA==}
+  '@kong/spec-renderer@1.95.1':
+    resolution: {integrity: sha512-VUySZ4PFx6GpDGbVUur34xSQehxsbuv1zRqXT+5lMs3GmmDovSx1ZtZNkImReJ1VUrqxCdyiD7cMR50ABjc00g==}
     engines: {node: '>=18.17.0'}
     peerDependencies:
       vue: '>= 3.3.13 < 4'
@@ -2972,11 +2972,6 @@ packages:
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
 
-  nanoid@5.0.9:
-    resolution: {integrity: sha512-Aooyr6MXU6HpvvWXKoVoXwKMs/KyVakWwg7xQfv5/S/RIgJMy0Ifa45H9qqYy7pTCszrHzP21Uk4PZq2HpEM8Q==}
-    engines: {node: ^18 || >=20}
-    hasBin: true
-
   nanoid@5.1.5:
     resolution: {integrity: sha512-Ir/+ZpE9fDsNH0hQ3C68uyThDXzYcim2EqcZ8zn8Chtt1iylPT9xXJB0kPCnqzgcEGikO9RxSrh63MsmVCU7Fw==}
     engines: {node: ^18 || >=20}
@@ -4859,7 +4854,7 @@ snapshots:
     dependencies:
       vue: 3.5.17(typescript@5.8.3)
 
-  '@kong/kongponents@9.35.4(vue-router@4.5.0(vue@3.5.17(typescript@5.8.3)))(vue@3.5.17(typescript@5.8.3))':
+  '@kong/kongponents@9.35.5(vue-router@4.5.0(vue@3.5.17(typescript@5.8.3)))(vue@3.5.17(typescript@5.8.3))':
     dependencies:
       '@floating-ui/vue': 1.1.6(vue@3.5.17(typescript@5.8.3))
       '@kong/icons': 1.31.0(vue@3.5.17(typescript@5.8.3))
@@ -4869,7 +4864,7 @@ snapshots:
       focus-trap: 7.6.5
       focus-trap-vue: 4.0.3(focus-trap@7.6.5)(vue@3.5.17(typescript@5.8.3))
       lodash-es: 4.17.21
-      nanoid: 5.0.9
+      nanoid: 5.1.5
       sortablejs: 1.15.6
       swrv: 1.1.0(vue@3.5.17(typescript@5.8.3))
       v-calendar: 3.1.2(@popperjs/core@2.11.8)(vue@3.5.17(typescript@5.8.3))
@@ -4884,7 +4879,7 @@ snapshots:
       - solid-js
       - svelte
 
-  '@kong/spec-renderer@1.94.32(vue@3.5.17(typescript@5.8.3))':
+  '@kong/spec-renderer@1.95.1(vue@3.5.17(typescript@5.8.3))':
     dependencies:
       '@apidevtools/json-schema-ref-parser': 13.0.5
       '@asyncapi/openapi-schema-parser': 3.0.24
@@ -5126,7 +5121,7 @@ snapshots:
 
   '@stoplight/json-ref-readers@1.2.2':
     dependencies:
-      node-fetch: 2.6.7
+      node-fetch: 2.7.0
       tslib: 1.14.1
     transitivePeerDependencies:
       - encoding
@@ -7415,8 +7410,6 @@ snapshots:
   nanoid@3.3.11: {}
 
   nanoid@3.3.8: {}
-
-  nanoid@5.0.9: {}
 
   nanoid@5.1.5: {}
 
