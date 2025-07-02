@@ -14,6 +14,7 @@ import JsonWorker from 'monaco-editor/esm/vs/language/json/json.worker.js?worker
 import { shikiToMonaco } from '@shikijs/monaco'
 import { createHighlighter } from 'shiki'
 import type { HighlighterGeneric, BundledLanguage, BundledTheme } from 'shiki'
+import { isJsonOrYaml } from '@/utils/oas'
 
 interface UseMonacoEditorOptions {
   /** Is the Editor readonly. */
@@ -322,6 +323,11 @@ export default function useMonacoEditor(target: Ref, options: UseMonacoEditorOpt
       })
 
       editor?.onDidPaste((): void => {
+        const content = editor?.getValue() || ''
+
+        lang = isJsonOrYaml(content)
+
+        monacoInstance.editor.setModelLanguage(model, lang)
         formatDocument()
       })
     },
