@@ -30,11 +30,10 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, computed, useTemplateRef, watch } from 'vue'
+import { computed, useTemplateRef } from 'vue'
 import { KEmptyState } from '@kong/kongponents'
 import { CodeblockIcon, ProgressIcon } from '@kong/icons'
 import useMonacoEditor from '@/composables/useMonacoEditor'
-import { isJsonOrYaml } from '@/utils/oas'
 
 // Props
 const content = defineModel<string>({
@@ -42,20 +41,10 @@ const content = defineModel<string>({
 })
 
 const containerRef = useTemplateRef('containerRef')
-
-const lang = ref<'json' | 'yaml'>('json')
-
 const isLoading = computed(() => false)
 
-watch(content, (newContent) => {
-  lang.value = isJsonOrYaml(newContent)
-}, { immediate: true })
-
 const { formatDocument } = useMonacoEditor(containerRef, {
-  language: lang.value,
   code: content,
-  forceTheme: 'light',
-  readOnly: false,
   onChanged: (newContent) => {
     content.value = newContent
   },
