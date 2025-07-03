@@ -349,7 +349,6 @@ export default function useMonacoEditor(target: Ref, options: UseMonacoEditorOpt
         lang = isJsonOrYaml(content)
 
         monacoInstance.editor.setModelLanguage(model, lang)
-
         formatDocument()
       })
     },
