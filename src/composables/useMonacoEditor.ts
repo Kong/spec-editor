@@ -2,7 +2,6 @@ import { watch, computed, ref, reactive, onBeforeUnmount, onMounted } from 'vue'
 import type { Ref } from 'vue'
 import { KUI_FONT_FAMILY_CODE, KUI_FONT_SIZE_20, KUI_FONT_WEIGHT_MEDIUM, KUI_LINE_HEIGHT_30 } from '@kong/design-tokens'
 import { onClickOutside, useDebounceFn } from '@vueuse/core'
-import { isJsonOrYaml } from '@/utils'
 
 // Monaco editor imports
 import * as monaco from 'monaco-editor'
@@ -18,6 +17,7 @@ import type { HighlighterGeneric, BundledLanguage, BundledTheme } from 'shiki'
 
 // Spectral Linter Worker
 import SpectralWorker from '@/workers/spectral.worker?worker'
+import { isJsonOrYaml } from '@/utils/oas'
 
 interface UseMonacoEditorOptions {
   /** Is the Editor readonly. */

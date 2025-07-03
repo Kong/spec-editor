@@ -34,7 +34,7 @@ import { ref, computed, useTemplateRef, watch } from 'vue'
 import { KEmptyState } from '@kong/kongponents'
 import { CodeblockIcon, ProgressIcon } from '@kong/icons'
 import useMonacoEditor from '@/composables/useMonacoEditor'
-import { isJsonOrYaml } from '@/utils'
+import { isJsonOrYaml } from '@/utils/oas'
 
 // Props
 const content = defineModel<string>({
