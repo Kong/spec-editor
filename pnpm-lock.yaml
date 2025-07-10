@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@kong/icons':
-        specifier: ^1.31.0
-        version: 1.31.0(vue@3.5.17(typescript@5.8.3))
+        specifier: ^1.33.0
+        version: 1.33.0(vue@3.5.17(typescript@5.8.3))
       '@kong/kongponents':
         specifier: ^9.35.5
         version: 9.35.5(vue-router@4.5.0(vue@3.5.17(typescript@5.8.3)))(vue@3.5.17(typescript@5.8.3))
@@ -750,8 +750,8 @@ packages:
     peerDependencies:
       eslint: '>= 9.23.0'
 
-  '@kong/icons@1.31.0':
-    resolution: {integrity: sha512-tphJTLicE+H1e64IUbHqXcGTj5AHKEvrroVc2WfFEbHketrVARsMZ0aBcgQa0Xuh5MSBK2/wabyt88mTXUYrAw==}
+  '@kong/icons@1.33.0':
+    resolution: {integrity: sha512-uPnzg1WkJs6z22tftFfoo1/VG2fzeDssx+ubc1sX1K7bzbGwAQXR3VLnw4W8g8JoMrNpqo+FP3dm8/8ynkb7GA==}
     engines: {node: '>=18.17.0', pnpm: '>=9.14.4 || >=10.1.0'}
     peerDependencies:
       vue: '>= 3.3.4 < 4'
@@ -4844,14 +4844,14 @@ snapshots:
       - supports-color
       - typescript
 
-  '@kong/icons@1.31.0(vue@3.5.17(typescript@5.8.3))':
+  '@kong/icons@1.33.0(vue@3.5.17(typescript@5.8.3))':
     dependencies:
       vue: 3.5.17(typescript@5.8.3)
 
   '@kong/kongponents@9.35.5(vue-router@4.5.0(vue@3.5.17(typescript@5.8.3)))(vue@3.5.17(typescript@5.8.3))':
     dependencies:
       '@floating-ui/vue': 1.1.6(vue@3.5.17(typescript@5.8.3))
-      '@kong/icons': 1.31.0(vue@3.5.17(typescript@5.8.3))
+      '@kong/icons': 1.33.0(vue@3.5.17(typescript@5.8.3))
       '@popperjs/core': 2.11.8
       date-fns: 2.30.0
       date-fns-tz: 2.0.1(date-fns@2.30.0)
@@ -4879,7 +4879,7 @@ snapshots:
       '@asyncapi/openapi-schema-parser': 3.0.24
       '@asyncapi/parser': 3.4.0
       '@floating-ui/vue': 1.1.6(vue@3.5.17(typescript@5.8.3))
-      '@kong/icons': 1.31.0(vue@3.5.17(typescript@5.8.3))
+      '@kong/icons': 1.33.0(vue@3.5.17(typescript@5.8.3))
       '@stoplight/http-spec': 7.1.0
       '@stoplight/json': 3.21.7
       '@stoplight/types': 14.1.1
