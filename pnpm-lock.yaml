@@ -15,8 +15,8 @@ importers:
         specifier: ^9.35.5
         version: 9.35.5(vue-router@4.5.0(vue@3.5.17(typescript@5.8.3)))(vue@3.5.17(typescript@5.8.3))
       '@kong/spec-renderer':
-        specifier: ^1.95.8
-        version: 1.95.8(vue@3.5.17(typescript@5.8.3))
+        specifier: ^1.96.0
+        version: 1.96.0(vue@3.5.17(typescript@5.8.3))
       '@stoplight/spectral-core':
         specifier: ^1.20.0
         version: 1.20.0
@@ -654,7 +654,6 @@ packages:
 
   '@evilmartians/lefthook@1.12.2':
     resolution: {integrity: sha512-PQ7ZE08JiRNWydJpDeVijg8GjoTFiXQTy5/mVXf5U7epNZWYUEfnwjfXFa+HvsegodQcTenl05twrRxB/vOR8Q==}
-    cpu: [x64, arm64, ia32]
     os: [darwin, linux, win32]
     hasBin: true
 
@@ -774,8 +773,8 @@ packages:
       vue: '>= 3.5.0 < 4'
       vue-router: ^4.4.5
 
-  '@kong/spec-renderer@1.95.8':
-    resolution: {integrity: sha512-QTwawLgk4+96YJr+2DeXe3i4Hu0NngnrjXLHF1t7PxfZcf6n+kSpCYx+vR2Pfhq4N1VO1LQPcyXklhD5+E4jww==}
+  '@kong/spec-renderer@1.96.0':
+    resolution: {integrity: sha512-onJOZis7vLln5OOR0r/IOFX14MIZwQY/9ojUuuceu0zNSKzW209N8H62X6eVydu0eiho7lTTjcpedAzAtS0tag==}
     engines: {node: '>=18.17.0'}
     peerDependencies:
       vue: '>= 3.3.13 < 4'
@@ -1450,11 +1449,24 @@ packages:
     peerDependencies:
       vue: ^3.5.0
 
+  '@vueuse/core@13.5.0':
+    resolution: {integrity: sha512-wV7z0eUpifKmvmN78UBZX8T7lMW53Nrk6JP5+6hbzrB9+cJ3jr//hUlhl9TZO/03bUkMK6gGkQpqOPWoabr72g==}
+    peerDependencies:
+      vue: ^3.5.0
+
   '@vueuse/metadata@13.4.0':
     resolution: {integrity: sha512-CPDQ/IgOeWbqItg1c/pS+Ulum63MNbpJ4eecjFJqgD/JUCJ822zLfpw6M9HzSvL6wbzMieOtIAW/H8deQASKHg==}
 
+  '@vueuse/metadata@13.5.0':
+    resolution: {integrity: sha512-euhItU3b0SqXxSy8u1XHxUCdQ8M++bsRs+TYhOLDU/OykS7KvJnyIFfep0XM5WjIFry9uAPlVSjmVHiqeshmkw==}
+
   '@vueuse/shared@13.4.0':
     resolution: {integrity: sha512-+AxuKbw8R1gYy5T21V5yhadeNM7rJqb4cPaRI9DdGnnNl3uqXh+unvQ3uCaA2DjYLbNr1+l7ht/B4qEsRegX6A==}
+    peerDependencies:
+      vue: ^3.5.0
+
+  '@vueuse/shared@13.5.0':
+    resolution: {integrity: sha512-K7GrQIxJ/ANtucxIXbQlUHdB0TPA8c+q5i+zbrjxuhJCnJ9GtBg75sBSnvmLSxHKPg2Yo8w62PWksl9kwH0Q8g==}
     peerDependencies:
       vue: ^3.5.0
 
@@ -4908,7 +4920,7 @@ snapshots:
       - solid-js
       - svelte
 
-  '@kong/spec-renderer@1.95.8(vue@3.5.17(typescript@5.8.3))':
+  '@kong/spec-renderer@1.96.0(vue@3.5.17(typescript@5.8.3))':
     dependencies:
       '@apidevtools/json-schema-ref-parser': 14.0.3
       '@asyncapi/openapi-schema-parser': 3.0.24
@@ -4919,7 +4931,7 @@ snapshots:
       '@stoplight/json': 3.21.7
       '@stoplight/types': 14.1.1
       '@stoplight/yaml': 4.3.0
-      '@vueuse/core': 13.4.0(vue@3.5.17(typescript@5.8.3))
+      '@vueuse/core': 13.5.0(vue@3.5.17(typescript@5.8.3))
       allof-merge: 0.6.6
       flatted: 3.3.3
       form-urlencoded: 6.1.5
@@ -5398,7 +5410,7 @@ snapshots:
 
   '@stoplight/types@14.1.0':
     dependencies:
-      '@types/json-schema': 7.0.11
+      '@types/json-schema': 7.0.15
       utility-types: 3.11.0
 
   '@stoplight/types@14.1.1':
@@ -5879,9 +5891,22 @@ snapshots:
       '@vueuse/shared': 13.4.0(vue@3.5.17(typescript@5.8.3))
       vue: 3.5.17(typescript@5.8.3)
 
+  '@vueuse/core@13.5.0(vue@3.5.17(typescript@5.8.3))':
+    dependencies:
+      '@types/web-bluetooth': 0.0.21
+      '@vueuse/metadata': 13.5.0
+      '@vueuse/shared': 13.5.0(vue@3.5.17(typescript@5.8.3))
+      vue: 3.5.17(typescript@5.8.3)
+
   '@vueuse/metadata@13.4.0': {}
 
+  '@vueuse/metadata@13.5.0': {}
+
   '@vueuse/shared@13.4.0(vue@3.5.17(typescript@5.8.3))':
+    dependencies:
+      vue: 3.5.17(typescript@5.8.3)
+
+  '@vueuse/shared@13.5.0(vue@3.5.17(typescript@5.8.3))':
     dependencies:
       vue: 3.5.17(typescript@5.8.3)
 
@@ -7487,7 +7512,7 @@ snapshots:
 
   mkdirp@0.5.6:
     dependencies:
-      minimist: 1.2.6
+      minimist: 1.2.8
 
   monaco-editor@0.52.2: {}
 
