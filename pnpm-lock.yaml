@@ -15,8 +15,8 @@ importers:
         specifier: ^9.35.5
         version: 9.35.5(vue-router@4.5.0(vue@3.5.17(typescript@5.8.3)))(vue@3.5.17(typescript@5.8.3))
       '@kong/spec-renderer':
-        specifier: ^1.97.0
-        version: 1.97.0(vue@3.5.17(typescript@5.8.3))
+        specifier: ^1.98.3
+        version: 1.98.3(vue@3.5.17(typescript@5.8.3))
       '@stoplight/spectral-core':
         specifier: ^1.20.0
         version: 1.20.0
@@ -654,6 +654,7 @@ packages:
 
   '@evilmartians/lefthook@1.12.2':
     resolution: {integrity: sha512-PQ7ZE08JiRNWydJpDeVijg8GjoTFiXQTy5/mVXf5U7epNZWYUEfnwjfXFa+HvsegodQcTenl05twrRxB/vOR8Q==}
+    cpu: [x64, arm64, ia32]
     os: [darwin, linux, win32]
     hasBin: true
 
@@ -773,8 +774,8 @@ packages:
       vue: '>= 3.5.0 < 4'
       vue-router: ^4.4.5
 
-  '@kong/spec-renderer@1.97.0':
-    resolution: {integrity: sha512-Wu5oqHQXeow7SlvewLp9R8kQMLDhA6tXMI3bqxHrgBEoQn37QZisBMagr4+k6j8LahoMcooEtDtaHsYdiynuSQ==}
+  '@kong/spec-renderer@1.98.3':
+    resolution: {integrity: sha512-B64BUkiviIZcBrUq4xdTfzehZcuQsgCpPCDEFy+NhV7aIZ+EZLl/c3gGlOztsApvFCz+kZ/WSVllgHTyEm+SOA==}
     engines: {node: '>=18.17.0'}
     peerDependencies:
       vue: '>= 3.3.13 < 4'
@@ -4920,7 +4921,7 @@ snapshots:
       - solid-js
       - svelte
 
-  '@kong/spec-renderer@1.97.0(vue@3.5.17(typescript@5.8.3))':
+  '@kong/spec-renderer@1.98.3(vue@3.5.17(typescript@5.8.3))':
     dependencies:
       '@apidevtools/json-schema-ref-parser': 14.0.3
       '@asyncapi/openapi-schema-parser': 3.0.24
@@ -5410,7 +5411,7 @@ snapshots:
 
   '@stoplight/types@14.1.0':
     dependencies:
-      '@types/json-schema': 7.0.11
+      '@types/json-schema': 7.0.15
       utility-types: 3.11.0
 
   '@stoplight/types@14.1.1':
@@ -7512,7 +7513,7 @@ snapshots:
 
   mkdirp@0.5.6:
     dependencies:
-      minimist: 1.2.6
+      minimist: 1.2.8
 
   monaco-editor@0.52.2: {}
 
