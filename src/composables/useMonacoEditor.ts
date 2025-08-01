@@ -2,9 +2,12 @@ import { watch, computed, ref, reactive, onBeforeUnmount, onMounted } from 'vue'
 import type { Ref } from 'vue'
 import { KUI_FONT_FAMILY_CODE, KUI_FONT_SIZE_20, KUI_FONT_WEIGHT_MEDIUM, KUI_LINE_HEIGHT_30 } from '@kong/design-tokens'
 import { onClickOutside, useDebounceFn } from '@vueuse/core'
+import { isJsonOrYaml } from '@/utils/oas'
 
 // Monaco editor imports
-import * as monaco from 'monaco-editor'
+import type { editor as IEditor } from 'monaco-editor'
+// eslint-disable-next-line @typescript-eslint/consistent-type-imports
+type IMonacoEditor = typeof import('monaco-editor')
 // @ts-ignore - module exists
 import EditorWorker from 'monaco-editor/esm/vs/editor/editor.worker.js?worker'
 // @ts-ignore - module exists
@@ -16,17 +19,28 @@ import { createHighlighter } from 'shiki'
 import type { HighlighterGeneric, BundledLanguage, BundledTheme } from 'shiki'
 
 // Spectral Linter Worker
-import SpectralWorker from '@/workers/spectral.worker?worker'
-import { isJsonOrYaml } from '@/utils/oas'
+let SpectralWorkerCtor: any | undefined
 
 interface UseMonacoEditorOptions {
-  /** Is the Editor readonly. */
+  /**
+   * Is the Editor readonly.
+   *
+   * @default false
+   * */
   readOnly?: boolean
   /** The editor code/content. */
   code: Ref<string>
-  /** The Editor language (see supported languages in the composable). */
-  language: string
-  /** Force the theme into light or dark mode */
+  /**
+   * The Editor language (see supported languages in the composable).
+   *
+   * @default 'json'
+   */
+  language?: 'json' | 'yaml'
+  /**
+   * Force the theme into light or dark mode
+   *
+   * @default 'light'
+   */
   forceTheme?: 'light' | 'dark'
   onChanged?: (content: string) => void
   onCreated?: () => void
@@ -34,7 +48,7 @@ interface UseMonacoEditorOptions {
    * Additional Monaco editor settings
    * @see https://microsoft.github.io/monaco-editor/typedoc/interfaces/editor.IStandaloneEditorConstructionOptions.html
   */
-  monacoOptions?: monaco.editor.IStandaloneEditorConstructionOptions
+  monacoOptions?: IEditor.IStandaloneEditorConstructionOptions
 }
 
 const SHIKI_THEMES: Record<string, BundledTheme> = {
@@ -43,21 +57,13 @@ const SHIKI_THEMES: Record<string, BundledTheme> = {
 }
 
 // Create a singleton for the monaco instance
-let monacoInstance: typeof monaco
+let monacoInstance: IMonacoEditor
 // Create a singleton instance of the Shiki highlighter
 let shikiHighlighter: HighlighterGeneric<BundledLanguage, BundledTheme>
 // Create a singleton for the Spectral worker
 let spectralWorker: Worker | null = null
 
-/**
- * Set up the Monaco editor instance singleton.
- *
- * !Important: Only include code here that is language-agnostic.
- *
- * @returns {Promise<{ monacoInstance: typeof monaco }>}
- */
-const setupMonaco = async (): Promise<{ monacoInstance: typeof monaco }> => {
-  // If the instance is already initialized, exit early
+const setupMonaco = async (): Promise<{ monacoInstance: IMonacoEditor }> => {
   if (monacoInstance) {
     return { monacoInstance }
   }
@@ -69,7 +75,8 @@ const setupMonaco = async (): Promise<{ monacoInstance: typeof monaco }> => {
     },
   }
 
-  monacoInstance = monaco
+  // Dynamic imports to avoid SSR loading
+  monacoInstance = await import('monaco-editor')
 
   monacoInstance.languages.register({ id: 'yaml' })
   monacoInstance.languages.register({ id: 'json' })
@@ -89,7 +96,7 @@ const setupMonaco = async (): Promise<{ monacoInstance: typeof monaco }> => {
 
   setTimeout(() => {
     shikiToMonaco(shikiHighlighter, monacoInstance)
-  }, 350)
+  }, 100)
 
   return { monacoInstance }
 }
@@ -97,8 +104,9 @@ const setupMonaco = async (): Promise<{ monacoInstance: typeof monaco }> => {
 
 export default function useMonacoEditor(target: Ref, options: UseMonacoEditorOptions) {
   const isSetup = ref<boolean>(false)
-  let editor: monaco.editor.IStandaloneCodeEditor | undefined
+  let editor: IEditor.IStandaloneCodeEditor | undefined
   const _theme = ref<'light' | 'dark'>('light')
+  const _lang = ref<'json' | 'yaml'>('json')
   const cursorPosition = reactive<{ lineNumber: number, column: number }>({ lineNumber: 0, column: 0 })
 
   const hasTextFocus = ref<boolean>(false)
@@ -119,12 +127,8 @@ export default function useMonacoEditor(target: Ref, options: UseMonacoEditorOpt
 
   /** Set the editor content */
   const setContent = (content: string) => {
-    if (!isSetup.value) {
-      return
-    }
-    if (editor) {
-      editor.setValue(content)
-    }
+    if (!isSetup.value || !editor) return
+    editor.setValue(content)
   }
 
   /** Set the editor readonly mode */
@@ -209,6 +213,12 @@ export default function useMonacoEditor(target: Ref, options: UseMonacoEditorOpt
   }
 
   const init = async () => {
+
+    // Lazy-load Spectral Worker constructor
+    if (!SpectralWorkerCtor) {
+      SpectralWorkerCtor = (await import('@/workers/spectral.worker?worker')).default
+    }
+
     const { monacoInstance } = await setupMonaco()
 
     watch(target, (el) => {
@@ -216,23 +226,14 @@ export default function useMonacoEditor(target: Ref, options: UseMonacoEditorOpt
         return
       }
 
-      let lang = options.language
-
-      if (lang === 'yaml') {
-        lang = 'yaml'
-      } else if (lang === 'json') {
-        lang = 'json'
+      if (options.language) {
+        _lang.value = options.language
       }
 
-      const extension = () => {
-        if (lang === 'yaml') return 'yaml'
-        if (lang === 'json') return 'json'
-        return 'txt'
-      }
       const model = monacoInstance.editor.createModel(
         options.code.value,
-        lang,
-        monacoInstance.Uri.parse(`file:///root/${Date.now()}.${extension()}`),
+        _lang.value,
+        monacoInstance.Uri.parse(`file:///root/${Date.now()}.${_lang.value}`),
       )
 
       // Create Monaco editor
@@ -249,7 +250,7 @@ export default function useMonacoEditor(target: Ref, options: UseMonacoEditorOpt
         formatOnPaste: true,
         formatOnType: true, // Add to enable automatic formatting as the user types.
         glyphMargin: false,
-        language: lang,
+        language: _lang.value,
         lineNumbersMinChars: 3,
         minimap: {
           enabled: false,
@@ -286,6 +287,18 @@ export default function useMonacoEditor(target: Ref, options: UseMonacoEditorOpt
 
       isSetup.value = true
 
+      // watch for code changes
+      watch(options.code, (newValue) => {
+        if (!editor) return
+        const currentValue = editor.getValue()
+        if (newValue !== currentValue) {
+          _lang.value = isJsonOrYaml(newValue)
+          monacoInstance.editor.setModelLanguage(model, _lang.value)
+          setContent(newValue)
+        }
+      })
+
+
       if (typeof options?.onCreated === 'function') {
         options.onCreated()
       }
@@ -295,14 +308,14 @@ export default function useMonacoEditor(target: Ref, options: UseMonacoEditorOpt
       const postSpectralLintDebounced = useDebounceFn((value) => {
         spectralWorker?.postMessage({
           rawText: value,
-          language: lang,
+          language: _lang.value,
         })
       }, 1000)
 
       // Initial linting of the document
       postSpectralLintDebounced(options.code.value)
 
-      editor!.onDidChangeModelContent(() => {
+      editor.onDidChangeModelContent(() => {
         const value = editor!.getValue()
 
         if (typeof options.onChanged === 'function') {
@@ -312,7 +325,7 @@ export default function useMonacoEditor(target: Ref, options: UseMonacoEditorOpt
         postSpectralLintDebounced(value)
       })
 
-      editor!.onDidBlurEditorText(storeCursorPosition)
+      editor.onDidBlurEditorText(storeCursorPosition)
 
       try {
         // Access the internal "FindController" contribution
@@ -325,11 +338,7 @@ export default function useMonacoEditor(target: Ref, options: UseMonacoEditorOpt
 
           // Listen for changes to the state of the "find" panel
           findState.onFindReplaceStateChange(() => {
-            if (findState.isRevealed) {
-              editorStates.searchBoxIsRevealed = true
-            } else {
-              editorStates.searchBoxIsRevealed = false
-            }
+            editorStates.searchBoxIsRevealed = findState.isRevealed
           })
         }
       } catch (error) {
@@ -337,18 +346,16 @@ export default function useMonacoEditor(target: Ref, options: UseMonacoEditorOpt
       }
 
 
-      editor?.onDidFocusEditorText((): void => {
+      editor.onDidFocusEditorText((): void => {
         if (!hasTextFocus.value) {
           hasTextFocus.value = true
         }
       })
 
-      editor?.onDidPaste((): void => {
+      editor.onDidPaste((): void => {
         const content = editor?.getValue() || ''
-
-        lang = isJsonOrYaml(content)
-
-        monacoInstance.editor.setModelLanguage(model, lang)
+        _lang.value = isJsonOrYaml(content)
+        monacoInstance.editor.setModelLanguage(model, _lang.value)
         formatDocument()
       })
     },
@@ -363,8 +370,8 @@ export default function useMonacoEditor(target: Ref, options: UseMonacoEditorOpt
   })
 
   // Init the Monaco editor
-  onMounted(async () => {
-    await init()
+  onMounted(() => {
+    init()
   })
 
   onBeforeUnmount(() => {
@@ -387,10 +394,11 @@ export default function useMonacoEditor(target: Ref, options: UseMonacoEditorOpt
   }
 }
 
-function setupSpectralWorker(model: monaco.editor.ITextModel) {
-  if (!spectralWorker) spectralWorker = new SpectralWorker()
+function setupSpectralWorker(model: IEditor.ITextModel) {
+  if (!SpectralWorkerCtor) return
+  if (!spectralWorker) spectralWorker = new SpectralWorkerCtor()
 
-  spectralWorker.onmessage = (event) => {
+  spectralWorker!.onmessage = (event) => {
     const { markers } = event.data
     monacoInstance.editor.setModelMarkers(model, 'spectral', markers)
   }
