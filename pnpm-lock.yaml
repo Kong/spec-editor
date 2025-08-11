@@ -12,8 +12,8 @@ importers:
         specifier: ^1.33.0
         version: 1.33.0(vue@3.5.17(typescript@5.8.3))
       '@kong/kongponents':
-        specifier: ^9.36.10
-        version: 9.36.10(vue-router@4.5.0(vue@3.5.17(typescript@5.8.3)))(vue@3.5.17(typescript@5.8.3))
+        specifier: ^9.37.2
+        version: 9.37.2(vue-router@4.5.0(vue@3.5.17(typescript@5.8.3)))(vue@3.5.17(typescript@5.8.3))
       '@kong/spec-renderer':
         specifier: ^1.98.10
         version: 1.98.10(vue@3.5.17(typescript@5.8.3))
@@ -46,8 +46,8 @@ importers:
         specifier: ^1.11.16
         version: 1.12.2
       '@kong/design-tokens':
-        specifier: ^1.17.4
-        version: 1.17.4
+        specifier: ^1.18.0
+        version: 1.18.0
       '@kong/eslint-config-kong-ui':
         specifier: 1.2.9
         version: 1.2.9(eslint@9.30.0(jiti@2.4.2))(typescript@5.8.3)
@@ -733,9 +733,9 @@ packages:
   '@keyv/serialize@1.1.0':
     resolution: {integrity: sha512-RlDgexML7Z63Q8BSaqhXdCYNBy/JQnqYIwxofUrNLGCblOMHp+xux2Q8nLMLlPpgHQPoU0Do8Z6btCpRBEqZ8g==}
 
-  '@kong/design-tokens@1.17.4':
-    resolution: {integrity: sha512-3BrKJvwlQ27jrVQIE+cJ9baTVz6cvxO5f7vw0UWOiXz/E23z5ZOGDpUMiyK7q3Jks9t3x8OsMx3BKPRu87TPnw==}
-    engines: {node: '>=20.18.3', pnpm: '>=9.14.4 || >=10.1.0'}
+  '@kong/design-tokens@1.18.0':
+    resolution: {integrity: sha512-U7QCUu2P0ihDrIg3v8JslhsV+CK/+GWolVEPfmp59cASmliFLTXz9ApbpIqEWuyFFMu3eNlSZ/xei6ImKaklQw==}
+    engines: {node: '>=20.19.4', pnpm: '>=9.14.4 || >=10.1.0'}
 
   '@kong/eslint-config-kong-ui@1.2.9':
     resolution: {integrity: sha512-nRkecRUjYDaqP59KmGenj2tklDQ/CASHxgBIkTOLgtiflw+Cm9ex0nUNadW9ecKenUi3x0Sg6Bd/MuLQA9gcYQ==}
@@ -755,8 +755,8 @@ packages:
     peerDependencies:
       vue: '>= 3.3.4 < 4'
 
-  '@kong/kongponents@9.36.10':
-    resolution: {integrity: sha512-CAntoEdFn9a0eFxftnqnI+z6oqGKMvs+XLMGepKy4zE6Ezr17fZFAh7AX/EFJ4wrSeTsUTbKkM01WgLQetPSeg==}
+  '@kong/kongponents@9.37.2':
+    resolution: {integrity: sha512-WyyWlZnQ68ofsfvrIybAtO6pkG+sPjQlBu97HZ3mBHs7OcxsEzegr4V6gxmegCdzTX7sKc2HWXIJt2EknkixRA==}
     engines: {node: '>=v16.20.2 || >=18.12.1 || >=20.14.0 || >=22.14.0', pnpm: '>=9.11.0 || >=10.10.0'}
     peerDependencies:
       vue: '>= 3.5.0 < 4'
@@ -4822,7 +4822,7 @@ snapshots:
 
   '@keyv/serialize@1.1.0': {}
 
-  '@kong/design-tokens@1.17.4': {}
+  '@kong/design-tokens@1.18.0': {}
 
   '@kong/eslint-config-kong-ui@1.2.9(eslint@9.30.0(jiti@2.4.2))(typescript@5.8.3)':
     dependencies:
@@ -4853,7 +4853,7 @@ snapshots:
     dependencies:
       vue: 3.5.17(typescript@5.8.3)
 
-  '@kong/kongponents@9.36.10(vue-router@4.5.0(vue@3.5.17(typescript@5.8.3)))(vue@3.5.17(typescript@5.8.3))':
+  '@kong/kongponents@9.37.2(vue-router@4.5.0(vue@3.5.17(typescript@5.8.3)))(vue@3.5.17(typescript@5.8.3))':
     dependencies:
       '@floating-ui/vue': 1.1.7(vue@3.5.17(typescript@5.8.3))
       '@kong/icons': 1.33.2(vue@3.5.17(typescript@5.8.3))
