@@ -96,7 +96,7 @@ const setupMonaco = async (): Promise<{ monacoInstance: IMonacoEditor }> => {
 
   setTimeout(() => {
     shikiToMonaco(shikiHighlighter, monacoInstance)
-  }, 100)
+  }, 200)
 
   return { monacoInstance }
 }
