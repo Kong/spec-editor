@@ -111,7 +111,6 @@
           </template>
         </SpecToolbar>
         <SpecEditor
-          :key="fileKey"
           ref="editor"
           v-model="code"
         />
@@ -254,8 +253,6 @@ const isMobile = computed(() => width.value <= 768)
 const code = ref(JSON.stringify(files[0][1].file, null, 2))
 const specText = refDebounced(code, 700)
 
-// to force re-render of the editor when the spec changes
-const fileKey = ref<number>(0)
 // to track if the spec has been cleared
 const isCleared = ref(false)
 
@@ -298,14 +295,11 @@ const clearSpec = () => {
 
   isCleared.value = true
   code.value = ''
-  fileKey.value++
 }
 
 const resetEditor = () => {
   isCleared.value = false
-  fileKey.value++
 }
-
 
 const dropzoneClick = () => {
   fileInputRef.value?.click()
