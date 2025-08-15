@@ -43,7 +43,7 @@ importers:
         specifier: ^8.0.1
         version: 8.0.1(@types/node@22.17.1)(typescript@5.9.2)
       '@evilmartians/lefthook':
-        specifier: ^1.11.16
+        specifier: ^1.12.2
         version: 1.12.2
       '@kong/design-tokens':
         specifier: ^1.18.0
