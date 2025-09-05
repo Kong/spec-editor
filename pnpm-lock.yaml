@@ -9,14 +9,14 @@ importers:
   .:
     dependencies:
       '@kong/icons':
-        specifier: ^1.33.0
-        version: 1.33.0(vue@3.5.17(typescript@5.9.2))
+        specifier: ^1.33.2
+        version: 1.33.2(vue@3.5.17(typescript@5.9.2))
       '@kong/kongponents':
         specifier: ^9.37.2
         version: 9.37.2(vue-router@4.5.0(vue@3.5.17(typescript@5.9.2)))(vue@3.5.17(typescript@5.9.2))
       '@kong/spec-renderer':
-        specifier: ^1.98.10
-        version: 1.98.10(vue@3.5.17(typescript@5.9.2))
+        specifier: ^1.98.20
+        version: 1.99.0(vue@3.5.17(typescript@5.9.2))
       '@stoplight/spectral-core':
         specifier: ^1.20.0
         version: 1.20.0
@@ -650,14 +650,23 @@ packages:
   '@floating-ui/core@1.7.2':
     resolution: {integrity: sha512-wNB5ooIKHQc+Kui96jE/n69rHFWAVoxn5CAzL1Xdd8FG03cgY3MLO+GF9U3W737fYDSgPWA6MReKhBQBop6Pcw==}
 
+  '@floating-ui/core@1.7.3':
+    resolution: {integrity: sha512-sGnvb5dmrJaKEZ+LDIpguvdX3bDlEllmv4/ClQ9awcmCZrlx5jQyyMWFM5kBI+EyNOCDDiKk8il0zeuX3Zlg/w==}
+
   '@floating-ui/dom@1.7.2':
     resolution: {integrity: sha512-7cfaOQuCS27HD7DX+6ib2OrnW+b4ZBwDNnCcT0uTyidcmyWb03FnQqJybDBoCnpdxwBSfA94UAYlRCt7mV+TbA==}
+
+  '@floating-ui/dom@1.7.4':
+    resolution: {integrity: sha512-OOchDgh4F2CchOX94cRVqhvy7b3AFb+/rQXyswmzmGakRfkMgoWVjfnLWkRirfLEfuD4ysVW16eXzwt3jHIzKA==}
 
   '@floating-ui/utils@0.2.10':
     resolution: {integrity: sha512-aGTxbpbg8/b5JfU1HXSrbH3wXZuLPJcNEcZQFMxLs3oSzgtVu6nFPkbbGGUvBcUjKV2YyB9Wxxabo+HEH9tcRQ==}
 
   '@floating-ui/vue@1.1.7':
     resolution: {integrity: sha512-idmAtbAIigGXN2SI5gItiXYBYtNfDTP9yIiObxgu13dgtG7ARCHlNfnR29GxP4LI4o13oiwsJ8wVgghj1lNqcw==}
+
+  '@floating-ui/vue@1.1.9':
+    resolution: {integrity: sha512-BfNqNW6KA83Nexspgb9DZuz578R7HT8MZw1CfK9I6Ah4QReNWEJsXWHN+SdmOVLNGmTPDi+fDT535Df5PzMLbQ==}
 
   '@humanfs/core@0.19.1':
     resolution: {integrity: sha512-5DyQ4+1JEUzejeK1JGICcideyfUbGixgS9jNgex5nqkW+cY7WZhxBigmieN5Qnw9ZosSNVC9KQKyb+GUaGyKUA==}
@@ -728,14 +737,14 @@ packages:
     peerDependencies:
       eslint: '>= 9.23.0'
 
-  '@kong/icons@1.33.0':
-    resolution: {integrity: sha512-uPnzg1WkJs6z22tftFfoo1/VG2fzeDssx+ubc1sX1K7bzbGwAQXR3VLnw4W8g8JoMrNpqo+FP3dm8/8ynkb7GA==}
+  '@kong/icons@1.33.2':
+    resolution: {integrity: sha512-t9cPc2ba3aLHZRnFUj4HJ8GrLbkEJbb2ijDwcVh8VxR3Hl1z9wHJB1XLTfv5wt//hG9TBUxiCjJITbrgnl3jEA==}
     engines: {node: '>=18.17.0', pnpm: '>=9.14.4 || >=10.1.0'}
     peerDependencies:
       vue: '>= 3.3.4 < 4'
 
-  '@kong/icons@1.33.2':
-    resolution: {integrity: sha512-t9cPc2ba3aLHZRnFUj4HJ8GrLbkEJbb2ijDwcVh8VxR3Hl1z9wHJB1XLTfv5wt//hG9TBUxiCjJITbrgnl3jEA==}
+  '@kong/icons@1.35.0':
+    resolution: {integrity: sha512-9xI+dvc8Z3VZMwMjlk/XPsV94tgd5yuTGPblwiExU/qnONf2OxqfLD8xrcBmPAZ8Bu6YUfvmavJe//2N+Uzhxw==}
     engines: {node: '>=18.17.0', pnpm: '>=9.14.4 || >=10.1.0'}
     peerDependencies:
       vue: '>= 3.3.4 < 4'
@@ -747,8 +756,8 @@ packages:
       vue: '>= 3.5.0 < 4'
       vue-router: ^4.4.5
 
-  '@kong/spec-renderer@1.98.10':
-    resolution: {integrity: sha512-1rr9Al9XN5ohC/KnfmEYXW5tgVXom6x6hVCSSXpO6pwEjMypVum6X76tcux4ThwkaAEuYG/Tafd96QrFgz7ufw==}
+  '@kong/spec-renderer@1.99.0':
+    resolution: {integrity: sha512-HNYzYUwlDDwKu4bcDPxIzUsXEUlMlEVRepRmY+3kakTVzdavW8n7mym5LQW3K6sFPs2vr4LTzpaweJjd2vl9DA==}
     engines: {node: '>=18.17.0'}
     peerDependencies:
       vue: '>= 3.3.13 < 4'
@@ -4691,9 +4700,18 @@ snapshots:
     dependencies:
       '@floating-ui/utils': 0.2.10
 
+  '@floating-ui/core@1.7.3':
+    dependencies:
+      '@floating-ui/utils': 0.2.10
+
   '@floating-ui/dom@1.7.2':
     dependencies:
       '@floating-ui/core': 1.7.2
+      '@floating-ui/utils': 0.2.10
+
+  '@floating-ui/dom@1.7.4':
+    dependencies:
+      '@floating-ui/core': 1.7.3
       '@floating-ui/utils': 0.2.10
 
   '@floating-ui/utils@0.2.10': {}
@@ -4701,6 +4719,15 @@ snapshots:
   '@floating-ui/vue@1.1.7(vue@3.5.17(typescript@5.9.2))':
     dependencies:
       '@floating-ui/dom': 1.7.2
+      '@floating-ui/utils': 0.2.10
+      vue-demi: 0.14.10(vue@3.5.17(typescript@5.9.2))
+    transitivePeerDependencies:
+      - '@vue/composition-api'
+      - vue
+
+  '@floating-ui/vue@1.1.9(vue@3.5.17(typescript@5.9.2))':
+    dependencies:
+      '@floating-ui/dom': 1.7.4
       '@floating-ui/utils': 0.2.10
       vue-demi: 0.14.10(vue@3.5.17(typescript@5.9.2))
     transitivePeerDependencies:
@@ -4772,11 +4799,11 @@ snapshots:
       - supports-color
       - typescript
 
-  '@kong/icons@1.33.0(vue@3.5.17(typescript@5.9.2))':
+  '@kong/icons@1.33.2(vue@3.5.17(typescript@5.9.2))':
     dependencies:
       vue: 3.5.17(typescript@5.9.2)
 
-  '@kong/icons@1.33.2(vue@3.5.17(typescript@5.9.2))':
+  '@kong/icons@1.35.0(vue@3.5.17(typescript@5.9.2))':
     dependencies:
       vue: 3.5.17(typescript@5.9.2)
 
@@ -4805,13 +4832,13 @@ snapshots:
       - solid-js
       - svelte
 
-  '@kong/spec-renderer@1.98.10(vue@3.5.17(typescript@5.9.2))':
+  '@kong/spec-renderer@1.99.0(vue@3.5.17(typescript@5.9.2))':
     dependencies:
       '@apidevtools/json-schema-ref-parser': 14.0.3
       '@asyncapi/openapi-schema-parser': 3.0.24
       '@asyncapi/parser': 3.4.0
-      '@floating-ui/vue': 1.1.7(vue@3.5.17(typescript@5.9.2))
-      '@kong/icons': 1.33.2(vue@3.5.17(typescript@5.9.2))
+      '@floating-ui/vue': 1.1.9(vue@3.5.17(typescript@5.9.2))
+      '@kong/icons': 1.35.0(vue@3.5.17(typescript@5.9.2))
       '@stoplight/http-spec': 7.1.0
       '@stoplight/json': 3.21.7
       '@stoplight/types': 14.1.1
