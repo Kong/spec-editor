@@ -55,7 +55,7 @@
     "stylelint-order": "^7.0.0",
     "typescript": "~5.9.2",
     "vite": "^6.3.5",
-    "vite-plugin-vue-devtools": "^7.7.7",
+    "vite-plugin-vue-devtools": "^8.0.2",
     "vue-tsc": "^3.0.4"
   },
   "name": "@kong/spec-editor",
