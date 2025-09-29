@@ -30,7 +30,7 @@
     "@digitalroute/cz-conventional-changelog-for-jira": "^8.0.1",
     "@evilmartians/lefthook": "^1.11.16",
     "@kong/design-tokens": "^1.18.0",
-    "@kong/eslint-config-kong-ui": "1.5.1",
+    "@kong/eslint-config-kong-ui": "1.5.5",
     "@shikijs/monaco": "^3.12.2",
     "@stoplight/types": "^14.1.1",
     "@stylistic/stylelint-plugin": "^3.1.3",
