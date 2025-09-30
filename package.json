@@ -15,8 +15,8 @@
   },
   "dependencies": {
     "@kong/icons": "^1.38.0",
-    "@kong/kongponents": "^9.42.0",
-    "@kong/spec-renderer": "^1.100.2",
+    "@kong/kongponents": "^9.42.4",
+    "@kong/spec-renderer": "^1.100.5",
     "@stoplight/spectral-core": "^1.20.0",
     "@stoplight/spectral-ruleset-bundler": "^1.6.3",
     "@vueuse/core": "^13.5.0",
