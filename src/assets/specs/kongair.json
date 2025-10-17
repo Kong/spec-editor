@@ -3,7 +3,8 @@
   "info": {
     "title": "KongAir APIs",
     "description": "Consolidated API specification for KongAir Flights, Bookings, and Routes services.",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "contact": {}
   },
   "servers": [
     {

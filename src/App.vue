@@ -145,8 +145,13 @@
             <SettingsModal />
           </template>
         </SpecToolbar>
+        <KSkeleton
+          v-if="isLoading"
+          hide-progress
+          type="fullscreen-kong"
+        />
         <SpecRenderer
-          v-show="!isCleared"
+          v-show="!isCleared && !isLoading"
           class="spec-renderer"
           :control-address-bar="true"
           document-scrolling-container=".spec-renderer-pane"
@@ -173,15 +178,16 @@
 import '@kong/spec-renderer/dist/style.css'
 import 'splitpanes/dist/splitpanes.css'
 
-import { ref, computed, watch, nextTick, useTemplateRef } from 'vue'
+import { ref, computed, watch, nextTick, useTemplateRef, onMounted } from 'vue'
 import { SpecRenderer } from '@kong/spec-renderer'
-import { refDebounced, useDropZone, useWindowSize } from '@vueuse/core'
+import { refDebounced, useDropZone, useWindowSize, watchDebounced } from '@vueuse/core'
 import { ChevronDoubleLeftIcon, ChevronDoubleRightIcon, ChevronDownIcon, UploadIcon, VisibilityIcon } from '@kong/icons'
 import { KUI_COLOR_TEXT_NEUTRAL } from '@kong/design-tokens'
 import { Splitpanes, Pane } from 'splitpanes'
 
 import useApiDocOptions from '@/composables/useApiDocOptions'
 import useToaster from '@/composables/useToaster'
+import { loadSpecFromLocalStorage, saveSpecToLocalStorage, clearLocalStorageKey } from '@/utils/storage'
 
 import DropzoneModal from '@/components/DropzoneModal.vue'
 import SettingsModal from '@/components/SettingsModal.vue'
@@ -200,6 +206,7 @@ import specOpenApiAsync from '@/assets/specs/openapi-async.json'
 type TFileLabel = typeof files[number][number]['label']
 
 // constants
+const STORAGE_KEY = 'spec-renderer-playground-spec'
 const MAX_FILE_SIZE = 8 * 1024 * 1024 // 8MB
 const SUPPORTED_TYPES = ['application/json', 'application/x-yaml', 'text/yaml']
 const files = [
@@ -249,12 +256,15 @@ const { width } = useWindowSize()
 
 const isMobile = computed(() => width.value <= 768)
 
-// select the first file by default
-const code = ref(JSON.stringify(files[0][1].file, null, 2))
+const defaultSpec = JSON.stringify(specKongAir, null, 2)
+const code = ref(defaultSpec)
 const specText = refDebounced(code, 700)
 
 // to track if the spec has been cleared
 const isCleared = ref(false)
+
+// to track if the spec is loading
+const isLoading = ref(true)
 
 const { options } = useApiDocOptions()
 const { toaster } = useToaster()
@@ -295,6 +305,7 @@ const clearSpec = () => {
 
   isCleared.value = true
   code.value = ''
+  clearLocalStorageKey(STORAGE_KEY)
 }
 
 const resetEditor = () => {
@@ -350,6 +361,24 @@ const { isOverDropZone } = useDropZone(dropZoneRef, {
   multiple: false,
   // whether to prevent default behavior for unhandled events
   preventDefaultForUnhandled: false,
+})
+
+// save spec to localStorage
+watchDebounced(specText, (newValue) => {
+  if (!isCleared.value && newValue && newValue.trim() !== defaultSpec.trim()) {
+    saveSpecToLocalStorage(STORAGE_KEY, newValue)
+  }
+}, {
+  debounce: 1000,
+})
+
+onMounted(() => {
+  isLoading.value = true
+  const savedSpec = loadSpecFromLocalStorage(STORAGE_KEY)
+  code.value = savedSpec || defaultSpec
+  setTimeout(() => {
+    isLoading.value = false
+  }, 1000)
 })
 </script>
 
@@ -533,5 +562,12 @@ const { isOverDropZone } = useDropZone(dropZoneRef, {
 
 .kong-logo {
   margin-left: $kui-space-20;
+}
+
+:deep(.fullscreen-loading-container) {
+  position: absolute !important;
+  top: 44px !important;
+  // we need to set a lower z-index than the SettingsModal
+  z-index: 9 !important;
 }
 </style>
