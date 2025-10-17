@@ -1,13 +1,19 @@
+interface SaveSpecOptions {
+  key: string
+  value: string
+  onFallback?: (error: unknown) => void
+}
+
 /**
  * Safely save a value to localStorage.
  * If saving fails (usually due to size limit),
- * the fallbackValue will be saved instead.
+ * the onFallback callback will be called instead.
  */
-export function saveSpecToLocalStorage(
-  key: string,
-  value: string,
-  onFallback?: (error: unknown) => void,
-) {
+export function saveSpecToLocalStorage({
+  key,
+  value,
+  onFallback,
+}: SaveSpecOptions) {
   try {
     localStorage.setItem(key, value)
   } catch (err) {

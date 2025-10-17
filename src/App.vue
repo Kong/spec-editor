@@ -180,7 +180,7 @@ import 'splitpanes/dist/splitpanes.css'
 
 import { ref, computed, watch, nextTick, useTemplateRef, onMounted } from 'vue'
 import { SpecRenderer } from '@kong/spec-renderer'
-import { refDebounced, useDropZone, useWindowSize } from '@vueuse/core'
+import { refDebounced, useDropZone, useWindowSize, watchDebounced } from '@vueuse/core'
 import { ChevronDoubleLeftIcon, ChevronDoubleRightIcon, ChevronDownIcon, UploadIcon, VisibilityIcon } from '@kong/icons'
 import { KUI_COLOR_TEXT_NEUTRAL } from '@kong/design-tokens'
 import { Splitpanes, Pane } from 'splitpanes'
@@ -257,7 +257,7 @@ const { width } = useWindowSize()
 const isMobile = computed(() => width.value <= 768)
 
 const defaultSpec = JSON.stringify(specKongAir, null, 2)
-const code = ref(JSON.stringify(defaultSpec, null, 2))
+const code = ref(defaultSpec)
 const specText = refDebounced(code, 700)
 
 // to track if the spec has been cleared
@@ -364,15 +364,22 @@ const { isOverDropZone } = useDropZone(dropZoneRef, {
 })
 
 // save spec to localStorage
-watch(specText, (newValue) => {
+watchDebounced(specText, (newValue) => {
   if (!isCleared.value && newValue && newValue.trim() !== defaultSpec.trim()) {
-    saveSpecToLocalStorage(STORAGE_KEY, newValue, () => {
-      toaster.open({
-        appearance: 'danger',
-        message: 'Failed to save specification to localStorage.',
-      })
+    saveSpecToLocalStorage({
+      key: STORAGE_KEY,
+      value: newValue,
+      onFallback: (error) => {
+        toaster.open({
+          appearance: 'danger',
+          message: 'Failed to save specification to localStorage.',
+        })
+        console.error('Error saving spec to localStorage:', error)
+      },
     })
   }
+}, {
+  debounce: 1000,
 })
 
 onMounted(() => {
@@ -568,8 +575,9 @@ onMounted(() => {
 }
 
 :deep(.fullscreen-loading-container) {
-  position: absolute!important;
-  top: 44px!important;
-  z-index: 9!important;
+  position: absolute !important;
+  top: 44px !important;
+  // we need to set a lower z-index than the SettingsModal
+  z-index: 9 !important;
 }
 </style>
