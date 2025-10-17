@@ -366,17 +366,7 @@ const { isOverDropZone } = useDropZone(dropZoneRef, {
 // save spec to localStorage
 watchDebounced(specText, (newValue) => {
   if (!isCleared.value && newValue && newValue.trim() !== defaultSpec.trim()) {
-    saveSpecToLocalStorage({
-      key: STORAGE_KEY,
-      value: newValue,
-      onFallback: (error) => {
-        toaster.open({
-          appearance: 'danger',
-          message: 'Failed to save specification to localStorage.',
-        })
-        console.error('Error saving spec to localStorage:', error)
-      },
-    })
+    saveSpecToLocalStorage(STORAGE_KEY, newValue)
   }
 }, {
   debounce: 1000,
