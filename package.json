@@ -19,7 +19,7 @@
     "@kong/spec-renderer": "^1.100.5",
     "@stoplight/spectral-core": "^1.20.0",
     "@stoplight/spectral-ruleset-bundler": "^1.6.3",
-    "@vueuse/core": "^13.5.0",
+    "@vueuse/core": "^13.9.0",
     "splitpanes": "^4.0.4",
     "vue": "^3.5.17"
   },
@@ -28,7 +28,7 @@
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
     "@digitalroute/cz-conventional-changelog-for-jira": "^8.0.1",
-    "@evilmartians/lefthook": "^1.11.16",
+    "@evilmartians/lefthook": "^1.13.6",
     "@kong/design-tokens": "^1.18.0",
     "@kong/eslint-config-kong-ui": "1.5.1",
     "@shikijs/monaco": "^3.12.2",
@@ -41,8 +41,8 @@
     "@vue/tsconfig": "^0.7.0",
     "commitizen": "^4.3.1",
     "cz-conventional-changelog": "^3.3.0",
-    "eslint": "^9.32.0",
-    "eslint-plugin-vue": "^10.4.0",
+    "eslint": "^9.37.0",
+    "eslint-plugin-vue": "^10.5.0",
     "monaco-editor": "^0.52.2",
     "npm-run-all2": "^8.0.4",
     "sass": "^1.92.1",
@@ -56,7 +56,7 @@
     "typescript": "~5.9.2",
     "vite": "^6.3.5",
     "vite-plugin-vue-devtools": "^8.0.2",
-    "vue-tsc": "^3.0.4"
+    "vue-tsc": "^3.1.0"
   },
   "name": "@kong/spec-editor",
   "private": true,
@@ -75,8 +75,8 @@
   "type": "module",
   "version": "0.0.0",
   "volta": {
-    "node": "22.19.0",
-    "pnpm": "10.15.1"
+    "node": "22.20.0",
+    "pnpm": "10.18.0"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
