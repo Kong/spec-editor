@@ -35,7 +35,7 @@ interface UseMonacoEditorOptions {
    *
    * @default 'json'
    */
-  language?: 'json' | 'yaml' | 'plaintext'
+  language?: 'json' | 'yaml'
   /**
    * Force the theme into light or dark mode
    *
@@ -106,7 +106,7 @@ export default function useMonacoEditor(target: Ref, options: UseMonacoEditorOpt
   const isSetup = ref<boolean>(false)
   let editor: IEditor.IStandaloneCodeEditor | undefined
   const _theme = ref<'light' | 'dark'>('light')
-  const _lang = ref<'json' | 'yaml' | 'plaintext'>('json')
+  const _lang = ref<'json' | 'yaml'>('json')
   const cursorPosition = reactive<{ lineNumber: number, column: number }>({ lineNumber: 0, column: 0 })
 
   const hasTextFocus = ref<boolean>(false)
