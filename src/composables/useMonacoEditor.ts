@@ -226,8 +226,11 @@ export default function useMonacoEditor(target: Ref, options: UseMonacoEditorOpt
         return
       }
 
-      if (options.language) {
+      // Determine the language for initial rendering
+      if (options.language) { // if language is provided by user, use it
         _lang.value = options.language
+      } else if (options.code.value) { // if the language is not provided, detect from the code content
+        _lang.value = isJsonOrYaml(options.code.value)
       }
 
       const model = monacoInstance.editor.createModel(
