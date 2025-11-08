@@ -43,7 +43,7 @@
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^9.32.0",
     "eslint-plugin-vue": "^10.4.0",
-    "monaco-editor": "^0.52.2",
+    "monaco-editor": "^0.54.0",
     "npm-run-all2": "^8.0.4",
     "sass": "^1.92.1",
     "sass-embedded": "^1.92.1",
