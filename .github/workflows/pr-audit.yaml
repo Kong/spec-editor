@@ -31,7 +31,7 @@ jobs:
         uses: ./.github/actions/setup-pnpm-with-dependencies/
 
       - name: PR Audit
-        uses: Kong/public-shared-actions/pr-previews/audit@main
+        uses: Kong/public-shared-actions/pr-previews/audit@fix/KHCP-18541_pr-audit-labels
         if: github.actor != 'renovate[bot]'
         with:
           renovate-pr-author: renovate[bot]
