@@ -25,8 +25,8 @@
   },
   "description": "Live editor for Kong's open-source spec renderer",
   "devDependencies": {
-    "@commitlint/cli": "^19.8.1",
-    "@commitlint/config-conventional": "^19.8.1",
+    "@commitlint/cli": "^20.1.0",
+    "@commitlint/config-conventional": "^20.0.0",
     "@digitalroute/cz-conventional-changelog-for-jira": "^8.0.1",
     "@evilmartians/lefthook": "^1.11.16",
     "@kong/design-tokens": "^1.18.1",
