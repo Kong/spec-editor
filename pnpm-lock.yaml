@@ -9,14 +9,14 @@ importers:
   .:
     dependencies:
       '@kong/icons':
-        specifier: ^1.39.1
-        version: 1.39.1(vue@3.5.25(typescript@5.9.3))
+        specifier: ^1.40.3
+        version: 1.40.3(vue@3.5.25(typescript@5.9.3))
       '@kong/kongponents':
         specifier: ^9.46.8
         version: 9.46.8(vue-router@4.5.0(vue@3.5.25(typescript@5.9.3)))(vue@3.5.25(typescript@5.9.3))
       '@kong/spec-renderer':
-        specifier: ^1.101.9
-        version: 1.101.9(vue@3.5.25(typescript@5.9.3))
+        specifier: ^1.102.1
+        version: 1.102.1(vue@3.5.25(typescript@5.9.3))
       '@stoplight/spectral-core':
         specifier: ^1.20.0
         version: 1.20.0
@@ -749,8 +749,8 @@ packages:
     peerDependencies:
       eslint: '>= 9.37.0'
 
-  '@kong/icons@1.39.1':
-    resolution: {integrity: sha512-AwhMPHLYFBdXuCxgKjJdeGj1U0R2oxmvIf5GZtgJ/TqGIJMV55ZPeWwEzHNbntdquxZP9lG6XWsTzzYP10sbjw==}
+  '@kong/icons@1.40.3':
+    resolution: {integrity: sha512-LJv+hHyuhacpf2DtQC9m6I84dPAASEJsL1+MODSPX0F6mQr9+7P/VdAuT8RGD8l8+1qHQAClm9mSLTkRKaNgdg==}
     engines: {node: '>=18.17.0', pnpm: '>=9.14.4 || >=10.1.0'}
     peerDependencies:
       vue: '>= 3.3.4 < 4'
@@ -762,8 +762,8 @@ packages:
       vue: '>= 3.5.0 < 4'
       vue-router: ^4.6.3
 
-  '@kong/spec-renderer@1.101.9':
-    resolution: {integrity: sha512-sCy+abNRehCJOhyqsrr+Fip1t4sfKn2KEtXAxMiekjVueScEY74GPbHvWnQeg2QNxG0+lOUym6m2d+XgBI+x2Q==}
+  '@kong/spec-renderer@1.102.1':
+    resolution: {integrity: sha512-uJSGxXgebZegp5i0ULjzqxg+B7aeCtbBB1xJnGtlR2o/+2dwA+4UjKd9YzEg/oC6qQApk7AxpmMRBA9Y5qTSHg==}
     engines: {node: '>=18.17.0'}
     peerDependencies:
       vue: '>= 3.3.13 < 4'
@@ -4877,14 +4877,14 @@ snapshots:
       - supports-color
       - typescript
 
-  '@kong/icons@1.39.1(vue@3.5.25(typescript@5.9.3))':
+  '@kong/icons@1.40.3(vue@3.5.25(typescript@5.9.3))':
     dependencies:
       vue: 3.5.25(typescript@5.9.3)
 
   '@kong/kongponents@9.46.8(vue-router@4.5.0(vue@3.5.25(typescript@5.9.3)))(vue@3.5.25(typescript@5.9.3))':
     dependencies:
       '@floating-ui/vue': 1.1.9(vue@3.5.25(typescript@5.9.3))
-      '@kong/icons': 1.39.1(vue@3.5.25(typescript@5.9.3))
+      '@kong/icons': 1.40.3(vue@3.5.25(typescript@5.9.3))
       '@popperjs/core': 2.11.8
       date-fns: 2.30.0
       date-fns-tz: 2.0.1(date-fns@2.30.0)
@@ -4906,14 +4906,14 @@ snapshots:
       - solid-js
       - svelte
 
-  '@kong/spec-renderer@1.101.9(vue@3.5.25(typescript@5.9.3))':
+  '@kong/spec-renderer@1.102.1(vue@3.5.25(typescript@5.9.3))':
     dependencies:
       '@apidevtools/json-schema-ref-parser': 14.0.3
       '@asyncapi/avro-schema-parser': 3.0.24
       '@asyncapi/openapi-schema-parser': 3.0.24
       '@asyncapi/parser': 3.4.0
       '@floating-ui/vue': 1.1.9(vue@3.5.25(typescript@5.9.3))
-      '@kong/icons': 1.39.1(vue@3.5.25(typescript@5.9.3))
+      '@kong/icons': 1.40.3(vue@3.5.25(typescript@5.9.3))
       '@stoplight/http-spec': 7.1.0
       '@stoplight/json': 3.21.7
       '@stoplight/types': 14.1.1
@@ -5403,7 +5403,7 @@ snapshots:
 
   '@stoplight/types@14.1.0':
     dependencies:
-      '@types/json-schema': 7.0.11
+      '@types/json-schema': 7.0.15
       utility-types: 3.11.0
 
   '@stoplight/types@14.1.1':
@@ -7486,7 +7486,7 @@ snapshots:
 
   mkdirp@0.5.6:
     dependencies:
-      minimist: 1.2.6
+      minimist: 1.2.8
 
   monaco-editor@0.54.0:
     dependencies:
