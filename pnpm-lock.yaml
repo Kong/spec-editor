@@ -18,11 +18,11 @@ importers:
         specifier: ^1.40.3
         version: 1.40.3(vue@3.5.25(typescript@5.9.3))
       '@kong/kongponents':
-        specifier: ^9.47.0
-        version: 9.47.0(vue-router@4.5.0(vue@3.5.25(typescript@5.9.3)))(vue@3.5.25(typescript@5.9.3))
+        specifier: ^9.47.4
+        version: 9.48.8(vue-router@4.5.0(vue@3.5.25(typescript@5.9.3)))(vue@3.5.25(typescript@5.9.3))
       '@kong/spec-renderer':
-        specifier: ^1.102.1
-        version: 1.102.1(vue@3.5.25(typescript@5.9.3))
+        specifier: ^1.102.2
+        version: 1.102.2(vue@3.5.25(typescript@5.9.3))
       '@stoplight/spectral-core':
         specifier: ^1.20.0
         version: 1.20.0
@@ -752,15 +752,21 @@ packages:
     peerDependencies:
       vue: '>= 3.3.4 < 4'
 
-  '@kong/kongponents@9.47.0':
-    resolution: {integrity: sha512-le35MMgEIuHBKgYofmAcVtTUfo/g8Kn46xZwNV0T+5E6CROl/CyfhFkhz03kC1yNAZ91qgzVdjXfyT48oeHyiQ==}
+  '@kong/icons@1.41.0':
+    resolution: {integrity: sha512-I6V/lYVz4AgKaSAAmEp3P5mjgYskJb2Kv5Y85xRehmRqu+jQ9mbuxDtXq90k0RzvdtBh93DAdH0T+xCzl3XXnA==}
+    engines: {node: '>=18.17.0', pnpm: '>=9.14.4 || >=10.1.0'}
+    peerDependencies:
+      vue: '>= 3.3.4 < 4'
+
+  '@kong/kongponents@9.48.8':
+    resolution: {integrity: sha512-uTdKCR5NZByN+z+crwTsKXfaunXh/fOBOnmNtIVqGr4YDMcIS8ZawAVv9e6FLEc7SOG8nwZZftYsV8VVDFRtZw==}
     engines: {node: '>=v16.20.2 || >=18.12.1 || >=20.14.0 || >=22.14.0', pnpm: '>=9.11.0 || >=10.10.0'}
     peerDependencies:
       vue: '>= 3.5.0 < 4'
-      vue-router: ^4.6.3
+      vue-router: ^4.6.4
 
-  '@kong/spec-renderer@1.102.1':
-    resolution: {integrity: sha512-uJSGxXgebZegp5i0ULjzqxg+B7aeCtbBB1xJnGtlR2o/+2dwA+4UjKd9YzEg/oC6qQApk7AxpmMRBA9Y5qTSHg==}
+  '@kong/spec-renderer@1.102.2':
+    resolution: {integrity: sha512-YhpSNzCzmJ8YQAWbPGo8Dq4+9x0Rc8sm/8As6cZZnpRDIBp7bBn6jcayWmONpbPOW51gl0930oPQdMXVxdr/Vw==}
     engines: {node: '>=18.17.0'}
     peerDependencies:
       vue: '>= 3.3.13 < 4'
@@ -2283,8 +2289,8 @@ packages:
       focus-trap: ^7.0.0
       vue: ^3.0.0
 
-  focus-trap@7.6.6:
-    resolution: {integrity: sha512-v/Z8bvMCajtx4mEXmOo7QEsIzlIOqRXTIwgUfsFOF9gEsespdbD0AkPIka1bSXZ8Y8oZ+2IVDQZePkTfEHZl7Q==}
+  focus-trap@7.7.1:
+    resolution: {integrity: sha512-Pkp8m55GjxBLnhBoT6OXdMvfRr4TjMAKLvFM566zlIryq5plbhaTmLAJWTGR0EkRwLjEte1lCOG9MxF1ipJrOg==}
 
   for-each@0.3.3:
     resolution: {integrity: sha512-jqYfLp7mo9vIyQf8ykW2v7A+2N4QjeCeI5+Dz9XraiO1ign81wjiH7Fb9vSOWvQfNtmSa4H2RoQTrrXivdUZmw==}
@@ -2843,6 +2849,9 @@ packages:
 
   lodash-es@4.17.21:
     resolution: {integrity: sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==}
+
+  lodash-es@4.17.22:
+    resolution: {integrity: sha512-XEawp1t0gxSi9x01glktRZ5HDy0HXqrM0x5pXQM98EaI0NxO6jVM7omDOxsuEo5UIASAnm2bRp1Jt/e0a2XU8Q==}
 
   lodash.camelcase@4.3.0:
     resolution: {integrity: sha512-TwuEnCnxbc3rAvhf/LbG7tJUDzhqXyFnv3dtzLOPgCG/hODL7WFnsbwktkD7yUV0RrreP/l1PALq/YSg6VvjlA==}
@@ -3771,8 +3780,8 @@ packages:
     resolution: {integrity: sha512-Vhf+bUa//YSTYKseDiiEuQmhGCoIF3CVBhunm3r/DQnYiGT4JssmnKQc44BIyOZRK2pKjXXAgbhfmbeoC9CJpA==}
     engines: {node: '>=12.20'}
 
-  tabbable@6.3.0:
-    resolution: {integrity: sha512-EIHvdY5bPLuWForiR/AN2Bxngzpuwn1is4asboytXtpTgsArc+WmSJKVLlhdh71u7jFcryDqB2A8lQvj78MkyQ==}
+  tabbable@6.4.0:
+    resolution: {integrity: sha512-05PUHKSNE8ou2dwIxTngl4EzcnsCDZGJ/iCLtDflR/SHB/ny14rXc+qU5P4mG9JkusiV7EivzY9Mhm55AzAvCg==}
 
   table@6.9.0:
     resolution: {integrity: sha512-9kY+CygyYM6j02t5YFHbNz2FN5QmYGv9zAjVp4lCDjlCw7amdckXlEt/bjMhUIfj4ThGRE4gCUH5+yGnNuPo5A==}
@@ -4899,16 +4908,20 @@ snapshots:
     dependencies:
       vue: 3.5.25(typescript@5.9.3)
 
-  '@kong/kongponents@9.47.0(vue-router@4.5.0(vue@3.5.25(typescript@5.9.3)))(vue@3.5.25(typescript@5.9.3))':
+  '@kong/icons@1.41.0(vue@3.5.25(typescript@5.9.3))':
+    dependencies:
+      vue: 3.5.25(typescript@5.9.3)
+
+  '@kong/kongponents@9.48.8(vue-router@4.5.0(vue@3.5.25(typescript@5.9.3)))(vue@3.5.25(typescript@5.9.3))':
     dependencies:
       '@floating-ui/vue': 1.1.9(vue@3.5.25(typescript@5.9.3))
-      '@kong/icons': 1.40.3(vue@3.5.25(typescript@5.9.3))
+      '@kong/icons': 1.41.0(vue@3.5.25(typescript@5.9.3))
       '@popperjs/core': 2.11.8
       date-fns: 2.30.0
       date-fns-tz: 2.0.1(date-fns@2.30.0)
-      focus-trap: 7.6.6
-      focus-trap-vue: 4.1.0(focus-trap@7.6.6)(vue@3.5.25(typescript@5.9.3))
-      lodash-es: 4.17.21
+      focus-trap: 7.7.1
+      focus-trap-vue: 4.1.0(focus-trap@7.7.1)(vue@3.5.25(typescript@5.9.3))
+      lodash-es: 4.17.22
       nanoid: 5.1.6
       sortablejs: 1.15.6
       swrv: 1.1.0(vue@3.5.25(typescript@5.9.3))
@@ -4924,7 +4937,7 @@ snapshots:
       - solid-js
       - svelte
 
-  '@kong/spec-renderer@1.102.1(vue@3.5.25(typescript@5.9.3))':
+  '@kong/spec-renderer@1.102.2(vue@3.5.25(typescript@5.9.3))':
     dependencies:
       '@apidevtools/json-schema-ref-parser': 14.0.3
       '@asyncapi/avro-schema-parser': 3.0.24
@@ -6833,14 +6846,14 @@ snapshots:
 
   fnv-plus@1.3.1: {}
 
-  focus-trap-vue@4.1.0(focus-trap@7.6.6)(vue@3.5.25(typescript@5.9.3)):
+  focus-trap-vue@4.1.0(focus-trap@7.7.1)(vue@3.5.25(typescript@5.9.3)):
     dependencies:
-      focus-trap: 7.6.6
+      focus-trap: 7.7.1
       vue: 3.5.25(typescript@5.9.3)
 
-  focus-trap@7.6.6:
+  focus-trap@7.7.1:
     dependencies:
-      tabbable: 6.3.0
+      tabbable: 6.4.0
 
   for-each@0.3.3:
     dependencies:
@@ -7387,6 +7400,8 @@ snapshots:
       p-locate: 6.0.0
 
   lodash-es@4.17.21: {}
+
+  lodash-es@4.17.22: {}
 
   lodash.camelcase@4.3.0: {}
 
@@ -8322,7 +8337,7 @@ snapshots:
     dependencies:
       tslib: 2.8.1
 
-  tabbable@6.3.0: {}
+  tabbable@6.4.0: {}
 
   table@6.9.0:
     dependencies:
