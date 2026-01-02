@@ -14,8 +14,8 @@
     }
   },
   "dependencies": {
-    "@kong/icons": "^1.40.3",
-    "@kong/kongponents": "^9.47.4",
+    "@kong/icons": "^1.41.0",
+    "@kong/kongponents": "^9.48.8",
     "@kong/spec-renderer": "^1.102.2",
     "@stoplight/spectral-core": "^1.20.0",
     "@stoplight/spectral-ruleset-bundler": "^1.6.3",
@@ -30,11 +30,11 @@
     "@digitalroute/cz-conventional-changelog-for-jira": "^8.0.1",
     "@evilmartians/lefthook": "^1.13.6",
     "@kong/design-tokens": "^1.18.2",
-    "@kong/eslint-config-kong-ui": "1.5.6",
+    "@kong/eslint-config-kong-ui": "1.6.0",
     "@shikijs/monaco": "^3.15.0",
     "@stoplight/types": "^14.1.1",
     "@stylistic/stylelint-plugin": "^4.0.0",
-    "@types/node": "^22.19.1",
+    "@types/node": "^24.10.4",
     "@types/splitpanes": "^2.2.6",
     "@vitejs/plugin-vue": "^5.2.4",
     "@vue/eslint-config-typescript": "^14.6.0",
@@ -43,7 +43,7 @@
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^9.39.1",
     "eslint-plugin-vue": "^10.6.1",
-    "monaco-editor": "^0.54.0",
+    "monaco-editor": "^0.55.1",
     "npm-run-all2": "^8.0.4",
     "sass": "^1.94.2",
     "sass-embedded": "^1.93.3",
@@ -75,7 +75,7 @@
   "type": "module",
   "version": "0.0.0",
   "volta": {
-    "node": "22.19.0",
+    "node": "24.12.0",
     "pnpm": "10.15.1"
   },
   "pnpm": {
