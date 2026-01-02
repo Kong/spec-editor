@@ -1,0 +1,43 @@
+name: Tests
+
+on:
+
+  # Allow calling manually from GitHub
+  workflow_dispatch:
+
+  # Allow workflow to be called by another workflow
+  workflow_call:
+
+jobs:
+  test:
+    name: Run Tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+
+      - name: Setup PNPM with Dependencies
+        uses: ./.github/actions/setup-pnpm-with-dependencies/
+
+      - name: Stylelint
+        run: pnpm run stylelint
+
+      - name: Lint
+        run: pnpm run lint
+
+      - name: Build
+        run: pnpm run build
+
+      - name: Test
+        run: pnpm run test
+
+      - name: Upload build artifacts
+        if: |
+          github.event_name != 'workflow_dispatch'
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
+        with:
+          name: spec-renderer-build-output-artifact
+          path: ./dist/**
+          include-hidden-files: 'true'
+          if-no-files-found: error
