@@ -4,6 +4,7 @@ permissions:
   contents: read
 
 on:
+  pull_request:
 
   # Allow calling manually from GitHub
   workflow_dispatch:
