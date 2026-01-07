@@ -110,7 +110,7 @@
             >
           </template>
         </SpecToolbar>
-        <SpecEditor
+        <MonacoEditor
           ref="editor"
           v-model="code"
         />
@@ -191,7 +191,6 @@ import { loadSpecFromLocalStorage, saveSpecToLocalStorage, clearLocalStorageKey 
 
 import DropzoneModal from '@/components/DropzoneModal.vue'
 import SettingsModal from '@/components/SettingsModal.vue'
-import SpecEditor from '@/components/SpecEditor.vue'
 import SpecToolbar from '@/components/SpecToolbar.vue'
 import KongLogo from '@/components/KongLogo.vue'
 
@@ -202,6 +201,8 @@ import specKongAir from '@/assets/specs/kongair.json'
 import specCloudflare from '@/assets/specs/cloudflare.json'
 import specStoplight from '@/assets/specs/stoplight.json'
 import specOpenApiAsync from '@/assets/specs/openapi-async.json'
+import { MonacoEditor } from '@kong-ui-public/monaco-editor'
+import '@kong-ui-public/monaco-editor/dist/runtime/style.css'
 
 type TFileLabel = typeof files[number][number]['label']
 
@@ -350,7 +351,8 @@ const onDrop = (files: File[] | null) => {
       code.value = e.target.result.toString()
       resetEditor()
       await nextTick()
-      editor.value?.formatDocument()
+      // waiting for https://github.com/Kong/public-ui-components/pull/2800
+      // editor.value?.formatDocument()
     }
   }
 }
