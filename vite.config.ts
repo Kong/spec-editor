@@ -16,18 +16,6 @@ export default defineConfig({
     vueDevTools(),
     MonacoVitePlugin({
       languages: ['json', 'yaml'],
-      features: [
-        'bracketMatching',
-        'comment',
-        'format',
-        'hover',
-        'placeholderText',
-        'suggest',
-      ],
-      shiki: {
-        languages: ['json', 'yaml'],
-        themes: ['catppuccin-latte', 'catppuccin-mocha'],
-      },
     }),
   ],
   resolve: {
