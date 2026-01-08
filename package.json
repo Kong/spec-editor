@@ -60,7 +60,7 @@
     "vue-tsc": "^3.1.5"
   },
   "scripts": {
-    "build": "run-p typecheck \"build-only {@}\" --",
+    "build": "pnpm typecheck && vite build",
     "build-only": "vite build",
     "commit": "cz",
     "dev": "vite",
