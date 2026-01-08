@@ -17,7 +17,7 @@
     }
   },
   "dependencies": {
-    "@kong-ui-public/monaco-editor": "^0.7.4",
+    "@kong-ui-public/monaco-editor": "^0.7.5",
     "@kong/icons": "^1.41.0",
     "@kong/kongponents": "^9.49.0",
     "@kong/spec-renderer": "^1.103.0",
@@ -47,6 +47,7 @@
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^9.39.1",
     "eslint-plugin-vue": "^10.6.1",
+    "npm-run-all2": "^8.0.4",
     "sass": "^1.94.2",
     "sass-embedded": "^1.93.3",
     "stylelint": "^16.26.1",
@@ -60,7 +61,7 @@
     "vue-tsc": "^3.1.5"
   },
   "scripts": {
-    "build": "pnpm typecheck && vite build",
+    "build": "run-p typecheck \"build-only {@}\" --",
     "build-only": "vite build",
     "commit": "cz",
     "dev": "vite",

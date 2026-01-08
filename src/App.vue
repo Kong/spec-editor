@@ -113,6 +113,7 @@
         <MonacoEditor
           ref="editor"
           v-model="code"
+          :language="language"
         />
       </Pane>
       <Pane
@@ -202,7 +203,7 @@ import specCloudflare from '@/assets/specs/cloudflare.json'
 import specStoplight from '@/assets/specs/stoplight.json'
 import specOpenApiAsync from '@/assets/specs/openapi-async.json'
 import { MonacoEditor } from '@kong-ui-public/monaco-editor'
-import '@kong-ui-public/monaco-editor/dist/runtime/style.css'
+import { isJsonOrYaml } from '@/utils/oas'
 
 type TFileLabel = typeof files[number][number]['label']
 
@@ -260,6 +261,8 @@ const isMobile = computed(() => width.value <= 768)
 const defaultSpec = JSON.stringify(specKongAir, null, 2)
 const code = ref(defaultSpec)
 const specText = refDebounced(code, 700)
+
+const language = computed(() => isJsonOrYaml(specText.value))
 
 // to track if the spec has been cleared
 const isCleared = ref(false)
