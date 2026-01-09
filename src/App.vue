@@ -354,8 +354,8 @@ const onDrop = (files: File[] | null) => {
       code.value = e.target.result.toString()
       resetEditor()
       await nextTick()
-      // waiting for https://github.com/Kong/public-ui-components/pull/2800
-      // editor.value?.formatDocument()
+      // format document after upload (currently not working)
+      editor.value?.monacoEditor.editor.value?.getAction?.('editor.action.formatDocument')?.run()
     }
   }
 }

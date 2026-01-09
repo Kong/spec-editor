@@ -15,8 +15,8 @@ importers:
   .:
     dependencies:
       '@kong-ui-public/monaco-editor':
-        specifier: ^0.7.5
-        version: 0.7.5(@kong-ui-public/i18n@2.4.5(typescript@5.9.3)(vue@3.5.26(typescript@5.9.3)))(@kong/icons@1.41.0(vue@3.5.26(typescript@5.9.3)))(@kong/kongponents@9.49.2(vue-router@4.6.4(vue@3.5.26(typescript@5.9.3)))(vue@3.5.26(typescript@5.9.3)))(monaco-editor@0.55.1)(shiki@3.21.0)(vue@3.5.26(typescript@5.9.3))
+        specifier: ^0.8.0
+        version: 0.8.0(@kong-ui-public/i18n@2.4.5(typescript@5.9.3)(vue@3.5.26(typescript@5.9.3)))(@kong/icons@1.41.0(vue@3.5.26(typescript@5.9.3)))(@kong/kongponents@9.49.2(vue-router@4.6.4(vue@3.5.26(typescript@5.9.3)))(vue@3.5.26(typescript@5.9.3)))(monaco-editor@0.55.1)(shiki@3.21.0)(vue@3.5.26(typescript@5.9.3))
       '@kong/icons':
         specifier: ^1.41.0
         version: 1.41.0(vue@3.5.26(typescript@5.9.3))
@@ -762,8 +762,8 @@ packages:
     peerDependencies:
       vue: '>= 3.3.13 < 4'
 
-  '@kong-ui-public/monaco-editor@0.7.5':
-    resolution: {integrity: sha512-7j3VB04XLeVj8EDqcsMAUBMeL4/5zrzs5vnyCYI/0FalKaV5H94siQSM6BqAehO8F5q8RUs1toqEEVilXrRvcg==}
+  '@kong-ui-public/monaco-editor@0.8.0':
+    resolution: {integrity: sha512-/5Zv7tcW1yLnbAGOitk/iNPcfx0pqov/Ovi6607zWdsUUs/3/Dz54GfAp204redd7XEK/A6FmfNAH8LCbsdXoQ==}
     peerDependencies:
       '@kong-ui-public/i18n': ^2.4.5
       '@kong/icons': ^1.41.0
@@ -4926,7 +4926,7 @@ snapshots:
     transitivePeerDependencies:
       - typescript
 
-  '@kong-ui-public/monaco-editor@0.7.5(@kong-ui-public/i18n@2.4.5(typescript@5.9.3)(vue@3.5.26(typescript@5.9.3)))(@kong/icons@1.41.0(vue@3.5.26(typescript@5.9.3)))(@kong/kongponents@9.49.2(vue-router@4.6.4(vue@3.5.26(typescript@5.9.3)))(vue@3.5.26(typescript@5.9.3)))(monaco-editor@0.55.1)(shiki@3.21.0)(vue@3.5.26(typescript@5.9.3))':
+  '@kong-ui-public/monaco-editor@0.8.0(@kong-ui-public/i18n@2.4.5(typescript@5.9.3)(vue@3.5.26(typescript@5.9.3)))(@kong/icons@1.41.0(vue@3.5.26(typescript@5.9.3)))(@kong/kongponents@9.49.2(vue-router@4.6.4(vue@3.5.26(typescript@5.9.3)))(vue@3.5.26(typescript@5.9.3)))(monaco-editor@0.55.1)(shiki@3.21.0)(vue@3.5.26(typescript@5.9.3))':
     dependencies:
       '@kong-ui-public/i18n': 2.4.5(typescript@5.9.3)(vue@3.5.26(typescript@5.9.3))
       '@kong/icons': 1.41.0(vue@3.5.26(typescript@5.9.3))

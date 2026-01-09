@@ -16,6 +16,7 @@ export default defineConfig({
     vueDevTools(),
     MonacoVitePlugin({
       languages: ['json', 'yaml'],
+      features: ['format'],
     }),
   ],
   resolve: {
