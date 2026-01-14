@@ -41,12 +41,16 @@
     "@types/node": "^24.10.4",
     "@types/splitpanes": "^2.2.6",
     "@vitejs/plugin-vue": "^5.2.4",
+    "@vitest/ui": "^4.0.16",
     "@vue/eslint-config-typescript": "^14.6.0",
+    "@vue/test-utils": "^2.4.6",
     "@vue/tsconfig": "^0.8.1",
     "commitizen": "^4.3.1",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^9.39.1",
     "eslint-plugin-vue": "^10.6.1",
+    "happy-dom": "^20.0.11",
+    "monaco-editor": "^0.55.1",
     "npm-run-all2": "^8.0.4",
     "sass": "^1.94.2",
     "sass-embedded": "^1.93.3",
@@ -58,6 +62,7 @@
     "typescript": "~5.9.3",
     "vite": "^6.4.1",
     "vite-plugin-vue-devtools": "^8.0.5",
+    "vitest": "^4.0.16",
     "vue-tsc": "^3.1.5"
   },
   "scripts": {
@@ -70,13 +75,15 @@
     "preview": "vite preview",
     "stylelint": "stylelint --allow-empty-input './src/**/*.{css,scss,vue}'",
     "stylelint:fix": "stylelint --allow-empty-input './src/**/*.{css,scss,sass,vue}' --fix",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
     "typecheck": "vue-tsc -p './tsconfig.json' --noEmit"
   },
   "type": "module",
   "version": "0.0.0",
   "volta": {
     "node": "24.12.0",
-    "pnpm": "10.15.1"
+    "pnpm": "10.27.0"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
