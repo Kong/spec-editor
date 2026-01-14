@@ -1,8 +1,11 @@
 {
+  "name": "@kong/spec-editor",
+  "private": true,
   "author": {
     "name": "Kong Inc.",
     "url": "https://konghq.com/"
   },
+  "description": "Live editor for Kong's open-source spec renderer",
   "config": {
     "commitizen": {
       "jiraAppend": "]",
@@ -14,16 +17,18 @@
     }
   },
   "dependencies": {
+    "@kong-ui-public/monaco-editor": "^0.9.1",
     "@kong/icons": "^1.41.0",
     "@kong/kongponents": "^9.49.0",
     "@kong/spec-renderer": "^1.103.0",
     "@stoplight/spectral-core": "^1.20.0",
     "@stoplight/spectral-ruleset-bundler": "^1.6.3",
     "@vueuse/core": "^14.1.0",
+    "monaco-editor": "^0.55.1",
+    "shiki": "^3.21.0",
     "splitpanes": "^4.0.4",
-    "vue": "^3.5.25"
+    "vue": "^3.5.26"
   },
-  "description": "Live editor for Kong's open-source spec renderer",
   "devDependencies": {
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
@@ -31,7 +36,6 @@
     "@evilmartians/lefthook": "^1.13.6",
     "@kong/design-tokens": "^1.18.2",
     "@kong/eslint-config-kong-ui": "1.6.0",
-    "@shikijs/monaco": "^3.15.0",
     "@stoplight/types": "^14.1.1",
     "@stylistic/stylelint-plugin": "^4.0.0",
     "@types/node": "^24.10.4",
@@ -50,7 +54,6 @@
     "npm-run-all2": "^8.0.4",
     "sass": "^1.94.2",
     "sass-embedded": "^1.93.3",
-    "shiki": "^3.15.0",
     "stylelint": "^16.26.1",
     "stylelint-config-html": "^1.1.0",
     "stylelint-config-recommended-scss": "^16.0.2",
@@ -62,8 +65,6 @@
     "vitest": "^4.0.16",
     "vue-tsc": "^3.1.5"
   },
-  "name": "@kong/spec-editor",
-  "private": true,
   "scripts": {
     "build": "run-p typecheck \"build-only {@}\" --",
     "build-only": "vite build",

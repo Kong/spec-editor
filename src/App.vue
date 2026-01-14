@@ -110,9 +110,10 @@
             >
           </template>
         </SpecToolbar>
-        <SpecEditor
+        <MonacoEditor
           ref="editor"
           v-model="code"
+          :language="language"
         />
       </Pane>
       <Pane
@@ -191,7 +192,6 @@ import { loadSpecFromLocalStorage, saveSpecToLocalStorage, clearLocalStorageKey 
 
 import DropzoneModal from '@/components/DropzoneModal.vue'
 import SettingsModal from '@/components/SettingsModal.vue'
-import SpecEditor from '@/components/SpecEditor.vue'
 import SpecToolbar from '@/components/SpecToolbar.vue'
 import KongLogo from '@/components/KongLogo.vue'
 
@@ -202,6 +202,8 @@ import specKongAir from '@/assets/specs/kongair.json'
 import specCloudflare from '@/assets/specs/cloudflare.json'
 import specStoplight from '@/assets/specs/stoplight.json'
 import specOpenApiAsync from '@/assets/specs/openapi-async.json'
+import { MonacoEditor } from '@kong-ui-public/monaco-editor'
+import { isJsonOrYaml } from '@/utils/oas'
 
 type TFileLabel = typeof files[number][number]['label']
 
@@ -259,6 +261,8 @@ const isMobile = computed(() => width.value <= 768)
 const defaultSpec = JSON.stringify(specKongAir, null, 2)
 const code = ref(defaultSpec)
 const specText = refDebounced(code, 700)
+
+const language = computed(() => isJsonOrYaml(specText.value))
 
 // to track if the spec has been cleared
 const isCleared = ref(false)
@@ -350,7 +354,8 @@ const onDrop = (files: File[] | null) => {
       code.value = e.target.result.toString()
       resetEditor()
       await nextTick()
-      editor.value?.formatDocument()
+      // format document after upload (currently not working)
+      editor.value?.monacoEditor.editor.value?.getAction?.('editor.action.formatDocument')?.run()
     }
   }
 }
