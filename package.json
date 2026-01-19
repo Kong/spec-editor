@@ -33,7 +33,7 @@
     "@kong/eslint-config-kong-ui": "1.6.0",
     "@shikijs/monaco": "^3.15.0",
     "@stoplight/types": "^14.1.1",
-    "@stylistic/stylelint-plugin": "^4.0.0",
+    "@stylistic/stylelint-plugin": "^5.0.0",
     "@types/node": "^24.10.4",
     "@types/splitpanes": "^2.2.6",
     "@vitejs/plugin-vue": "^5.2.4",
