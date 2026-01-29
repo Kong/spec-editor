@@ -18,8 +18,8 @@ importers:
         specifier: ^1.42.0
         version: 1.42.0(vue@3.5.27(typescript@5.9.3))
       '@kong/kongponents':
-        specifier: ^9.50.0
-        version: 9.50.0(vue-router@4.5.0(vue@3.5.27(typescript@5.9.3)))(vue@3.5.27(typescript@5.9.3))
+        specifier: ^9.50.1
+        version: 9.50.1(vue-router@4.5.0(vue@3.5.27(typescript@5.9.3)))(vue@3.5.27(typescript@5.9.3))
       '@kong/spec-renderer':
         specifier: ^1.103.4
         version: 1.103.4(vue@3.5.27(typescript@5.9.3))
@@ -787,8 +787,8 @@ packages:
     peerDependencies:
       vue: '>= 3.3.4 < 4'
 
-  '@kong/kongponents@9.50.0':
-    resolution: {integrity: sha512-Zt35Zc6ZxJ44MB3o63Bc3tM7I8DTdZXGNdsY0KBhfQYOLgoJ351n6orPA4pBVlDat0wmLMv9v5WohBWS54RFSA==}
+  '@kong/kongponents@9.50.1':
+    resolution: {integrity: sha512-ZW66hqTSBjeS1UaFwXRMm1TrrGQZXtFEweSZx0G/iRvsM5GZWivP3yMuzpdStTE9V4VpRibgBiWX+q2svlAZUw==}
     engines: {node: '>=v16.20.2 || >=18.12.1 || >=20.14.0 || >=22.14.0', pnpm: '>=9.11.0 || >=10.10.0'}
     peerDependencies:
       vue: '>= 3.5.0 < 4'
@@ -3032,6 +3032,9 @@ packages:
   lodash-es@4.17.22:
     resolution: {integrity: sha512-XEawp1t0gxSi9x01glktRZ5HDy0HXqrM0x5pXQM98EaI0NxO6jVM7omDOxsuEo5UIASAnm2bRp1Jt/e0a2XU8Q==}
 
+  lodash-es@4.17.23:
+    resolution: {integrity: sha512-kVI48u3PZr38HdYz98UmfPnXl2DXrpdctLrFLCd3kOx1xUkOmpFPx7gCWWM5MPkL/fD8zb+Ph0QzjGFs4+hHWg==}
+
   lodash.camelcase@4.3.0:
     resolution: {integrity: sha512-TwuEnCnxbc3rAvhf/LbG7tJUDzhqXyFnv3dtzLOPgCG/hODL7WFnsbwktkD7yUV0RrreP/l1PALq/YSg6VvjlA==}
 
@@ -5234,7 +5237,7 @@ snapshots:
     dependencies:
       vue: 3.5.27(typescript@5.9.3)
 
-  '@kong/kongponents@9.50.0(vue-router@4.5.0(vue@3.5.27(typescript@5.9.3)))(vue@3.5.27(typescript@5.9.3))':
+  '@kong/kongponents@9.50.1(vue-router@4.5.0(vue@3.5.27(typescript@5.9.3)))(vue@3.5.27(typescript@5.9.3))':
     dependencies:
       '@floating-ui/vue': 1.1.9(vue@3.5.27(typescript@5.9.3))
       '@kong/icons': 1.42.0(vue@3.5.27(typescript@5.9.3))
@@ -5243,7 +5246,7 @@ snapshots:
       date-fns-tz: 2.0.1(date-fns@2.30.0)
       focus-trap: 7.8.0
       focus-trap-vue: 4.1.0(focus-trap@7.8.0)(vue@3.5.27(typescript@5.9.3))
-      lodash-es: 4.17.22
+      lodash-es: 4.17.23
       nanoid: 5.1.6
       sortablejs: 1.15.6
       swrv: 1.1.0(vue@3.5.27(typescript@5.9.3))
@@ -7896,6 +7899,8 @@ snapshots:
       p-locate: 6.0.0
 
   lodash-es@4.17.22: {}
+
+  lodash-es@4.17.23: {}
 
   lodash.camelcase@4.3.0: {}
 
