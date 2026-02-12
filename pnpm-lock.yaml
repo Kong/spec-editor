@@ -21,8 +21,8 @@ importers:
         specifier: ^9.50.4
         version: 9.50.4(vue-router@4.5.0(vue@3.5.27(typescript@5.9.3)))(vue@3.5.27(typescript@5.9.3))
       '@kong/spec-renderer':
-        specifier: ^1.103.5
-        version: 1.103.5(vue@3.5.27(typescript@5.9.3))
+        specifier: ^1.104.0
+        version: 1.104.0(vue@3.5.27(typescript@5.9.3))
       '@stoplight/spectral-core':
         specifier: ^1.21.0
         version: 1.21.0
@@ -782,8 +782,8 @@ packages:
       vue: '>= 3.5.0 < 4'
       vue-router: ^4.6.4
 
-  '@kong/spec-renderer@1.103.5':
-    resolution: {integrity: sha512-BmiRdo0YOb63zfyAPFoqaGPuj+rGv3LRW0UBt9xWIOPOx5l8b3wzK6cXphurwOSoho4q3xn0+GQOkU0NsRgkNA==}
+  '@kong/spec-renderer@1.104.0':
+    resolution: {integrity: sha512-jxz9BbejJgiPLBm+NCrd7/W5boUeLYTQzViRLDmlq98GG2ZgzhkA/5CXjhazklZzT2MySCM/z2KqUj/ErFs0bQ==}
     engines: {node: '>=18.17.0'}
     peerDependencies:
       vue: '>= 3.3.13 < 4'
@@ -1605,8 +1605,8 @@ packages:
   alien-signals@3.1.1:
     resolution: {integrity: sha512-ogkIWbVrLwKtHY6oOAXaYkAxP+cTH7V5FZ5+Tm4NZFd8VDZ6uNMDrfzqctTZ42eTMCSR3ne3otpcxmqSnFfPYA==}
 
-  allof-merge@0.6.7:
-    resolution: {integrity: sha512-slvjkM56OdeVkm1tllrnaumtSHwqyHrepXkAe6Am+CW4WdbHkNqdOKPF6cvY3/IouzvXk1BoLICT5LY7sCoFGw==}
+  allof-merge@0.6.8:
+    resolution: {integrity: sha512-RJrHVDqITsU1kjE2L7s1hy4AYZSTlO1m9jTleYhVCEOfOpbbygRGfcEgrp+bW3oX/PcMUwVkt6MSJyXoyI6lRA==}
 
   ansi-align@3.0.1:
     resolution: {integrity: sha512-IOfwwBF5iczOjp/WeY4YxyjqAFMQoZufdQWDd19SEExbVLNXqvpzSJ/M7Za4/sCPmQ0+GRquoA7bGcINcxew6w==}
@@ -5210,7 +5210,7 @@ snapshots:
       - solid-js
       - svelte
 
-  '@kong/spec-renderer@1.103.5(vue@3.5.27(typescript@5.9.3))':
+  '@kong/spec-renderer@1.104.0(vue@3.5.27(typescript@5.9.3))':
     dependencies:
       '@apidevtools/json-schema-ref-parser': 14.0.3
       '@asyncapi/avro-schema-parser': 3.0.24
@@ -5223,7 +5223,7 @@ snapshots:
       '@stoplight/types': 14.1.1
       '@stoplight/yaml': 4.3.0
       '@vueuse/core': 14.2.0(vue@3.5.27(typescript@5.9.3))
-      allof-merge: 0.6.7
+      allof-merge: 0.6.8
       flatted: 3.3.3
       form-urlencoded: 6.1.6
       httpsnippet: 3.0.9
@@ -6321,7 +6321,7 @@ snapshots:
 
   alien-signals@3.1.1: {}
 
-  allof-merge@0.6.7:
+  allof-merge@0.6.8:
     dependencies:
       json-crawl: 0.5.3
 
