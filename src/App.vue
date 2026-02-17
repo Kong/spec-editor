@@ -372,7 +372,7 @@ onMounted(() => {
   const savedSpec = loadSpecFromLocalStorage(STORAGE_KEY)
   code.value = savedSpec || defaultSpec
   setTimeout(() => {
-    // isLoading.value = false
+    isLoading.value = false
   }, 1000)
 })
 </script>
