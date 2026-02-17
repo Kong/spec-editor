@@ -550,7 +550,7 @@ body {
     padding-left: $kui-space-60;
   }
 
-  // TODO: fix in upstream library and remove !important
+  // TODO: fix in upstream
   .split-pane-left {
     display: none;
   }
