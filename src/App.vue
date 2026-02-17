@@ -39,9 +39,6 @@
       :pane-left="{ visible: false }"
       :show-navigation="false"
     >
-      <template #pane-left>
-        sdg
-      </template>
       <template #pane-center>
         <SplitToolbar class="editor-toolbar">
           <template #left>
