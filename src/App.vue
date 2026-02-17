@@ -34,7 +34,6 @@
       </div>
     </header>
     <SplitPane
-      class="spec-container default-theme"
       :class="{ 'collapsed': !showEditorPane }"
       :pane-center="{ visible: showEditorPane }"
       :pane-left="{ visible: true }"
@@ -376,7 +375,7 @@ onMounted(() => {
   const savedSpec = loadSpecFromLocalStorage(STORAGE_KEY)
   code.value = savedSpec || defaultSpec
   setTimeout(() => {
-    isLoading.value = false
+    // isLoading.value = false
   }, 1000)
 })
 </script>
@@ -476,20 +475,7 @@ body {
     }
   }
 
-  .spec-container.default-theme {
-    height: calc(100dvh - #{$headerHeight});
-    width: 100dvw;
-
-    .splitpanes__pane {
-      background-color: $kui-color-background-transparent;
-      overflow: auto;
-      transition: none;
-    }
-  }
-
   .editor-toolbar {
-    border-top-left-radius: $kui-border-radius-50;
-
     .file-input {
       position: absolute;
       visibility: hidden;
@@ -561,6 +547,7 @@ body {
 }
 
 :deep(.kong-ui-public-split-pane) {
+  height: calc(100dvh - #{$headerHeight});
 
   .split-pane-container {
     padding-left: $kui-space-60;
@@ -582,5 +569,10 @@ body {
       border-top-left-radius: $kui-border-radius-50;
     }
   }
+}
+
+:deep(.kong-ui-public-split-pane-toolbar) {
+  // to ensure the toolbar is above the split panes and loading screens
+  z-index: 11;
 }
 </style>
