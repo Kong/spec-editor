@@ -36,7 +36,7 @@
     <SplitPane
       :class="{ 'collapsed': !showEditorPane }"
       :pane-center="{ visible: showEditorPane }"
-      :pane-left="{ visible: true }"
+      :pane-left="{ visible: false }"
       :show-navigation="false"
     >
       <template #pane-left>
