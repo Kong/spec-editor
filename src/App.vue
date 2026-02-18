@@ -37,6 +37,7 @@
       :class="{ 'collapsed': !showEditorPane }"
       :pane-center="{ visible: showEditorPane }"
       :pane-left="{ visible: false }"
+      :pane-right="{ visible: isMobile ? !showEditorPane : true }"
       :show-navigation="false"
     >
       <template #pane-center>
