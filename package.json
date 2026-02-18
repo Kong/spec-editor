@@ -14,13 +14,13 @@
     }
   },
   "dependencies": {
+    "@kong-ui-public/split-pane": "^0.3.6",
     "@kong/icons": "^1.42.0",
     "@kong/kongponents": "^9.50.4",
     "@kong/spec-renderer": "^1.104.0",
     "@stoplight/spectral-core": "^1.21.0",
     "@stoplight/spectral-ruleset-bundler": "^1.6.3",
     "@vueuse/core": "^14.2.1",
-    "splitpanes": "^4.0.4",
     "vue": "^3.5.28"
   },
   "description": "Live editor for Kong's open-source spec renderer",
@@ -35,7 +35,6 @@
     "@stoplight/types": "^14.1.1",
     "@stylistic/stylelint-plugin": "^5.0.1",
     "@types/node": "^24.10.13",
-    "@types/splitpanes": "^2.2.6",
     "@vitejs/plugin-vue": "^5.2.4",
     "@vitest/ui": "^4.0.18",
     "@vue/eslint-config-typescript": "^14.6.0",

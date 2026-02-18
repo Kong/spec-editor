@@ -33,14 +33,15 @@
         </KTooltip>
       </div>
     </header>
-    <Splitpanes class="spec-container default-theme">
-      <Pane
-        v-if="showLeftPane"
-        class="pane-left"
-        :max-size="isMobile ? 100 : 70"
-        :min-size="30"
-      >
-        <SpecToolbar class="editor-toolbar">
+    <SplitPane
+      :class="{ 'collapsed': !showEditorPane }"
+      :pane-center="{ visible: showEditorPane }"
+      :pane-left="{ visible: false }"
+      :pane-right="{ visible: isMobile ? !showEditorPane : true }"
+      :show-navigation="false"
+    >
+      <template #pane-center>
+        <SplitToolbar class="editor-toolbar">
           <template #left>
             <h2 class="toolbar-title">
               API specification
@@ -109,21 +110,17 @@
               @change="fileUploaded"
             >
           </template>
-        </SpecToolbar>
+        </SplitToolbar>
         <SpecEditor
           ref="editor"
           v-model="code"
         />
-      </Pane>
-      <Pane
-        v-if="!isMobile || !showLeftPane"
-        class="spec-renderer-pane"
-        :class="{ 'collapsed': !showLeftPane }"
-      >
-        <SpecToolbar>
+      </template>
+      <template #pane-right>
+        <SplitToolbar>
           <template #left>
             <KTooltip
-              v-if="!showLeftPane"
+              v-if="!showEditorPane"
               placement="bottom-start"
               :text="isMobile ? 'Show editor' : 'Expand'"
             >
@@ -144,7 +141,7 @@
           <template #right>
             <SettingsModal />
           </template>
-        </SpecToolbar>
+        </SplitToolbar>
         <KSkeleton
           v-if="isLoading"
           hide-progress
@@ -168,22 +165,22 @@
             <VisibilityIcon decorative />
           </template>
         </KEmptyState>
-      </Pane>
-    </Splitpanes>
+      </template>
+    </SplitPane>
     <DropzoneModal v-if="isOverDropZone" />
   </div>
 </template>
 
 <script setup lang="ts">
 import '@kong/spec-renderer/dist/style.css'
-import 'splitpanes/dist/splitpanes.css'
+import '@kong-ui-public/split-pane/dist/style.css'
 
 import { ref, computed, watch, nextTick, useTemplateRef, onMounted } from 'vue'
 import { SpecRenderer } from '@kong/spec-renderer'
+import { SplitPane, SplitToolbar } from '@kong-ui-public/split-pane'
 import { refDebounced, useDropZone, useWindowSize, watchDebounced } from '@vueuse/core'
 import { ChevronDoubleLeftIcon, ChevronDoubleRightIcon, ChevronDownIcon, UploadIcon, VisibilityIcon } from '@kong/icons'
 import { KUI_COLOR_TEXT_NEUTRAL } from '@kong/design-tokens'
-import { Splitpanes, Pane } from 'splitpanes'
 
 import useApiDocOptions from '@/composables/useApiDocOptions'
 import useToaster from '@/composables/useToaster'
@@ -192,7 +189,6 @@ import { loadSpecFromLocalStorage, saveSpecToLocalStorage, clearLocalStorageKey 
 import DropzoneModal from '@/components/DropzoneModal.vue'
 import SettingsModal from '@/components/SettingsModal.vue'
 import SpecEditor from '@/components/SpecEditor.vue'
-import SpecToolbar from '@/components/SpecToolbar.vue'
 import KongLogo from '@/components/KongLogo.vue'
 
 // sample specifications
@@ -269,14 +265,14 @@ const isLoading = ref(true)
 const { options } = useApiDocOptions()
 const { toaster } = useToaster()
 
-const showLeftPane = ref(isMobile.value ? false : true)
+const showEditorPane = ref(isMobile.value ? false : true)
 
 watch(isMobile, (newValue) => {
-  showLeftPane.value = !newValue
+  showEditorPane.value = !newValue
 })
 
 const toggleLeftPane = () => {
-  showLeftPane.value = !showLeftPane.value
+  showEditorPane.value = !showEditorPane.value
 }
 
 const loadSampleSpec = async (fileLabel: TFileLabel) => {
@@ -382,6 +378,12 @@ onMounted(() => {
 })
 </script>
 
+<style lang="scss">
+body {
+  background: $kui-color-background-inverse;
+}
+</style>
+
 <style lang="scss" scoped>
 .spec-renderer-playground {
   background: $kui-color-background-inverse;
@@ -389,7 +391,7 @@ onMounted(() => {
 
   * {
     box-sizing: border-box;
-    margin: 0;
+    margin: $kui-space-0;
   }
 
   .editor-header {
@@ -451,9 +453,9 @@ onMounted(() => {
         font-size: $kui-font-size-30;
         font-weight: $kui-font-weight-semibold;
         padding: $kui-space-30 $kui-space-40;
-        transition: background-color 0.2s ease-in-out,
-          color 0.2s ease-in-out,
-          border-color 0.2s ease-in-out;
+        transition: background-color $kui-animation-duration-20 ease-in-out,
+          color $kui-animation-duration-20 ease-in-out,
+          border-color $kui-animation-duration-20 ease-in-out;
 
         &:hover:not(:disabled):not(:focus):not(:active) {
           background-color: $kui-color-background-primary-weakest;
@@ -471,30 +473,7 @@ onMounted(() => {
     }
   }
 
-  .spec-container.default-theme {
-    height: calc(100dvh - #{$headerHeight});
-    width: 100dvw;
-
-    .splitpanes__pane {
-      background-color: $kui-color-background-transparent;
-      overflow: auto;
-      transition: none;
-    }
-  }
-
-  .spec-renderer-pane {
-    background: $kui-color-background !important;
-    position: relative;
-
-    &.collapsed {
-      border-top-left-radius: $kui-border-radius-50;
-      margin-left: $kui-space-60;
-    }
-  }
-
   .editor-toolbar {
-    border-top-left-radius: $kui-border-radius-50;
-
     .file-input {
       position: absolute;
       visibility: hidden;
@@ -521,12 +500,6 @@ onMounted(() => {
       }
     }
   }
-}
-
-.pane-left {
-  border-right: $kui-border-width-10 solid $kui-color-border;
-  margin-left: $kui-space-60;
-  overflow: hidden !important;
 }
 
 :deep(.spec-renderer-small-screen-header) {
@@ -566,8 +539,38 @@ onMounted(() => {
 
 :deep(.fullscreen-loading-container) {
   position: absolute !important;
-  top: 44px !important;
+  top: $toolbarHeight !important;
   // we need to set a lower z-index than the SettingsModal
   z-index: 9 !important;
+}
+
+:deep(.kong-ui-public-split-pane) {
+  height: calc(100dvh - #{$headerHeight});
+
+  .split-pane-container {
+    padding-left: $kui-space-60;
+  }
+
+  // TODO: fix in upstream
+  .split-pane-left {
+    display: none;
+  }
+
+  &.collapsed {
+    .split-pane-resize-divider.left {
+      display: none;
+    }
+  }
+
+  .split-pane-container-inner {
+    .panes {
+      border-top-left-radius: $kui-border-radius-50;
+    }
+  }
+}
+
+:deep(.kong-ui-public-split-pane-toolbar) {
+  // to ensure the toolbar is above the split panes and loading screens
+  z-index: 11;
 }
 </style>
