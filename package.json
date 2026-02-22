@@ -37,14 +37,14 @@
     "@types/node": "^24.10.13",
     "@vitejs/plugin-vue": "^5.2.4",
     "@vitest/ui": "^4.0.18",
-    "@vue/eslint-config-typescript": "^14.6.0",
+    "@vue/eslint-config-typescript": "^14.7.0",
     "@vue/test-utils": "^2.4.6",
     "@vue/tsconfig": "^0.8.1",
     "commitizen": "^4.3.1",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^9.39.2",
-    "eslint-plugin-vue": "^10.7.0",
-    "happy-dom": "^20.4.0",
+    "eslint-plugin-vue": "^10.8.0",
+    "happy-dom": "^20.6.3",
     "monaco-editor": "^0.55.1",
     "npm-run-all2": "^8.0.4",
     "sass": "^1.97.3",
@@ -81,7 +81,7 @@
   "version": "0.0.0",
   "volta": {
     "node": "24.13.0",
-    "pnpm": "10.28.2"
+    "pnpm": "10.30.0"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
