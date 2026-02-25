@@ -1,8 +1,11 @@
 {
+  "name": "@kong/spec-editor",
+  "private": true,
   "author": {
     "name": "Kong Inc.",
     "url": "https://konghq.com/"
   },
+  "description": "Live editor for Kong's open-source spec renderer",
   "config": {
     "commitizen": {
       "jiraAppend": "]",
@@ -14,6 +17,7 @@
     }
   },
   "dependencies": {
+    "@kong-ui-public/monaco-editor": "^0.12.0",
     "@kong-ui-public/split-pane": "^0.3.6",
     "@kong/icons": "^1.43.0",
     "@kong/kongponents": "^9.50.4",
@@ -23,7 +27,6 @@
     "@vueuse/core": "^14.2.1",
     "vue": "^3.5.28"
   },
-  "description": "Live editor for Kong's open-source spec renderer",
   "devDependencies": {
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
@@ -61,8 +64,6 @@
     "vitest": "^4.0.18",
     "vue-tsc": "^3.2.4"
   },
-  "name": "@kong/spec-editor",
-  "private": true,
   "scripts": {
     "build": "run-p typecheck \"build-only {@}\" --",
     "build-only": "vite build",

@@ -3,6 +3,7 @@ import { fileURLToPath, URL } from 'node:url'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueDevTools from 'vite-plugin-vue-devtools'
+import MonacoVitePlugin from '@kong-ui-public/monaco-editor/vite-plugin'
 
 // !Important: always externalize `shiki/onig.wasm`
 const externalDependencies: string[] = ['shiki/onig.wasm']
@@ -13,6 +14,10 @@ export default defineConfig({
   plugins: [
     vue(),
     vueDevTools(),
+    MonacoVitePlugin({
+      languages: ['json', 'yaml'],
+      features: ['format'],
+    }),
   ],
   resolve: {
     alias: {
