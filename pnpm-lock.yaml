@@ -16,16 +16,16 @@ importers:
     dependencies:
       '@kong-ui-public/split-pane':
         specifier: ^0.3.6
-        version: 0.3.6(@kong-ui-public/i18n@2.4.6(typescript@5.9.3)(vue@3.5.28(typescript@5.9.3)))(@kong/icons@1.43.0(vue@3.5.28(typescript@5.9.3)))(@kong/kongponents@9.51.0(vue-router@4.5.0(vue@3.5.28(typescript@5.9.3)))(vue@3.5.28(typescript@5.9.3)))(vue@3.5.28(typescript@5.9.3))
+        version: 0.3.6(@kong-ui-public/i18n@2.4.6(typescript@5.9.3)(vue@3.5.28(typescript@5.9.3)))(@kong/icons@1.43.0(vue@3.5.28(typescript@5.9.3)))(@kong/kongponents@9.52.0(vue-router@4.5.0(vue@3.5.28(typescript@5.9.3)))(vue@3.5.28(typescript@5.9.3)))(vue@3.5.28(typescript@5.9.3))
       '@kong/icons':
         specifier: ^1.43.0
         version: 1.43.0(vue@3.5.28(typescript@5.9.3))
       '@kong/kongponents':
-        specifier: ^9.51.0
-        version: 9.51.0(vue-router@4.5.0(vue@3.5.28(typescript@5.9.3)))(vue@3.5.28(typescript@5.9.3))
+        specifier: ^9.52.0
+        version: 9.52.0(vue-router@4.5.0(vue@3.5.28(typescript@5.9.3)))(vue@3.5.28(typescript@5.9.3))
       '@kong/spec-renderer':
-        specifier: ^1.106.0
-        version: 1.106.0(vue@3.5.28(typescript@5.9.3))
+        specifier: ^1.107.0
+        version: 1.107.0(vue@3.5.28(typescript@5.9.3))
       '@stoplight/spectral-core':
         specifier: ^1.21.0
         version: 1.21.0
@@ -819,15 +819,15 @@ packages:
     peerDependencies:
       vue: '>= 3.3.4 < 4'
 
-  '@kong/kongponents@9.51.0':
-    resolution: {integrity: sha512-46Nh/d8QTDWi/lVhmkrmHfy9ZPYTO1IcVS5B1oReIvqDevmhzmc092RILE9L1MX0COZtnj6S+LFpvOYdnd5JKA==}
+  '@kong/kongponents@9.52.0':
+    resolution: {integrity: sha512-vhS2hBYI69b9/fkKibNrKmWbBOu9ZO/zSLui3fFQFf+qX3X1hLM9j5k6U9SokrKzSj3JDjgWsuDqUYC2I7vAsg==}
     engines: {node: '>=v16.20.2 || >=18.12.1 || >=20.14.0 || >=22.14.0', pnpm: '>=10.28.2'}
     peerDependencies:
       vue: '>= 3.5.0 < 4'
       vue-router: ^4.6.4
 
-  '@kong/spec-renderer@1.106.0':
-    resolution: {integrity: sha512-ELkWQekujYrH0Wkpoj8sF2sUWLP7O+aYbI+7pGYXyQRY7UkS4c4at7MhoWiAQu2Z+Kq2R0ZCe8S9Xslmi7tnVw==}
+  '@kong/spec-renderer@1.107.0':
+    resolution: {integrity: sha512-sa9j4aXrJIA7p5N67dp74uXLECezd+RaGL25W0s9wq+wQS3+YLN0P3nrooOD9q2Z2qV6GPeH1mepO6fhOEoAxw==}
     engines: {node: '>=18.17.0'}
     peerDependencies:
       vue: '>= 3.3.13 < 4'
@@ -5257,11 +5257,11 @@ snapshots:
     transitivePeerDependencies:
       - typescript
 
-  '@kong-ui-public/split-pane@0.3.6(@kong-ui-public/i18n@2.4.6(typescript@5.9.3)(vue@3.5.28(typescript@5.9.3)))(@kong/icons@1.43.0(vue@3.5.28(typescript@5.9.3)))(@kong/kongponents@9.51.0(vue-router@4.5.0(vue@3.5.28(typescript@5.9.3)))(vue@3.5.28(typescript@5.9.3)))(vue@3.5.28(typescript@5.9.3))':
+  '@kong-ui-public/split-pane@0.3.6(@kong-ui-public/i18n@2.4.6(typescript@5.9.3)(vue@3.5.28(typescript@5.9.3)))(@kong/icons@1.43.0(vue@3.5.28(typescript@5.9.3)))(@kong/kongponents@9.52.0(vue-router@4.5.0(vue@3.5.28(typescript@5.9.3)))(vue@3.5.28(typescript@5.9.3)))(vue@3.5.28(typescript@5.9.3))':
     dependencies:
       '@kong-ui-public/i18n': 2.4.6(typescript@5.9.3)(vue@3.5.28(typescript@5.9.3))
       '@kong/icons': 1.43.0(vue@3.5.28(typescript@5.9.3))
-      '@kong/kongponents': 9.51.0(vue-router@4.5.0(vue@3.5.28(typescript@5.9.3)))(vue@3.5.28(typescript@5.9.3))
+      '@kong/kongponents': 9.52.0(vue-router@4.5.0(vue@3.5.28(typescript@5.9.3)))(vue@3.5.28(typescript@5.9.3))
       '@vueuse/core': 14.2.1(vue@3.5.28(typescript@5.9.3))
       vue: 3.5.28(typescript@5.9.3)
 
@@ -5291,7 +5291,7 @@ snapshots:
     dependencies:
       vue: 3.5.28(typescript@5.9.3)
 
-  '@kong/kongponents@9.51.0(vue-router@4.5.0(vue@3.5.28(typescript@5.9.3)))(vue@3.5.28(typescript@5.9.3))':
+  '@kong/kongponents@9.52.0(vue-router@4.5.0(vue@3.5.28(typescript@5.9.3)))(vue@3.5.28(typescript@5.9.3))':
     dependencies:
       '@floating-ui/vue': 1.1.10(vue@3.5.28(typescript@5.9.3))
       '@kong/icons': 1.43.0(vue@3.5.28(typescript@5.9.3))
@@ -5316,7 +5316,7 @@ snapshots:
       - solid-js
       - svelte
 
-  '@kong/spec-renderer@1.106.0(vue@3.5.28(typescript@5.9.3))':
+  '@kong/spec-renderer@1.107.0(vue@3.5.28(typescript@5.9.3))':
     dependencies:
       '@apidevtools/json-schema-ref-parser': 14.0.3
       '@asyncapi/avro-schema-parser': 3.0.24
