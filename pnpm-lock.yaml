@@ -16,13 +16,13 @@ importers:
     dependencies:
       '@kong-ui-public/split-pane':
         specifier: ^0.3.6
-        version: 0.3.6(@kong-ui-public/i18n@2.4.6(typescript@5.9.3)(vue@3.5.28(typescript@5.9.3)))(@kong/icons@1.43.0(vue@3.5.28(typescript@5.9.3)))(@kong/kongponents@9.52.0(vue-router@4.5.0(vue@3.5.28(typescript@5.9.3)))(vue@3.5.28(typescript@5.9.3)))(vue@3.5.28(typescript@5.9.3))
+        version: 0.3.6(@kong-ui-public/i18n@2.4.6(typescript@5.9.3)(vue@3.5.28(typescript@5.9.3)))(@kong/icons@1.43.0(vue@3.5.28(typescript@5.9.3)))(@kong/kongponents@9.52.4(vue-router@4.5.0(vue@3.5.28(typescript@5.9.3)))(vue@3.5.28(typescript@5.9.3)))(vue@3.5.28(typescript@5.9.3))
       '@kong/icons':
         specifier: ^1.43.0
         version: 1.43.0(vue@3.5.28(typescript@5.9.3))
       '@kong/kongponents':
-        specifier: ^9.52.0
-        version: 9.52.0(vue-router@4.5.0(vue@3.5.28(typescript@5.9.3)))(vue@3.5.28(typescript@5.9.3))
+        specifier: ^9.52.4
+        version: 9.52.4(vue-router@4.5.0(vue@3.5.28(typescript@5.9.3)))(vue@3.5.28(typescript@5.9.3))
       '@kong/spec-renderer':
         specifier: ^1.107.0
         version: 1.107.0(vue@3.5.28(typescript@5.9.3))
@@ -668,14 +668,26 @@ packages:
   '@floating-ui/core@1.7.4':
     resolution: {integrity: sha512-C3HlIdsBxszvm5McXlB8PeOEWfBhcGBTZGkGlWc2U0KFY5IwG5OQEuQ8rq52DZmcHDlPLd+YFBK+cZcytwIFWg==}
 
+  '@floating-ui/core@1.7.5':
+    resolution: {integrity: sha512-1Ih4WTWyw0+lKyFMcBHGbb5U5FtuHJuujoyyr5zTaWS5EYMeT6Jb2AuDeftsCsEuchO+mM2ij5+q9crhydzLhQ==}
+
   '@floating-ui/dom@1.7.5':
     resolution: {integrity: sha512-N0bD2kIPInNHUHehXhMke1rBGs1dwqvC9O9KYMyyjK7iXt7GAhnro7UlcuYcGdS/yYOlq0MAVgrow8IbWJwyqg==}
+
+  '@floating-ui/dom@1.7.6':
+    resolution: {integrity: sha512-9gZSAI5XM36880PPMm//9dfiEngYoC6Am2izES1FF406YFsjvyBMmeJ2g4SAju3xWwtuynNRFL2s9hgxpLI5SQ==}
 
   '@floating-ui/utils@0.2.10':
     resolution: {integrity: sha512-aGTxbpbg8/b5JfU1HXSrbH3wXZuLPJcNEcZQFMxLs3oSzgtVu6nFPkbbGGUvBcUjKV2YyB9Wxxabo+HEH9tcRQ==}
 
+  '@floating-ui/utils@0.2.11':
+    resolution: {integrity: sha512-RiB/yIh78pcIxl6lLMG0CgBXAZ2Y0eVHqMPYugu+9U0AeT6YBeiJpf7lbdJNIugFP5SIjwNRgo4DhR1Qxi26Gg==}
+
   '@floating-ui/vue@1.1.10':
     resolution: {integrity: sha512-vdf8f6rHnFPPLRsmL4p12wYl+Ux4mOJOkjzKEMYVnwdf7UFdvBtHlLvQyx8iKG5vhPRbDRgZxdtpmyigDPjzYg==}
+
+  '@floating-ui/vue@1.1.11':
+    resolution: {integrity: sha512-HzHKCNVxnGS35r9fCHBc3+uCnjw9IWIlCPL683cGgM9Kgj2BiAl8x1mS7vtvP6F9S/e/q4O6MApwSHj8hNLGfw==}
 
   '@formatjs/ecma402-abstract@2.2.4':
     resolution: {integrity: sha512-lFyiQDVvSbQOpU+WFd//ILolGj4UgA/qXrKeZxdV14uKiAUiPAtX6XAn7WBCRi7Mx6I7EybM9E5yYn4BIpZWYg==}
@@ -819,8 +831,8 @@ packages:
     peerDependencies:
       vue: '>= 3.3.4 < 4'
 
-  '@kong/kongponents@9.52.0':
-    resolution: {integrity: sha512-vhS2hBYI69b9/fkKibNrKmWbBOu9ZO/zSLui3fFQFf+qX3X1hLM9j5k6U9SokrKzSj3JDjgWsuDqUYC2I7vAsg==}
+  '@kong/kongponents@9.52.4':
+    resolution: {integrity: sha512-IPw67iDfg4m5MYRR8oyOKGxpgbJGc0eB3KVWK/2nuGe6TfIArTPUrJFknNs1Q9MYp62F4q5e4qxTqKteW3t5ng==}
     engines: {node: '>=v16.20.2 || >=18.12.1 || >=20.14.0 || >=22.14.0', pnpm: '>=10.28.2'}
     peerDependencies:
       vue: '>= 3.5.0 < 4'
@@ -5098,17 +5110,37 @@ snapshots:
     dependencies:
       '@floating-ui/utils': 0.2.10
 
+  '@floating-ui/core@1.7.5':
+    dependencies:
+      '@floating-ui/utils': 0.2.11
+
   '@floating-ui/dom@1.7.5':
     dependencies:
       '@floating-ui/core': 1.7.4
       '@floating-ui/utils': 0.2.10
 
+  '@floating-ui/dom@1.7.6':
+    dependencies:
+      '@floating-ui/core': 1.7.5
+      '@floating-ui/utils': 0.2.11
+
   '@floating-ui/utils@0.2.10': {}
+
+  '@floating-ui/utils@0.2.11': {}
 
   '@floating-ui/vue@1.1.10(vue@3.5.28(typescript@5.9.3))':
     dependencies:
       '@floating-ui/dom': 1.7.5
       '@floating-ui/utils': 0.2.10
+      vue-demi: 0.14.10(vue@3.5.28(typescript@5.9.3))
+    transitivePeerDependencies:
+      - '@vue/composition-api'
+      - vue
+
+  '@floating-ui/vue@1.1.11(vue@3.5.28(typescript@5.9.3))':
+    dependencies:
+      '@floating-ui/dom': 1.7.6
+      '@floating-ui/utils': 0.2.11
       vue-demi: 0.14.10(vue@3.5.28(typescript@5.9.3))
     transitivePeerDependencies:
       - '@vue/composition-api'
@@ -5257,11 +5289,11 @@ snapshots:
     transitivePeerDependencies:
       - typescript
 
-  '@kong-ui-public/split-pane@0.3.6(@kong-ui-public/i18n@2.4.6(typescript@5.9.3)(vue@3.5.28(typescript@5.9.3)))(@kong/icons@1.43.0(vue@3.5.28(typescript@5.9.3)))(@kong/kongponents@9.52.0(vue-router@4.5.0(vue@3.5.28(typescript@5.9.3)))(vue@3.5.28(typescript@5.9.3)))(vue@3.5.28(typescript@5.9.3))':
+  '@kong-ui-public/split-pane@0.3.6(@kong-ui-public/i18n@2.4.6(typescript@5.9.3)(vue@3.5.28(typescript@5.9.3)))(@kong/icons@1.43.0(vue@3.5.28(typescript@5.9.3)))(@kong/kongponents@9.52.4(vue-router@4.5.0(vue@3.5.28(typescript@5.9.3)))(vue@3.5.28(typescript@5.9.3)))(vue@3.5.28(typescript@5.9.3))':
     dependencies:
       '@kong-ui-public/i18n': 2.4.6(typescript@5.9.3)(vue@3.5.28(typescript@5.9.3))
       '@kong/icons': 1.43.0(vue@3.5.28(typescript@5.9.3))
-      '@kong/kongponents': 9.52.0(vue-router@4.5.0(vue@3.5.28(typescript@5.9.3)))(vue@3.5.28(typescript@5.9.3))
+      '@kong/kongponents': 9.52.4(vue-router@4.5.0(vue@3.5.28(typescript@5.9.3)))(vue@3.5.28(typescript@5.9.3))
       '@vueuse/core': 14.2.1(vue@3.5.28(typescript@5.9.3))
       vue: 3.5.28(typescript@5.9.3)
 
@@ -5291,9 +5323,9 @@ snapshots:
     dependencies:
       vue: 3.5.28(typescript@5.9.3)
 
-  '@kong/kongponents@9.52.0(vue-router@4.5.0(vue@3.5.28(typescript@5.9.3)))(vue@3.5.28(typescript@5.9.3))':
+  '@kong/kongponents@9.52.4(vue-router@4.5.0(vue@3.5.28(typescript@5.9.3)))(vue@3.5.28(typescript@5.9.3))':
     dependencies:
-      '@floating-ui/vue': 1.1.10(vue@3.5.28(typescript@5.9.3))
+      '@floating-ui/vue': 1.1.11(vue@3.5.28(typescript@5.9.3))
       '@kong/icons': 1.43.0(vue@3.5.28(typescript@5.9.3))
       '@popperjs/core': 2.11.8
       date-fns: 2.30.0
