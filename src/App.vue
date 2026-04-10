@@ -151,7 +151,7 @@
           v-show="!isCleared && !isLoading"
           class="spec-renderer"
           :control-address-bar="true"
-          document-scrolling-container=".spec-renderer-pane"
+          document-scrolling-container=".split-pane-right"
           :spec="specText"
           v-bind="options"
         />
