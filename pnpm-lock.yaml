@@ -31,8 +31,8 @@ importers:
         specifier: ^9.52.9
         version: 9.52.9(vue-router@4.5.0(vue@3.5.31(typescript@5.9.3)))(vue@3.5.31(typescript@5.9.3))
       '@kong/spec-renderer':
-        specifier: ^1.107.6
-        version: 1.107.6(vue@3.5.31(typescript@5.9.3))
+        specifier: ^1.107.11
+        version: 1.107.11(vue@3.5.31(typescript@5.9.3))
       '@stoplight/spectral-core':
         specifier: ^1.21.0
         version: 1.21.0
@@ -717,8 +717,8 @@ packages:
       vue: '>= 3.5.0 < 4'
       vue-router: ^4.6.4
 
-  '@kong/spec-renderer@1.107.6':
-    resolution: {integrity: sha512-DJfax5xdx7VK+vSb7Jr2SC4oR3TsclG5/MOldXFRYFc+7vD0FoyVUl19+pw110wnLK0cTptAHT/5akTjNCzUkw==}
+  '@kong/spec-renderer@1.107.11':
+    resolution: {integrity: sha512-Aez34oioYfUzJjv0Y82WCQCZ9e1bJw3/pgsIdVChcysG7jXkrtk/bN83rzSIG3e4MEKTGCSxkAZkOnivOB6+RA==}
     engines: {node: '>=18.17.0'}
     peerDependencies:
       vue: '>= 3.3.13 < 4'
@@ -2496,8 +2496,8 @@ packages:
     resolution: {integrity: sha512-gIXjKqtFuWEgzFRJA9WCQeSJLZDjgJUOMCMzxtvFq/37KojM1BFGufqsCy0r4qSQmYLsZYMeyRqzIWOMup03sw==}
     engines: {node: '>=14'}
 
-  form-data@4.0.5:
-    resolution: {integrity: sha512-8RipRLol37bNs2bhoV67fiTEvdTrbMUYcFTiy3+wuuOnUog2QBHCZWXDRijWQfAkhBj2Uf5UnVaiWwA5vdd82w==}
+  form-data@4.0.4:
+    resolution: {integrity: sha512-KrGhL9Q4zjj0kiUt5OO4Mr/A/jlI2jDYs5eHBpYHPcBEVSiipAvn2Ko2HnPe20rmcuuvMHNdZFp+4IlGTMF0Ow==}
     engines: {node: '>= 6'}
 
   form-urlencoded@6.1.6:
@@ -2712,15 +2712,18 @@ packages:
   html-void-elements@3.0.0:
     resolution: {integrity: sha512-bEqo66MRXsUGxWHV5IP0PUiAWwoEjba4VCzg0LjFJBpchPaTfyfCKTG6bc5F8ucKec3q5y6qOdGyYTSBEvhCrg==}
 
+  htmlparser2@10.1.0:
+    resolution: {integrity: sha512-VTZkM9GWRAtEpveh7MSF6SjjrpNVNNVJfFup7xTY3UpFtm67foy9HDVXneLtFVt4pMz5kZtgNcvCniNFb1hlEQ==}
+
   htmlparser2@8.0.2:
     resolution: {integrity: sha512-GYdjWKDkbRLkZ5geuHs5NY1puJ+PXwP7+fHPRz06Eirsb9ugf6d8kkXav6ADhcODhFFPMIXyxkxSuMf3D6NCFA==}
 
   http-reasons@0.1.0:
     resolution: {integrity: sha512-P6kYh0lKZ+y29T2Gqz+RlC9WBLhKe8kDmcJ+A+611jFfxdPsbMRQ5aNmFRM3lENqFkK+HTTL+tlQviAiv0AbLQ==}
 
-  httpsnippet@3.0.9:
-    resolution: {integrity: sha512-d5GazgvgT+xd+oltAVJPe+s62mJ5DKGw7yF7Put1fimLc5KwPzbH8Ef/AOMTUwOBSeS3iDqyt9wgYHm+Jyh0CA==}
-    engines: {node: ^14.19.1 || ^16.14.2 || ^18.0.0 || ^20.0.0}
+  httpsnippet@3.0.10:
+    resolution: {integrity: sha512-1P102HsVslaT3IVfuUfVwxenfbogFiihqosnaKUScd/sON1omdZZCWdmzm6baRz4u1Va0CTI/7svLckCu9iNBw==}
+    engines: {node: '>=20'}
     hasBin: true
 
   iconv-lite@0.4.24:
@@ -3712,8 +3715,8 @@ packages:
   safer-buffer@2.1.2:
     resolution: {integrity: sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==}
 
-  sanitize-html@2.17.1:
-    resolution: {integrity: sha512-ehFCW+q1a4CSOWRAdX97BX/6/PDEkCqw7/0JXZAGQV57FQB3YOkTa/rrzHPeJ+Aghy4vZAFfWMYyfxIiB7F/gw==}
+  sanitize-html@2.17.2:
+    resolution: {integrity: sha512-EnffJUl46VE9uvZ0XeWzObHLurClLlT12gsOk1cHyP2Ol1P0BnBnsXmShlBmWVJM+dKieQI68R0tsPY5m/B+Jg==}
 
   sass-embedded-all-unknown@1.98.0:
     resolution: {integrity: sha512-6n4RyK7/1mhdfYvpP3CClS3fGoYqDvRmLClCESS6I7+SAzqjxvGG6u5Fo+cb1nrPNbbilgbM4QKdgcgWHO9NCA==}
@@ -5378,7 +5381,7 @@ snapshots:
       - solid-js
       - svelte
 
-  '@kong/spec-renderer@1.107.6(vue@3.5.31(typescript@5.9.3))':
+  '@kong/spec-renderer@1.107.11(vue@3.5.31(typescript@5.9.3))':
     dependencies:
       '@apidevtools/json-schema-ref-parser': 14.0.3
       '@asyncapi/avro-schema-parser': 3.0.24
@@ -5394,10 +5397,10 @@ snapshots:
       allof-merge: 0.6.8
       flatted: 3.4.2
       form-urlencoded: 6.1.6
-      httpsnippet: 3.0.9
+      httpsnippet: 3.0.10
       lodash-es: 4.18.1
       markdown-it: 14.1.1
-      sanitize-html: 2.17.1
+      sanitize-html: 2.17.2
       shiki: 3.23.0
       vue: 3.5.31(typescript@5.9.3)
     transitivePeerDependencies:
@@ -7459,7 +7462,7 @@ snapshots:
       cross-spawn: 7.0.6
       signal-exit: 4.1.0
 
-  form-data@4.0.5:
+  form-data@4.0.4:
     dependencies:
       asynckit: 0.4.0
       combined-stream: 1.0.8
@@ -7698,6 +7701,13 @@ snapshots:
 
   html-void-elements@3.0.0: {}
 
+  htmlparser2@10.1.0:
+    dependencies:
+      domelementtype: 2.3.0
+      domhandler: 5.0.3
+      domutils: 3.2.2
+      entities: 7.0.1
+
   htmlparser2@8.0.2:
     dependencies:
       domelementtype: 2.3.0
@@ -7707,11 +7717,11 @@ snapshots:
 
   http-reasons@0.1.0: {}
 
-  httpsnippet@3.0.9:
+  httpsnippet@3.0.10:
     dependencies:
       chalk: 4.1.2
       event-stream: 4.0.1
-      form-data: 4.0.5
+      form-data: 4.0.4
       har-validator-compiled: 1.0.0
       stringify-object: 3.3.0
       yargs: 17.7.2
@@ -8653,11 +8663,11 @@ snapshots:
 
   safer-buffer@2.1.2: {}
 
-  sanitize-html@2.17.1:
+  sanitize-html@2.17.2:
     dependencies:
       deepmerge: 4.3.1
       escape-string-regexp: 4.0.0
-      htmlparser2: 8.0.2
+      htmlparser2: 10.1.0
       is-plain-object: 5.0.0
       parse-srcset: 1.0.2
       postcss: 8.5.9
