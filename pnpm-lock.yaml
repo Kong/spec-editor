@@ -22,8 +22,8 @@ importers:
   .:
     dependencies:
       '@kong-ui-public/split-pane':
-        specifier: ^0.3.10
-        version: 0.3.10(@kong-ui-public/i18n@2.4.6(typescript@5.9.3)(vue@3.5.31(typescript@5.9.3)))(@kong/icons@1.48.0(vue@3.5.31(typescript@5.9.3)))(@kong/kongponents@9.52.9(vue-router@4.5.0(vue@3.5.31(typescript@5.9.3)))(vue@3.5.31(typescript@5.9.3)))(vue@3.5.31(typescript@5.9.3))
+        specifier: ^0.3.12
+        version: 0.3.14(@kong-ui-public/i18n@2.4.6(typescript@5.9.3)(vue@3.5.31(typescript@5.9.3)))(@kong/icons@1.48.0(vue@3.5.31(typescript@5.9.3)))(@kong/kongponents@9.52.9(vue-router@4.5.0(vue@3.5.31(typescript@5.9.3)))(vue@3.5.31(typescript@5.9.3)))(vue@3.5.31(typescript@5.9.3))
       '@kong/icons':
         specifier: ^1.48.0
         version: 1.48.0(vue@3.5.31(typescript@5.9.3))
@@ -686,13 +686,13 @@ packages:
     peerDependencies:
       vue: '>= 3.3.13 < 4'
 
-  '@kong-ui-public/split-pane@0.3.10':
-    resolution: {integrity: sha512-sin0Uz6kanWYrH071TCSQR+YgKNH/pOgTg3DtXSNnUDJMnUsB3UmezYUWVwsYbVZGecMX4JDTOO4/T5tO0K1IQ==}
+  '@kong-ui-public/split-pane@0.3.14':
+    resolution: {integrity: sha512-zDrGVp5/sUyldJHPZrIHY+6iZqK1exXcrSp68XbX9EQnHWBxsYZKwsrOsJ2r2nbJvB63pROn6DCsmpMxW2z1SQ==}
     peerDependencies:
       '@kong-ui-public/i18n': ^2.4.6
-      '@kong/icons': ^1.48.0
+      '@kong/icons': ^1.52.0
       '@kong/kongponents': '>=9.42.0 <10.0.0'
-      vue: ^3.5.27
+      vue: ^3.5.32
 
   '@kong/design-tokens@1.20.1':
     resolution: {integrity: sha512-F5WCq8hvsLh3xpWuIZ7YmC1n2ZDA93K8fHcLpnVaVRBtbAkS4mr4yuSAmQgeCrUg1ceWx/xRwU+T8rHA0X6+uw==}
@@ -5169,7 +5169,7 @@ snapshots:
     transitivePeerDependencies:
       - typescript
 
-  '@kong-ui-public/split-pane@0.3.10(@kong-ui-public/i18n@2.4.6(typescript@5.9.3)(vue@3.5.31(typescript@5.9.3)))(@kong/icons@1.48.0(vue@3.5.31(typescript@5.9.3)))(@kong/kongponents@9.52.9(vue-router@4.5.0(vue@3.5.31(typescript@5.9.3)))(vue@3.5.31(typescript@5.9.3)))(vue@3.5.31(typescript@5.9.3))':
+  '@kong-ui-public/split-pane@0.3.14(@kong-ui-public/i18n@2.4.6(typescript@5.9.3)(vue@3.5.31(typescript@5.9.3)))(@kong/icons@1.48.0(vue@3.5.31(typescript@5.9.3)))(@kong/kongponents@9.52.9(vue-router@4.5.0(vue@3.5.31(typescript@5.9.3)))(vue@3.5.31(typescript@5.9.3)))(vue@3.5.31(typescript@5.9.3))':
     dependencies:
       '@kong-ui-public/i18n': 2.4.6(typescript@5.9.3)(vue@3.5.31(typescript@5.9.3))
       '@kong/icons': 1.48.0(vue@3.5.31(typescript@5.9.3))
