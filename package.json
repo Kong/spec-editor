@@ -14,7 +14,7 @@
     }
   },
   "dependencies": {
-    "@kong-ui-public/split-pane": "^0.3.12",
+    "@kong-ui-public/split-pane": "^0.3.13",
     "@kong/icons": "^1.48.0",
     "@kong/kongponents": "^9.52.9",
     "@kong/spec-renderer": "^1.107.11",
