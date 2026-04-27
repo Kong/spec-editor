@@ -22,7 +22,7 @@ importers:
   .:
     dependencies:
       '@kong-ui-public/split-pane':
-        specifier: ^0.3.12
+        specifier: ^0.3.13
         version: 0.3.14(@kong-ui-public/i18n@2.4.6(typescript@5.9.3)(vue@3.5.31(typescript@5.9.3)))(@kong/icons@1.48.0(vue@3.5.31(typescript@5.9.3)))(@kong/kongponents@9.52.9(vue-router@4.5.0(vue@3.5.31(typescript@5.9.3)))(vue@3.5.31(typescript@5.9.3)))(vue@3.5.31(typescript@5.9.3))
       '@kong/icons':
         specifier: ^1.48.0
