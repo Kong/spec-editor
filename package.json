@@ -16,7 +16,7 @@
   "dependencies": {
     "@kong-ui-public/split-pane": "^0.3.13",
     "@kong/icons": "^1.48.0",
-    "@kong/kongponents": "^9.52.13",
+    "@kong/kongponents": "^9.56.1",
     "@kong/spec-renderer": "^1.107.16",
     "@stoplight/spectral-core": "^1.22.0",
     "@stoplight/spectral-ruleset-bundler": "^1.7.0",

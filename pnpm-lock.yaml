@@ -23,13 +23,13 @@ importers:
     dependencies:
       '@kong-ui-public/split-pane':
         specifier: ^0.3.13
-        version: 0.3.14(@kong-ui-public/i18n@2.4.6(typescript@5.9.3)(vue@3.5.31(typescript@5.9.3)))(@kong/icons@1.48.0(vue@3.5.31(typescript@5.9.3)))(@kong/kongponents@9.56.0(vue-router@4.5.0(vue@3.5.31(typescript@5.9.3)))(vue@3.5.31(typescript@5.9.3)))(vue@3.5.31(typescript@5.9.3))
+        version: 0.3.14(@kong-ui-public/i18n@2.4.6(typescript@5.9.3)(vue@3.5.31(typescript@5.9.3)))(@kong/icons@1.48.0(vue@3.5.31(typescript@5.9.3)))(@kong/kongponents@9.56.1(vue-router@4.5.0(vue@3.5.31(typescript@5.9.3)))(vue@3.5.31(typescript@5.9.3)))(vue@3.5.31(typescript@5.9.3))
       '@kong/icons':
         specifier: ^1.48.0
         version: 1.48.0(vue@3.5.31(typescript@5.9.3))
       '@kong/kongponents':
-        specifier: ^9.52.13
-        version: 9.56.0(vue-router@4.5.0(vue@3.5.31(typescript@5.9.3)))(vue@3.5.31(typescript@5.9.3))
+        specifier: ^9.56.1
+        version: 9.56.1(vue-router@4.5.0(vue@3.5.31(typescript@5.9.3)))(vue@3.5.31(typescript@5.9.3))
       '@kong/spec-renderer':
         specifier: ^1.107.16
         version: 1.107.16(vue@3.5.31(typescript@5.9.3))
@@ -716,8 +716,8 @@ packages:
     peerDependencies:
       vue: '>= 3.3.4 < 4'
 
-  '@kong/kongponents@9.56.0':
-    resolution: {integrity: sha512-RstJtPzeS9rupfiHqhNY3v3aC67m7c/cm3gVJ2Uwlsj6+DLoAg7QXn1Gf8y+zhFbqsdjL3tgvyDuKjASWpeA9A==}
+  '@kong/kongponents@9.56.1':
+    resolution: {integrity: sha512-s1jatsvdeOa6qOrz2lFux9gSpd7eGo/Eto0NcWEJWX+4i6EmkRo4cCUnpXpm/4htYmqewYtxCIU0YpzxjF3kDQ==}
     engines: {node: '>=v16.20.2 || >=18.12.1 || >=20.14.0 || >=22.14.0', pnpm: '>=10.28.2'}
     peerDependencies:
       vue: '>= 3.5.0 < 4'
@@ -5183,11 +5183,11 @@ snapshots:
     transitivePeerDependencies:
       - typescript
 
-  '@kong-ui-public/split-pane@0.3.14(@kong-ui-public/i18n@2.4.6(typescript@5.9.3)(vue@3.5.31(typescript@5.9.3)))(@kong/icons@1.48.0(vue@3.5.31(typescript@5.9.3)))(@kong/kongponents@9.56.0(vue-router@4.5.0(vue@3.5.31(typescript@5.9.3)))(vue@3.5.31(typescript@5.9.3)))(vue@3.5.31(typescript@5.9.3))':
+  '@kong-ui-public/split-pane@0.3.14(@kong-ui-public/i18n@2.4.6(typescript@5.9.3)(vue@3.5.31(typescript@5.9.3)))(@kong/icons@1.48.0(vue@3.5.31(typescript@5.9.3)))(@kong/kongponents@9.56.1(vue-router@4.5.0(vue@3.5.31(typescript@5.9.3)))(vue@3.5.31(typescript@5.9.3)))(vue@3.5.31(typescript@5.9.3))':
     dependencies:
       '@kong-ui-public/i18n': 2.4.6(typescript@5.9.3)(vue@3.5.31(typescript@5.9.3))
       '@kong/icons': 1.48.0(vue@3.5.31(typescript@5.9.3))
-      '@kong/kongponents': 9.56.0(vue-router@4.5.0(vue@3.5.31(typescript@5.9.3)))(vue@3.5.31(typescript@5.9.3))
+      '@kong/kongponents': 9.56.1(vue-router@4.5.0(vue@3.5.31(typescript@5.9.3)))(vue@3.5.31(typescript@5.9.3))
       '@vueuse/core': 14.2.1(vue@3.5.31(typescript@5.9.3))
       vue: 3.5.31(typescript@5.9.3)
 
@@ -5221,10 +5221,10 @@ snapshots:
     dependencies:
       vue: 3.5.31(typescript@5.9.3)
 
-  '@kong/kongponents@9.56.0(vue-router@4.5.0(vue@3.5.31(typescript@5.9.3)))(vue@3.5.31(typescript@5.9.3))':
+  '@kong/kongponents@9.56.1(vue-router@4.5.0(vue@3.5.31(typescript@5.9.3)))(vue@3.5.31(typescript@5.9.3))':
     dependencies:
       '@floating-ui/vue': 1.1.11(vue@3.5.31(typescript@5.9.3))
-      '@kong/icons': 1.48.0(vue@3.5.31(typescript@5.9.3))
+      '@kong/icons': 1.55.1(vue@3.5.31(typescript@5.9.3))
       '@popperjs/core': 2.11.8
       date-fns: 2.30.0
       date-fns-tz: 2.0.1(date-fns@2.30.0)
