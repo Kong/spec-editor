@@ -50,7 +50,7 @@
     "sass": "^1.99.0",
     "sass-embedded": "^1.99.0",
     "shiki": "^4.0.2",
-    "stylelint": "^17.6.0",
+    "stylelint": "^17.12.0",
     "stylelint-config-html": "^1.1.0",
     "stylelint-config-recommended-scss": "^17.0.0",
     "stylelint-config-recommended-vue": "^1.6.1",
