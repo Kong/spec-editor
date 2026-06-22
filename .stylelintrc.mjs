@@ -6,13 +6,13 @@ export default {
   ],
   plugins: [
     'stylelint-order',
-    '@kong/design-tokens/stylelint-plugin',
+    '@kong/stylelint-plugin-design-tokens/stylelint-plugin',
     '@stylistic/stylelint-plugin',
   ],
   rules: {
     'unit-disallowed-list': ['rem', 'em'],
     'order/properties-alphabetical-order': true,
-    '@kong/design-tokens/use-proper-token': true,
+    '@kong/stylelint-plugin-design-tokens/use-proper-token': true,
     '@stylistic/indentation': [2, { baseIndentLevel: 0 }],
     // Only allow @kong/design-tokens CSS custom properties
     'custom-property-pattern': [
