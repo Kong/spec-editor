@@ -63,7 +63,7 @@
               <template #items>
                 <KDropdownItem @click="dropzoneClick">
                   <UploadIcon
-                    :color="KUI_COLOR_TEXT_NEUTRAL"
+                    :color="`var(--kui-color-text-neutral, ${KUI_COLOR_TEXT_NEUTRAL})`"
                     decorative
                   />
                   Upload API specification
