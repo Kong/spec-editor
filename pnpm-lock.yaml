@@ -5,8 +5,12 @@ settings:
   excludeLinksFromLockfile: false
 
 overrides:
+  fast-uri@<=3.1.0: '>=3.1.2'
+  shell-quote@>=1.1.0 <=1.8.3: '>=1.8.4'
+  js-cookie@<=3.0.5: '>=3.0.7'
+  ws@>=8.0.0 <8.20.1: '>=8.20.1'
+  form-data@>=4.0.0 <4.0.6: '>=4.0.6'
   tmp@<=0.2.3: '>=0.2.7'
-  form-data@>=4.0.0 <4.0.4: '>=4.0.6'
   lodash@<=4.17.23: '>=4.18.0'
   lodash-es@<=4.17.23: '>=4.18.0'
   minimatch@<3.1.4: '>=3.1.5'
@@ -22,8 +26,8 @@ importers:
   .:
     dependencies:
       '@kong-ui-public/split-pane':
-        specifier: ^0.3.13
-        version: 0.3.14(@kong-ui-public/i18n@2.4.6(typescript@5.9.3)(vue@3.5.35(typescript@5.9.3)))(@kong/icons@1.48.0(vue@3.5.35(typescript@5.9.3)))(@kong/kongponents@9.56.1(vue-router@4.5.0(vue@3.5.35(typescript@5.9.3)))(vue@3.5.35(typescript@5.9.3)))(vue@3.5.35(typescript@5.9.3))
+        specifier: ^0.3.23
+        version: 0.3.27(@kong-ui-public/i18n@2.4.6(typescript@5.9.3)(vue@3.5.35(typescript@5.9.3)))(@kong/icons@1.48.0(vue@3.5.35(typescript@5.9.3)))(@kong/kongponents@9.56.1(vue-router@4.5.0(vue@3.5.35(typescript@5.9.3)))(vue@3.5.35(typescript@5.9.3)))(vue@3.5.35(typescript@5.9.3))
       '@kong/icons':
         specifier: ^1.48.0
         version: 1.48.0(vue@3.5.35(typescript@5.9.3))
@@ -689,13 +693,13 @@ packages:
     peerDependencies:
       vue: '>= 3.3.13 < 4'
 
-  '@kong-ui-public/split-pane@0.3.14':
-    resolution: {integrity: sha512-zDrGVp5/sUyldJHPZrIHY+6iZqK1exXcrSp68XbX9EQnHWBxsYZKwsrOsJ2r2nbJvB63pROn6DCsmpMxW2z1SQ==}
+  '@kong-ui-public/split-pane@0.3.27':
+    resolution: {integrity: sha512-3fjsvSDGVcTRnigkbYE8RLtNwXTS0+aI2KWtsoyKrnEl2X3u8B0YMyOyDml+DRz5kK0e3eRIE1+RWGAK5WSaCQ==}
     peerDependencies:
       '@kong-ui-public/i18n': ^2.4.6
-      '@kong/icons': ^1.52.0
+      '@kong/icons': ^1.58.0
       '@kong/kongponents': '>=9.42.0 <10.0.0'
-      vue: ^3.5.32
+      vue: ^3.5.35
 
   '@kong/design-tokens@2.0.0':
     resolution: {integrity: sha512-5IzpE2QK1PV2f+lQ697PlAB0sxBosjRpM4g955TQkSN3fKDUKRn6DPgKDRX7LGEkqNGLn1jwy8jN70CMRbEi7w==}
@@ -1529,11 +1533,24 @@ packages:
     peerDependencies:
       vue: ^3.5.0
 
+  '@vueuse/core@14.3.0':
+    resolution: {integrity: sha512-aHfz47g0ZhMtTVHmIzMVpJy8ePhhOy68GY5bv110+5DVtZ+W7BsOx+m61UNQqfrWyPztIHIanWa3E2tib3NFIw==}
+    peerDependencies:
+      vue: ^3.5.0
+
   '@vueuse/metadata@14.2.1':
     resolution: {integrity: sha512-1ButlVtj5Sb/HDtIy1HFr1VqCP4G6Ypqt5MAo0lCgjokrk2mvQKsK2uuy0vqu/Ks+sHfuHo0B9Y9jn9xKdjZsw==}
 
+  '@vueuse/metadata@14.3.0':
+    resolution: {integrity: sha512-BwxmbAzwAVF50+MW57GXOUEV61nFBGnlBvrTqj49PqWJu3uw7hdu72ztXeZ33RdZtDY6kO+bfCAE1PCn88Tktw==}
+
   '@vueuse/shared@14.2.1':
     resolution: {integrity: sha512-shTJncjV9JTI4oVNyF1FQonetYAiTBd+Qj7cY89SWbXSkx7gyhrgtEdF2ZAVWS1S3SHlaROO6F2IesJxQEkZBw==}
+    peerDependencies:
+      vue: ^3.5.0
+
+  '@vueuse/shared@14.3.0':
+    resolution: {integrity: sha512-bZpge9eSXwa4ToSiqJ7j6KRwhAsneMFoSz3LMWKQDkqimm3D/tbFlrklrs/IOqC8tEcYmXQZJ6N0UrjhBirVCg==}
     peerDependencies:
       vue: ^3.5.0
 
@@ -2327,8 +2344,8 @@ packages:
   fast-memoize@2.5.2:
     resolution: {integrity: sha512-Ue0LwpDYErFbmNnZSF0UH6eImUwDmogUO1jyE+JbN2gsQz/jICm1Ve7t9QT0rNSsfJt+Hs4/S3GnsDVjL4HVrw==}
 
-  fast-uri@3.0.3:
-    resolution: {integrity: sha512-aLrHthzCjH5He4Z2H9YZ+v6Ujb9ocRuW6ZzkJQOrTxleEijANq4v1TsaPaVG1PZcuurEzrLcWRyYBYXD5cEiaw==}
+  fast-uri@4.0.0:
+    resolution: {integrity: sha512-l90y339r2DkZs/ldcWQXcwTjkbp/NbuJDGYoQ3awBgaT3GXOFkm3OkVpz6Z86TywYcya0eVP2r1kTV90f3krGQ==}
 
   fastest-levenshtein@1.0.16:
     resolution: {integrity: sha512-eRnCtTTtGZFpQCwhJiUOuxPQWRXVKYDn0b2PeHfXL6/Zi53SLAzAHfVhVWK2AryC/WH05kGfxhFIPvTF0SXQzg==}
@@ -2416,8 +2433,8 @@ packages:
     resolution: {integrity: sha512-gIXjKqtFuWEgzFRJA9WCQeSJLZDjgJUOMCMzxtvFq/37KojM1BFGufqsCy0r4qSQmYLsZYMeyRqzIWOMup03sw==}
     engines: {node: '>=14'}
 
-  form-data@4.0.4:
-    resolution: {integrity: sha512-KrGhL9Q4zjj0kiUt5OO4Mr/A/jlI2jDYs5eHBpYHPcBEVSiipAvn2Ko2HnPe20rmcuuvMHNdZFp+4IlGTMF0Ow==}
+  form-data@4.0.6:
+    resolution: {integrity: sha512-vKatAh4SlVfgbv+YtmhiRjhEMJsYpsG1Y2rMQtR+SVSbytsSD1YGzDIcrAJmdFec88u/+VoGmxnl+80gL1tRCQ==}
     engines: {node: '>= 6'}
 
   form-urlencoded@6.1.6:
@@ -2611,6 +2628,10 @@ packages:
 
   hasown@2.0.2:
     resolution: {integrity: sha512-0hJU9SCPvmMzIBdZFqNPXWa6dqh7WdH0cII9y+CyS8rG3nL48Bclra9HmKhVVUHyPWNH5Y7xDwAB7bfgSjkUMQ==}
+    engines: {node: '>= 0.4'}
+
+  hasown@2.0.4:
+    resolution: {integrity: sha512-T2UbfbBEF32wiepXIsMlTW9+dDYC6wMh/t/vYA4tuOMKqWz/n3vr1NFSxQiyP+zk2mXsoMA/i/7qV6LKut1t1A==}
     engines: {node: '>= 0.4'}
 
   hast-util-to-html@9.0.5:
@@ -2888,9 +2909,8 @@ packages:
     engines: {node: '>=14'}
     hasBin: true
 
-  js-cookie@3.0.5:
-    resolution: {integrity: sha512-cEiJEAEoIbWfCZYKWhVwFuvPX1gETRYPw6LlaTKoxD3s2AkXzkCjnp6h0V77ozyqj0jakteJ4YqDJT830+lVGw==}
-    engines: {node: '>=14'}
+  js-cookie@3.0.8:
+    resolution: {integrity: sha512-yeJd4aNAdYZQjaon2bpD/Gb0B/omw7HQOsynXXcOiWVCacbBcPlgn8S/d1X6blFSaHao7ozqtW7NZW19xpCtIw==}
 
   js-tokens@4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
@@ -3796,8 +3816,9 @@ packages:
     resolution: {integrity: sha512-7++dFhtcx3353uBaq8DDR4NuxBetBzC7ZQOhmTQInHEd6bSrXdiEyzCvG07Z44UYdLShWUyXt5M/yhz8ekcb1A==}
     engines: {node: '>=8'}
 
-  shell-quote@1.8.1:
-    resolution: {integrity: sha512-6j1W9l1iAs/4xYBI1SYOVZyFcCis9b4KCLQ8fgAGG07QvzaRLVVRQvAy85yNmmZSjYjg4MWh4gNvlPujU/5LpA==}
+  shell-quote@1.8.4:
+    resolution: {integrity: sha512-VsC6n6vz1ihYYyZZwX7YZSF5l5x36ca17OC+a69h94YqB7X6XLwf+5MOgynYir2SLFUbl8gIYvBo8K8RoNQ6bQ==}
+    engines: {node: '>= 0.4'}
 
   shiki@3.23.0:
     resolution: {integrity: sha512-55Dj73uq9ZXL5zyeRPzHQsK7Nbyt6Y10k5s7OjuFZGMhpp4r/rsLBH0o/0fstIzX1Lep9VxefWljK/SKCzygIA==}
@@ -4464,8 +4485,8 @@ packages:
     resolution: {integrity: sha512-OTIk8iR8/aCRWBqvxrzxR0hgxWpnYBblY1S5hDWBQfk/VFmJwzmJgQFN3WsoUKHISv2eAwe+PpbUzyL1CKTLXg==}
     engines: {node: ^20.17.0 || >=22.9.0}
 
-  ws@8.20.0:
-    resolution: {integrity: sha512-sAt8BhgNbzCtgGbt2OxmpuryO63ZoDk/sqaB/znQm94T4fCEsy/yV+7CdC1kJhOU9lboAEU7R3kquuycDoibVA==}
+  ws@8.21.0:
+    resolution: {integrity: sha512-Vsp28b7DRcimFQvrqu2Wek3z1iYxDCWqHYB8Qsnk/S4RfaCQzPGPyBNuVjJV3cd6UiKtUtp6sNM77gWvzcCH+g==}
     engines: {node: '>=10.0.0'}
     peerDependencies:
       bufferutil: ^4.0.1
@@ -5236,12 +5257,12 @@ snapshots:
     transitivePeerDependencies:
       - typescript
 
-  '@kong-ui-public/split-pane@0.3.14(@kong-ui-public/i18n@2.4.6(typescript@5.9.3)(vue@3.5.35(typescript@5.9.3)))(@kong/icons@1.48.0(vue@3.5.35(typescript@5.9.3)))(@kong/kongponents@9.56.1(vue-router@4.5.0(vue@3.5.35(typescript@5.9.3)))(vue@3.5.35(typescript@5.9.3)))(vue@3.5.35(typescript@5.9.3))':
+  '@kong-ui-public/split-pane@0.3.27(@kong-ui-public/i18n@2.4.6(typescript@5.9.3)(vue@3.5.35(typescript@5.9.3)))(@kong/icons@1.48.0(vue@3.5.35(typescript@5.9.3)))(@kong/kongponents@9.56.1(vue-router@4.5.0(vue@3.5.35(typescript@5.9.3)))(vue@3.5.35(typescript@5.9.3)))(vue@3.5.35(typescript@5.9.3))':
     dependencies:
       '@kong-ui-public/i18n': 2.4.6(typescript@5.9.3)(vue@3.5.35(typescript@5.9.3))
       '@kong/icons': 1.48.0(vue@3.5.35(typescript@5.9.3))
       '@kong/kongponents': 9.56.1(vue-router@4.5.0(vue@3.5.35(typescript@5.9.3)))(vue@3.5.35(typescript@5.9.3))
-      '@vueuse/core': 14.2.1(vue@3.5.35(typescript@5.9.3))
+      '@vueuse/core': 14.3.0(vue@3.5.35(typescript@5.9.3))
       vue: 3.5.35(typescript@5.9.3)
 
   '@kong/design-tokens@2.0.0': {}
@@ -6364,9 +6385,22 @@ snapshots:
       '@vueuse/shared': 14.2.1(vue@3.5.35(typescript@5.9.3))
       vue: 3.5.35(typescript@5.9.3)
 
+  '@vueuse/core@14.3.0(vue@3.5.35(typescript@5.9.3))':
+    dependencies:
+      '@types/web-bluetooth': 0.0.21
+      '@vueuse/metadata': 14.3.0
+      '@vueuse/shared': 14.3.0(vue@3.5.35(typescript@5.9.3))
+      vue: 3.5.35(typescript@5.9.3)
+
   '@vueuse/metadata@14.2.1': {}
 
+  '@vueuse/metadata@14.3.0': {}
+
   '@vueuse/shared@14.2.1(vue@3.5.35(typescript@5.9.3))':
+    dependencies:
+      vue: 3.5.35(typescript@5.9.3)
+
+  '@vueuse/shared@14.3.0(vue@3.5.35(typescript@5.9.3))':
     dependencies:
       vue: 3.5.35(typescript@5.9.3)
 
@@ -6410,7 +6444,7 @@ snapshots:
   ajv@8.18.0:
     dependencies:
       fast-deep-equal: 3.1.3
-      fast-uri: 3.0.3
+      fast-uri: 4.0.0
       json-schema-traverse: 1.0.0
       require-from-string: 2.0.2
 
@@ -7230,7 +7264,7 @@ snapshots:
 
   fast-memoize@2.5.2: {}
 
-  fast-uri@3.0.3: {}
+  fast-uri@4.0.0: {}
 
   fastest-levenshtein@1.0.16: {}
 
@@ -7316,12 +7350,12 @@ snapshots:
       cross-spawn: 7.0.6
       signal-exit: 4.1.0
 
-  form-data@4.0.4:
+  form-data@4.0.6:
     dependencies:
       asynckit: 0.4.0
       combined-stream: 1.0.8
       es-set-tostringtag: 2.1.0
-      hasown: 2.0.2
+      hasown: 2.0.4
       mime-types: 2.1.35
 
   form-urlencoded@6.1.6: {}
@@ -7493,7 +7527,7 @@ snapshots:
       '@types/ws': 8.18.1
       entities: 7.0.1
       whatwg-mimetype: 3.0.0
-      ws: 8.20.0
+      ws: 8.21.0
     transitivePeerDependencies:
       - bufferutil
       - utf-8-validate
@@ -7529,6 +7563,10 @@ snapshots:
       hookified: 1.15.1
 
   hasown@2.0.2:
+    dependencies:
+      function-bind: 1.1.2
+
+  hasown@2.0.4:
     dependencies:
       function-bind: 1.1.2
 
@@ -7586,7 +7624,7 @@ snapshots:
     dependencies:
       chalk: 4.1.2
       event-stream: 4.0.1
-      form-data: 4.0.4
+      form-data: 4.0.6
       har-validator-compiled: 1.0.0
       stringify-object: 3.3.0
       yargs: 17.7.2
@@ -7815,10 +7853,10 @@ snapshots:
       config-chain: 1.1.13
       editorconfig: 1.0.4
       glob: 10.5.0
-      js-cookie: 3.0.5
+      js-cookie: 3.0.8
       nopt: 7.2.1
 
-  js-cookie@3.0.5: {}
+  js-cookie@3.0.8: {}
 
   js-tokens@4.0.0: {}
 
@@ -8164,7 +8202,7 @@ snapshots:
       picomatch: 4.0.4
       pidtree: 0.6.0
       read-package-json-fast: 4.0.0
-      shell-quote: 1.8.1
+      shell-quote: 1.8.4
       which: 5.0.0
 
   nth-check@2.1.1:
@@ -8627,7 +8665,7 @@ snapshots:
 
   shebang-regex@3.0.0: {}
 
-  shell-quote@1.8.1: {}
+  shell-quote@1.8.4: {}
 
   shiki@3.23.0:
     dependencies:
@@ -9342,7 +9380,7 @@ snapshots:
     dependencies:
       signal-exit: 4.1.0
 
-  ws@8.20.0: {}
+  ws@8.21.0: {}
 
   wsl-utils@0.1.0:
     dependencies:
