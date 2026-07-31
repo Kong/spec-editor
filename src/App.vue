@@ -68,6 +68,13 @@
                   />
                   Upload API specification
                 </KDropdownItem>
+                <KDropdownItem @click="openUrlImportModal">
+                  <LinkIcon
+                    :color="`var(--kui-color-text-neutral, ${KUI_COLOR_TEXT_NEUTRAL})`"
+                    decorative
+                  />
+                  Import from URL
+                </KDropdownItem>
                 <template v-for="items of files">
                   <KDropdownItem
                     v-for="item of items"
@@ -81,6 +88,21 @@
                 </template>
               </template>
             </KDropdown>
+            <KTooltip
+              v-if="shareSpecUrl"
+              placement="bottom-end"
+              text="Copy share URL"
+            >
+              <KButton
+                appearance="secondary"
+                aria-label="Copy share URL"
+                icon
+                size="small"
+                @click="copyShareSpecUrl"
+              >
+                <CopyIcon decorative />
+              </KButton>
+            </KTooltip>
             <KButton
               appearance="tertiary"
               :disabled="isCleared"
@@ -167,6 +189,13 @@
         </KEmptyState>
       </template>
     </SplitPane>
+    <SpecUrlImportModal
+      v-model:url="specUrlInput"
+      :is-importing="isImportingSpecUrl"
+      :visible="isUrlImportModalVisible"
+      @cancel="closeUrlImportModal"
+      @import="importSpecFromInputUrl"
+    />
     <DropzoneModal v-if="isOverDropZone" />
   </div>
 </template>
@@ -179,16 +208,18 @@ import { ref, computed, watch, nextTick, useTemplateRef, onMounted } from 'vue'
 import { SpecRenderer } from '@kong/spec-renderer'
 import { SplitPane, SplitToolbar } from '@kong-ui-public/split-pane'
 import { refDebounced, useDropZone, useWindowSize, watchDebounced } from '@vueuse/core'
-import { ChevronDoubleLeftIcon, ChevronDoubleRightIcon, ChevronDownIcon, UploadIcon, VisibilityIcon } from '@kong/icons'
+import { ChevronDoubleLeftIcon, ChevronDoubleRightIcon, ChevronDownIcon, CopyIcon, LinkIcon, UploadIcon, VisibilityIcon } from '@kong/icons'
 import { KUI_COLOR_TEXT_NEUTRAL } from '@kong/design-tokens'
 
 import useApiDocOptions from '@/composables/useApiDocOptions'
+import useSpecUrlImport from '@/composables/useSpecUrlImport'
 import useToaster from '@/composables/useToaster'
 import { loadSpecFromLocalStorage, saveSpecToLocalStorage, clearLocalStorageKey } from '@/utils/storage'
 
 import DropzoneModal from '@/components/DropzoneModal.vue'
 import SettingsModal from '@/components/SettingsModal.vue'
 import SpecEditor from '@/components/SpecEditor.vue'
+import SpecUrlImportModal from '@/components/SpecUrlImportModal.vue'
 import KongLogo from '@/components/KongLogo.vue'
 
 // sample specifications
@@ -265,6 +296,51 @@ const isLoading = ref(true)
 const { options } = useApiDocOptions()
 const { toaster } = useToaster()
 
+const {
+  clearSpecUrlQueryParam,
+  closeUrlImportModal,
+  getSpecUrlQueryParam,
+  importSpecFromInputUrl,
+  importSpecFromUrl,
+  initializeSpecUrlInput,
+  isImportingSpecUrl,
+  isUrlImportModalVisible,
+  openUrlImportModal,
+  shareSpecUrl,
+  specUrlInput,
+} = useSpecUrlImport({
+  onImported: async (text) => {
+    code.value = text
+    resetEditor()
+    await nextTick()
+    editor.value?.formatDocument()
+  },
+  onInvalidUrl: () => {
+    toaster.open({
+      appearance: 'danger',
+      message: 'invalid URL',
+    })
+  },
+})
+
+const copyShareSpecUrl = async () => {
+  if (!shareSpecUrl.value) return
+
+  try {
+    await navigator.clipboard.writeText(shareSpecUrl.value)
+    toaster.open({
+      appearance: 'success',
+      message: 'Share URL copied',
+    })
+  } catch (error) {
+    console.error('Failed to copy share URL:', error)
+    toaster.open({
+      appearance: 'danger',
+      message: 'Failed to copy share URL',
+    })
+  }
+}
+
 const showEditorPane = ref(isMobile.value ? false : true)
 
 watch(isMobile, (newValue) => {
@@ -290,6 +366,7 @@ const loadSampleSpec = async (fileLabel: TFileLabel) => {
       return
     }
     code.value = JSON.stringify(module.file, null, 2)
+    clearSpecUrlQueryParam()
     resetEditor()
   } catch (error) {
     console.error(`Failed to load file: ${fileLabel}`, error)
@@ -301,6 +378,7 @@ const clearSpec = () => {
 
   isCleared.value = true
   code.value = ''
+  clearSpecUrlQueryParam()
   clearLocalStorageKey(STORAGE_KEY)
 }
 
@@ -344,6 +422,7 @@ const onDrop = (files: File[] | null) => {
   reader.onload = async (e) => {
     if (e.target?.result) {
       code.value = e.target.result.toString()
+      clearSpecUrlQueryParam()
       resetEditor()
       await nextTick()
       editor.value?.formatDocument()
@@ -368,10 +447,18 @@ watchDebounced(specText, (newValue) => {
   debounce: 1000,
 })
 
-onMounted(() => {
+onMounted(async () => {
   isLoading.value = true
-  const savedSpec = loadSpecFromLocalStorage(STORAGE_KEY)
-  code.value = savedSpec || defaultSpec
+  const specUrl = getSpecUrlQueryParam()
+
+  if (specUrl) {
+    initializeSpecUrlInput()
+    await importSpecFromUrl(specUrl)
+  } else {
+    const savedSpec = loadSpecFromLocalStorage(STORAGE_KEY)
+    code.value = savedSpec || defaultSpec
+  }
+
   setTimeout(() => {
     isLoading.value = false
   }, 1000)
