@@ -35,8 +35,8 @@ importers:
         specifier: ^9.64.7
         version: 9.64.7(vue-router@4.5.0(vue@3.5.38(typescript@5.9.3)))(vue@3.5.38(typescript@5.9.3))
       '@kong/spec-renderer':
-        specifier: ^1.113.1
-        version: 1.113.1(vue@3.5.38(typescript@5.9.3))
+        specifier: ^1.113.3
+        version: 1.113.3(vue@3.5.38(typescript@5.9.3))
       '@stoplight/spectral-core':
         specifier: ^1.23.1
         version: 1.23.1
@@ -177,6 +177,9 @@ packages:
 
   '@asyncapi/parser@3.6.0':
     resolution: {integrity: sha512-6S0Yr8vI418a1IrpGsOYbfWVo9+aHvSqN2oSkiY0YJltS/C7oDOt9e0mo6hSld8bg+EeKrtgkVmpW4obh1JFvA==}
+
+  '@asyncapi/parser@3.6.3':
+    resolution: {integrity: sha512-MUC8xIUMcS2qNvqrqyx/ie0txu3d/OdIsrXs7UCzawdyR6P07gh35DpOqPz/z57s1UA3vERVpcheZYl3h8cVtw==}
 
   '@asyncapi/specs@6.11.1':
     resolution: {integrity: sha512-A3WBLqAKGoJ2+6FWFtpjBlCQ1oFCcs4GxF7zsIGvNqp/klGUHjlA3aAcZ9XMMpLGE8zPeYDz2x9FmO6DSuKraQ==}
@@ -717,8 +720,8 @@ packages:
       vue: '>= 3.5.0 < 4'
       vue-router: 4 || 5
 
-  '@kong/spec-renderer@1.113.1':
-    resolution: {integrity: sha512-F0R9LIY9SWmA1FDGjSYP1NhpXoHcOB1LZxqdKzwCjRpUdrMmBk7Tp5ExOXPXFdAVLIICV7clB3T2OE8tKVQlNA==}
+  '@kong/spec-renderer@1.113.3':
+    resolution: {integrity: sha512-43AhaWkMdo5/TJS5iXkpazMi2CWVG9rdwlRN4jqhrGmU3BltCSJDBVwJDe0OM98bg7citHsv77OBKIxImYefvA==}
     engines: {node: '>=18.17.0'}
     hasBin: true
     peerDependencies:
@@ -2338,6 +2341,9 @@ packages:
   flatted@3.4.2:
     resolution: {integrity: sha512-PjDse7RzhcPkIJwy5t7KPWQSZ9cAbzQXcafsetQoD7sOJRQlGikNbx7yZp2OotDnJyrDcbyRq3Ttb18iYOqkxA==}
 
+  flatted@3.4.4:
+    resolution: {integrity: sha512-5+ybhBZANEJxaH3X5evAFatUxLfEHSr7n6kYJ+1Qd0mUqr4eu9gIf6GDbWHf8RJijHrjjO8G+la14SlL2SeS1Q==}
+
   fnv-plus@1.3.1:
     resolution: {integrity: sha512-Gz1EvfOneuFfk4yG458dJ3TLJ7gV19q3OM/vVvvHf7eT02Hm1DleB4edsia6ahbKgAYxO9gvyQ1ioWZR+a00Yw==}
 
@@ -2846,6 +2852,10 @@ packages:
 
   js-yaml@4.1.1:
     resolution: {integrity: sha512-qQKT4zQxXl8lLwBtHMWwaTcGfFOZviOJet3Oy/xmGk2gZH677CJM9EvtfdSkgWcATZhj/55JZ0rmy3myCT5lsA==}
+    hasBin: true
+
+  js-yaml@4.3.1:
+    resolution: {integrity: sha512-CY6crGq313MX8GkwvB7tzgp99vjQxY1++5y10/BKN/GUfHqWaOGQMNZkBvqSzsZKWk/ijwHlWzzkLulsGHhjWQ==}
     hasBin: true
 
   jsep@1.4.0:
@@ -4508,6 +4518,30 @@ snapshots:
     transitivePeerDependencies:
       - encoding
 
+  '@asyncapi/parser@3.6.3':
+    dependencies:
+      '@asyncapi/specs': 6.11.1
+      '@openapi-contrib/openapi-schema-to-json-schema': 3.2.0
+      '@stoplight/json': 3.21.0
+      '@stoplight/json-ref-readers': 1.2.2
+      '@stoplight/json-ref-resolver': 3.1.6
+      '@stoplight/spectral-core': 1.23.1
+      '@stoplight/spectral-functions': 1.10.1
+      '@stoplight/spectral-parsers': 1.0.5
+      '@stoplight/spectral-ref-resolver': 1.0.5
+      '@stoplight/types': 13.20.0
+      '@types/json-schema': 7.0.15
+      '@types/urijs': 1.19.26
+      ajv: 8.18.0
+      ajv-errors: 3.0.0(ajv@8.18.0)
+      ajv-formats: 2.1.1(ajv@8.18.0)
+      avsc: 5.7.9
+      js-yaml: 4.3.1
+      jsonpath-plus: 10.3.0
+      node-fetch: 2.6.7
+    transitivePeerDependencies:
+      - encoding
+
   '@asyncapi/specs@6.11.1':
     dependencies:
       '@types/json-schema': 7.0.15
@@ -5218,12 +5252,12 @@ snapshots:
       - solid-js
       - svelte
 
-  '@kong/spec-renderer@1.113.1(vue@3.5.38(typescript@5.9.3))':
+  '@kong/spec-renderer@1.113.3(vue@3.5.38(typescript@5.9.3))':
     dependencies:
       '@apidevtools/json-schema-ref-parser': 14.0.3
       '@asyncapi/avro-schema-parser': 3.0.24
       '@asyncapi/openapi-schema-parser': 3.0.24
-      '@asyncapi/parser': 3.6.0
+      '@asyncapi/parser': 3.6.3
       '@floating-ui/vue': 1.1.11(vue@3.5.38(typescript@5.9.3))
       '@kong/icons': 1.62.1(vue@3.5.38(typescript@5.9.3))
       '@stoplight/http-spec': 7.1.0
@@ -5234,7 +5268,7 @@ snapshots:
       allof-merge: 0.6.8
       chokidar: 5.0.0
       commander: 15.0.0
-      flatted: 3.4.2
+      flatted: 3.4.4
       form-urlencoded: 6.1.7
       httpsnippet: 3.0.10
       lodash-es: 4.18.1
@@ -7124,6 +7158,8 @@ snapshots:
 
   flatted@3.4.2: {}
 
+  flatted@3.4.4: {}
+
   fnv-plus@1.3.1: {}
 
   focus-trap-vue@4.1.0(focus-trap@7.8.0)(vue@3.5.38(typescript@5.9.3)):
@@ -7658,6 +7694,10 @@ snapshots:
   js-tokens@9.0.1: {}
 
   js-yaml@4.1.1:
+    dependencies:
+      argparse: 2.0.1
+
+  js-yaml@4.3.1:
     dependencies:
       argparse: 2.0.1
 
