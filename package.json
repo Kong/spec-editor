@@ -17,7 +17,7 @@
     "@kong-ui-public/split-pane": "^0.3.31",
     "@kong/icons": "^1.48.0",
     "@kong/kongponents": "^9.64.7",
-    "@kong/spec-renderer": "1.113.4-pr.974.60971b9.0",
+    "@kong/spec-renderer": "1.113.5-pr.974.9db734a.0",
     "@stoplight/spectral-core": "^1.23.1",
     "@stoplight/spectral-ruleset-bundler": "^1.7.0",
     "@vueuse/core": "^14.4.0",
