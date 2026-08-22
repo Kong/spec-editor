@@ -34,16 +34,16 @@ importers:
     dependencies:
       '@kong-ui-public/split-pane':
         specifier: ^0.3.31
-        version: 0.3.31(@kong-ui-public/i18n@2.4.6(typescript@5.9.3)(vue@3.5.38(typescript@5.9.3)))(@kong/icons@1.48.0(vue@3.5.38(typescript@5.9.3)))(@kong/kongponents@9.64.7(vue-router@4.5.0(vue@3.5.38(typescript@5.9.3)))(vue@3.5.38(typescript@5.9.3)))(vue@3.5.38(typescript@5.9.3))
+        version: 0.3.31(@kong-ui-public/i18n@2.4.6(typescript@5.9.3)(vue@3.5.38(typescript@5.9.3)))(@kong/icons@1.48.0(vue@3.5.38(typescript@5.9.3)))(@kong/kongponents@9.64.10(vue-router@4.5.0(vue@3.5.38(typescript@5.9.3)))(vue@3.5.38(typescript@5.9.3)))(vue@3.5.38(typescript@5.9.3))
       '@kong/icons':
         specifier: ^1.48.0
         version: 1.48.0(vue@3.5.38(typescript@5.9.3))
       '@kong/kongponents':
-        specifier: ^9.64.7
-        version: 9.64.7(vue-router@4.5.0(vue@3.5.38(typescript@5.9.3)))(vue@3.5.38(typescript@5.9.3))
+        specifier: ^9.64.10
+        version: 9.64.10(vue-router@4.5.0(vue@3.5.38(typescript@5.9.3)))(vue@3.5.38(typescript@5.9.3))
       '@kong/spec-renderer':
-        specifier: ^1.113.3
-        version: 1.113.3(vue@3.5.38(typescript@5.9.3))
+        specifier: ^1.113.6
+        version: 1.113.6(vue@3.5.38(typescript@5.9.3))
       '@stoplight/spectral-core':
         specifier: ^1.23.1
         version: 1.23.1
@@ -179,11 +179,10 @@ packages:
   '@asyncapi/avro-schema-parser@3.0.24':
     resolution: {integrity: sha512-YMyr2S2heMrWHRyECknjHeejlZl5exUSv9nD1gTejAT13fSf0PqIRydZ9ZuoglCLBg55AeehypR2zLIBu/9kHQ==}
 
-  '@asyncapi/openapi-schema-parser@3.0.24':
-    resolution: {integrity: sha512-7wz2yVDedJMS+TzOuqCvRWJMc6pNHICKZcOhnW6ZvyVLAh7hYIqQE1WA4OoXT4cKVbwSU3V2Q4bZagSsAIQd6Q==}
-
-  '@asyncapi/parser@3.6.0':
-    resolution: {integrity: sha512-6S0Yr8vI418a1IrpGsOYbfWVo9+aHvSqN2oSkiY0YJltS/C7oDOt9e0mo6hSld8bg+EeKrtgkVmpW4obh1JFvA==}
+  '@asyncapi/openapi-schema-parser@3.1.0':
+    resolution: {integrity: sha512-YblYFErE6ixLTz+MNddzB/EW+EgRN5ubHM7LTZNGjUFYpyFOLWQVrV1ErrnCTZJ7Blr81GZmhpDpjpI8IfwiYQ==}
+    peerDependencies:
+      '@asyncapi/parser': ^3.6.2
 
   '@asyncapi/parser@3.6.3':
     resolution: {integrity: sha512-MUC8xIUMcS2qNvqrqyx/ie0txu3d/OdIsrXs7UCzawdyR6P07gh35DpOqPz/z57s1UA3vERVpcheZYl3h8cVtw==}
@@ -724,15 +723,15 @@ packages:
     peerDependencies:
       vue: '>= 3.3.4 < 4'
 
-  '@kong/kongponents@9.64.7':
-    resolution: {integrity: sha512-YPow8WCk6fQUGFIBTPwJWhQAnZ35rpXrh/9xscJpSKP7/6Gwc6lJdTu5fYgk9gVOFGkOPN6o/peLDAyjFPt2yA==}
-    engines: {node: '>=v16.20.2 || >=18.12.1 || >=20.14.0 || >=22.14.0', pnpm: '>=10.28.2'}
+  '@kong/kongponents@9.64.10':
+    resolution: {integrity: sha512-ZfxCq9X48nLzhg0Lp0ynJcBbj95X8+Fphqq3fy/jwEZ1RhK5ZxFtMBrh6JRsxSy4ehf/UsdvH+HN+qWNYMtr5Q==}
+    engines: {node: '>=v16.20.2 || >=18.12.1 || >=20.14.0 || >=22.14.0', pnpm: '>=10.34.4'}
     peerDependencies:
       vue: '>= 3.5.0 < 4'
       vue-router: 4 || 5
 
-  '@kong/spec-renderer@1.113.3':
-    resolution: {integrity: sha512-43AhaWkMdo5/TJS5iXkpazMi2CWVG9rdwlRN4jqhrGmU3BltCSJDBVwJDe0OM98bg7citHsv77OBKIxImYefvA==}
+  '@kong/spec-renderer@1.113.6':
+    resolution: {integrity: sha512-PTFtirjiDdh/OV4prj48FkGYc4a+eUeNMMGSknWa8vLOfLoYsVj6fHpwMyVPryk+pFEvsnCrblsLDnJtjV/zXA==}
     engines: {node: '>=18.17.0'}
     hasBin: true
     peerDependencies:
@@ -1470,11 +1469,6 @@ packages:
     peerDependencies:
       acorn: ^6.0.0 || ^7.0.0 || ^8.0.0
 
-  acorn@8.15.0:
-    resolution: {integrity: sha512-NZyJarBfL7nWwIq+FDL6Zp/yHEhePMNnnJ0y3qfieCrmNvYct8uvtiV41UvlSe6apAfk0fY1FbWx+NwfmpvtTg==}
-    engines: {node: '>=0.4.0'}
-    hasBin: true
-
   acorn@8.17.0:
     resolution: {integrity: sha512-xRQbDb9BnwDafYNn6Vwl839DYVjqXYb1XVGtWAZ1kcDc6iwAL4hg3B1dZlRiuENFeO2H53gFG3in621AdERVAg==}
     engines: {node: '>=0.4.0'}
@@ -1917,10 +1911,6 @@ packages:
     resolution: {integrity: sha512-A6p/pu/6fyBcA1TRz/GqWYPViplrftcW2gZC9q79ngNCKAeR/X3gcEdXQHl4KNXV+3wgIJ1CPkJQ3IHM6lcsyA==}
     engines: {node: '>=18'}
 
-  default-browser@5.2.1:
-    resolution: {integrity: sha512-WY/3TUME0x3KPYdRRxEJJvXRHV4PyPoUsxtZa78lwItwRQRHhd2U9xOscaT/YTf8uCXIAjeJOFBVEh/7FtD8Xg==}
-    engines: {node: '>=18'}
-
   default-browser@5.5.0:
     resolution: {integrity: sha512-H9LMLr5zwIbSxrmvikGuI/5KGhZ8E2zH3stkMgM5LpOWDutGM2JZaj460Udnf1a+946zc7YBgrqEWwbk7zHvGw==}
     engines: {node: '>=18'}
@@ -2196,6 +2186,7 @@ packages:
   eslint@9.39.4:
     resolution: {integrity: sha512-XoMjdBOwe/esVgEvLmNsD3IRHkm7fbKIUGvrleloJXUZgDHig2IPWNniv+GwjyJXzuNqVjlr5+4yVUZjycJwfQ==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+    deprecated: This version is no longer supported. Please see https://eslint.org/version-support for other options.
     hasBin: true
     peerDependencies:
       jiti: '*'
@@ -4481,45 +4472,19 @@ snapshots:
 
   '@asyncapi/avro-schema-parser@3.0.24':
     dependencies:
-      '@asyncapi/parser': 3.6.0
+      '@asyncapi/parser': 3.6.3
       '@types/json-schema': 7.0.15
       avsc: 5.7.9
     transitivePeerDependencies:
       - encoding
 
-  '@asyncapi/openapi-schema-parser@3.0.24':
+  '@asyncapi/openapi-schema-parser@3.1.0(@asyncapi/parser@3.6.3)':
     dependencies:
-      '@asyncapi/parser': 3.6.0
+      '@asyncapi/parser': 3.6.3
       '@openapi-contrib/openapi-schema-to-json-schema': 3.2.0
       ajv: 8.18.0
       ajv-errors: 3.0.0(ajv@8.18.0)
       ajv-formats: 2.1.1(ajv@8.18.0)
-    transitivePeerDependencies:
-      - encoding
-
-  '@asyncapi/parser@3.6.0':
-    dependencies:
-      '@asyncapi/specs': 6.11.1
-      '@openapi-contrib/openapi-schema-to-json-schema': 3.2.0
-      '@stoplight/json': 3.21.0
-      '@stoplight/json-ref-readers': 1.2.2
-      '@stoplight/json-ref-resolver': 3.1.6
-      '@stoplight/spectral-core': 1.23.1
-      '@stoplight/spectral-functions': 1.10.1
-      '@stoplight/spectral-parsers': 1.0.5
-      '@stoplight/spectral-ref-resolver': 1.0.5
-      '@stoplight/types': 13.20.0
-      '@types/json-schema': 7.0.15
-      '@types/urijs': 1.19.26
-      ajv: 8.18.0
-      ajv-errors: 3.0.0(ajv@8.18.0)
-      ajv-formats: 2.1.1(ajv@8.18.0)
-      avsc: 5.7.9
-      js-yaml: 4.3.1
-      jsonpath-plus: 10.3.0
-      node-fetch: 2.6.7
-    transitivePeerDependencies:
-      - encoding
 
   '@asyncapi/parser@3.6.3':
     dependencies:
@@ -5186,11 +5151,11 @@ snapshots:
     transitivePeerDependencies:
       - typescript
 
-  '@kong-ui-public/split-pane@0.3.31(@kong-ui-public/i18n@2.4.6(typescript@5.9.3)(vue@3.5.38(typescript@5.9.3)))(@kong/icons@1.48.0(vue@3.5.38(typescript@5.9.3)))(@kong/kongponents@9.64.7(vue-router@4.5.0(vue@3.5.38(typescript@5.9.3)))(vue@3.5.38(typescript@5.9.3)))(vue@3.5.38(typescript@5.9.3))':
+  '@kong-ui-public/split-pane@0.3.31(@kong-ui-public/i18n@2.4.6(typescript@5.9.3)(vue@3.5.38(typescript@5.9.3)))(@kong/icons@1.48.0(vue@3.5.38(typescript@5.9.3)))(@kong/kongponents@9.64.10(vue-router@4.5.0(vue@3.5.38(typescript@5.9.3)))(vue@3.5.38(typescript@5.9.3)))(vue@3.5.38(typescript@5.9.3))':
     dependencies:
       '@kong-ui-public/i18n': 2.4.6(typescript@5.9.3)(vue@3.5.38(typescript@5.9.3))
       '@kong/icons': 1.48.0(vue@3.5.38(typescript@5.9.3))
-      '@kong/kongponents': 9.64.7(vue-router@4.5.0(vue@3.5.38(typescript@5.9.3)))(vue@3.5.38(typescript@5.9.3))
+      '@kong/kongponents': 9.64.10(vue-router@4.5.0(vue@3.5.38(typescript@5.9.3)))(vue@3.5.38(typescript@5.9.3))
       '@vueuse/core': 14.4.0(vue@3.5.38(typescript@5.9.3))
       vue: 3.5.38(typescript@5.9.3)
 
@@ -5231,7 +5196,7 @@ snapshots:
     dependencies:
       vue: 3.5.38(typescript@5.9.3)
 
-  '@kong/kongponents@9.64.7(vue-router@4.5.0(vue@3.5.38(typescript@5.9.3)))(vue@3.5.38(typescript@5.9.3))':
+  '@kong/kongponents@9.64.10(vue-router@4.5.0(vue@3.5.38(typescript@5.9.3)))(vue@3.5.38(typescript@5.9.3))':
     dependencies:
       '@floating-ui/vue': 1.1.11(vue@3.5.38(typescript@5.9.3))
       '@kong/icons': 1.62.1(vue@3.5.38(typescript@5.9.3))
@@ -5256,11 +5221,11 @@ snapshots:
       - solid-js
       - svelte
 
-  '@kong/spec-renderer@1.113.3(vue@3.5.38(typescript@5.9.3))':
+  '@kong/spec-renderer@1.113.6(vue@3.5.38(typescript@5.9.3))':
     dependencies:
       '@apidevtools/json-schema-ref-parser': 14.0.3
       '@asyncapi/avro-schema-parser': 3.0.24
-      '@asyncapi/openapi-schema-parser': 3.0.24
+      '@asyncapi/openapi-schema-parser': 3.1.0(@asyncapi/parser@3.6.3)
       '@asyncapi/parser': 3.6.3
       '@floating-ui/vue': 1.1.11(vue@3.5.38(typescript@5.9.3))
       '@kong/icons': 1.62.1(vue@3.5.38(typescript@5.9.3))
@@ -6209,15 +6174,9 @@ snapshots:
     dependencies:
       event-target-shim: 5.0.1
 
-  acorn-jsx@5.3.2(acorn@8.15.0):
-    dependencies:
-      acorn: 8.15.0
-
   acorn-jsx@5.3.2(acorn@8.17.0):
     dependencies:
       acorn: 8.17.0
-
-  acorn@8.15.0: {}
 
   acorn@8.17.0: {}
 
@@ -6651,11 +6610,6 @@ snapshots:
 
   default-browser-id@5.0.0: {}
 
-  default-browser@5.2.1:
-    dependencies:
-      bundle-name: 4.1.0
-      default-browser-id: 5.0.0
-
   default-browser@5.5.0:
     dependencies:
       bundle-name: 4.1.0
@@ -7013,8 +6967,8 @@ snapshots:
 
   espree@10.4.0:
     dependencies:
-      acorn: 8.15.0
-      acorn-jsx: 5.3.2(acorn@8.15.0)
+      acorn: 8.17.0
+      acorn-jsx: 5.3.2(acorn@8.17.0)
       eslint-visitor-keys: 4.2.1
 
   espree@11.2.0:
@@ -7148,13 +7102,13 @@ snapshots:
 
   flat-cache@4.0.1:
     dependencies:
-      flatted: 3.4.2
+      flatted: 3.4.4
       keyv: 4.5.4
 
   flat-cache@6.1.22:
     dependencies:
       cacheable: 2.3.5
-      flatted: 3.4.2
+      flatted: 3.4.4
       hookified: 1.15.1
 
   flat@6.0.1: {}
@@ -8058,7 +8012,7 @@ snapshots:
 
   open@10.2.0:
     dependencies:
-      default-browser: 5.2.1
+      default-browser: 5.5.0
       define-lazy-prop: 3.0.0
       is-inside-container: 1.0.0
       wsl-utils: 0.1.0
