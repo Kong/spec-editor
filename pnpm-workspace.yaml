@@ -23,7 +23,7 @@ overrides:
   brace-expansion@>=3.0.0 <5.0.9: '>=5.0.9'
   immutable@>=5.0.0-beta.1 <5.1.8: '>=5.1.9'
   js-yaml@>=4.0.0 <4.3.1: '>=4.3.1'
-  postcss@<=8.5.17: '>=8.5.18'
+  postcss@<=8.5.17: '>=8.5.23'
   shell-quote@<=1.8.4: '>=1.8.5'
 strictPeerDependencies: false
 autoInstallPeers: true
