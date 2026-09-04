@@ -31,7 +31,7 @@
     "@evilmartians/lefthook": "^2.1.9",
     "@kong/design-tokens": "^2.0.1",
     "@kong/eslint-config-kong-ui": "1.7.1",
-    "@kong/stylelint-plugin-design-tokens": "^1.0.1",
+    "@kong/stylelint-plugin-design-tokens": "^2.0.0",
     "@shikijs/monaco": "^4.4.3",
     "@stoplight/types": "^14.1.1",
     "@stylistic/stylelint-plugin": "^5.3.0",
