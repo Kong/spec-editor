@@ -33,8 +33,8 @@ importers:
   .:
     dependencies:
       '@kong-ui-public/split-pane':
-        specifier: ^0.3.31
-        version: 0.3.31(@kong-ui-public/i18n@2.4.6(typescript@5.9.3)(vue@3.5.41(typescript@5.9.3)))(@kong/icons@1.48.0(vue@3.5.41(typescript@5.9.3)))(@kong/kongponents@9.64.7(vue-router@4.5.0(vue@3.5.41(typescript@5.9.3)))(vue@3.5.41(typescript@5.9.3)))(vue@3.5.41(typescript@5.9.3))
+        specifier: ^0.5.14
+        version: 0.5.15(@kong-ui-public/i18n@2.4.6(typescript@5.9.3)(vue@3.5.41(typescript@5.9.3)))(@kong/icons@1.48.0(vue@3.5.41(typescript@5.9.3)))(@kong/kongponents@9.64.7(vue-router@4.5.0(vue@3.5.41(typescript@5.9.3)))(vue@3.5.41(typescript@5.9.3)))(vue@3.5.41(typescript@5.9.3))
       '@kong/icons':
         specifier: ^1.48.0
         version: 1.48.0(vue@3.5.41(typescript@5.9.3))
@@ -697,12 +697,12 @@ packages:
     peerDependencies:
       vue: '>= 3.3.13 < 4'
 
-  '@kong-ui-public/split-pane@0.3.31':
-    resolution: {integrity: sha512-xkdSt94hYc6r1LoPrBU0LxsgnzPA36FkIN71nUZ1hl3jmZrZvtLz4HDVhfzTgkz8plc70Y6Ewe3u4v5DK/Z9Jg==}
+  '@kong-ui-public/split-pane@0.5.15':
+    resolution: {integrity: sha512-LTUfJzhmDnfLT1/bsW1cVZng5NphwXS9h/8Rg9LHRCM6PwN2fXnpfC3xcO0GVoGAmH5bL1V4ImorRC5biDDkpw==}
     peerDependencies:
-      '@kong-ui-public/i18n': ^2.4.6
+      '@kong-ui-public/i18n': ^2.5.1
       '@kong/icons': ^1.58.0
-      '@kong/kongponents': '>=9.42.0 <10.0.0'
+      '@kong/kongponents': '>=9.63.0 <10.0.0'
       vue: ^3.5.35
 
   '@kong/design-tokens@2.0.1':
@@ -2205,6 +2205,7 @@ packages:
   eslint@9.39.5:
     resolution: {integrity: sha512-DgZS62aPLXKlnxILS/AYCoRvHaZeXceIzlXPkkGGzJWSow1aEk0lbTlxUSlyjC8jcaKxAdOnTDz+o1JFSBsyjw==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+    deprecated: This version is no longer supported. Please see https://eslint.org/version-support for other options.
     hasBin: true
     peerDependencies:
       jiti: '*'
@@ -5196,7 +5197,7 @@ snapshots:
     transitivePeerDependencies:
       - typescript
 
-  '@kong-ui-public/split-pane@0.3.31(@kong-ui-public/i18n@2.4.6(typescript@5.9.3)(vue@3.5.41(typescript@5.9.3)))(@kong/icons@1.48.0(vue@3.5.41(typescript@5.9.3)))(@kong/kongponents@9.64.7(vue-router@4.5.0(vue@3.5.41(typescript@5.9.3)))(vue@3.5.41(typescript@5.9.3)))(vue@3.5.41(typescript@5.9.3))':
+  '@kong-ui-public/split-pane@0.5.15(@kong-ui-public/i18n@2.4.6(typescript@5.9.3)(vue@3.5.41(typescript@5.9.3)))(@kong/icons@1.48.0(vue@3.5.41(typescript@5.9.3)))(@kong/kongponents@9.64.7(vue-router@4.5.0(vue@3.5.41(typescript@5.9.3)))(vue@3.5.41(typescript@5.9.3)))(vue@3.5.41(typescript@5.9.3))':
     dependencies:
       '@kong-ui-public/i18n': 2.4.6(typescript@5.9.3)(vue@3.5.41(typescript@5.9.3))
       '@kong/icons': 1.48.0(vue@3.5.41(typescript@5.9.3))
