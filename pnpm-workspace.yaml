@@ -24,7 +24,7 @@ overrides:
   immutable@>=5.0.0-beta.1 <5.1.8: '>=5.1.9'
   js-yaml@>=4.0.0 <4.3.1: '>=4.3.1'
   postcss@<=8.5.17: '>=8.5.18'
-  shell-quote@<=1.8.4: '>=1.8.5'
+  shell-quote@<=1.8.4: '>=1.10.0'
 strictPeerDependencies: false
 autoInstallPeers: true
 sideEffectsCache: false # Ensure the postinstall script of the lefthook package is executed and hooks are installed'
