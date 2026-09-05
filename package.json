@@ -46,7 +46,7 @@
     "eslint": "^9.39.5",
     "eslint-plugin-vue": "^10.10.0",
     "happy-dom": "^20.11.2",
-    "monaco-editor": "^0.55.1",
+    "monaco-editor": "^0.56.0",
     "npm-run-all2": "^8.0.4",
     "sass": "^1.102.0",
     "sass-embedded": "^1.100.0",
