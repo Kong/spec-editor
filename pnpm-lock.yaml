@@ -21,7 +21,7 @@ overrides:
   dompurify@<3.3.2: '>=3.4.11'
   picomatch@<2.3.2: '>=2.3.2'
   picomatch@>=4.0.0 <4.0.4: '>=4.0.5'
-  brace-expansion@<1.1.18: '>=1.1.18'
+  brace-expansion@<1.1.18: '>=5.0.9'
   brace-expansion@>=3.0.0 <5.0.9: '>=5.0.9'
   immutable@>=5.0.0-beta.1 <5.1.8: '>=5.1.9'
   js-yaml@>=4.0.0 <4.3.1: '>=4.3.1'
@@ -2205,6 +2205,7 @@ packages:
   eslint@9.39.5:
     resolution: {integrity: sha512-DgZS62aPLXKlnxILS/AYCoRvHaZeXceIzlXPkkGGzJWSow1aEk0lbTlxUSlyjC8jcaKxAdOnTDz+o1JFSBsyjw==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+    deprecated: This version is no longer supported. Please see https://eslint.org/version-support for other options.
     hasBin: true
     peerDependencies:
       jiti: '*'
