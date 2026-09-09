@@ -4,7 +4,7 @@ export interface ApiDocOption {
   *
   * !IMPORTANT: This must match the prop names in SpecRenderer
   */
-  prop: 'allow-content-scrolling' | 'allow-custom-server-url' | 'markdown-styles' | 'hide-try-it' | 'hide-schemas' | 'hide-deprecated'
+  prop: 'allow-content-scrolling' | 'allow-custom-server-url' | 'markdown-styles' | 'hide-try-it' | 'hide-schemas' | 'hide-deprecated' | 'hide-navigation-buttons'
   /**
    * The label displayed in the UI for this option.
    */
