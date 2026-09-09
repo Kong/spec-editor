@@ -24,7 +24,7 @@ overrides:
   brace-expansion@<1.1.18: '>=1.1.18'
   brace-expansion@>=3.0.0 <5.0.9: '>=5.0.9'
   immutable@>=5.0.0-beta.1 <5.1.8: '>=5.1.9'
-  js-yaml@>=4.0.0 <4.3.1: '>=4.3.1'
+  js-yaml@>=4.0.0 <4.3.1: '>=4.3.2'
   postcss@<=8.5.17: '>=8.5.23'
   shell-quote@<=1.8.4: '>=1.10.0'
 
@@ -2836,6 +2836,10 @@ packages:
     resolution: {integrity: sha512-CY6crGq313MX8GkwvB7tzgp99vjQxY1++5y10/BKN/GUfHqWaOGQMNZkBvqSzsZKWk/ijwHlWzzkLulsGHhjWQ==}
     hasBin: true
 
+  js-yaml@5.4.1:
+    resolution: {integrity: sha512-28R/k+NAjeuf7+CKlTxWZVExJGwVVLwY06DgEnOMz2gEpfNkDcD7QvyiVPT0xy0XXhU8vHsd4Ot42OOPdJG7dQ==}
+    hasBin: true
+
   jsep@1.4.0:
     resolution: {integrity: sha512-B7qPcEVE3NVkmSJbaYxvv4cHkVW7DQsZz13pUMrfS8z8Q/BuShN+gcTXrUlPiGqM2/t/EEaI030bpxMqY8gMlw==}
     engines: {node: '>= 10.16.0'}
@@ -4452,7 +4456,7 @@ snapshots:
   '@apidevtools/json-schema-ref-parser@14.0.3':
     dependencies:
       '@types/json-schema': 7.0.15
-      js-yaml: 4.3.1
+      js-yaml: 5.4.1
 
   '@asyncapi/avro-schema-parser@3.0.24':
     dependencies:
@@ -4955,7 +4959,7 @@ snapshots:
       globals: 14.0.0
       ignore: 5.3.2
       import-fresh: 3.3.0
-      js-yaml: 4.3.1
+      js-yaml: 5.4.1
       minimatch: 8.0.7
       strip-json-comments: 3.1.1
     transitivePeerDependencies:
@@ -6516,7 +6520,7 @@ snapshots:
     dependencies:
       env-paths: 2.2.1
       import-fresh: 3.3.0
-      js-yaml: 4.3.1
+      js-yaml: 5.4.1
       parse-json: 5.2.0
     optionalDependencies:
       typescript: 5.9.3
@@ -6526,7 +6530,7 @@ snapshots:
     dependencies:
       env-paths: 2.2.1
       import-fresh: 3.3.0
-      js-yaml: 4.3.1
+      js-yaml: 5.4.1
       parse-json: 5.2.0
     optionalDependencies:
       typescript: 5.9.3
@@ -7622,6 +7626,10 @@ snapshots:
   js-tokens@9.0.1: {}
 
   js-yaml@4.3.1:
+    dependencies:
+      argparse: 2.0.1
+
+  js-yaml@5.4.1:
     dependencies:
       argparse: 2.0.1
 
