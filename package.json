@@ -16,8 +16,8 @@
   "dependencies": {
     "@kong-ui-public/split-pane": "^0.3.31",
     "@kong/icons": "^1.48.0",
-    "@kong/kongponents": "^9.64.7",
-    "@kong/spec-renderer": "^1.113.3",
+    "@kong/kongponents": "^9.64.14",
+    "@kong/spec-renderer": "^1.113.9",
     "@stoplight/spectral-core": "^1.23.1",
     "@stoplight/spectral-ruleset-bundler": "^1.7.0",
     "@vueuse/core": "^14.4.0",
@@ -39,7 +39,7 @@
     "@vitejs/plugin-vue": "^6.0.8",
     "@vitest/ui": "^4.1.10",
     "@vue/eslint-config-typescript": "^14.9.0",
-    "@vue/test-utils": "^2.4.11",
+    "@vue/test-utils": "^2.5.0",
     "@vue/tsconfig": "^0.9.1",
     "commitizen": "^4.3.2",
     "cz-conventional-changelog": "^3.3.0",
@@ -48,8 +48,8 @@
     "happy-dom": "^20.11.2",
     "monaco-editor": "^0.55.1",
     "npm-run-all2": "^8.0.4",
-    "sass": "^1.102.0",
-    "sass-embedded": "^1.100.0",
+    "sass": "^1.103.1",
+    "sass-embedded": "^1.103.1",
     "shiki": "^4.4.3",
     "stylelint": "^17.13.0",
     "stylelint-config-html": "^1.1.0",
@@ -81,8 +81,8 @@
   "type": "module",
   "version": "0.0.0",
   "volta": {
-    "node": "24.18.1",
-    "pnpm": "11.8.0"
+    "node": "24.20.0",
+    "pnpm": "11.11.0"
   },
-  "packageManager": "pnpm@11.8.0"
+  "packageManager": "pnpm@11.11.0"
 }
