@@ -39,4 +39,11 @@ export const API_DOC_OPTIONS: ApiDocOption[] = [
     description: 'Manage visibility of deprecated endpoints and models.',
     defaultValue: false,
   },
+  {
+    prop: 'hide-navigation-buttons',
+    label: 'Show navigation buttons',
+    description: 'Control the visibility of navigation buttons in the API documentation interface.',
+    defaultValue: true,
+    inverted: true,
+  },
 ]
