@@ -45,7 +45,7 @@
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^9.39.5",
     "eslint-plugin-vue": "^10.10.0",
-    "happy-dom": "^20.11.2",
+    "happy-dom": "^20.12.0",
     "monaco-editor": "^0.55.1",
     "npm-run-all2": "^8.0.4",
     "sass": "^1.103.1",
@@ -82,7 +82,7 @@
   "version": "0.0.0",
   "volta": {
     "node": "24.20.0",
-    "pnpm": "11.11.0"
+    "pnpm": "11.25.0"
   },
-  "packageManager": "pnpm@11.11.0"
+  "packageManager": "pnpm@11.25.0"
 }
