@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "@kong-ui-public/split-pane": "^0.3.31",
-    "@kong/icons": "^1.48.0",
+    "@kong/icons": "^1.63.0",
     "@kong/kongponents": "^9.64.14",
     "@kong/spec-renderer": "^1.113.9",
     "@stoplight/spectral-core": "^1.23.1",
@@ -30,7 +30,7 @@
     "@digitalroute/cz-conventional-changelog-for-jira": "^8.0.1",
     "@evilmartians/lefthook": "^2.1.10",
     "@kong/design-tokens": "^2.0.1",
-    "@kong/eslint-config-kong-ui": "1.7.1",
+    "@kong/eslint-config-kong-ui": "1.8.0",
     "@kong/stylelint-plugin-design-tokens": "^1.0.1",
     "@shikijs/monaco": "^4.4.3",
     "@stoplight/types": "^14.1.1",
