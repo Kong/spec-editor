@@ -44,8 +44,8 @@
     "commitizen": "^4.3.2",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^9.39.5",
-    "eslint-plugin-vue": "^10.10.0",
-    "happy-dom": "^20.11.2",
+    "eslint-plugin-vue": "^10.11.0",
+    "happy-dom": "^20.14.5",
     "monaco-editor": "^0.55.1",
     "npm-run-all2": "^8.0.4",
     "sass": "^1.103.1",
@@ -57,7 +57,7 @@
     "stylelint-config-recommended-vue": "^1.6.1",
     "stylelint-order": "^8.1.1",
     "typescript": "^5.9.3",
-    "vite": "^8.2.1",
+    "vite": "^8.3.0",
     "vite-plugin-vue-devtools": "^8.2.1",
     "vitest": "^4.1.10",
     "vue-tsc": "^3.3.9"
@@ -81,8 +81,8 @@
   "type": "module",
   "version": "0.0.0",
   "volta": {
-    "node": "24.20.0",
-    "pnpm": "11.11.0"
+    "node": "24.21.0",
+    "pnpm": "11.26.0"
   },
-  "packageManager": "pnpm@11.11.0"
+  "packageManager": "pnpm@11.26.0"
 }
