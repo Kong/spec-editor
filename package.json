@@ -82,7 +82,7 @@
   "version": "0.0.0",
   "volta": {
     "node": "24.21.0",
-    "pnpm": "11.26.0"
+    "pnpm": "11.27.0"
   },
-  "packageManager": "pnpm@11.26.0"
+  "packageManager": "pnpm@11.27.0"
 }
