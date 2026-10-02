@@ -24,7 +24,7 @@ overrides:
   brace-expansion@<1.1.18: '>=1.1.18'
   brace-expansion@>=3.0.0 <5.0.9: '>=5.0.9'
   immutable@>=5.0.0-beta.1 <5.1.8: '>=5.1.9'
-  js-yaml@>=4.0.0 <4.3.2: '>=4.3.2'
+  js-yaml@>=4.0.0 <4.3.2: '>=5.4.2'
   postcss@<=8.5.17: '>=8.5.28'
   shell-quote@<=1.8.4: '>=1.10.0'
   browserslist@<=4.28.6: '>=4.28.9'
@@ -2855,8 +2855,8 @@ packages:
   js-tokens@9.0.1:
     resolution: {integrity: sha512-mxa9E9ITFOt0ban3j6L5MpjwegGz6lBQmM1IJkWeBZGcMxto50+eWdjC/52xDbS2vy0k7vIMK0Fe2wfL9OQSpQ==}
 
-  js-yaml@5.4.1:
-    resolution: {integrity: sha512-28R/k+NAjeuf7+CKlTxWZVExJGwVVLwY06DgEnOMz2gEpfNkDcD7QvyiVPT0xy0XXhU8vHsd4Ot42OOPdJG7dQ==}
+  js-yaml@5.4.2:
+    resolution: {integrity: sha512-m+aqu+LwO1O6sIopafj8HUVl5aawITwZQe/yHpMCKjaWBaA/d07B/QdMb3529REftiU+RMMHL3Vlsw3hON7vWg==}
     hasBin: true
 
   jsep@1.4.0:
@@ -4477,7 +4477,7 @@ snapshots:
   '@apidevtools/json-schema-ref-parser@14.0.3':
     dependencies:
       '@types/json-schema': 7.0.15
-      js-yaml: 5.4.1
+      js-yaml: 5.4.2
 
   '@asyncapi/avro-schema-parser@3.0.24':
     dependencies:
@@ -4513,7 +4513,7 @@ snapshots:
       ajv-errors: 3.0.0(ajv@8.18.0)
       ajv-formats: 2.1.1(ajv@8.18.0)
       avsc: 5.7.9
-      js-yaml: 5.4.1
+      js-yaml: 5.4.2
       jsonpath-plus: 10.3.0
       node-fetch: 2.6.7
     transitivePeerDependencies:
@@ -4976,7 +4976,7 @@ snapshots:
       globals: 14.0.0
       ignore: 5.3.2
       import-fresh: 3.3.0
-      js-yaml: 5.4.1
+      js-yaml: 5.4.2
       minimatch: 8.0.7
       strip-json-comments: 3.1.1
     transitivePeerDependencies:
@@ -6551,7 +6551,7 @@ snapshots:
     dependencies:
       env-paths: 2.2.1
       import-fresh: 3.3.0
-      js-yaml: 5.4.1
+      js-yaml: 5.4.2
       parse-json: 5.2.0
     optionalDependencies:
       typescript: 5.9.3
@@ -6561,7 +6561,7 @@ snapshots:
     dependencies:
       env-paths: 2.2.1
       import-fresh: 3.3.0
-      js-yaml: 5.4.1
+      js-yaml: 5.4.2
       parse-json: 5.2.0
     optionalDependencies:
       typescript: 5.9.3
@@ -7668,7 +7668,7 @@ snapshots:
 
   js-tokens@9.0.1: {}
 
-  js-yaml@5.4.1:
+  js-yaml@5.4.2:
     dependencies:
       argparse: 2.0.1
 
