@@ -18,8 +18,8 @@
     "@kong/icons": "^1.63.0",
     "@kong/kongponents": "^9.64.14",
     "@kong/spec-renderer": "^1.113.9",
-    "@stoplight/spectral-core": "^1.23.1",
-    "@stoplight/spectral-ruleset-bundler": "^1.7.0",
+    "@stoplight/spectral-core": "^1.24.0",
+    "@stoplight/spectral-ruleset-bundler": "^1.8.0",
     "@vueuse/core": "^14.4.0",
     "vue": "^3.5.43"
   },
@@ -32,7 +32,7 @@
     "@kong/design-tokens": "^3.3.1",
     "@kong/eslint-config-kong-ui": "1.8.0",
     "@kong/stylelint-plugin-design-tokens": "^1.0.1",
-    "@shikijs/monaco": "^4.4.3",
+    "@shikijs/monaco": "^4.5.0",
     "@stoplight/types": "^14.1.1",
     "@stylistic/stylelint-plugin": "^5.3.0",
     "@types/node": "^25.9.7",
@@ -50,7 +50,7 @@
     "npm-run-all2": "^8.0.4",
     "sass": "^1.104.1",
     "sass-embedded": "^1.104.1",
-    "shiki": "^4.4.3",
+    "shiki": "^4.5.0",
     "stylelint": "^17.15.0",
     "stylelint-config-html": "^1.1.0",
     "stylelint-config-recommended-scss": "^17.0.1",
@@ -82,7 +82,7 @@
   "version": "0.0.0",
   "volta": {
     "node": "24.21.0",
-    "pnpm": "11.26.0"
+    "pnpm": "11.28.4"
   },
-  "packageManager": "pnpm@11.26.0"
+  "packageManager": "pnpm@11.28.4"
 }
