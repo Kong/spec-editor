@@ -129,10 +129,10 @@ importers:
         specifier: ^9.0.4
         version: 9.0.4
       sass:
-        specifier: ^1.107.0
+        specifier: ^1.107.1
         version: 1.108.1
       sass-embedded:
-        specifier: ^1.107.0
+        specifier: ^1.107.1
         version: 1.108.1
       shiki:
         specifier: ^4.5.0
