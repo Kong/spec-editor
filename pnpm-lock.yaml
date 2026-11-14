@@ -36,13 +36,13 @@ importers:
     dependencies:
       '@kong-ui-public/split-pane':
         specifier: ^0.5.21
-        version: 0.5.21(@kong-ui-public/i18n@2.5.1(typescript@5.9.3)(vue@3.5.45(typescript@5.9.3)))(@kong/icons@1.64.0(vue@3.5.45(typescript@5.9.3)))(@kong/kongponents@9.66.15(@vue/test-utils@2.5.1(@vue/compiler-dom@3.5.45)(@vue/server-renderer@3.5.45)(vue@3.5.45(typescript@5.9.3)))(vue-router@4.5.0(vue@3.5.45(typescript@5.9.3)))(vue@3.5.45(typescript@5.9.3)))(vue@3.5.45(typescript@5.9.3))
+        version: 0.5.21(@kong-ui-public/i18n@2.5.1(typescript@5.9.3)(vue@3.5.45(typescript@5.9.3)))(@kong/icons@1.64.0(vue@3.5.45(typescript@5.9.3)))(@kong/kongponents@9.66.16(@vue/test-utils@2.5.1(@vue/compiler-dom@3.5.45)(@vue/server-renderer@3.5.45)(vue@3.5.45(typescript@5.9.3)))(vue-router@4.5.0(vue@3.5.45(typescript@5.9.3)))(vue@3.5.45(typescript@5.9.3)))(vue@3.5.45(typescript@5.9.3))
       '@kong/icons':
         specifier: ^1.64.0
         version: 1.64.0(vue@3.5.45(typescript@5.9.3))
       '@kong/kongponents':
-        specifier: ^9.66.15
-        version: 9.66.15(@vue/test-utils@2.5.1(@vue/compiler-dom@3.5.45)(@vue/server-renderer@3.5.45)(vue@3.5.45(typescript@5.9.3)))(vue-router@4.5.0(vue@3.5.45(typescript@5.9.3)))(vue@3.5.45(typescript@5.9.3))
+        specifier: ^9.66.16
+        version: 9.66.16(@vue/test-utils@2.5.1(@vue/compiler-dom@3.5.45)(@vue/server-renderer@3.5.45)(vue@3.5.45(typescript@5.9.3)))(vue-router@4.5.0(vue@3.5.45(typescript@5.9.3)))(vue@3.5.45(typescript@5.9.3))
       '@kong/spec-renderer':
         specifier: ^1.117.6
         version: 1.117.6(vue@3.5.45(typescript@5.9.3))
@@ -741,8 +741,8 @@ packages:
     peerDependencies:
       vue: '>= 3.3.4 < 4'
 
-  '@kong/kongponents@9.66.15':
-    resolution: {integrity: sha512-pzviz8gwr0u+NEGK0QpcOlWemqMpflUQxRSAMxojsaRJsIubH/9x/VKeAvsDcuIXdijoDgeDeTr/JMh05hrPNw==}
+  '@kong/kongponents@9.66.16':
+    resolution: {integrity: sha512-3PGkqfmH79xAbemN4SeQz8zkRvEnrPr6jzZab5cpSIsTE+f2Q+MVFTawCp7bX83jayC+KLJo3mvJ5CkTC7qrnA==}
     engines: {node: '>=v16.20.2 || >=18.12.1 || >=20.14.0 || >=22.14.0', pnpm: '>=10.34.5'}
     hasBin: true
     peerDependencies:
@@ -5262,11 +5262,11 @@ snapshots:
     transitivePeerDependencies:
       - typescript
 
-  '@kong-ui-public/split-pane@0.5.21(@kong-ui-public/i18n@2.5.1(typescript@5.9.3)(vue@3.5.45(typescript@5.9.3)))(@kong/icons@1.64.0(vue@3.5.45(typescript@5.9.3)))(@kong/kongponents@9.66.15(@vue/test-utils@2.5.1(@vue/compiler-dom@3.5.45)(@vue/server-renderer@3.5.45)(vue@3.5.45(typescript@5.9.3)))(vue-router@4.5.0(vue@3.5.45(typescript@5.9.3)))(vue@3.5.45(typescript@5.9.3)))(vue@3.5.45(typescript@5.9.3))':
+  '@kong-ui-public/split-pane@0.5.21(@kong-ui-public/i18n@2.5.1(typescript@5.9.3)(vue@3.5.45(typescript@5.9.3)))(@kong/icons@1.64.0(vue@3.5.45(typescript@5.9.3)))(@kong/kongponents@9.66.16(@vue/test-utils@2.5.1(@vue/compiler-dom@3.5.45)(@vue/server-renderer@3.5.45)(vue@3.5.45(typescript@5.9.3)))(vue-router@4.5.0(vue@3.5.45(typescript@5.9.3)))(vue@3.5.45(typescript@5.9.3)))(vue@3.5.45(typescript@5.9.3))':
     dependencies:
       '@kong-ui-public/i18n': 2.5.1(typescript@5.9.3)(vue@3.5.45(typescript@5.9.3))
       '@kong/icons': 1.64.0(vue@3.5.45(typescript@5.9.3))
-      '@kong/kongponents': 9.66.15(@vue/test-utils@2.5.1(@vue/compiler-dom@3.5.45)(@vue/server-renderer@3.5.45)(vue@3.5.45(typescript@5.9.3)))(vue-router@4.5.0(vue@3.5.45(typescript@5.9.3)))(vue@3.5.45(typescript@5.9.3))
+      '@kong/kongponents': 9.66.16(@vue/test-utils@2.5.1(@vue/compiler-dom@3.5.45)(@vue/server-renderer@3.5.45)(vue@3.5.45(typescript@5.9.3)))(vue-router@4.5.0(vue@3.5.45(typescript@5.9.3)))(vue@3.5.45(typescript@5.9.3))
       '@vueuse/core': 14.4.0(vue@3.5.45(typescript@5.9.3))
       vue: 3.5.45(typescript@5.9.3)
 
@@ -5304,7 +5304,7 @@ snapshots:
     dependencies:
       vue: 3.5.45(typescript@5.9.3)
 
-  '@kong/kongponents@9.66.15(@vue/test-utils@2.5.1(@vue/compiler-dom@3.5.45)(@vue/server-renderer@3.5.45)(vue@3.5.45(typescript@5.9.3)))(vue-router@4.5.0(vue@3.5.45(typescript@5.9.3)))(vue@3.5.45(typescript@5.9.3))':
+  '@kong/kongponents@9.66.16(@vue/test-utils@2.5.1(@vue/compiler-dom@3.5.45)(@vue/server-renderer@3.5.45)(vue@3.5.45(typescript@5.9.3)))(vue-router@4.5.0(vue@3.5.45(typescript@5.9.3)))(vue@3.5.45(typescript@5.9.3))':
     dependencies:
       '@floating-ui/vue': 1.1.11(vue@3.5.45(typescript@5.9.3))
       '@kong/icons': 1.64.0(vue@3.5.45(typescript@5.9.3))
