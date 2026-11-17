@@ -35,7 +35,7 @@
     "@shikijs/monaco": "^4.6.0",
     "@stoplight/types": "^14.1.1",
     "@stylistic/stylelint-plugin": "^5.3.1",
-    "@types/node": "^25.9.9",
+    "@types/node": "^26.6.6",
     "@vitejs/plugin-vue": "^6.0.10",
     "@vitest/ui": "^5.1.0",
     "@vue/eslint-config-typescript": "^14.9.0",
@@ -81,7 +81,7 @@
   "type": "module",
   "version": "0.0.0",
   "volta": {
-    "node": "24.22.2",
+    "node": "26.13.0",
     "pnpm": "11.28.10"
   },
   "packageManager": "pnpm@11.28.10"
