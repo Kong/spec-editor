@@ -18,10 +18,10 @@
     "@kong/icons": "^1.64.0",
     "@kong/kongponents": "^9.66.15",
     "@kong/spec-renderer": "^1.117.6",
-    "@stoplight/spectral-core": "^1.24.0",
+    "@stoplight/spectral-core": "^1.24.1",
     "@stoplight/spectral-ruleset-bundler": "^1.8.0",
     "@vueuse/core": "^14.4.0",
-    "vue": "^3.5.44"
+    "vue": "^3.5.45"
   },
   "description": "Live editor for Kong's open-source spec renderer",
   "devDependencies": {
@@ -48,8 +48,8 @@
     "happy-dom": "^21.0.4",
     "monaco-editor": "^0.55.1",
     "npm-run-all2": "^9.0.4",
-    "sass": "^1.107.1",
-    "sass-embedded": "^1.107.1",
+    "sass": "^1.108.1",
+    "sass-embedded": "^1.108.1",
     "shiki": "^4.6.0",
     "stylelint": "^17.15.0",
     "stylelint-config-html": "^1.1.0",
@@ -82,7 +82,7 @@
   "version": "0.0.0",
   "volta": {
     "node": "24.22.2",
-    "pnpm": "11.28.10"
+    "pnpm": "11.28.11"
   },
-  "packageManager": "pnpm@11.28.10"
+  "packageManager": "pnpm@11.28.11"
 }
